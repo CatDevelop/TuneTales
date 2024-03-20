@@ -19,43 +19,43 @@ ng build
 1. **Техническая часть (максимум 60 баллов)**
 
     * **0 - 40:**  
-        :white_check_mark: ...  
-        :black_square_button: 3 - 4 реактивные формы + форма авторизации + кэш  
-        :black_square_button: 2 - 3 функциональных модуля  
-        :black_square_button: lazy-loading функциональных модулей (роутинг)  
-        :black_square_button: Простое внедрение зависимостей  
-        :black_square_button: Использование свойств с декораторами @Input @Output  
-        :black_square_button: Базовое использование RxJS  
-        :black_square_button: Реализован основной функционал приложения  
+        - [x] ...  
+        - [ ] 3 - 4 реактивные формы + форма авторизации + кэш  
+        - [ ] 2 - 3 функциональных модуля  
+        - [ ] lazy-loading функциональных модулей (роутинг)  
+        - [ ] Простое внедрение зависимостей  
+        - [ ] Использование свойств с декораторами @Input @Output  
+        - [ ] Базовое использование RxJS  
+        - [ ] Реализован основной функционал приложения  
 
     * **40 - 60:**  
-        :black_square_button: Использование паттерна "Фабрика"  
-        :black_square_button: Reusable компоненты  
-        :black_square_button: Передача параметров в роуте  
-        :black_square_button: Реализация Route Guards  
-        :black_square_button: Строгая типизация и отсутствие any  
-        :black_square_button: 1-2 кастомная атрибутивная директива  
-        :black_square_button: 1-2 кастомных пайпы  
-        :black_square_button: Использование свойств с декораторами @ViewChild и @ViewChildren  
-        :black_square_button: Запросы на сервер  
-        :black_square_button: Использование общего code-style (настройка eslint)  
+        - [ ] Использование паттерна "Фабрика"  
+        - [ ] Reusable компоненты  
+        - [ ] Передача параметров в роуте  
+        - [ ] Реализация Route Guards  
+        - [ ] Строгая типизация и отсутствие any  
+        - [ ] 1-2 кастомная атрибутивная директива  
+        - [ ] 1-2 кастомных пайпы  
+        - [ ] Использование свойств с декораторами @ViewChild и @ViewChildren  
+        - [ ] Запросы на сервер  
+        - [ ] Использование общего code-style (настройка eslint)  
 
     * **60 - 80:**  
-        :black_square_button: MVVM  
-        :black_square_button: Продвинутое использование DI (использование токенов, useFactory)  
-        :black_square_button: DRY  
-        :black_square_button: Хлебные крошки | Breadcrums  
-        :black_square_button: Кастомная структурная директива  
-        :black_square_button: Обработка ошибок. Global error handler  
-        :black_square_button: Динамический рендер  
-        :black_square_button: Испоьзование @HostListener  
+        - [ ] MVVM  
+        - [ ] Продвинутое использование DI (использование токенов, useFactory)  
+        - [ ] DRY  
+        - [ ] Хлебные крошки | Breadcrums  
+        - [ ] Кастомная структурная директива  
+        - [ ] Обработка ошибок. Global error handler  
+        - [ ] Динамический рендер  
+        - [ ] Испоьзование @HostListener  
 
     * **80 - 100:**  
-        :black_square_button: SOLID  
-        :black_square_button: Глобальный сервис событий  
-        :black_square_button: Адаптивность  
-        :black_square_button: Скелетоны  
-        :black_square_button: Angular animations  
+        - [ ] SOLID  
+        - [ ] Глобальный сервис событий  
+        - [ ] Адаптивность  
+        - [ ] Скелетоны  
+        - [ ] Angular animations  
 
 
 2. **Оценка куратора (максимум 40 баллов)**
