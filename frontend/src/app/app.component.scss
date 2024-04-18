@@ -1,0 +1,12 @@
+.main-header {
+    width: 100%;
+    height: 80px;
+}
+
+.grid-12 {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 28px;
+}
