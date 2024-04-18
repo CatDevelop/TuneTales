@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { AuthorizationPageComponent } from '../pages/authorization/authorization.page.component';
 import { TuiPreventDefaultModule } from '@taiga-ui/cdk';
+import { NavbarComponent } from '../widgets/navbar/navbar.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        AuthorizationPageComponent
+        AuthorizationPageComponent,
+        NavbarComponent
     ],
     imports: [
         TuiButtonModule,

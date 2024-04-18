@@ -11,10 +11,12 @@
 
 .grid-12 {
     width: 100%;
-    height: calc(100vh - 80px);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 28px;
-
     justify-content: space-around;
+}
+
+.main {
+    height: calc(100vh - 80px);
 }
