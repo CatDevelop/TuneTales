@@ -2,8 +2,21 @@
     <h1>Создать новый аккаунт</h1>
     <div class="formWrapper">
         <form class="form">
-            <input class="input"/>
-            <input class="input"/>
+            <tui-input>
+                Введите адрес эл.почты
+                <input
+                    class="input"
+                    tuiTextfield
+                />
+            </tui-input>
+            <tui-input>
+                Введите пароль
+                <input
+                    class="input"
+                    type="password"
+                    tuiTextfield
+                />
+            </tui-input>
             <button
                 tuiButton
                 class="button"

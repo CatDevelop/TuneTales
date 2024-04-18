@@ -25,15 +25,16 @@
 
 .search {
     grid-column-start: 4;
-    grid-column-end: 9;
-    border: 2px solid #e4e4e7;
-    border-radius: 14px;
-    height: 48px;
+    grid-column-end: 10;
+}
+
+.search-input {
+    font-size: 18px;
 }
 
 .links {
-    grid-column-start: 9;
-    grid-column-end: 11;
+    grid-column-start: 10;
+    grid-column-end: 12;
     justify-self: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

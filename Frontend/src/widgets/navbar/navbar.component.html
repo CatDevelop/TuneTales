@@ -6,7 +6,18 @@
     >
         LOGO
     </button>
-    <input type="text" class="search" />
+    <tui-input
+        [tuiTextfieldCleaner]="true"
+        tuiTextfieldIconLeft="tuiIconSearchLarge"
+        class="search"
+        tuiTextfieldSize="m"
+    >
+        Поиск по книгам
+        <input
+            class="search-input"
+            tuiTextfield
+        />
+    </tui-input>
     <nav class="links">
         <button>
             Мои книги
