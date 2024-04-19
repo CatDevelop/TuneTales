@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TuiRootModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import { TuiLinkModule, TuiRootModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
@@ -26,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         TuiPreventDefaultModule,
         TuiInputModule,
         TuiTextfieldControllerModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TuiLinkModule
     ],
     providers: [
         provideClientHydration()

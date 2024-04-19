@@ -22,9 +22,13 @@
     grid-row-gap: 25px;
 }
 
-.input {
+.registration-link-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    padding: 0 15px;
 }
 
-.button {
-
+.registration-link {
+    justify-self: end;
 }

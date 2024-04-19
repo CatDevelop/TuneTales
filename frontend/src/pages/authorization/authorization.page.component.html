@@ -7,21 +7,25 @@
         >
             <tui-input
                 formControlName="email"
+                [tuiTextfieldCleaner]="true"
             >
                 Введите адрес эл.почты
                 <input
                     class="input"
                     tuiTextfield
+                    autocomplete="email"
                 />
             </tui-input>
             <tui-input
                 formControlName="password"
+                [tuiTextfieldCleaner]="true"
             >
                 Введите пароль
                 <input
                     class="input"
                     type="password"
                     tuiTextfield
+                    autocomplete="password"
                 />
             </tui-input>
             <button
@@ -32,6 +36,16 @@
             >
                 Войти
             </button>
+            <div class="registration-link-container">
+                <p>Нет аккаунта?</p>
+                <a
+                    tuiLink
+                    class="registration-link"
+                    href="/register"
+                >
+                    Зарегистрироваться
+                </a>
+            </div>
         </form>
     </div>
 </div>
