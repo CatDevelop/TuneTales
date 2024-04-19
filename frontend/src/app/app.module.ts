@@ -5,13 +5,10 @@ import { TuiRootModule } from '@taiga-ui/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
-import { BackButtonComponent } from '../shared/ui';
-
 
 @NgModule({
     declarations: [
-        AppComponent,
-        BackButtonComponent
+        AppComponent
     ],
     imports: [
         TuiButtonModule,
@@ -19,7 +16,6 @@ import { BackButtonComponent } from '../shared/ui';
         TuiRootModule,
         BrowserModule,
         AppRoutingModule
-
     ],
     providers: [
         provideClientHydration()
