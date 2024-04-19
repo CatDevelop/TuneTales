@@ -6,7 +6,9 @@ import { ContentType } from './model/content-type';
 import { SessionStorageService } from '../../../pages/authorization/services/session-storage.service';
 import { IHttpOptions } from './model/iHttpOptions';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class HttpService {
     private _takeUntil: Subject<void> = new Subject<void>();
 

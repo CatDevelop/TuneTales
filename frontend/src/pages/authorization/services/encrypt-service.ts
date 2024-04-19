@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Md5 } from 'ts-md5';
-
+import argon2 from 'argon2';
 @Injectable({
     providedIn: 'root'
 })
@@ -14,6 +13,6 @@ export class EncryptionService {
      * @param str
      */
     public encryptString(str: string): string {
-        return Md5.hashStr(str).toString();
+        return argon2.hash(str).toString();
     }
 }

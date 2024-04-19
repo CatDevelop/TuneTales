@@ -1,4 +1,4 @@
 export interface IAuthorization {
-    email: string,
-    passwordHash: string
+    login: string,
+    password: string
 }

@@ -1,4 +1,4 @@
 export enum UrlRoutes {
-    backend = 'https://localhost:5000',
-    backendDev = 'https://localhost:4321',
+    backend = 'http://localhost:5000/api',
+    backendDev = 'http://localhost:4321/api',
 }

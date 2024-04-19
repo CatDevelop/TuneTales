@@ -6,10 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { AuthorizationPageComponent } from '../pages/authorization/authorization.page.component';
-import { TuiPreventDefaultModule } from '@taiga-ui/cdk';
 import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { TuiInputModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -22,15 +22,15 @@ import { ReactiveFormsModule } from '@angular/forms';
         BrowserAnimationsModule,
         TuiRootModule,
         BrowserModule,
+        HttpClientModule,
         AppRoutingModule,
-        TuiPreventDefaultModule,
         TuiInputModule,
         TuiTextfieldControllerModule,
         ReactiveFormsModule,
         TuiLinkModule
     ],
     providers: [
-        provideClientHydration()
+        provideClientHydration(),
     ],
     bootstrap: [AppComponent]
 })

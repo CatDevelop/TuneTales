@@ -2,8 +2,7 @@ import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { HttpService } from '../../../shared/global-services/request/http-service.service';
-import { EncryptionService } from './encrypt-service';
+import { HttpService } from '../../../shared/global-services/request/http.service';
 import { SessionStorageService } from './session-storage.service';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
@@ -13,28 +12,34 @@ import { IAuthorization } from '../model/iAuthorization';
 
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class AuthorizationService {
     public isProcessing: boolean = false;
 
     constructor(
         private _req: HttpService,
-        private _encr: EncryptionService,
+        // private _encr: EncryptionService,
         private _cacher: SessionStorageService,
         private _router: Router
     ) { }
 
-    public register(inviteToken: string, firstName: string, surname: string, email: string, phone: string, pass: string): Observable<HttpResponse<unknown>> {
+    /**
+     * Регистрация пользователя в системе
+     * @param email
+     * @param pass
+     * @return {Observable<HttpResponse<unknown>>} response from server
+     */
+    public register(email: string, pass: string): Observable<HttpResponse<unknown>> {
         this.isProcessing = true;
-        const encryptedPass: string = this._encr.encryptString(pass);
+        // const encryptedPass: string = this._encr.encryptString(pass);
 
         const ans: Observable<HttpResponse<unknown>> = this._req.request<void, IRegister>({
-            url: `${UrlRoutes.backendDev}/register`,
+            url: `${UrlRoutes.backendDev}/auth/register`,
             method: RequestMethodType.post,
             body: {
                 email: email,
-                passwordHash: encryptedPass,
+                passwordHash: pass,
             }
         });
 
@@ -46,14 +51,19 @@ export class AuthorizationService {
         return ans;
     }
 
-    public login(email: string, pass: string): Observable<HttpResponse<unknown>> {
+    /**
+     * Авторизация пользователя в системе
+     * @param email
+     * @param password
+     */
+    public login(email: string, password: string): Observable<HttpResponse<unknown>> {
         this.isProcessing = true;
-        const encryptedPass: string = this._encr.encryptString(pass);
+        // const encryptedPassword: string = this._encr.encryptString(password);
 
         const ans: Observable<HttpResponse<IJWTSession>> = this._req.request<IJWTSession, IAuthorization>({
-            url: `${UrlRoutes.backendDev}/login`,
+            url: `${UrlRoutes.backendDev}/auth/login`,
             method: RequestMethodType.post,
-            body: { email: email, passwordHash: encryptedPass }
+            body: { login: email, password: password }
         });
 
         ans.subscribe({
@@ -72,6 +82,9 @@ export class AuthorizationService {
         return ans;
     }
 
+    /**
+     * Выход пользователя из системы
+     */
     public logout(): void {
         this._cacher.removeJWTSession();
         this._router.navigateByUrl('');
