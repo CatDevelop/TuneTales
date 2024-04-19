@@ -3,7 +3,7 @@ import { Injectable, isDevMode } from '@angular/core';
 import { catchError, first, map, merge, Observable, share, skipWhile, Subject, takeUntil, throwError, timeout } from 'rxjs';
 import { IRequestOptions } from './model/request-options';
 import { ContentType } from './model/content-type';
-import { SessionStorageService } from '../../../pages/authorization/services/session-storage.service';
+import { SessionStorageService } from '../../../pages/authorization-page/services/session-storage.service';
 import { IHttpOptions } from './model/iHttpOptions';
 
 @Injectable({

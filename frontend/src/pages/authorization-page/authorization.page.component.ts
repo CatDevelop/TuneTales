@@ -5,7 +5,7 @@ import { AuthorizationService } from './services/authorization.service';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
-    selector: 'app-authorization',
+    selector: 'app-authorization-page',
     templateUrl: './authorization.page.component.html',
     styleUrl: './authorization.page.component.scss',
 })

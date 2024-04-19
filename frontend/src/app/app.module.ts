@@ -5,17 +5,19 @@ import { TuiLinkModule, TuiRootModule, TuiTextfieldControllerModule } from '@tai
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
-import { AuthorizationPageComponent } from '../pages/authorization/authorization.page.component';
+import { AuthorizationPageComponent } from '../pages/authorization-page/authorization.page.component';
 import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { TuiInputModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterPageComponent } from '../pages/register-page/register.page.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AuthorizationPageComponent,
-        NavbarComponent
+        NavbarComponent,
+        RegisterPageComponent
     ],
     imports: [
         TuiButtonModule,

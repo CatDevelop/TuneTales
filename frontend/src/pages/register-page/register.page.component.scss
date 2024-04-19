@@ -1,0 +1,34 @@
+:host {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    max-width: 449px;
+}
+
+.authorization-form-container {
+    display: grid;
+    grid-template-rows: 1fr 11fr;
+    width: 100%;
+}
+
+.formWrapper {
+}
+
+.form {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr) auto;
+    grid-row-gap: 25px;
+}
+
+.registration-link-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.registration-link {
+    justify-self: end;
+}

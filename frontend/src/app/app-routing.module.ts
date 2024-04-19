@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthorizationPageComponent } from '../pages/authorization/authorization.page.component';
+import { AuthorizationPageComponent } from '../pages/authorization-page/authorization.page.component';
+import { RegisterPageComponent } from '../pages/register-page/register.page.component';
 
 const routes: Routes = [
     {
         path: 'auth',
         component: AuthorizationPageComponent,
+    },
+    {
+        path: 'register',
+        component: RegisterPageComponent,
     }
 ];
 

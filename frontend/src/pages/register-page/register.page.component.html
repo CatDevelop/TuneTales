@@ -1,0 +1,102 @@
+<div class="authorization-form-container">
+    <h1>Создать новый аккаунт</h1>
+    <div class="formWrapper">
+        <form
+            class="form"
+            [formGroup]="registrationForm"
+        >
+            <tui-input
+                formControlName="login"
+                [tuiTextfieldCleaner]="true"
+            >
+                Введите имя пользователя
+                <input
+                    class="input"
+                    type="text"
+                    tuiTextfield
+                    autocomplete="username"
+                />
+            </tui-input>
+            <tui-input
+                formControlName="email"
+                [tuiTextfieldCleaner]="true"
+            >
+                Введите адрес эл.почты
+                <input
+                    class="input"
+                    tuiTextfield
+                    autocomplete="email"
+                />
+            </tui-input>
+            <tui-input
+                formControlName="password"
+                [tuiTextfieldCleaner]="true"
+            >
+                Введите пароль
+                <input
+                    class="input"
+                    type="password"
+                    tuiTextfield
+                    autocomplete="password"
+                />
+            </tui-input>
+            <tui-input
+                formControlName="firstName"
+                [tuiTextfieldCleaner]="true"
+            >
+                Введите Ваше имя
+                <input
+                    class="input"
+                    type="text"
+                    tuiTextfield
+                    autocomplete="name"
+                />
+            </tui-input>
+            <tui-input
+                formControlName="secondName"
+                [tuiTextfieldCleaner]="true"
+            >
+                Введите Вашу фамилию
+                <input
+                    class="input"
+                    type="text"
+                    tuiTextfield
+                    autocomplete="surname"
+                />
+            </tui-input>
+            <tui-input
+                formControlName="lastName"
+                [tuiTextfieldCleaner]="true"
+            >
+                Введите Ваше отчество
+                <input
+                    class="input"
+                    type="text"
+                    tuiTextfield
+                    autocomplete="lastname"
+                />
+            </tui-input>
+            <button
+                tuiButton
+                class="button"
+                type="submit"
+                size="l"
+                (click)="register()"
+                (keydown.enter)="register()"
+                (submit)="register()"
+            >
+                Войти
+            </button>
+            <div class="registration-link-container">
+                <p>Уже есть аккаунт?</p>
+                <a
+                    tuiLink
+                    class="registration-link"
+                    href="/auth"
+                >
+                    Войти
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
