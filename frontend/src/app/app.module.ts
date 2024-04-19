@@ -9,6 +9,7 @@ import { AuthorizationPageComponent } from '../pages/authorization/authorization
 import { TuiPreventDefaultModule } from '@taiga-ui/cdk';
 import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { TuiInputModule } from '@taiga-ui/kit';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { TuiInputModule } from '@taiga-ui/kit';
         AppRoutingModule,
         TuiPreventDefaultModule,
         TuiInputModule,
-        TuiTextfieldControllerModule
+        TuiTextfieldControllerModule,
+        ReactiveFormsModule
     ],
     providers: [
         provideClientHydration()

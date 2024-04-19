@@ -1,15 +1,22 @@
 <div class="authorization-form-container">
     <h1>Создать новый аккаунт</h1>
     <div class="formWrapper">
-        <form class="form">
-            <tui-input>
+        <form
+            class="form"
+            [formGroup]="authorizationForm"
+        >
+            <tui-input
+                formControlName="email"
+            >
                 Введите адрес эл.почты
                 <input
                     class="input"
                     tuiTextfield
                 />
             </tui-input>
-            <tui-input>
+            <tui-input
+                formControlName="password"
+            >
                 Введите пароль
                 <input
                     class="input"
