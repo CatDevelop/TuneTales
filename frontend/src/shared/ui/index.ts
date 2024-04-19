@@ -1,1 +1,1 @@
-export * from './back-button/back-button.component';
+export * from './player-button/button.component';

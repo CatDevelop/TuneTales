@@ -8,4 +8,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class AppComponent {
     public title: string = 'TuneTales';
+
+    public print = (event: any): void => {
+        console.log(event);
+    };
 }
