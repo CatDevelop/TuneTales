@@ -1,0 +1,30 @@
+:host {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    max-width: 449px;
+}
+
+.authorization-form-container {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    width: 100%;
+}
+
+.formWrapper {
+}
+
+.form {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr auto;
+    grid-row-gap: 25px;
+}
+
+.input {
+}
+
+.button {
+
+}

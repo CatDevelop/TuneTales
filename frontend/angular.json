@@ -44,7 +44,7 @@
                         "styles": [
                             "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
                             "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-                            "src/styles.scss"
+                            "src/app/styles.scss"
                         ],
                         "scripts": [],
                         "server": "src/main.server.ts",
@@ -75,7 +75,7 @@
                             "sourceMap": true
                         }
                     },
-                    "defaultConfiguration": "production",
+                    "defaultConfiguration": "production"
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",

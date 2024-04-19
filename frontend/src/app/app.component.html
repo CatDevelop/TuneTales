@@ -1,12 +1,8 @@
-<div>
-    <div class="content">
-        <button
-            tuiButton
-            icon="tuiIconSettings"
-        >
-            Button
-        </button>
-    </div>
-
-    <router-outlet />
+<div class="app">
+    <header class="main-header">
+        <app-navbar />
+    </header>
+    <main class="main grid-12">
+        <router-outlet />
+    </main>
 </div>
