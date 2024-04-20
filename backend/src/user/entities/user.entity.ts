@@ -1,9 +1,11 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Author} from "../../author/entities/author.entity";
+import {Book} from "../../book/entities/book.entity";
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn("uuid")
+    id: string;
 
     @Column({nullable: true})
     email: string;
@@ -22,4 +24,19 @@ export class User {
 
     @Column()
     password: string;
+
+    @Column({default: "user"})
+    role: string;
+
+    @ManyToMany(() => Book, (book) => book.users, {onDelete: "CASCADE"})
+    @JoinTable({
+        name: "user_favourite_books", joinColumn: {
+            name: 'user_id',
+            referencedColumnName: 'id',
+        }, inverseJoinColumn: {
+            name: 'book_id',
+            referencedColumnName: 'id',
+        },
+    })
+    favourite_books: Book[];
 }

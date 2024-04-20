@@ -3,11 +3,25 @@
 ### Описание
 Онлайн сервис для прослушивание аудио-книг
 
-### Инструкция по сборке
-npm install,
-ng serve, 
-ng build
+### Ссылки
+- [Дизайн сервиса в Figma](https://www.figma.com/file/O5EqadxFt47TUyOPIHkfnd/TuneTales?type=design&node-id=2%3A2&mode=design&t=7FuCFo1vNic0Myrg-1)
+- [Документация для API](https://documenter.getpostman.com/view/24641121/2sA3BoZB8L)
 
+### Инструкция по сборке фронта
+```
+cd frontend
+npm install
+ng serve
+ng build
+```
+
+### Инструкция по сборке бэка
+```
+cd backend
+npm install
+npm run start
+npm run build
+```
 
 ### Гит-флоу
 ![image](https://github.com/CatDevelop/TuneTales/assets/95305283/9265f23d-e60c-4205-8efc-3f62705df4fd)

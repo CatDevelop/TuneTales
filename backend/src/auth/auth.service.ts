@@ -13,7 +13,7 @@ export class AuthService {
 
     async validateUser(login: string, password: string) {
         try {
-            const user = await this.userService.findOne(login);
+            const user = await this.userService.findOneByLogin(login);
 
             if (user && await argon2.verify(user.password, password)) {
                 return user;
