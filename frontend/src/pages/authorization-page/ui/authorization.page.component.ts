@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IAuthorizationForm } from './model/iAuthorizationForm';
-import { AuthorizationService } from './services/authorization.service';
+import { IAuthorizationForm } from '../model/iAuthorizationForm';
+import { AuthorizationService } from '../services/authorization.service';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +19,7 @@ export class AuthorizationPageComponent {
     }
 
     public readonly authorizationForm: FormGroup<IAuthorizationForm> = new FormGroup({
-        email: new FormControl('', [Validators.email, Validators.required]),
+        login: new FormControl('', [Validators.email, Validators.required]),
         password: new FormControl('', Validators.required),
     });
 
@@ -31,7 +31,7 @@ export class AuthorizationPageComponent {
      */
     public login(): void {
         this._auth.login(
-            this.authorizationForm.get('email')?.value || '',
+            this.authorizationForm.get('login')?.value || '',
             this.authorizationForm.get('password')?.value || '',
         ).subscribe();
     }

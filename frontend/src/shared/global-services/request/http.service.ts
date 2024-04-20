@@ -26,8 +26,8 @@ export class HttpService {
 
     /**
      * Обертка для запроса
-     * @param {IRequestOptions<T>} requestParams параметры запроса
-     * @returns {Observable<HttpResponse<R>>} ответ
+     * @param {IRequestOptions<F>} requestParams параметры запроса
+     * @returns {Observable<HttpResponse<T>>} ответ
      */
     public request<T, F = null>(requestParams: IRequestOptions<F>): Observable<HttpResponse<T>> {
 

@@ -6,8 +6,8 @@ import { HttpService } from '../../../shared/global-services/request/http.servic
 import { SessionStorageService } from './session-storage.service';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
-import { IJWTSession } from '../model/iJWTSession';
 import { IAuthorization } from '../model/iAuthorization';
+import { IAuthorizationResponse } from '../model/iAuthorizationResponse';
 
 
 @Injectable({
@@ -30,7 +30,7 @@ export class AuthorizationService {
     public login(email: string, password: string): Observable<HttpResponse<unknown>> {
         this.isProcessing = true;
 
-        const ans: Observable<HttpResponse<IJWTSession>> = this._req.request<IJWTSession, IAuthorization>({
+        const ans: Observable<HttpResponse<IAuthorizationResponse>> = this._req.request<IAuthorizationResponse, IAuthorization>({
             url: `${UrlRoutes.backendDev}/auth/login`,
             method: RequestMethodType.post,
             body: { login: email, password: password }
@@ -39,7 +39,9 @@ export class AuthorizationService {
         ans.subscribe({
             next: resp => {
                 if (resp.ok) {
-                    this._cacher.cacheJWTSession(resp.body ?? { accessToken: '' });
+                    this._cacher.cacheJWTSession({
+                        accessToken: resp.body?.accessToken || '',
+                    });
 
                     this._router
                         .navigateByUrl('/');

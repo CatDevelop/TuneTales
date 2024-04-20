@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IRegisterForm } from './model/iRegisterForm';
-import { RegistrationService } from './services/registration.service';
+import { IRegisterForm } from '../model/iRegisterForm';
+import { RegistrationService } from '../services/registration.service';
 
 @Component({
     selector: 'app-register-page',

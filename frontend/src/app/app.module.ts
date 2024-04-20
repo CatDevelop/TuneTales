@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TuiLinkModule, TuiRootModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
-import { AuthorizationPageComponent } from '../pages/authorization-page/authorization.page.component';
+import { AuthorizationPageComponent } from '../pages/authorization-page/ui/authorization.page.component';
 import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { TuiInputModule } from '@taiga-ui/kit';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterPageComponent } from '../pages/register-page/register.page.component';
+import { RegisterPageComponent } from '../pages/register-page/ui/register.page.component';
 
 @NgModule({
     declarations: [
@@ -29,11 +29,10 @@ import { RegisterPageComponent } from '../pages/register-page/register.page.comp
         TuiInputModule,
         TuiTextfieldControllerModule,
         ReactiveFormsModule,
-        TuiLinkModule
+        TuiLinkModule,
+        FormsModule
     ],
-    providers: [
-        provideClientHydration(),
-    ],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

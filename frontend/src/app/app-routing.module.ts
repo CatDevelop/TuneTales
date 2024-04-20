@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthorizationPageComponent } from '../pages/authorization-page/authorization.page.component';
-import { RegisterPageComponent } from '../pages/register-page/register.page.component';
+import { AuthorizationPageComponent } from '../pages/authorization-page/ui/authorization.page.component';
+import { RegisterPageComponent } from '../pages/register-page/ui/register.page.component';
 
 const routes: Routes = [
     {
