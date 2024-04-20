@@ -8,6 +8,7 @@ import { RequestMethodType } from '../../../shared/global-services/request/model
 import { IRegister } from '../model/iRegister';
 import { SessionStorageService } from '../../authorization-page/services/session-storage.service';
 import { IRegisterResponse } from '../model/iRegisterResponse';
+import { AuthorizationService } from '../../authorization-page/services/authorization.service';
 
 
 @Injectable({
@@ -19,7 +20,8 @@ export class RegistrationService {
     constructor(
         private _req: HttpService,
         private _cacher: SessionStorageService,
-        private _router: Router
+        private _router: Router,
+        private _auth: AuthorizationService,
     ) { }
 
     /**
@@ -52,7 +54,10 @@ export class RegistrationService {
         });
 
         ans.subscribe({
-            next: () => this.isProcessing = false,
+            next: (res) => {
+                this.isProcessing = false;
+                this._auth.login(login, password);
+            },
             error: () => this.isProcessing = false
         });
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IRegisterForm } from './model/iRegisterForm';
+import { RegistrationService } from './services/registration.service';
 
 @Component({
     selector: 'app-register-page',
@@ -35,11 +36,21 @@ export class RegisterPageComponent {
         ) || '',
     });
 
+    constructor(private _register: RegistrationService) {
+    }
+
     /**
      * Регистрация пользователя в системе
      */
-    public register() {
-
+    public register(): void {
+        this._register.register({
+            email: this.registrationForm.get('email')?.value || '',
+            login: this.registrationForm.get('login')?.value || '',
+            password: this.registrationForm.get('password')?.value || '',
+            firstName: this.registrationForm.get('firstName')?.value || '',
+            secondName: this.registrationForm.get('secondName')?.value || '',
+            lastName: this.registrationForm.get('lastName')?.value || '',
+        });
     }
 }
 
