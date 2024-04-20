@@ -6,7 +6,6 @@ import { HttpService } from '../../../shared/global-services/request/http.servic
 import { SessionStorageService } from './session-storage.service';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
-import { IRegister } from '../model/iRegister';
 import { IJWTSession } from '../model/iJWTSession';
 import { IAuthorization } from '../model/iAuthorization';
 
@@ -19,37 +18,9 @@ export class AuthorizationService {
 
     constructor(
         private _req: HttpService,
-        // private _encr: EncryptionService,
         private _cacher: SessionStorageService,
         private _router: Router
     ) { }
-
-    /**
-     * Регистрация пользователя в системе
-     * @param email
-     * @param pass
-     * @return {Observable<HttpResponse<unknown>>} response from server
-     */
-    public register(email: string, pass: string): Observable<HttpResponse<unknown>> {
-        this.isProcessing = true;
-        // const encryptedPass: string = this._encr.encryptString(pass);
-
-        const ans: Observable<HttpResponse<unknown>> = this._req.request<void, IRegister>({
-            url: `${UrlRoutes.backendDev}/auth/register`,
-            method: RequestMethodType.post,
-            body: {
-                email: email,
-                passwordHash: pass,
-            }
-        });
-
-        ans.subscribe({
-            next: () => this.isProcessing = false,
-            error: () => this.isProcessing = false
-        });
-
-        return ans;
-    }
 
     /**
      * Авторизация пользователя в системе
@@ -58,7 +29,6 @@ export class AuthorizationService {
      */
     public login(email: string, password: string): Observable<HttpResponse<unknown>> {
         this.isProcessing = true;
-        // const encryptedPassword: string = this._encr.encryptString(password);
 
         const ans: Observable<HttpResponse<IJWTSession>> = this._req.request<IJWTSession, IAuthorization>({
             url: `${UrlRoutes.backendDev}/auth/login`,
