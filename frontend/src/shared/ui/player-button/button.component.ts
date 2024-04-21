@@ -14,6 +14,8 @@ export class ButtonComponent {
         imageUrl: string = '';
     @Input()
         imageAlt: string = '';
+    @Input()
+        customStyle: { [key: string]: string } = { '': '' };
 
     @Output()
         eventClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
