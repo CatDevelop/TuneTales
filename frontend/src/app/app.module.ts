@@ -8,12 +8,17 @@ import { TuiButtonModule } from '@taiga-ui/core';
 import { TuiSliderModule } from '@taiga-ui/kit';
 import { ButtonComponent } from '../shared/ui';
 import { SliderComponent } from '../entities/player-slider/ui';
+import { ToglePlayComponent } from '../features/toggle-play-button';
+import { ClickLeftRewindComponent, ClickRightRewindComponent } from '../features/rewind-buttons';
 
 @NgModule({
     declarations: [
         AppComponent,
         ButtonComponent,
-        SliderComponent
+        SliderComponent,
+        ToglePlayComponent,
+        ClickLeftRewindComponent,
+        ClickRightRewindComponent
     ],
     imports: [
         TuiButtonModule,

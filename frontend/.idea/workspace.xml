@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34a6d6bd-9043-46db-ae46-3ed8335364ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entities/player-slider/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-left-rewind/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-right-rewind/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/toggle-play-button/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/play-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/play-button.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/stop-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/stop-button.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +47,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-frontend-player-slider&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-frontend-player-controlbuttons&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/DNS/Desktop/TuneTales/frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -56,11 +64,11 @@
       <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\shared\ui\sleep-button" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\features\rewind-buttons\components" />
+      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\features\rewind-buttons" />
+      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\features\toggle-play-button" />
       <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\entities\player-slider\ui" />
       <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\entities\player-slider" />
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\entities\player-slider\components" />
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\shared\ui\player-button" />
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\shared\ui" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -98,6 +106,7 @@
       <workItem from="1713084586594" duration="132000" />
       <workItem from="1713428129703" duration="9679000" />
       <workItem from="1713591212478" duration="5763000" />
+      <workItem from="1713629549499" duration="13761000" />
     </task>
     <servers />
   </component>
