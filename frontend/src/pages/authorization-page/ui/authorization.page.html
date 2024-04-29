@@ -1,11 +1,10 @@
 <div class="authorization-form-container">
     <h1>Войти в аккаунт</h1>
-    <div class="formWrapper">
-        <form
-            class="form"
-            [formGroup]="authorizationForm"
-        >
-            <tui-input
+    <form
+        class="form"
+        [formGroup]="authorizationForm"
+    >
+        <tui-input
                 formControlName="login"
                 [tuiTextfieldCleaner]="true"
             >
@@ -16,7 +15,7 @@
                     autocomplete="login"
                 />
             </tui-input>
-            <tui-input
+        <tui-input
                 formControlName="password"
                 [tuiTextfieldCleaner]="true"
             >
@@ -28,7 +27,7 @@
                     autocomplete="password"
                 />
             </tui-input>
-            <button
+        <button
                 tuiButton
                 class="button"
                 type="submit"
@@ -39,16 +38,15 @@
             >
                 Войти
             </button>
-            <div class="registration-link-container">
-                <p>Нет аккаунта?</p>
-                <a
-                    tuiLink
-                    class="registration-link"
-                    href="/register"
-                >
-                    Зарегистрироваться
-                </a>
-            </div>
-        </form>
-    </div>
+        <div class="registration-link-container">
+            <p>Нет аккаунта?</p>
+            <a
+                tuiLink
+                class="registration-link"
+                href="/register"
+            >
+                Зарегистрироваться
+            </a>
+        </div>
+    </form>
 </div>

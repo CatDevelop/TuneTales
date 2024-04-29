@@ -8,23 +8,20 @@
 }
 
 .authorization-form-container {
-    display: grid;
-    grid-template-rows: 1fr 4fr;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
 }
 
-.formWrapper {
-}
-
 .form {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr auto;
-    grid-row-gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .registration-link-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     justify-content: space-between;
     padding: 0 15px;
 }
