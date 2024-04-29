@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IAuthorizationForm } from '../model/authorization-form.interface';
 import { AuthorizationService } from '../services/authorization.service';
 import { Observable, take } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,6 +27,7 @@ export class AuthorizationPage {
 
     constructor(
         private _auth: AuthorizationService,
+        private _router: Router,
     ) {}
 
     /**
@@ -40,5 +42,13 @@ export class AuthorizationPage {
                 take(1),
             )
             .subscribe();
+    }
+
+    /**
+     * Редирект на страницу регистрации
+     * @protected
+     */
+    protected navigateToRegister(): void {
+        this._router.navigate(['/register']);
     }
 }

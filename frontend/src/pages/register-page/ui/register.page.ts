@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IRegisterForm } from '../model/register-form.interface';
 import { RegistrationService } from '../services/registration.service';
+import { Router } from '@angular/router';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,selector: 'app-register-page',
@@ -37,7 +38,8 @@ export class RegisterPage {
     });
 
     constructor(
-        private _register: RegistrationService
+        private _register: RegistrationService,
+        private _router: Router,
     ) {}
 
     /**
@@ -52,6 +54,14 @@ export class RegisterPage {
             secondName: this.registrationForm.get('secondName')?.value || '',
             lastName: this.registrationForm.get('lastName')?.value || '',
         });
+    }
+
+    /**
+     * Редирект на страницу авторизации
+     * @protected
+     */
+    protected navigateToAuthorization(): void {
+        this._router.navigate(['/auth']);
     }
 }
 
