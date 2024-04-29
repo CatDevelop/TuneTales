@@ -1,10 +1,30 @@
 :host {
-    grid-column-start: 5;
-    grid-column-end: 9;
-    align-self: center;
     justify-self: center;
     width: 100%;
-    max-width: 449px;
+}
+
+@media (max-width: 767px) {
+    :host {
+        grid-column: 1;
+        padding: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    :host {
+        grid-column-start: 3;
+        grid-column-end: 7;
+        align-self: center;
+    }
+}
+
+@media (min-width: 1280px) {
+    :host {
+        grid-column-start: 5;
+        align-self: center;
+        grid-column-end: 9;
+        max-width: 449px;
+    }
 }
 
 .registration-form-container {
