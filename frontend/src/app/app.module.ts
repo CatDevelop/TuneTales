@@ -5,19 +5,23 @@ import { TuiLinkModule, TuiRootModule, TuiTextfieldControllerModule } from '@tai
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
-import { AuthorizationPageComponent } from '../pages/authorization-page/ui/authorization.page.component';
+import { AuthorizationPage } from '../pages/authorization-page/ui/authorization.page';
 import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { TuiInputModule } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterPageComponent } from '../pages/register-page/ui/register.page.component';
+import { RegisterPage } from '../pages/register-page/ui/register.page';
+import { HttpService } from '../shared/global-services/request/http.service';
+import { RegistrationService } from '../pages/register-page/services/registration.service';
+import { AuthorizationService } from '../pages/authorization-page/services/authorization.service';
+import { SessionStorageService } from '../pages/authorization-page/services/session-storage.service';
 
 @NgModule({
     declarations: [
         AppComponent,
-        AuthorizationPageComponent,
+        AuthorizationPage,
         NavbarComponent,
-        RegisterPageComponent
+        RegisterPage
     ],
     imports: [
         TuiButtonModule,
@@ -32,7 +36,12 @@ import { RegisterPageComponent } from '../pages/register-page/ui/register.page.c
         TuiLinkModule,
         FormsModule
     ],
-    providers: [],
+    providers: [
+        HttpService,
+        RegistrationService,
+        AuthorizationService,
+        SessionStorageService,
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

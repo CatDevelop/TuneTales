@@ -4,11 +4,10 @@ import { catchError, first, map, merge, Observable, share, skipWhile, Subject, t
 import { IRequestOptions } from './model/request-options';
 import { ContentType } from './model/content-type';
 import { SessionStorageService } from '../../../pages/authorization-page/services/session-storage.service';
-import { IHttpOptions } from './model/iHttpOptions';
+import { IHttpOptions } from './model/http-options.interface';
+import { contentTypeMap } from './consts/contentTypeMap';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class HttpService {
     private _takeUntil: Subject<void> = new Subject<void>();
 
@@ -98,16 +97,6 @@ export class HttpService {
      * @returns {string} Возвращает значение по ключу
      */
     private convertContentType(contentType: ContentType): string {
-        const m: Map<ContentType, string> = new Map<ContentType, string>([
-            [ContentType.raw, ''],
-            [ContentType.json, 'application/json'],
-            [ContentType.formUrlEncoded, 'application/x-www-form-urlencoded'],
-            [ContentType.multipartFormData, 'multipart/form-data'],
-            [ContentType.text, 'text'],
-            [ContentType.blob, 'application/octet-stream'],
-            [ContentType.imageSvg, 'image/svg+xml'],
-        ]);
-
-        return m.get(contentType)!;
+        return contentTypeMap.get(contentType)!;
     }
 }

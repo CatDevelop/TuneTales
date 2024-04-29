@@ -1,30 +1,32 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IAuthorizationForm } from '../model/iAuthorizationForm';
+import { IAuthorizationForm } from '../model/authorization-form.interface';
 import { AuthorizationService } from '../services/authorization.service';
+import { Observable, take } from 'rxjs';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-authorization-page',
-    templateUrl: './authorization.page.component.html',
-    styleUrl: './authorization.page.component.scss',
+    templateUrl: './authorization.page.html',
+    styleUrl: './authorization.page.scss',
 })
-export class AuthorizationPageComponent {
+export class AuthorizationPage {
 
     /**
      * isLoading для отрисовки лоадера
      */
-    public get isProcessing(): boolean {
-        return this._auth.isProcessing;
+    public get isProcessing(): Observable<boolean> {
+        return this._auth.isProcessing$;
     }
 
-    public readonly authorizationForm: FormGroup<IAuthorizationForm> = new FormGroup({
+    protected readonly authorizationForm: FormGroup<IAuthorizationForm> = new FormGroup({
         login: new FormControl('', [Validators.email, Validators.required]),
         password: new FormControl('', Validators.required),
     });
 
-    constructor(private _auth: AuthorizationService) {
-    }
+    constructor(
+        private _auth: AuthorizationService,
+    ) {}
 
     /**
      * Авторизация
@@ -33,6 +35,10 @@ export class AuthorizationPageComponent {
         this._auth.login(
             this.authorizationForm.get('login')?.value || '',
             this.authorizationForm.get('password')?.value || '',
-        ).subscribe();
+        )
+            .pipe(
+                take(1),
+            )
+            .subscribe();
     }
 }

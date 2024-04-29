@@ -1,26 +1,27 @@
 import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, filter, finalize, Observable, tap } from 'rxjs';
 import { HttpService } from '../../../shared/global-services/request/http.service';
 import { SessionStorageService } from './session-storage.service';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
-import { IAuthorization } from '../model/iAuthorization';
-import { IAuthorizationResponse } from '../model/iAuthorizationResponse';
+import { IAuthorization } from '../model/authorization.interface';
+import { IAuthorizationResponseDto } from '../model/dto/response/authorization-response.dto';
 
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class AuthorizationService {
-    public isProcessing: boolean = false;
+    public readonly isProcessing$: Observable<boolean>;
+    private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
     constructor(
         private _req: HttpService,
         private _cacher: SessionStorageService,
-        private _router: Router
-    ) { }
+        private _router: Router,
+    ) {
+        this.isProcessing$ = this._isProcessing$.asObservable();
+    }
 
     /**
      * Авторизация пользователя в системе
@@ -28,30 +29,29 @@ export class AuthorizationService {
      * @param password
      */
     public login(email: string, password: string): Observable<HttpResponse<unknown>> {
-        this.isProcessing = true;
+        this._isProcessing$.next(true);
 
-        const ans: Observable<HttpResponse<IAuthorizationResponse>> = this._req.request<IAuthorizationResponse, IAuthorization>({
+        const response$: Observable<HttpResponse<IAuthorizationResponseDto>> = this._req.request<IAuthorizationResponseDto, IAuthorization>({
             url: `${UrlRoutes.backendDev}/auth/login`,
             method: RequestMethodType.post,
             body: { login: email, password: password }
         });
 
-        ans.subscribe({
-            next: resp => {
-                if (resp.ok) {
+        response$
+            .pipe(
+                filter((resp: HttpResponse<IAuthorizationResponseDto>) => resp.ok),
+                tap((resp: HttpResponse<IAuthorizationResponseDto>) => {
                     this._cacher.cacheJWTSession({
                         accessToken: resp.body?.accessToken || '',
                     });
 
                     this._router
                         .navigateByUrl('/');
-                }
-                this.isProcessing = false;
-            },
-            error: () => this.isProcessing = false
-        });
+                }),
+                finalize(() => this._isProcessing$.next(false))
+            );
 
-        return ans;
+        return response$;
     }
 
     /**

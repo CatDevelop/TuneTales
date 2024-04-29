@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IRegisterForm } from '../model/iRegisterForm';
+import { IRegisterForm } from '../model/register-form.interface';
 import { RegistrationService } from '../services/registration.service';
 
 @Component({
-    selector: 'app-register-page',
-    templateUrl: './register.page.component.html',
-    styleUrl: './register.page.component.scss'
+    changeDetection: ChangeDetectionStrategy.OnPush,selector: 'app-register-page',
+    templateUrl: './register.page.html',
+    styleUrl: './register.page.scss'
 })
-export class RegisterPageComponent {
-    public readonly registrationForm: FormGroup<IRegisterForm> = new FormGroup({
+export class RegisterPage {
+    protected readonly registrationForm: FormGroup<IRegisterForm> = new FormGroup({
         login: new FormControl<string>(
             '',
             [Validators.required, Validators.min(3)]
@@ -36,8 +36,9 @@ export class RegisterPageComponent {
         ) || '',
     });
 
-    constructor(private _register: RegistrationService) {
-    }
+    constructor(
+        private _register: RegistrationService
+    ) {}
 
     /**
      * Регистрация пользователя в системе
