@@ -12,11 +12,29 @@
 .grid-12 {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 28px;
     justify-content: space-around;
 }
 
 .main {
     height: calc(100vh - 80px);
+}
+
+@media (max-width: 767px) {
+    .grid-12 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-12 {
+        grid-template-columns: repeat(8, 1fr);
+        column-gap: 10px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .grid-12 {
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 28px;
+    }
 }

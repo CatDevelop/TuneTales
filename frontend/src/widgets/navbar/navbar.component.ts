@@ -6,5 +6,5 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-
+    public searchQuery: string = '';
 }
