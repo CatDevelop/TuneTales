@@ -10,7 +10,7 @@ import {JwtService} from "@nestjs/jwt";
 export class UserService {
     constructor(
         @InjectRepository(User) private readonly userRepository: Repository<User>,
-        private readonly jwtService: JwtService
+        private readonly jwtService: JwtService,
     ) {}
 
     async create(createUserDto: CreateUserDto){
@@ -36,7 +36,7 @@ export class UserService {
         return {userID: user.id};
     }
 
-    async findOne(login: string){
+    async findOneByLogin(login: string){
         const user = await this.userRepository.findOne({
             where: {login}
         });
@@ -45,5 +45,29 @@ export class UserService {
             throw new NotFoundException('The user is not found!')
 
         return user
+    }
+
+    async findOneById(id: string){
+        const user = await this.userRepository.findOne({
+            where: {id},
+            select: ["id", "email", "login", "firstName", "secondName", "lastName"],
+            relations: ["favourite_books"]
+        });
+
+        if (!user)
+            throw new NotFoundException('The user is not found!')
+
+        return user
+    }
+
+    async isAdmin(id: string) {
+        const user = await this.userRepository.findOne({
+            where: {id}
+        });
+
+        if (!user)
+            throw new NotFoundException('The user is not found!')
+
+        return user.role === "admin"
     }
 }
