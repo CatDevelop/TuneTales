@@ -1,10 +1,12 @@
-import {Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, Unique} from "typeorm";
 import {Genre} from "../../genre/entities/genre.entity";
 import {BookPart} from "../../book-part/entities/book-part.entity";
 import {Author} from "../../author/entities/author.entity";
 import {User} from "../../user/entities/user.entity";
+import {Series} from "../../series/entities/series.entity";
 
 @Entity()
+@Unique(['id'])
 export class Book {
     @PrimaryGeneratedColumn("uuid")
     id: string;
@@ -26,6 +28,9 @@ export class Book {
 
     @ManyToMany(() => User, (user) => user.favourite_books, {onDelete: "CASCADE"})
     users: User[]
+
+    @ManyToMany(() => Series, (series) => series.books, {onDelete: "CASCADE"})
+    series: Series[]
 
     @ManyToMany(() => Author, (author) => author.writtenBooks, {onDelete: "CASCADE"})
     @JoinTable({

@@ -1,6 +1,6 @@
 import {IsUUID} from "class-validator";
 
-export class GetUserDto {
+export class ChangeFavoriteBookDto {
     @IsUUID(undefined)
     id: string;
 }

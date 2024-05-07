@@ -47,6 +47,23 @@ export class BookPartService {
         return {bookPartID: res.id}
     }
 
+    async findAllByBook(bookId: string) {
+        return await this.bookPartRepository.find({
+            where: {book: {id: bookId}}
+        });
+    }
+
+    async findOne(id: string) {
+        if (!await this.isCreate(id))
+            throw new NotFoundException("Book part not found!")
+
+        return await this.bookPartRepository.findOne({
+                where: {id},
+                relations: ["book"]
+            },
+        )
+    }
+
     async remove(id: string) {
         const bookPart = await this.bookPartRepository.findOneBy({id})
 

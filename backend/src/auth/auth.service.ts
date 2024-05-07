@@ -9,7 +9,8 @@ export class AuthService {
     constructor(
         private userService: UserService,
         private jwtService: JwtService
-    ) {}
+    ) {
+    }
 
     async validateUser(login: string, password: string) {
         try {
@@ -26,11 +27,12 @@ export class AuthService {
     }
 
     async login(user: IUser) {
-        const {id, login} = user;
+        const {id, login, role} = user;
         return {
             id,
             login,
-            accessToken: this.jwtService.sign({login: user.login, id: user.id}),
+            role,
+            accessToken: this.jwtService.sign({login, id, role}),
         };
     }
 }

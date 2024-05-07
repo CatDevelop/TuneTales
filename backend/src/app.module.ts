@@ -10,6 +10,7 @@ import { GenreModule } from './genre/genre.module';
 import { BookPartModule } from './book-part/book-part.module';
 import { AuthorModule } from './author/author.module';
 import {JwtService} from "@nestjs/jwt";
+import { SeriesModule } from './series/series.module';
 
 @Module({
     imports: [
@@ -35,6 +36,7 @@ import {JwtService} from "@nestjs/jwt";
         GenreModule,
         BookPartModule,
         AuthorModule,
+        SeriesModule,
     ],
     controllers: [AppController],
     providers: [AppService],

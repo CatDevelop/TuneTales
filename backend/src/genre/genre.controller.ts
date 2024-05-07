@@ -13,7 +13,6 @@ export class GenreController {
 
     @Post()
     @UseGuards(JwtAuthGuard, AdminGuard)
-    @UsePipes(new ValidationPipe())
     create(@Body() createGenreDto: CreateGenreDto) {
         return this.genreService.create(createGenreDto);
     }
@@ -24,19 +23,12 @@ export class GenreController {
     }
 
     @Get(':id')
-    @UsePipes(new ValidationPipe())
     findOne(@Param('id') id: string) {
         return this.genreService.findOne(id);
     }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateGenreDto: UpdateGenreDto) {
-        return this.genreService.update(+id, updateGenreDto);
-    }
-
     @Delete(':id')
     @UseGuards(JwtAuthGuard, AdminGuard)
-    @UsePipes(new ValidationPipe())
     remove(@Param() deleteGenreDto: DeleteGenreDto) {
         return this.genreService.remove(deleteGenreDto.id);
     }

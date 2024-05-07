@@ -12,31 +12,20 @@ export class AuthorController {
     }
 
     @Post()
-    @UsePipes(new ValidationPipe())
     @UseGuards(JwtAuthGuard, AdminGuard)
     create(@Body() createAuthorDto: CreateAuthorDto) {
         return this.authorService.create(createAuthorDto);
     }
 
-    @Get()
-    findAll() {
-        return this.authorService.findAll();
-    }
 
     @Get(':id')
-    @UsePipes(new ValidationPipe())
     findOne(@Param() getAuthorDto: GetAuthorDto) {
         return this.authorService.findOne(getAuthorDto.id);
     }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateAuthorDto: UpdateAuthorDto) {
-        return this.authorService.update(+id, updateAuthorDto);
-    }
 
     @Delete(':id')
     @UseGuards(JwtAuthGuard, AdminGuard)
-    @UsePipes(new ValidationPipe())
     remove(@Param('id') id: string) {
         return this.authorService.remove(id);
     }
