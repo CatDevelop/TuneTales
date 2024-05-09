@@ -1,0 +1,20 @@
+.controls_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 245px;
+    width: 100%;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+
+}
+
+.container {
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+
+}

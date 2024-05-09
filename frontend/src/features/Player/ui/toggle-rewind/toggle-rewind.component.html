@@ -1,0 +1,23 @@
+<app-button
+    *ngIf="type == 'left'"
+    class="rewindButton"
+    (eventClick)="toggleButton()"
+    (mousedown)="shrink()"
+    (mouseup)="restore()"
+    (touchstart)="shrink()"
+    (touchend)="restore()"
+    width="{{widhtButton}}"
+    height="{{heihtButton}}"
+    imageUrl="/assets/leftRewind-button.svg"/>
+
+<app-button
+    *ngIf="type == 'right'"
+    class="rewindButton"
+    (eventClick)="toggleButton()"
+    (mousedown)="shrink()"
+    (mouseup)="restore()"
+    (touchstart)="shrink()"
+    (touchend)="restore()"
+    width="{{widhtButton}}"
+    height="{{heihtButton}}"
+    imageUrl="/assets/rightRewind-button.svg"/>

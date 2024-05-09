@@ -6,21 +6,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { TuiSliderModule } from '@taiga-ui/kit';
+import { ToglePlayComponent } from '../features/Player';
+import { ToggleRewindComponent } from '../features/Player';
 import { ButtonComponent } from '../shared/ui';
-import { SliderComponent } from '../entities/player-slider/ui';
-import { ToglePlayComponent } from '../features/toggle-play-button';
-import { ClickLeftRewindComponent, ClickRightRewindComponent } from '../features/rewind-buttons';
+import { SliderComponent } from '../shared/ui';
+import { PlayerComponent } from '../widgets/player';
+import { SliderRewindComponent } from '../entities/player/slider-rewind/slider-rewind.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
     declarations: [
         AppComponent,
-        ButtonComponent,
         SliderComponent,
         ToglePlayComponent,
-        ClickLeftRewindComponent,
-        ClickRightRewindComponent
+        ToggleRewindComponent,
+        ButtonComponent,
+        PlayerComponent,
+        SliderRewindComponent
     ],
     imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TuiButtonModule,
         TuiSliderModule,
         BrowserAnimationsModule,

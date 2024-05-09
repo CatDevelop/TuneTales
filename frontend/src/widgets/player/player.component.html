@@ -1,0 +1,31 @@
+<div class="container">
+    <img src="/assets/book.png"/>
+
+    <div class="info">
+        <p>Глава 1</p>
+        <p>Стеллар. Трибут</p>
+    </div>
+
+    <app-slider-rewind
+        startTime="{{ state?.readableCurrentTime || '00:00' }}"
+        endTime="{{ state?.readableDuration || '00:00' }}"
+        [currentTime]="state?.currentTime || 0"
+        [maxTime]="state?.duration || 0"
+        (valueChange)="onSliderChangeEnd($event)"
+    />
+
+
+    <div class="controls">
+        <div class="controls_wrapper">
+            <app-toggle-rewind (click)="audioRewindBack(15)" type="left"/>
+            <app-togle-play
+                (playEvent)="play()"
+                (pauseEvent)="pause()"/>
+            <app-toggle-rewind (click)="audioRewindNext(15)" type="right"/>
+        </div>
+    </div>
+
+    <ul>
+        <li *ngFor="let file of files; let i = index" (click)="openFile(file, i)">{{ file.name }}</li>
+    </ul>
+</div>
