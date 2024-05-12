@@ -1,3 +1,9 @@
+.container {
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
 .controls_wrapper {
     display: flex;
     align-items: center;
@@ -9,12 +15,26 @@
 .controls {
     display: flex;
     justify-content: center;
+    margin-top: 15px;
+}
+
+.about {
 
 }
 
-.container {
-    padding: 0 20px 0 20px;
-    display: flex;
-    flex-direction: column;
-
+.about-title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    color: #14121d;
+    padding-top: 11px;
 }
+
+.about-name {
+    text-align: center;
+    padding-top: 3px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #c2c2c2;
+}
+

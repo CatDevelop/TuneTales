@@ -1,3 +1,10 @@
+.slider {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 55px;
+}
+
 .slider-wrapper {
     display: flex;
     justify-content: space-between;
@@ -11,8 +18,3 @@
     color: #c2c2c2;
 }
 
-.slider {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}

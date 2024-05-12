@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'app-togle-play',
@@ -9,6 +9,7 @@ export class ToglePlayComponent {
     public activePlayerUrl: string = '/assets/play-button.svg';
     public pausePlayerUrl: string = '/assets/stop-button.svg';
 
+    @Input()
     public activeButtonState: boolean = false;
 
     @Output()

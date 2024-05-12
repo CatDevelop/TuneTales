@@ -5,48 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/styles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Player/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Player/lib/audio.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Player/lib/cloud.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Player/model/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jsLinters/eslint.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/player/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/player/sleep-timer/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/player/slider-rewind/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/player/speed-button/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/play-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/play-button.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/stop-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/stop-button.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player-slider/ui/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player-slider/ui/slider/slider.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/slider/slider.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player-slider/ui/slider/slider.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/slider/slider.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player-slider/ui/slider/slider.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/slider/slider.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-left-rewind/click-left-rewind.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-left-rewind/click-left-rewind.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-left-rewind/click-left-rewind.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-left-rewind/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-right-rewind/click-right-rewind.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-right-rewind/click-right-rewind.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-right-rewind/click-right-rewind.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-right-rewind/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/components/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/rewind-buttons/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/toggle-play-button/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/toggle-play-button/togle-play.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/toggle-play-button/togle-play.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/toggle-play-button/togle-play.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/slider-rewind/slider-rewind.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/slider-rewind/slider-rewind.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/lib/audio.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/lib/audio.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,9 +64,9 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\entities\player" />
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\shared\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\ui\toggle-rewind" />
-      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\ui\toggleRewind" />
     </key>
   </component>
@@ -134,7 +107,8 @@
       <workItem from="1714990937762" duration="2499000" />
       <workItem from="1714996708126" duration="29532000" />
       <workItem from="1715171243503" duration="14000" />
-      <workItem from="1715253777373" duration="12645000" />
+      <workItem from="1715253777373" duration="20485000" />
+      <workItem from="1715324034608" duration="33084000" />
     </task>
     <servers />
   </component>

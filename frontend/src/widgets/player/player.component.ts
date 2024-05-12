@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef , afterNextRender } from '@angular/core';
 import { AudioService } from '../../features/Player';
 import { CloudService } from '../../features/Player';
 import { IStreamState } from '../../features/Player';
+import {map, Subscription, take, takeWhile, timer} from "rxjs";
 
 @Component({
     selector: 'app-player',
@@ -20,6 +21,8 @@ export class PlayerComponent  {
         error: false,
     };
     public currentFile: any = {};
+    public sleepTimerState: string | undefined = undefined;
+    private _sleepTimerSubscription: Subscription | undefined = undefined;
 
     constructor(private _audioService: AudioService, cloudService: CloudService, private _cdr: ChangeDetectorRef) {
         cloudService.getFiles().subscribe(files => {
@@ -33,6 +36,8 @@ export class PlayerComponent  {
 
         afterNextRender(() => {
             this._audioService.init();
+            this.openFile(this.files[0], 0);
+            this.pause();
         });
     }
 
@@ -56,6 +61,27 @@ export class PlayerComponent  {
 
     public play() {
         this._audioService.play();
+    }
+
+    public speed(value: number): void {
+        this._audioService.speed(value);
+    }
+
+    public sleepTimer(value: number) {
+        if (this._sleepTimerSubscription) {
+            this._sleepTimerSubscription.unsubscribe();
+        }
+
+        this._sleepTimerSubscription = this._audioService.sleepTimer(value).subscribe(n => {
+            this._cdr.detectChanges();
+            this.sleepTimerState = n;
+
+            if (n === '00:00') {
+                console.log('exit')
+                this.sleepTimerState = undefined;
+                this.pause();
+            }
+        });
     }
 
     public stop() {
@@ -105,6 +131,4 @@ export class PlayerComponent  {
     isLastPlaying() {
         return this.currentFile.index === this.files.length - 1;
     }
-
-
 }

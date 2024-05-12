@@ -1,0 +1,6 @@
+<div class="timer-container">
+    <app-select-sleep-time class="timer-select" (valueChanged)="onChange($event)"></app-select-sleep-time>
+    <p *ngIf="sleepTimerState" class="timer-data">{{ sleepTimerState }}</p>
+    <img *ngIf="!sleepTimerState" class="timer-icon" src="./assets/sleep-button.svg" alt="sleep button"/>
+</div>
+

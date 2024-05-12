@@ -1,0 +1,4 @@
+<select (change)="onChange($event)"  [(ngModel)]="defaultTime">
+    <option *ngFor="let item of times" [value]="item.time">{{item.name}}</option>
+</select>
+

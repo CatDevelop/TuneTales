@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, Subject } from 'rxjs';
+import {Observable, BehaviorSubject, Subject, timer, take, map, takeWhile, finalize, Subscription} from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import moment from 'moment';
 import { IStreamState } from '../model/types';
@@ -28,6 +28,7 @@ export class AudioService {
     };
 
     private _stateChange: BehaviorSubject<IStreamState> = new BehaviorSubject<IStreamState>(this._state);
+
 
     /**
      * Инициализация объекта Audio.
@@ -78,6 +79,28 @@ export class AudioService {
      */
     public seekTo(seconds: number): void {
         this.audioObj.currentTime = seconds;
+    }
+
+    /**
+     * Устанавливает скорость проигрывания аудио.
+     * @param {number} speed - Скорость проигрывания
+     * @returns {void}
+     */
+    public speed(value: number): void {
+        this.audioObj.playbackRate = value;
+    }
+
+    /**
+     * Устанавливает таймер сна на указанное количество секунд.
+     * @param {number} seconds - Количество секунд для установки таймера.
+     */
+    public sleepTimer(seconds: number): Observable<string> {
+        return timer(0, 100).pipe(
+            take(seconds + 1),
+            map((tick) => seconds - tick),
+            takeWhile(time => time >= 0),
+            map((time) => this.formatTime(time, seconds > 3600 ? 'hh:mm:ss' : 'mm:ss'))
+        );
     }
 
     /**
@@ -159,7 +182,6 @@ export class AudioService {
             obj.removeEventListener(event, handler);
         });
     }
-
 
     /**
      * Обновляет состояние аудиоплеера на основе события.
