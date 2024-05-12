@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TuiRootModule } from '@taiga-ui/core';
+import { TuiLinkModule, TuiRootModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiButtonModule } from '@taiga-ui/core';
@@ -10,6 +10,16 @@ import { ButtonComponent } from '../shared/ui';
 import { SliderComponent } from '../entities/player-slider/ui';
 import { ToglePlayComponent } from '../features/toggle-play-button';
 import { ClickLeftRewindComponent, ClickRightRewindComponent } from '../features/rewind-buttons';
+import { AuthorizationPage } from '../pages/authorization-page/ui/authorization.page';
+import { NavbarComponent } from '../widgets/navbar/navbar.component';
+import { TuiInputModule } from '@taiga-ui/kit';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterPage } from '../pages/register-page/ui/register.page';
+import { HttpService } from '../shared/global-services/request/http.service';
+import { RegistrationService } from '../pages/register-page/services/registration.service';
+import { AuthorizationService } from '../pages/authorization-page/services/authorization.service';
+import { SessionStorageService } from '../pages/authorization-page/services/session-storage.service';
 
 @NgModule({
     declarations: [
@@ -18,7 +28,10 @@ import { ClickLeftRewindComponent, ClickRightRewindComponent } from '../features
         SliderComponent,
         ToglePlayComponent,
         ClickLeftRewindComponent,
-        ClickRightRewindComponent
+        ClickRightRewindComponent,
+        AuthorizationPage,
+        NavbarComponent,
+        RegisterPage
     ],
     imports: [
         TuiButtonModule,
@@ -26,10 +39,19 @@ import { ClickLeftRewindComponent, ClickRightRewindComponent } from '../features
         BrowserAnimationsModule,
         TuiRootModule,
         BrowserModule,
-        AppRoutingModule
+        HttpClientModule,
+        AppRoutingModule,
+        TuiInputModule,
+        TuiTextfieldControllerModule,
+        ReactiveFormsModule,
+        TuiLinkModule,
+        FormsModule
     ],
     providers: [
-        provideClientHydration()
+        HttpService,
+        RegistrationService,
+        AuthorizationService,
+        SessionStorageService,
     ],
     bootstrap: [AppComponent]
 })

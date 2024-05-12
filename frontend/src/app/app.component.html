@@ -1,18 +1,8 @@
-<!--<div>-->
-<!--    <div class="content">-->
-<!--        <button-->
-<!--            tuiButton-->
-<!--            icon="tuiIconSettings"-->
-<!--        >-->
-<!--            Button-->
-<!--        </button>-->
-<!--    </div>-->
-
-<!--    <router-outlet />-->
-<!--</div>-->
-
-<!--<app-button (eventClick)="print($event)" width=20 height=20 imageUrl="/assets/back-button.svg"></app-button>-->
-<!--<app-slider/>-->
-<app-togle-play/>
-<app-click-left-rewind/>
-
+<div class="app">
+    <header class="main-header">
+        <app-navbar />
+    </header>
+    <main class="main grid-12">
+        <router-outlet />
+    </main>
+</div>
