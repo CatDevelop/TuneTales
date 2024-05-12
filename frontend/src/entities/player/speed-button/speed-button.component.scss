@@ -1,0 +1,25 @@
+.speed {
+    &-container {
+        position: relative;
+        height: 44px;
+        width: 100px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-select {
+        opacity: 0;
+        position: absolute;
+        z-index: 1;
+    }
+
+    &-data {
+        position: absolute;
+        z-index: 0;
+        font-weight: 500;
+        font-size: 18px;
+        color: #14121d;
+    }
+}

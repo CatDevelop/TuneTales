@@ -22,6 +22,7 @@ export class PlayerComponent  {
     };
     public currentFile: any = {};
     public sleepTimerState: string | undefined = undefined;
+    public speedButtonState: number | undefined = 0.1;
     private _sleepTimerSubscription: Subscription | undefined = undefined;
 
     constructor(private _audioService: AudioService, cloudService: CloudService, private _cdr: ChangeDetectorRef) {
@@ -64,6 +65,7 @@ export class PlayerComponent  {
     }
 
     public speed(value: number): void {
+        this.speedButtonState = value;
         this._audioService.speed(value);
     }
 

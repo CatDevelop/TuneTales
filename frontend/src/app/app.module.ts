@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectSpeedComponent } from '../shared/ui';
 import { SelectSleepTimeComponent } from '../shared/ui';
 import { SleepTimerComponent } from '../entities/player/';
-import { SpeedButtonComponent } from '../entities/player/speed-button/speed-button.component';
+import { SpeedButtonComponent } from '../entities/player/';
 
 
 @NgModule({

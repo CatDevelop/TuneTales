@@ -25,11 +25,12 @@
         </div>
     </div>
 
-    <app-select-speed (valueChanged)="speed($event)"></app-select-speed>
+
 
 
     <app-sleep-timer (valueChanged)="sleepTimer($event)" [sleepTimerState]="sleepTimerState"></app-sleep-timer>
-<!--    <ul>-->
+    <app-speed-button (valueChanged)="speed($event)" [speedButtonState]="speedButtonState"></app-speed-button>
+    <!--    <ul>-->
 <!--        <li *ngFor="let file of files; let i = index" (click)="openFile(file, i)">{{ file.name }}</li>-->
 <!--    </ul>-->
 </div>
