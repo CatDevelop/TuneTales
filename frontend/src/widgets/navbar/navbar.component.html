@@ -1,0 +1,33 @@
+<div class="navbar-container grid-12">
+    <button
+        tuiButton
+        class="logo"
+        size="m"
+    >
+        LOGO
+    </button>
+    <tui-input
+        [tuiTextfieldCleaner]="true"
+        tuiTextfieldIconLeft="tuiIconSearchLarge"
+        class="search"
+        tuiTextfieldSize="m"
+        [ngModel]="searchQuery"
+    >
+        Поиск по книгам
+        <input
+            class="search-input"
+            tuiTextfield
+        />
+    </tui-input>
+    <nav class="links">
+        <button>
+            Мои книги
+        </button>
+        <button>
+            Жанры
+        </button>
+        <button>
+            Войти
+        </button>
+    </nav>
+</div>

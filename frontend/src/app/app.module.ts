@@ -1,28 +1,38 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TuiRootModule } from '@taiga-ui/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TuiButtonModule, TuiDataListModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
-import { TuiSliderModule, TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
-import { ToglePlayComponent } from '../features/Player';
-import { ToggleRewindComponent } from '../features/Player';
-import { ButtonComponent } from '../shared/ui';
-import { SliderComponent } from '../shared/ui';
-import { PlayerComponent } from '../widgets/player';
-import { SliderRewindComponent } from '../entities/player/';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SelectSpeedComponent } from '../shared/ui';
-import { SelectSleepTimeComponent } from '../shared/ui';
-import { SleepTimerComponent } from '../entities/player/';
-import { SpeedButtonComponent } from '../entities/player/';
-import { ChaptersComponent } from '../entities/player/chapters/chapters.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+    TuiButtonModule,
+    TuiDataListModule,
+    TuiLinkModule,
+    TuiRootModule,
+    TuiTextfieldControllerModule
+} from '@taiga-ui/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {TuiDataListWrapperModule, TuiInputModule, TuiSelectModule, TuiSliderModule} from '@taiga-ui/kit';
+import {ToggleRewindComponent} from '../features/Player';
+import {ButtonComponent, SelectSleepTimeComponent, SelectSpeedComponent, SliderComponent} from '../shared/ui';
+import {ToglePlayComponent} from '../features/toggle-play-button';
+import {ClickLeftRewindComponent, ClickRightRewindComponent} from '../features/rewind-buttons';
+import {AuthorizationPage} from '../pages/authorization-page/ui/authorization.page';
+import {NavbarComponent} from '../widgets/navbar/navbar.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RegisterPage} from '../pages/register-page/ui/register.page';
+import {HttpService} from '../shared/global-services/request/http.service';
+import {RegistrationService} from '../pages/register-page/services/registration.service';
+import {AuthorizationService} from '../pages/authorization-page/services/authorization.service';
+import {SessionStorageService} from '../pages/authorization-page/services/session-storage.service';
+import {PlayerComponent} from '../widgets/player';
+import {SleepTimerComponent, SliderRewindComponent, SpeedButtonComponent} from '../entities/player/';
+import {ChaptersComponent} from '../entities/player/chapters/chapters.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        ButtonComponent,
         SliderComponent,
         ToglePlayComponent,
         ToggleRewindComponent,
@@ -34,6 +44,11 @@ import { ChaptersComponent } from '../entities/player/chapters/chapters.componen
         SleepTimerComponent,
         SpeedButtonComponent,
         ChaptersComponent,
+        ClickLeftRewindComponent,
+        ClickRightRewindComponent,
+        AuthorizationPage,
+        NavbarComponent,
+        RegisterPage
     ],
     imports: [
         FormsModule,
@@ -43,6 +58,13 @@ import { ChaptersComponent } from '../entities/player/chapters/chapters.componen
         BrowserAnimationsModule,
         TuiRootModule,
         BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        TuiInputModule,
+        TuiTextfieldControllerModule,
+        ReactiveFormsModule,
+        TuiLinkModule,
+        FormsModule,
         AppRoutingModule,
         TuiSelectModule,
         TuiDataListModule,
@@ -50,7 +72,10 @@ import { ChaptersComponent } from '../entities/player/chapters/chapters.componen
         TuiTextfieldControllerModule
     ],
     providers: [
-        provideClientHydration()
+        HttpService,
+        RegistrationService,
+        AuthorizationService,
+        SessionStorageService,
     ],
     bootstrap: [AppComponent]
 })
