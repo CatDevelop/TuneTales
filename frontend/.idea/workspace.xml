@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/entities/player/chapters/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/back-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/back-button.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/selectShapter-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/selectChapter-button.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/lib/audio.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/lib/audio.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +104,7 @@
       <workItem from="1714996708126" duration="29532000" />
       <workItem from="1715171243503" duration="14000" />
       <workItem from="1715253777373" duration="20485000" />
-      <workItem from="1715324034608" duration="34122000" />
+      <workItem from="1715324034608" duration="39444000" />
     </task>
     <servers />
   </component>

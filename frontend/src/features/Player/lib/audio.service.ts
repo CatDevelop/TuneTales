@@ -4,9 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import moment from 'moment';
 import { IStreamState } from '../model/types';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class AudioService {
 
     private audioObj: any;

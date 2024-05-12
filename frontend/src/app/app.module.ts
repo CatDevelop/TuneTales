@@ -17,6 +17,7 @@ import { SelectSpeedComponent } from '../shared/ui';
 import { SelectSleepTimeComponent } from '../shared/ui';
 import { SleepTimerComponent } from '../entities/player/';
 import { SpeedButtonComponent } from '../entities/player/';
+import { ChaptersComponent } from '../entities/player/chapters/chapters.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { SpeedButtonComponent } from '../entities/player/';
         SelectSleepTimeComponent,
         SleepTimerComponent,
         SpeedButtonComponent,
+        ChaptersComponent,
     ],
     imports: [
         FormsModule,

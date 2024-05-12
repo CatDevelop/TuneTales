@@ -21,9 +21,12 @@ export class PlayerComponent  {
         error: false,
     };
     public currentFile: any = {};
+    private _sleepTimerSubscription: Subscription | undefined = undefined;
+
     public sleepTimerState: string | undefined = undefined;
     public speedButtonState: number | undefined = 0.1;
-    private _sleepTimerSubscription: Subscription | undefined = undefined;
+    public chapterWindowState: boolean = false;
+
 
     constructor(private _audioService: AudioService, cloudService: CloudService, private _cdr: ChangeDetectorRef) {
         cloudService.getFiles().subscribe(files => {
@@ -124,6 +127,11 @@ export class PlayerComponent  {
                 this._audioService.seekTo(this.state.duration);
             }
         }
+    }
+
+    public toggleChapter(value: any) {
+        this.chapterWindowState = !this.chapterWindowState;
+        console.log(this.chapterWindowState);
     }
 
     isFirstPlaying() {

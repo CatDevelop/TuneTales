@@ -1,7 +1,15 @@
 .container {
+    height: 100vh;
     padding: 0 20px 0 20px;
     display: flex;
     flex-direction: column;
+
+    &-tools {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+    }
 }
 
 .controls_wrapper {
@@ -36,5 +44,10 @@
     font-weight: 400;
     font-size: 18px;
     color: #c2c2c2;
+}
+
+.back-button {
+    padding-top: 50px;
+    padding-bottom: 55px;
 }
 

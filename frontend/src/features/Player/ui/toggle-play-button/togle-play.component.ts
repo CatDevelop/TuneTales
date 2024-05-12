@@ -20,7 +20,6 @@ export class ToglePlayComponent {
     public toggleButton = (event: MouseEvent): void => {
         this.activeButtonState = !this.activeButtonState;
 
-        console.log(this.activeButtonState)
         if (this.activeButtonState) {
             this.playEvent.emit();
         } else {
