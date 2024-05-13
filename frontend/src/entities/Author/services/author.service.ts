@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, filter, finalize, Observable } from 'rxjs';
 import { HttpService } from '../../../shared/global-services/request/http.service';
+import { ICreateAuthorRequestDto } from '../model/dto/request/create-author.request-dto';
 import { HttpResponse } from '@angular/common/http';
-import { IGetBookResponseDto } from '../model/dto/response/get-book.response-dto';
+import { ICreateAuthorResponseDto } from '../model/dto/response/create-author.response-dto';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
-import { ICreateBookRequestDto } from '../model/dto/request/create-book.request-dto';
-import { ICreateBookResponseDto } from '../model/dto/response/create-book.response-dto';
+import { IGetAuthorByIdResponseDto } from '../model/dto/response/get-author-by-id.response-dto';
 
 
 @Injectable()
-export class BookService {
+export class AuthorService {
     public readonly isProcessing$: Observable<boolean>;
     private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
@@ -21,44 +21,21 @@ export class BookService {
     }
 
     /**
-     * Получение информации о книге с сервера
-     * @param bookId
+     * Создание автра, доступ только для админов
+     * @param author
      */
-    public getBookById(bookId: string): Observable<HttpResponse<IGetBookResponseDto>> {
+    public createAuthor(author: ICreateAuthorRequestDto): Observable<HttpResponse<ICreateAuthorResponseDto>> {
         this._isProcessing$.next(true);
 
-        const response$: Observable<HttpResponse<IGetBookResponseDto>> = this._req.request<IGetBookResponseDto, void>({
-            url: `${UrlRoutes.backendDev}/book/${bookId}`,
-            method: RequestMethodType.get,
-        });
-
-        response$
-            .pipe(
-                filter((resp: HttpResponse<IGetBookResponseDto>) => resp.ok),
-                finalize(() => {
-                    this._isProcessing$.next(false);
-                })
-            );
-
-        return response$;
-    }
-
-    /**
-     * Создание книги, доступ только для админов
-     * @param book
-     */
-    public createBook(book: ICreateBookRequestDto): Observable<HttpResponse<ICreateBookResponseDto>> {
-        this._isProcessing$.next(true);
-
-        const response$: Observable<HttpResponse<ICreateBookResponseDto>> = this._req.request<ICreateBookResponseDto, ICreateBookRequestDto>({
-            url: `${UrlRoutes.backendDev}/book`,
+        const response$: Observable<HttpResponse<ICreateAuthorResponseDto>> = this._req.request<ICreateAuthorResponseDto, ICreateAuthorRequestDto>({
+            url: `${UrlRoutes.backendDev}/author`,
             method: RequestMethodType.post,
-            body: book,
+            body: author,
         });
 
         response$
             .pipe(
-                filter((resp: HttpResponse<ICreateBookResponseDto>) => resp.ok),
+                filter((resp: HttpResponse<ICreateAuthorResponseDto>) => resp.ok),
                 finalize(() => {
                     this._isProcessing$.next(false);
                 })
@@ -68,14 +45,37 @@ export class BookService {
     }
 
     /**
-     * Удаление книги, доступ только для админов
-     * @param bookId
+     * Получение информации об авторе
+     * @param authorId
      */
-    public deleteBookById(bookId: string): Observable<HttpResponse<unknown>> {
+    public getAuthorById(authorId: string): Observable<HttpResponse<IGetAuthorByIdResponseDto>> {
+        this._isProcessing$.next(true);
+
+        const response$: Observable<HttpResponse<IGetAuthorByIdResponseDto>> = this._req.request<IGetAuthorByIdResponseDto, void>({
+            url: `${UrlRoutes.backendDev}/author/${authorId}`,
+            method: RequestMethodType.post,
+        });
+
+        response$
+            .pipe(
+                filter((resp: HttpResponse<IGetAuthorByIdResponseDto>) => resp.ok),
+                finalize(() => {
+                    this._isProcessing$.next(false);
+                })
+            );
+
+        return response$;
+    }
+
+    /**
+     * Удаление автора, доступ только для админов
+     * @param authorId
+     */
+    public deleteAuthorById(authorId: string): Observable<HttpResponse<unknown>> {
         this._isProcessing$.next(true);
 
         const response$: Observable<HttpResponse<unknown>> = this._req.request<unknown, void>({
-            url: `${UrlRoutes.backendDev}/book/${bookId}`,
+            url: `${UrlRoutes.backendDev}/author/${authorId}`,
             method: RequestMethodType.delete,
         });
 
