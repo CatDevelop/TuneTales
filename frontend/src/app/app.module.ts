@@ -15,13 +15,15 @@ import { HttpService } from '../shared/global-services/request/http.service';
 import { RegistrationService } from '../pages/register-page/services/registration.service';
 import { AuthorizationService } from '../pages/authorization-page/services/authorization.service';
 import { SessionStorageService } from '../pages/authorization-page/services/session-storage.service';
+import { MainPage } from '../pages/main-page/ui/main.page';
 
 @NgModule({
     declarations: [
         AppComponent,
         AuthorizationPage,
         NavbarComponent,
-        RegisterPage
+        RegisterPage,
+        MainPage
     ],
     imports: [
         TuiButtonModule,
