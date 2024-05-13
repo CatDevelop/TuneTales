@@ -21,7 +21,7 @@ export class AuthorService {
     }
 
     /**
-     * Создание автра, доступ только для админов
+     * Создание автора, доступ только для админов
      * @param author
      */
     public createAuthor(author: ICreateAuthorRequestDto): Observable<HttpResponse<ICreateAuthorResponseDto>> {

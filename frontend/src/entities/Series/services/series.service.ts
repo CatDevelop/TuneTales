@@ -7,6 +7,8 @@ import { RequestMethodType } from '../../../shared/global-services/request/model
 import { ICreateSeriesRequestDto } from '../model/dto/request/create-series.request-dto';
 import { ICreateSeriesResponseDto } from '../model/dto/response/create-series.response-dto';
 import { IGetSeriesByIdResponseDto } from '../model/dto/response/get-series-by-id.response-dto';
+import { IEditSeriesByIdRequestDto } from '../model/dto/request/edit-series-by-id.request-dto';
+import { IEditSeriesByIdResponseDto } from '../model/dto/response/edit-series-by-id.response-dto';
 
 
 @Injectable()
@@ -82,6 +84,31 @@ export class SeriesService {
         response$
             .pipe(
                 filter((resp: HttpResponse<unknown>) => resp.ok),
+                finalize(() => {
+                    this._isProcessing$.next(false);
+                })
+            );
+
+        return response$;
+    }
+
+    /**
+     * Изменение серии книг, доступ только для админов
+     * @param seriesId
+     * @param series
+     */
+    public editSeriesById(seriesId: string, series: IEditSeriesByIdRequestDto): Observable<HttpResponse<IEditSeriesByIdResponseDto>> {
+        this._isProcessing$.next(true);
+
+        const response$: Observable<HttpResponse<IEditSeriesByIdResponseDto>> = this._req.request<IEditSeriesByIdResponseDto, IEditSeriesByIdRequestDto>({
+            url: `${UrlRoutes.backendDev}/series/${seriesId}`,
+            method: RequestMethodType.patch,
+            body: series,
+        });
+
+        response$
+            .pipe(
+                filter((resp: HttpResponse<IEditSeriesByIdResponseDto>) => resp.ok),
                 finalize(() => {
                     this._isProcessing$.next(false);
                 })
