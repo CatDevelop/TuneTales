@@ -4,7 +4,6 @@ import { IGenre } from '../../Genre/model/genre.interface';
 import { ISeries } from '../../Series/model/series.interface';
 
 export interface IBook {
-    id: string;
     name: string;
     description: string;
     publicationYear: number;
