@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BookCardComponent } from '../../../entities/Book/ui/book-card/book-card.component';
 import { IBook } from '../../../entities/Book/model/book.interface';
 
 @Component({
@@ -7,7 +6,6 @@ import { IBook } from '../../../entities/Book/model/book.interface';
     selector: 'app-main.page',
     templateUrl: './main.page.html',
     styleUrl: './main.page.scss',
-    providers: [BookCardComponent]
 })
 export class MainPage {
     public book: IBook = {
@@ -24,4 +22,3 @@ export class MainPage {
         description: ''
     };
 }
-
