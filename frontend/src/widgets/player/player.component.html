@@ -28,12 +28,14 @@
     </div>
 
 
+
+
     <div class="container-tools">
         <app-speed-button (valueChanged)="speed($event)" [speedButtonState]="speedButtonState"></app-speed-button>
         <app-sleep-timer (valueChanged)="sleepTimer($event)" [sleepTimerState]="sleepTimerState"></app-sleep-timer>
         <app-button (eventClick)="toggleChapter($event)" width=23 height=17 imageUrl="./assets/selectChapter-button.svg"/>
     </div>
-        <!--    <ul>-->
+<!--            <ul>-->
 <!--        <li *ngFor="let file of files; let i = index" (click)="openFile(file, i)">{{ file.name }}</li>-->
 <!--    </ul>-->
 </div>

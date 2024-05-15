@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import moment from "moment";
 
 @Component({
     selector: 'app-select-sleep-time',

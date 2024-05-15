@@ -5,17 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entities/player/chapters/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/player/player-controllers.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Player/player-control.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Player/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/ui-kit.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/widgets/player/player.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/back-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/back-button.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/selectShapter-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/selectChapter-button.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Player/lib/audio.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/lib/audio.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-rewind/toggle-rewind.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/ui/toggle-rewind/toggle-rewind.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/select-sleep-time/select-sleep-time.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/select-sleep-time/select-sleep-time.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +41,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2fwrmIF8nGUWCuHzZa2ZxZGnTEe" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,10 +113,23 @@
       <workItem from="1715171243503" duration="14000" />
       <workItem from="1715253777373" duration="20485000" />
       <workItem from="1715324034608" duration="39444000" />
+      <workItem from="1715617096513" duration="1380000" />
+      <workItem from="1715664125113" duration="227000" />
+      <workItem from="1715664356499" duration="273000" />
+      <workItem from="1715664633773" duration="312000" />
+      <workItem from="1715665245411" duration="16000" />
+      <workItem from="1715677096354" duration="584000" />
+      <workItem from="1715680832764" duration="4451000" />
+      <workItem from="1715705912370" duration="1087000" />
+      <workItem from="1715749609035" duration="3527000" />
+      <workItem from="1715794786034" duration="2732000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

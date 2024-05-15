@@ -1,3 +1,2 @@
-export * from './sleep-timer';
+export * from './player-controllers.module';
 export * from './slider-rewind';
-export * from './speed-button';
