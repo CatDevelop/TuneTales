@@ -3,9 +3,10 @@ import {Observable, BehaviorSubject, Subject, timer, take, map, takeWhile, final
 import { takeUntil } from 'rxjs/operators';
 import moment from 'moment';
 import { IStreamState } from '../model/types';
+import { PlayerControlModule } from '../player-control.module';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: PlayerControlModule
 })
 export class AudioService {
 

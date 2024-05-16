@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef , afterNextRender } from '@angular/core';
 import { AudioService } from '../../features/Player';
 import { CloudService } from '../../features/Player';
 import { IStreamState } from '../../features/Player';
-import {map, Subscription, take, takeWhile, timer} from "rxjs";
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-player',
@@ -21,6 +21,7 @@ export class PlayerComponent  {
         error: false,
     };
     public currentFile: any = {};
+
     private _sleepTimerSubscription: Subscription | undefined = undefined;
 
     public sleepTimerState: string | undefined = undefined;
@@ -42,9 +43,9 @@ export class PlayerComponent  {
             this._audioService.init();
             this.openFile(this.files[0], 0);
             this.pause();
+            console.log(this.currentFile)
         });
     }
-
 
     public playStream(url: string) {
         this._audioService.playStream(url)
@@ -53,10 +54,10 @@ export class PlayerComponent  {
             });
     }
 
-    public openFile(file: any, index: any) {
+    public openFile(file: any, index: number ) {
         this.currentFile = { index, file };
         this._audioService.stop();
-        this.playStream(file.url);
+        this.playStream(file.audioSrc);
     }
 
     public pause() {
@@ -129,9 +130,8 @@ export class PlayerComponent  {
         }
     }
 
-    public toggleChapter(value: any) {
+    public toggleChapter() {
         this.chapterWindowState = !this.chapterWindowState;
-        console.log(this.chapterWindowState);
     }
 
     isFirstPlaying() {

@@ -7,3 +7,10 @@ export interface IStreamState {
     canplay: boolean;
     error: boolean;
 }
+
+export interface IAudioChapter {
+    id: string;
+    name: string;
+    durationSeconds: number;
+    audioSrc: string;
+}

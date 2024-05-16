@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { PlayerControlModule } from '../player-control.module';
+import { IAudioChapter } from '../model/types';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: PlayerControlModule
 })
 export class CloudService {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    private files: any[] = [
-        // tslint:disable-next-line: max-line-length
+    private chapters: IAudioChapter[] = [
         {
-            url:
-                'https://ia801504.us.archive.org/3/items/EdSheeranPerfectOfficialMusicVideoListenVid.com/Ed_Sheeran_-_Perfect_Official_Music_Video%5BListenVid.com%5D.mp3',
-            name: 'Perfect',
-            artist: ' Ed Sheeran'
+            id: '6dc9ca64-6930-4a4b-9ecf-a8a211742605',
+            name: 'Глава 1',
+            durationSeconds: 100,
+            audioSrc: './assets/01.mp3'
         },
         {
-            // tslint:disable-next-line: max-line-length
-            url:
-                'https://ia801609.us.archive.org/16/items/nusratcollection_20170414_0953/Man%20Atkiya%20Beparwah%20De%20Naal%20Nusrat%20Fateh%20Ali%20Khan.mp3',
-            name: 'Man Atkeya Beparwah',
-            artist: 'Nusrat Fateh Ali Khan'
+            id: '1d0e6899-3d9b-41fd-9108-f84b33b4df13',
+            name: 'Глава 2',
+            durationSeconds: 100,
+            audioSrc: './assets/02.mp3'
         },
         {
-            url:
-                'https://ia801503.us.archive.org/15/items/TheBeatlesPennyLane_201805/The%20Beatles%20-%20Penny%20Lane.mp3',
-            name: 'Penny Lane',
-            artist: 'The Beatles'
+            id: '454924ed-7c7f-449d-b19f-3394fd4636e3',
+            name: 'Глава 3',
+            durationSeconds: 100,
+            audioSrc: './assets/03.mp3'
         }
     ];
 
     // eslint-disable-next-line jsdoc/require-jsdoc
     public getFiles(): Observable<any[]> {
-        return of(this.files);
+        return of(this.chapters);
     }
 }

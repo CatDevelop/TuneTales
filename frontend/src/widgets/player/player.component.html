@@ -1,10 +1,10 @@
 <div class="container">
-    <app-button class="back-button" (eventClick)="toggleChapter($event)" width=18 height=24 imageUrl="./assets/back-button.svg"/>
+    <app-button class="back-button" (eventClick)="toggleChapter()" width=18 height=24 imageUrl="./assets/back-button.svg"/>
 
     <img src="/assets/book.png"/>
 
     <div class="about">
-        <p class="about-title">Глава 1</p>
+        <p class="about-title">{{ currentFile?.file?.name}}</p>
         <p class="about-name">Стеллар. Трибут</p>
     </div>
 
@@ -27,15 +27,18 @@
         </div>
     </div>
 
-
-
-
     <div class="container-tools">
         <app-speed-button (valueChanged)="speed($event)" [speedButtonState]="speedButtonState"></app-speed-button>
         <app-sleep-timer (valueChanged)="sleepTimer($event)" [sleepTimerState]="sleepTimerState"></app-sleep-timer>
-        <app-button (eventClick)="toggleChapter($event)" width=23 height=17 imageUrl="./assets/selectChapter-button.svg"/>
+        <app-button (eventClick)="toggleChapter()" width=23 height=17 imageUrl="./assets/selectChapter-button.svg"/>
     </div>
-<!--            <ul>-->
-<!--        <li *ngFor="let file of files; let i = index" (click)="openFile(file, i)">{{ file.name }}</li>-->
-<!--    </ul>-->
+
+
+    <app-chapters
+        *ngIf="chapterWindowState"
+        [files]="files"
+        [currentIndexFile]="currentFile.index"
+        (valueChanged)="openFile($event.file, $event.index)"
+        (stateChapterChanged)="toggleChapter()"
+></app-chapters>
 </div>
