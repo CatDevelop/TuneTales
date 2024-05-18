@@ -1,5 +1,5 @@
-<div class="player">
-    <app-button class="back-button" (eventClick)="toggleChapter()" width=18 height=24 imageUrl="./assets/back-button.svg"/>
+<div *ngIf="playerWindow === 'full'" class="player">
+    <app-button class="back-button" (eventClick)="togglePlayerWindow()" width=18 height=24 imageUrl="./assets/back-button.svg"/>
 
     <div class="player-image__container">
         <img class="player-image" src="{{imageUrl}}"/>
@@ -20,7 +20,7 @@
     />
 
     <div class="player-controls">
-        <div class="player-controls__wrapper">
+        <div class="player-controls__wrapper" >
             <app-toggle-rewind (click)="audioRewindBack(15)" type="left"/>
             <app-togle-play
                 [activeButtonState]="this.state.playing || false"
@@ -46,16 +46,30 @@
 ></app-chapters>
 </div>
 
-<div class="bottom-player">
-    <app-bottom-player-progress></app-bottom-player-progress>
+<div *ngIf="playerWindow === 'bottom'" class="bottom-player">
+    <app-bottom-player-progress
+        [maxTime]="state.duration || 0"
+        [currentTime]="state.currentTime || 0"
+    ></app-bottom-player-progress>
 
-    <img src="{{imageUrl}}"/>
+    <div class="bottom-player__wrapper">
+        <div (click)="togglePlayerWindow()" class="bottom-player__info">
+            <img class="bottom-player__image" src="{{imageUrl}}"/>
 
-    <div class="bottom-player__about">
-        <p class="bottom-player_about__title">{{ currentFile?.file?.name}}</p>
-        <p class="bottom-player_about__name">{{nameBook}}</p>
+            <div class="bottom-player__about">
+                <p class="bottom-player_about__title">{{ currentFile?.file?.name}}</p>
+                <p class="bottom-player_about__name">{{nameBook}}</p>
+            </div>
+        </div>
+
+        <div class="bottom-player__controllers">
+            <app-small-play-button
+                [activeButton]="this.state.playing"
+                (eventClick)="this.state.playing ? pause() : play()"
+            ></app-small-play-button>
+            <app-close-player
+                (eventClick)="stop()"
+            ></app-close-player>
+        </div>
     </div>
-
-    <app-small-play-button></app-small-play-button>
-    <app-close-player></app-close-player>
 </div>

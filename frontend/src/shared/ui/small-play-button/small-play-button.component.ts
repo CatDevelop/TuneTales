@@ -6,13 +6,14 @@ import {Component, EventEmitter, Input, numberAttribute, Output} from '@angular/
     styleUrl: './small-play-button.component.scss'
 })
 export class SmallPlayButtonComponent {
+    @Input()
     public activeButton: boolean = false;
 
     @Input()
-    public width: number = 24;
+    public width: number = 19;
 
     @Input()
-    public height: number = 25;
+    public height: number = 21;
 
     @Input()
     public customStyle: { [key: string]: string } = { '': '' };

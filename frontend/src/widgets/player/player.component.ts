@@ -35,12 +35,17 @@ export class PlayerComponent  {
     public speedButtonState: number | undefined = 0.1;
     public chapterWindowState: boolean = false;
 
+    public playerWindow: 'full' | 'bottom' | 'none' = 'bottom';
+
 
     constructor(private _audioService: AudioService, cloudService: CloudService, private _cdr: ChangeDetectorRef) {
         cloudService.getBook(this.bookId).subscribe(book => {
             this.files = book.parts;
             this.nameBook = book.name;
             this.imageUrl = book.imageSrc;
+
+            // это для теста, потом убрать
+            this.files[0].audioSrc = './assets/01.mp3';
 
             this._audioService.init();
             this.openFile(this.files[0], 0);
@@ -127,6 +132,7 @@ export class PlayerComponent  {
      */
     public stop(): void {
         this._audioService.stop();
+        this.playerWindow = 'none';
     }
 
     /**
@@ -184,5 +190,16 @@ export class PlayerComponent  {
      */
     public toggleChapter(): void {
         this.chapterWindowState = !this.chapterWindowState;
+    }
+
+    /**
+     * Переключает состояние окна плеера.
+     */
+    public togglePlayerWindow(): void {
+        if (this.playerWindow === 'bottom') {
+            this.playerWindow = 'full';
+        } else {
+            this.playerWindow = 'bottom';
+        }
     }
 }
