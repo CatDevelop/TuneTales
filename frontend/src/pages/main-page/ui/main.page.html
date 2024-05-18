@@ -1,1 +1,5 @@
-<p>main.page works!</p>
+<ng-container *ngIf="books">
+    <app-card-slider
+        [books]="(books | async) ?? []"
+    />
+</ng-container>

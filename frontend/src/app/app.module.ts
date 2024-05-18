@@ -15,9 +15,9 @@ import { HttpService } from '../shared/global-services/request/http.service';
 import { RegistrationService } from '../pages/register-page/services/registration.service';
 import { AuthorizationService } from '../pages/authorization-page/services/authorization.service';
 import { SessionStorageService } from '../pages/authorization-page/services/session-storage.service';
-import { MainPage } from '../pages/main-page/ui/main.page';
-import { BookCardComponent } from '../entities/Book/ui/book-card/book-card.component';
 import { NgOptimizedImage } from '@angular/common';
+import { CardSliderModule } from '../features/card-slider/ui/card-slider/card-slider.module';
+import { MainPageModule } from '../pages/main-page/ui/main.page.module';
 
 @NgModule({
     declarations: [
@@ -25,8 +25,6 @@ import { NgOptimizedImage } from '@angular/common';
         AuthorizationPage,
         NavbarComponent,
         RegisterPage,
-        MainPage,
-        BookCardComponent
     ],
     imports: [
         TuiButtonModule,
@@ -40,7 +38,9 @@ import { NgOptimizedImage } from '@angular/common';
         ReactiveFormsModule,
         TuiLinkModule,
         FormsModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        CardSliderModule,
+        MainPageModule,
     ],
     providers: [
         HttpService,

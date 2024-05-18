@@ -11,9 +11,6 @@ export class BookCardComponent {
     @Input()
     public book: IBook | undefined = undefined;
 
-    @Input()
-    public isForSlider: boolean = false;
-
     public get authorFullName(): string {
         return this.book?.authors[0].firstName + ' ' + this.book?.authors[0].secondName;
     };

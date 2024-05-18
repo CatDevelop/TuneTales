@@ -1,0 +1,31 @@
+<div
+    tuiCarouselButtons
+    class="wrapper"
+>
+    <button
+        icon="tuiIconChevronLeftLarge"
+        title="Previous"
+        tuiIconButton
+        type="button"
+        (click)="carousel.prev()"
+    ></button>
+    <tui-carousel
+        [itemsCount]="1"
+        #carousel
+        class="carousel"
+    >
+        <ng-container *ngFor="let book of books">
+            <app-book-card
+                *tuiItem
+                [book]="book"
+            />
+        </ng-container>
+    </tui-carousel>
+    <button
+        icon="tuiIconChevronRightLarge"
+        title="Next"
+        tuiIconButton
+        type="button"
+        (click)="carousel.next()"
+    ></button>
+</div>

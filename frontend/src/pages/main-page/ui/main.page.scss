@@ -1,0 +1,26 @@
+:host {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    :host {
+        grid-column: 1;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    :host {
+        grid-column-start: 3;
+        grid-column-end: 7;
+        height: 100%;
+    }
+}
+
+@media (min-width: 1280px) {
+    :host {
+        grid-column-start: 3;
+        grid-column-end: 11;
+        height: 100%;
+    }
+}
