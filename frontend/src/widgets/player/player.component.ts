@@ -51,10 +51,11 @@ export class PlayerComponent  {
         cloudService.getBook(this.bookId).subscribe(book => {
             this.files = book.parts;
             this.nameBook = book.name;
-            this.imageUrl = book.imageSrc;
+            this.imageUrl = 'https://cv8.litres.ru/pub/c/cover_330/63361982.jpg';
 
             // это для теста, потом убрать
             this.files[0].audioSrc = './assets/01.mp3';
+
             //
 
             this._audioService.init();

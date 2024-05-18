@@ -29,7 +29,8 @@ import { PlayerModule } from '../widgets/player/player.module';
         AppComponent,
         AuthorizationPage,
         NavbarComponent,
-        RegisterPage
+        RegisterPage,
+
     ],
     imports: [
         FormsModule,
@@ -51,7 +52,8 @@ import { PlayerModule } from '../widgets/player/player.module';
         TuiDataListWrapperModule,
         TuiTextfieldControllerModule,
 
-        PlayerModule
+        PlayerModule,
+
     ],
     providers: [
         HttpService,

@@ -1,0 +1,36 @@
+<div *ngIf="type === 'left'" class="rewind-container">
+    <button
+        (click)="toggleButton($event)"
+        (mousedown)="shrink()"
+        (mouseup)="restore()"
+        (touchstart)="shrink()"
+        (touchend)="restore()"
+        type="button"
+        class="rewind-button">
+
+        <img
+            src="/assets/leftRewind-button.svg"
+            alt="pause button"
+            width="{{ widhtButton }}"
+            height="{{ heihtButton }}">
+    </button>
+</div>
+
+<div *ngIf="type === 'right'" class="rewind-container">
+    <button
+        (click)="toggleButton($event)"
+        (mousedown)="shrink()"
+        (mouseup)="restore()"
+        (touchstart)="shrink()"
+        (touchend)="restore()"
+        type="button"
+        class="rewind-button">
+
+        <img
+            src="./assets/rightRewind-button.svg"
+            alt="pause button"
+            width="{{ widhtButton }}"
+            height="{{ heihtButton }}">
+    </button>
+</div>
+

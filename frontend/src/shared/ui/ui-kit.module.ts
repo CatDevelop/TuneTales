@@ -6,6 +6,8 @@ import { SliderComponent } from './slider/slider.component';
 import { SmallPlayButtonComponent } from './small-play-button/small-play-button.component';
 import { ClosePlayerComponent } from './close-player/close-player.component';
 import { BottomPlayerProgressComponent } from './bottom-player-progress/bottom-player-progress.component';
+import { PlayButtonComponent } from './play-button/play-button.component';
+import { RewindArrowComponent } from './rewind-arrow/rewind-arrow.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule, TuiSliderModule } from '@taiga-ui/kit';
@@ -30,7 +32,9 @@ import { CommonModule } from '@angular/common';
         ButtonComponent,
         SmallPlayButtonComponent,
         ClosePlayerComponent,
-        BottomPlayerProgressComponent
+        BottomPlayerProgressComponent,
+        PlayButtonComponent,
+        RewindArrowComponent
     ],
     exports: [
         SelectSleepTimeComponent,
@@ -39,7 +43,9 @@ import { CommonModule } from '@angular/common';
         ButtonComponent,
         SmallPlayButtonComponent,
         ClosePlayerComponent,
-        BottomPlayerProgressComponent
+        BottomPlayerProgressComponent,
+        PlayButtonComponent,
+        RewindArrowComponent
     ]
 })
 

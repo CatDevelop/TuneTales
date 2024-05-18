@@ -21,12 +21,13 @@
 
     <div class="player-controls">
         <div class="player-controls__wrapper" >
-            <app-toggle-rewind (click)="audioRewindBack(15)" type="left"/>
-            <app-togle-play
-                [activeButtonState]="this.state.playing || false"
-                (playEvent)="play()"
-                (pauseEvent)="pause()"/>
-            <app-toggle-rewind (click)="audioRewindNext(15)" type="right"/>
+
+            <app-rewind-arrow (eventClick)="audioRewindBack(15)" type="left"/>
+            <app-play-button
+                [activeButton]="this.state.playing || false"
+                (eventClick)="this.state.playing ? pause() : play()"
+            />
+            <app-rewind-arrow (eventClick)="audioRewindNext(15)" type="right"/>
         </div>
     </div>
 

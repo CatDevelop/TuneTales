@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/features/Player/lib/averageColor.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Player/lib/cloud.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/lib/cloud.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/player-control.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/player-control.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-play-button/togle-play.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-rewind/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-rewind/toggle-rewind.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-rewind/toggle-rewind.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/ui/toggle-rewind/toggle-rewind.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/ui-kit.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/ui-kit.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.ts" afterDir="false" />
     </list>
@@ -115,7 +123,7 @@
       <workItem from="1715749609035" duration="3527000" />
       <workItem from="1715794786034" duration="25056000" />
       <workItem from="1715924467118" duration="33640000" />
-      <workItem from="1716032683101" duration="14763000" />
+      <workItem from="1716032683101" duration="20147000" />
     </task>
     <servers />
   </component>
