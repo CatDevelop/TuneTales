@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/features/Player/lib/averageColor.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/bottom-player-progress/bottom-player-progress.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/bottom-player-progress/bottom-player-progress.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/bottom-player-progress/bottom-player-progress.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/small-play-button/small-play-button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/small-play-button/small-play-button.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/lib/cloud.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/lib/cloud.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +115,7 @@
       <workItem from="1715749609035" duration="3527000" />
       <workItem from="1715794786034" duration="25056000" />
       <workItem from="1715924467118" duration="33640000" />
-      <workItem from="1716032683101" duration="10717000" />
+      <workItem from="1716032683101" duration="14763000" />
     </task>
     <servers />
   </component>

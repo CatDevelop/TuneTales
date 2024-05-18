@@ -1,7 +1,8 @@
-import {Component, ChangeDetectorRef, afterNextRender, Input} from '@angular/core';
+import {Component, ChangeDetectorRef, afterNextRender, Input, ViewChild, ElementRef} from '@angular/core';
 import { AudioService } from '../../features/Player';
 import { CloudService } from '../../features/Player';
 import { IStreamState } from '../../features/Player';
+import { AverageColorService } from '../../features/Player/lib/averageColor.service';
 import { Subscription } from 'rxjs';
 import { IAudioChapter } from '../../shared/model/types';
 
@@ -11,12 +12,16 @@ import { IAudioChapter } from '../../shared/model/types';
     styleUrl: './player.component.scss'
 })
 export class PlayerComponent  {
+    @ViewChild('bookImage', { static: false })
+    public bookImage!: ElementRef;
+
     @Input()
     public bookId: string = 'cbee54c5-1ae8-4e98-abd5-b66808b4ab09';
 
     public files: IAudioChapter[] = [];
     public imageUrl: string = '';
     public nameBook: string = '';
+    public backgrondColor: string = '#fffff';
 
     public state: IStreamState = {
         playing: false,
@@ -38,7 +43,11 @@ export class PlayerComponent  {
     public playerWindow: 'full' | 'bottom' | 'none' = 'bottom';
 
 
-    constructor(private _audioService: AudioService, cloudService: CloudService, private _cdr: ChangeDetectorRef) {
+    constructor(
+        private _audioService: AudioService,
+        cloudService: CloudService,
+        private _cdr: ChangeDetectorRef,
+        private _averageColor: AverageColorService) {
         cloudService.getBook(this.bookId).subscribe(book => {
             this.files = book.parts;
             this.nameBook = book.name;
@@ -46,10 +55,16 @@ export class PlayerComponent  {
 
             // это для теста, потом убрать
             this.files[0].audioSrc = './assets/01.mp3';
+            //
 
             this._audioService.init();
             this.openFile(this.files[0], 0);
             this.pause();
+
+            this._averageColor.getAverageColor(this.imageUrl).subscribe(hex => {
+                this.backgrondColor = hex;
+                console.log(this.backgrondColor);
+            });
         });
 
         this._audioService.getState()
@@ -120,7 +135,6 @@ export class PlayerComponent  {
             this.sleepTimerState = n;
 
             if (n === '00:00') {
-                console.log('exit')
                 this.sleepTimerState = undefined;
                 this.pause();
             }

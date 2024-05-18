@@ -1,8 +1,8 @@
-<div *ngIf="playerWindow === 'full'" class="player">
+<div *ngIf="playerWindow === 'full'" class="player" [ngStyle]="{'background': 'linear-gradient(180deg, ' + backgrondColor + ' 0%, #fff 50%)'}">
     <app-button class="back-button" (eventClick)="togglePlayerWindow()" width=18 height=24 imageUrl="./assets/back-button.svg"/>
 
     <div class="player-image__container">
-        <img class="player-image" src="{{imageUrl}}"/>
+        <img id="bookImage" class="player-image" src="{{imageUrl}}"/>
     </div>
 
 

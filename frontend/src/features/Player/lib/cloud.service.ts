@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {filter, map, Observable, of, take} from 'rxjs';
 import { PlayerControlModule } from '../player-control.module';
-import { IAudioChapter } from '../../../shared/model/types';
 import { HttpService  } from '../../../shared/global-services/request/http.service';
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
