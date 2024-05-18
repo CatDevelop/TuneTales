@@ -13,12 +13,12 @@ export class SleepTimerComponent {
     public valueChanged = new EventEmitter<number>();
 
     /**
-     * Обработчик события изменения значения элемента.
-     * @param {Event} event - Событие изменения значения элемента.
-     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
+     * Генерирует событие при изменении значения.
+     *
+     * @param {number} value - Новое значение для генерации события.
      * @returns {void}
      */
-    public onChange(value: any): void {
+    public onChange(value: number): void {
         this.valueChanged.emit(value);
     }
 }

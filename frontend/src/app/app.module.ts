@@ -14,7 +14,7 @@ import {TuiDataListWrapperModule, TuiInputModule, TuiSelectModule, TuiSliderModu
 import {AuthorizationPage} from '../pages/authorization-page/ui/authorization.page';
 import {NavbarComponent} from '../widgets/navbar/navbar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import {RegisterPage} from '../pages/register-page/ui/register.page';
 import {HttpService} from '../shared/global-services/request/http.service';
 import {RegistrationService} from '../pages/register-page/services/registration.service';
@@ -22,7 +22,6 @@ import {AuthorizationService} from '../pages/authorization-page/services/authori
 import {SessionStorageService} from '../pages/authorization-page/services/session-storage.service';
 
 import { PlayerModule } from '../widgets/player/player.module';
-
 
 
 @NgModule({

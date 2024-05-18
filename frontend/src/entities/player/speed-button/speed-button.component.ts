@@ -13,12 +13,12 @@ export class SpeedButtonComponent {
     public valueChanged = new EventEmitter<number>();
 
     /**
-     * Обработчик события изменения значения элемента.
-     * @param {Event} event - Событие изменения значения элемента.
-     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
-     * @returns {void}
+     * Генерирует событие при изменении значения.
+     *
+     * @param {number} value - Новое значение, которое необходимо передать в событие.
+     * @returns {void} Метод не возвращает значения.
      */
-    public onChange(value: any): void {
+    public onChange(value: number): void {
         this.valueChanged.emit(value);
     }
 }

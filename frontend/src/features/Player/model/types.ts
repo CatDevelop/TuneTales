@@ -8,9 +8,3 @@ export interface IStreamState {
     error: boolean;
 }
 
-export interface IAudioChapter {
-    id: string;
-    name: string;
-    durationSeconds: number;
-    audioSrc: string;
-}

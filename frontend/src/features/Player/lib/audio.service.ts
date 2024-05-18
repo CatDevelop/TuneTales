@@ -10,7 +10,7 @@ import { PlayerControlModule } from '../player-control.module';
 })
 export class AudioService {
 
-    private audioObj: any;
+    private _audioObj!: HTMLAudioElement;
 
     private _stop: Subject<void> = new Subject<void>();
 
@@ -36,7 +36,7 @@ export class AudioService {
      * @returns {void}
      */
     public init(): void {
-        this.audioObj = new Audio();
+        this._audioObj = new Audio();
     }
 
     /**
@@ -54,7 +54,7 @@ export class AudioService {
      * @returns {void}
      */
     public play(): void {
-        this.audioObj.play();
+        this._audioObj.play();
     }
 
     /**
@@ -62,7 +62,7 @@ export class AudioService {
      * @returns {void}
      */
     public pause(): void {
-        this.audioObj.pause();
+        this._audioObj.pause();
     }
 
     /**
@@ -79,7 +79,7 @@ export class AudioService {
      * @returns {void}
      */
     public seekTo(seconds: number): void {
-        this.audioObj.currentTime = seconds;
+        this._audioObj.currentTime = seconds;
     }
 
     /**
@@ -88,7 +88,7 @@ export class AudioService {
      * @returns {void}
      */
     public speed(value: number): void {
-        this.audioObj.playbackRate = value;
+        this._audioObj.playbackRate = value;
     }
 
     /**
@@ -106,12 +106,13 @@ export class AudioService {
 
     /**
      * Форматирует время в миллисекундах в заданный формат.
-     * @param {number} [time=0] - Время в миллисекундах.
-     * @param {string} [format='HH:mm:ss'] - Формат времени.
+     * @param {number} [time=0] - Время в секундах.
+     * @param {string} [format='mm:ss'] - Формат времени.
      * @returns {string} Отформатированное время.
      */
-    public formatTime(time: number = 0, format: string = 'mm:ss'): any {
-        const momentTime: number = time * 1000;
+    public formatTime(time: number = 0, format: string = 'mm:ss'): string {
+        const momentTime: number = time * 1000; // Преобразование секунд в миллисекунды
+
         return moment.utc(momentTime).format(format);
     }
 
@@ -130,22 +131,22 @@ export class AudioService {
      */
     private streamObservable(url: string): Observable<Event> {
         return new Observable(observer => {
-            this.audioObj.src = url;
-            this.audioObj.load();
-            this.audioObj.play();
+            this._audioObj.src = url;
+            this._audioObj.load();
+            this._audioObj.play();
 
             const handler = (event: Event): void => {
                 this.updateStateEvents(event);
                 observer.next(event);
             };
 
-            this.addEvents(this.audioObj, this._audioEvents, handler);
+            this.addEvents(this._audioObj, this._audioEvents, handler);
 
             return () => {
-                this.audioObj.pause();
-                this.audioObj.currentTime = 0;
+                this._audioObj.pause();
+                this._audioObj.currentTime = 0;
 
-                this.removeEvents(this.audioObj, this._audioEvents, handler);
+                this.removeEvents(this._audioObj, this._audioEvents, handler);
 
                 this.resetState();
             };
@@ -156,13 +157,13 @@ export class AudioService {
      * Добавляет обработчики событий к указанному объекту для заданных событий.
      *
      * @private
-     * @param {any} obj - Объект, к которому будут добавлены обработчики событий.
+     * @param {HTMLAudioElement} obj - Объект, к которому будут добавлены обработчики событий.
      * @param {string[]} events - Массив названий событий, на которые нужно подписаться.
      * @param {(event: Event) => void} handler - Функция, которая будет выполнена при срабатывании события.
      *   Она принимает объект события в качестве параметра.
      * @returns {void}
      */
-    private addEvents(obj: any, events: string[], handler: (event: Event) => void): void {
+    private addEvents(obj: HTMLAudioElement, events: string[], handler: (event: Event) => void): void {
         events.forEach(event => {
             obj.addEventListener(event, handler);
         });
@@ -172,13 +173,13 @@ export class AudioService {
      * Удаляет обработчики событий с указанного объекта для заданных событий.
      *
      * @private
-     * @param {any} obj - Объект, с которого нужно удалить обработчики событий.
+     * @param {HTMLAudioElement} obj - Объект, с которого нужно удалить обработчики событий.
      * @param {string[]} events - Массив названий событий, для которых нужно удалить обработчики.
      * @param {(event: Event) => void} handler - Функция-обработчик, которая была привязана к событиям.
      *   Она принимает объект события в качестве параметра.
      * @returns {void}
      */
-    private removeEvents(obj: any, events: string[], handler: (event: Event) => void): void {
+    private removeEvents(obj: HTMLAudioElement, events: string[], handler: (event: Event) => void): void {
         events.forEach(event => {
             obj.removeEventListener(event, handler);
         });
@@ -193,7 +194,7 @@ export class AudioService {
     private updateStateEvents(event: Event): void {
         switch (event.type) {
             case 'canplay':
-                this._state.duration = this.audioObj.duration;
+                this._state.duration = this._audioObj.duration;
                 this._state.readableDuration = this.formatTime(this._state.duration);
                 this._state.canplay = true;
                 break;
@@ -204,7 +205,7 @@ export class AudioService {
                 this._state.playing = false;
                 break;
             case 'timeupdate':
-                this._state.currentTime = this.audioObj.currentTime;
+                this._state.currentTime = this._audioObj.currentTime;
                 this._state.readableCurrentTime = this.formatTime(this._state.currentTime);
                 break;
             case 'error':

@@ -3,10 +3,14 @@ import { ButtonComponent } from './player-button/button.component';
 import { SelectSleepTimeComponent } from './select-sleep-time/select-sleep-time.component';
 import { SelectSpeedComponent } from './select-speed/select-speed.component';
 import { SliderComponent } from './slider/slider.component';
+import { SmallPlayButtonComponent } from './small-play-button/small-play-button.component';
+import { ClosePlayerComponent } from './close-player/close-player.component';
+import { BottomPlayerProgressComponent } from './bottom-player-progress/bottom-player-progress.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule, TuiSliderModule } from '@taiga-ui/kit';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     imports: [
@@ -16,19 +20,26 @@ import { BrowserModule } from '@angular/platform-browser';
         TuiSliderModule,
         TuiDataListWrapperModule,
         ReactiveFormsModule,
-        BrowserModule
+        BrowserModule,
+        CommonModule
     ],
     declarations: [
         SelectSleepTimeComponent,
         SelectSpeedComponent,
         SliderComponent,
-        ButtonComponent
+        ButtonComponent,
+        SmallPlayButtonComponent,
+        ClosePlayerComponent,
+        BottomPlayerProgressComponent
     ],
     exports: [
         SelectSleepTimeComponent,
         SelectSpeedComponent,
         SliderComponent,
-        ButtonComponent
+        ButtonComponent,
+        SmallPlayButtonComponent,
+        ClosePlayerComponent,
+        BottomPlayerProgressComponent
     ]
 })
 

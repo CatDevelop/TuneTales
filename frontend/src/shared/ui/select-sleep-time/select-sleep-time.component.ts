@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ITimeEntry } from '../../model/types';
 
 @Component({
     selector: 'app-select-sleep-time',
@@ -6,20 +7,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
     styleUrl: './select-sleep-time.component.scss'
 })
 export class SelectSleepTimeComponent {
-    @Output()
-    public valueChanged = new EventEmitter<number>();
-
-    /**
-     * Обработчик события изменения значения элемента.
-     * @param {Event} event - Событие изменения значения элемента.
-     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
-     * @returns {void}
-     */
-    public onChange(event: any): void {
-        this.valueChanged.emit(event.target.value);
-    }
-
-    public times = [
+    public times: ITimeEntry[] = [
         { time: 60, name: '1 минута' },
         { time: 900, name: '15 минут' },
         { time: 1800, name: '30 минут' },
@@ -30,4 +18,17 @@ export class SelectSleepTimeComponent {
     ];
 
     public defaultTime: number = 0;
+
+    @Output()
+    public valueChanged = new EventEmitter<number>();
+
+    /**
+     * Обработчик события изменения значения элемента.
+     * @param {Event} event - Событие изменения значения элемента.
+     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
+     * @returns {void}
+     */
+    public onChange(event: Event): void {
+        this.valueChanged.emit(Number((event?.target as HTMLInputElement).value));
+    }
 }

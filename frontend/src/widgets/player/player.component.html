@@ -1,11 +1,14 @@
-<div class="container">
+<div class="player">
     <app-button class="back-button" (eventClick)="toggleChapter()" width=18 height=24 imageUrl="./assets/back-button.svg"/>
 
-    <img src="/assets/book.png"/>
+    <div class="player-image__container">
+        <img class="player-image" src="{{imageUrl}}"/>
+    </div>
 
-    <div class="about">
-        <p class="about-title">{{ currentFile?.file?.name}}</p>
-        <p class="about-name">Стеллар. Трибут</p>
+
+    <div class="player-about">
+        <p class="player-about__title">{{ currentFile?.file?.name}}</p>
+        <p class="player-about__name">{{nameBook}}</p>
     </div>
 
     <app-slider-rewind
@@ -16,8 +19,8 @@
         (valueChange)="onSliderChangeEnd($event)"
     />
 
-    <div class="controls">
-        <div class="controls_wrapper">
+    <div class="player-controls">
+        <div class="player-controls__wrapper">
             <app-toggle-rewind (click)="audioRewindBack(15)" type="left"/>
             <app-togle-play
                 [activeButtonState]="this.state.playing || false"
@@ -27,7 +30,7 @@
         </div>
     </div>
 
-    <div class="container-tools">
+    <div class="player-container__tools">
         <app-speed-button (valueChanged)="speed($event)" [speedButtonState]="speedButtonState"></app-speed-button>
         <app-sleep-timer (valueChanged)="sleepTimer($event)" [sleepTimerState]="sleepTimerState"></app-sleep-timer>
         <app-button (eventClick)="toggleChapter()" width=23 height=17 imageUrl="./assets/selectChapter-button.svg"/>
@@ -37,8 +40,22 @@
     <app-chapters
         *ngIf="chapterWindowState"
         [files]="files"
-        [currentIndexFile]="currentFile.index"
+        [currentIndexFile]="currentFile?.index || 0"
         (valueChanged)="openFile($event.file, $event.index)"
         (stateChapterChanged)="toggleChapter()"
 ></app-chapters>
+</div>
+
+<div class="bottom-player">
+    <app-bottom-player-progress></app-bottom-player-progress>
+
+    <img src="{{imageUrl}}"/>
+
+    <div class="bottom-player__about">
+        <p class="bottom-player_about__title">{{ currentFile?.file?.name}}</p>
+        <p class="bottom-player_about__name">{{nameBook}}</p>
+    </div>
+
+    <app-small-play-button></app-small-play-button>
+    <app-close-player></app-close-player>
 </div>

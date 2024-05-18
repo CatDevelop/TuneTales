@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ISpeedEntry } from '../../model/types';
 
 @Component({
     selector: 'app-select-speed',
@@ -6,20 +7,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
     styleUrl: './select-speed.component.scss'
 })
 export class SelectSpeedComponent {
-    @Output()
-    public valueChanged = new EventEmitter<number>();
-
-    /**
-     * Обработчик события изменения значения элемента.
-     * @param {Event} event - Событие изменения значения элемента.
-     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
-     * @returns {void}
-     */
-    public onChange(event: any): void {
-        this.valueChanged.emit(event.target.value);
-    }
-
-    public speeds = [
+    public speeds: ISpeedEntry[] = [
         { speed: 0.75, name: '0.75x' },
         { speed: 1, name: '1x' },
         { speed: 1.25, name: '1.25x' },
@@ -31,4 +19,17 @@ export class SelectSpeedComponent {
     ];
 
     public defaultSpeed: number = 1;
+
+    @Output()
+    public valueChanged = new EventEmitter<number>();
+
+    /**
+     * Обработчик события изменения значения элемента.
+     * @param {Event} event - Событие изменения значения элемента.
+     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
+     * @returns {void}
+     */
+    public onChange(event: Event): void {
+        this.valueChanged.emit(Number((event?.target as HTMLInputElement).value));
+    }
 }

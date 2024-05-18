@@ -10,7 +10,7 @@
             [ngClass]="{'chapter-item__active': i === currentIndexFile}">
             <div class="chapter-item__wrapper">
                 <p class="chapter-name">{{ file.name }}</p>
-                <p class="chapter-time">04:28</p>
+                <p class="chapter-time">{{ formatTime(file?.durationSeconds || 0) }}</p>
             </div>
         </li>
     </ul>

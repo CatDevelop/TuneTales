@@ -1,4 +1,14 @@
 <div >
-    <app-button *ngIf="activeButtonState" (eventClick)="toggleButton($event)" width=72 height=72 imageUrl="{{activePlayerUrl}}"/>
-    <app-button *ngIf="!activeButtonState" (eventClick)="toggleButton($event)" width=72 height=72 imageUrl="{{pausePlayerUrl}}"/>
+    <app-button
+        [ngClass]="{'active': activeButtonState, 'inactive': !activeButtonState}"
+        (eventClick)="toggleButton($event)"
+        width=72
+        height=72
+        imageUrl="{{ activePlayerUrl }}"/>
+    <app-button
+        [ngClass]="{'active': !activeButtonState, 'inactive': activeButtonState}"
+        (eventClick)="toggleButton($event)"
+        width=72
+        height=72
+        imageUrl="{{ pausePlayerUrl }}"/>
 </div>
