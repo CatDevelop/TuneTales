@@ -1,0 +1,30 @@
+<div
+    class="bottom-player"
+    *ngIf="playerWindow === 'bottom'">
+
+    <app-bottom-player-progress
+        [maxTime]="duration"
+        [currentTime]="currentTime"
+    ></app-bottom-player-progress>
+
+    <div class="bottom-player__wrapper">
+        <div (click)="togglePlayerWindow()" class="bottom-player__wrapper_info">
+            <img class="bottom-player__wrapper_image" [src]="imageUrl"/>
+
+            <div class="bottom-player__wrapper_about">
+                <p class="bottom-player__wrapper_title">{{ nameChapter }}</p>
+                <p class="bottom-player__wrapper_name">{{ nameBook }}</p>
+            </div>
+        </div>
+
+        <div class="bottom-player__controllers">
+            <app-small-play-button
+                [activeButton]="playing"
+                (eventClick)="playing? pause() : play()"
+            ></app-small-play-button>
+            <app-close-player
+                (eventClick)="stop()"
+            ></app-close-player>
+        </div>
+    </div>
+</div>

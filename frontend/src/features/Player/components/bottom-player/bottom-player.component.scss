@@ -1,0 +1,52 @@
+.bottom-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+
+    &__wrapper {
+        display: flex;
+        padding: 10px 20px 10px 20px;
+        align-items: center;
+
+        &_info {
+            display: flex;
+            align-items: center;
+        }
+
+        &_image {
+            height: 45px;
+            box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.13);
+            border-radius: 5px;
+        }
+
+        &_title {
+            margin-left: 20px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #14121d;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &_name {
+            margin-left: 20px;
+            font-weight: 400;
+            font-size: 14px;
+            color: #c2c2c2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    &__controllers {
+        margin-left: auto;
+        display: flex;
+        width: 65px;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

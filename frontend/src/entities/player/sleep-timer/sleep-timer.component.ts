@@ -10,7 +10,7 @@ export class SleepTimerComponent {
     public sleepTimerState: string | undefined = undefined;
 
     @Output()
-    public valueChanged = new EventEmitter<number>();
+    public valueChanged: EventEmitter<number> = new EventEmitter<number>();
 
     /**
      * Генерирует событие при изменении значения.

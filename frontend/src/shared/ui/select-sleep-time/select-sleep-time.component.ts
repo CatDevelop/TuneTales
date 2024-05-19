@@ -20,7 +20,7 @@ export class SelectSleepTimeComponent {
     public defaultTime: number = 0;
 
     @Output()
-    public valueChanged = new EventEmitter<number>();
+    public valueChanged: EventEmitter<number> = new EventEmitter<number>();
 
     /**
      * Обработчик события изменения значения элемента.
@@ -28,7 +28,7 @@ export class SelectSleepTimeComponent {
      * @emits {string} valueChanged - Генерируется при изменении значения элемента.
      * @returns {void}
      */
-    public onChange(event: Event): void {
+    public onChange(event: MouseEvent | Event): void {
         this.valueChanged.emit(Number((event?.target as HTMLInputElement).value));
     }
 }

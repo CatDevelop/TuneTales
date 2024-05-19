@@ -23,14 +23,12 @@ import {SessionStorageService} from '../pages/authorization-page/services/sessio
 
 import { PlayerModule } from '../widgets/player/player.module';
 
-
 @NgModule({
     declarations: [
         AppComponent,
         AuthorizationPage,
         NavbarComponent,
-        RegisterPage,
-
+        RegisterPage
     ],
     imports: [
         FormsModule,

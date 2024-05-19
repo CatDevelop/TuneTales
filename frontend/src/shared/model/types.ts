@@ -44,3 +44,8 @@ export interface IBook {
     parts: IPart[];
     series: any[];
 }
+
+export interface IOpenFile {
+    file: IAudioChapter,
+    index: number
+}

@@ -1,10 +1,11 @@
-import {Component, ChangeDetectorRef, afterNextRender, Input, ViewChild, ElementRef} from '@angular/core';
+import {Component, ChangeDetectorRef, afterNextRender, Input, ViewChild, ElementRef, DestroyRef} from '@angular/core';
 import { AudioService } from '../../features/Player';
 import { CloudService } from '../../features/Player';
 import { IStreamState } from '../../features/Player';
 import { AverageColorService } from '../../features/Player/lib/averageColor.service';
-import { Subscription } from 'rxjs';
+import { Subscription, switchMap, tap } from 'rxjs';
 import { IAudioChapter } from '../../shared/model/types';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-player',
@@ -36,9 +37,9 @@ export class PlayerComponent  {
 
     private _sleepTimerSubscription: Subscription | undefined = undefined;
 
-    public sleepTimerState: string | undefined = undefined;
-    public speedButtonState: number | undefined = 0.1;
-    public chapterWindowState: boolean = false;
+    public sleepTimerButton: string | undefined = undefined;
+    public speedButton: number | undefined = 0.1;
+    public chapterWindow: boolean = false;
 
     public playerWindow: 'full' | 'bottom' | 'none' = 'bottom';
 
@@ -47,26 +48,36 @@ export class PlayerComponent  {
         private _audioService: AudioService,
         cloudService: CloudService,
         private _cdr: ChangeDetectorRef,
-        private _averageColor: AverageColorService) {
-        cloudService.getBook(this.bookId).subscribe(book => {
-            this.files = book.parts;
-            this.nameBook = book.name;
-            this.imageUrl = 'https://cv8.litres.ru/pub/c/cover_330/63361982.jpg';
+        private _averageColor: AverageColorService,
+        private _destroyRef: DestroyRef
+    ) {
 
-            // это для теста, потом убрать
-            this.files[0].audioSrc = './assets/01.mp3';
+        cloudService.getBook(this.bookId)
+            .pipe(
+                tap(book => {
+                    this.files = book.parts;
+                    this.nameBook = book.name;
+                    this.imageUrl = book.imageSrc;
 
-            //
+                    // это для теста, потом убрать
+                    this.files[0].audioSrc = './assets/01.mp3';
 
-            this._audioService.init();
-            this.openFile(this.files[0], 0);
-            this.pause();
+                    //
 
-            this._averageColor.getAverageColor(this.imageUrl).subscribe(hex => {
-                this.backgrondColor = hex;
-                console.log(this.backgrondColor);
-            });
-        });
+                    this._audioService.init();
+                    this.openFile(this.files[0], 0);
+                    this.pause();
+                }),
+                switchMap(book => {
+                    return this._averageColor.getAverageColor(this.imageUrl);
+                }),
+                tap(hex => {
+                    this.backgrondColor = hex;
+                }),
+                takeUntilDestroyed(this._destroyRef)
+            )
+            .subscribe();
+
 
         this._audioService.getState()
             .subscribe(state => {
@@ -118,7 +129,7 @@ export class PlayerComponent  {
      * @param {number} value - Новая скорость.
      */
     public speed(value: number): void {
-        this.speedButtonState = value;
+        this.speedButton = value;
         this._audioService.speed(value);
     }
 
@@ -127,16 +138,17 @@ export class PlayerComponent  {
      * @param {number} value - Время в минутах.
      */
     public sleepTimer(value: number): void {
+        console.log(value);
         if (this._sleepTimerSubscription) {
             this._sleepTimerSubscription.unsubscribe();
         }
 
         this._sleepTimerSubscription = this._audioService.sleepTimer(value).subscribe(n => {
             this._cdr.detectChanges();
-            this.sleepTimerState = n;
+            this.sleepTimerButton = n;
 
             if (n === '00:00') {
-                this.sleepTimerState = undefined;
+                this.sleepTimerButton = undefined;
                 this.pause();
             }
         });
@@ -204,7 +216,7 @@ export class PlayerComponent  {
      * Переключает состояние окна выбора главы.
      */
     public toggleChapter(): void {
-        this.chapterWindowState = !this.chapterWindowState;
+        this.chapterWindow = !this.chapterWindow;
     }
 
     /**

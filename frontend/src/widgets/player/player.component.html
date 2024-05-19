@@ -1,76 +1,47 @@
-<div *ngIf="playerWindow === 'full'" class="player" [ngStyle]="{'background': 'linear-gradient(180deg, ' + backgrondColor + ' 0%, #fff 50%)'}">
-    <app-button class="back-button" (eventClick)="togglePlayerWindow()" width=18 height=24 imageUrl="./assets/back-button.svg"/>
+<app-bottom-player
+    [playerWindow]="playerWindow"
+    [currentTime]="state.currentTime || 0"
+    [duration]="state.duration || 0"
+    [nameChapter]="currentFile?.file?.name || ''"
+    [nameBook]="nameBook"
+    [imageUrl]="imageUrl"
+    [playing]="state.playing"
 
-    <div class="player-image__container">
-        <img id="bookImage" class="player-image" src="{{imageUrl}}"/>
-    </div>
+    (eventPlayerWindow)="togglePlayerWindow()"
+    (eventPause)="pause()"
+    (eventPlay)="play()"
+    (eventStop)="stop()"
+/>
 
+<app-full-player
+    [playerWindow]="playerWindow"
+    [backgrondColor]="backgrondColor"
+    [nameChapter]="currentFile?.file?.name || ''"
+    [nameBook]="nameBook"
+    [imageUrl]="imageUrl"
 
-    <div class="player-about">
-        <p class="player-about__title">{{ currentFile?.file?.name}}</p>
-        <p class="player-about__name">{{nameBook}}</p>
-    </div>
+    [readableCurrentTime]="state.readableCurrentTime || '00:00'"
+    [readableDuration]="state.readableDuration || '00:00'"
+    [currentTime]="state.currentTime || 0"
+    [duration]="state.duration || 0"
 
-    <app-slider-rewind
-        startTime="{{ state.readableCurrentTime || '00:00' }}"
-        endTime="{{ state.readableDuration || '00:00' }}"
-        [currentTime]="state.currentTime || 0"
-        [maxTime]="state.duration || 0"
-        (valueChange)="onSliderChangeEnd($event)"
-    />
+    [speedButton]="speedButton"
+    [sleepTimerButton]="sleepTimerButton"
 
-    <div class="player-controls">
-        <div class="player-controls__wrapper" >
+    [playing]="state.playing"
 
-            <app-rewind-arrow (eventClick)="audioRewindBack(15)" type="left"/>
-            <app-play-button
-                [activeButton]="this.state.playing || false"
-                (eventClick)="this.state.playing ? pause() : play()"
-            />
-            <app-rewind-arrow (eventClick)="audioRewindNext(15)" type="right"/>
-        </div>
-    </div>
+    [chapterWindow]="chapterWindow"
+    [files]="files"
+    [currentFile]="currentFile?.index || 0"
 
-    <div class="player-container__tools">
-        <app-speed-button (valueChanged)="speed($event)" [speedButtonState]="speedButtonState"></app-speed-button>
-        <app-sleep-timer (valueChanged)="sleepTimer($event)" [sleepTimerState]="sleepTimerState"></app-sleep-timer>
-        <app-button (eventClick)="toggleChapter()" width=23 height=17 imageUrl="./assets/selectChapter-button.svg"/>
-    </div>
-
-
-    <app-chapters
-        *ngIf="chapterWindowState"
-        [files]="files"
-        [currentIndexFile]="currentFile?.index || 0"
-        (valueChanged)="openFile($event.file, $event.index)"
-        (stateChapterChanged)="toggleChapter()"
-></app-chapters>
-</div>
-
-<div *ngIf="playerWindow === 'bottom'" class="bottom-player">
-    <app-bottom-player-progress
-        [maxTime]="state.duration || 0"
-        [currentTime]="state.currentTime || 0"
-    ></app-bottom-player-progress>
-
-    <div class="bottom-player__wrapper">
-        <div (click)="togglePlayerWindow()" class="bottom-player__info">
-            <img class="bottom-player__image" src="{{imageUrl}}"/>
-
-            <div class="bottom-player__about">
-                <p class="bottom-player_about__title">{{ currentFile?.file?.name}}</p>
-                <p class="bottom-player_about__name">{{nameBook}}</p>
-            </div>
-        </div>
-
-        <div class="bottom-player__controllers">
-            <app-small-play-button
-                [activeButton]="this.state.playing"
-                (eventClick)="this.state.playing ? pause() : play()"
-            ></app-small-play-button>
-            <app-close-player
-                (eventClick)="stop()"
-            ></app-close-player>
-        </div>
-    </div>
-</div>
+    (eventPlayerWindow)="togglePlayerWindow()"
+    (eventSliderChange)="onSliderChangeEnd($event)"
+    (eventAudioRewindBack)="audioRewindBack(15)"
+    (eventAudioRewindNext)="audioRewindNext(15)"
+    (eventPause)="pause()"
+    (eventPlay)="play()"
+    (eventSleepTimer)="sleepTimer($event)"
+    (eventSpeed)="speed($event)"
+    (eventToggleChapter)="toggleChapter()"
+    (eventOpenFile)="openFile($event.file, $event.index)"
+/>
