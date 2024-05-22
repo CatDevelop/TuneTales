@@ -1,6 +1,6 @@
 [build]
   publish = "dist/tune-tales"
-  command = "ng build --prod"
+  command = "ng build --configuration=production"
 [[redirects]]
   from = "/*"
   to = "/index.html"
