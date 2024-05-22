@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/tune-tales"
+  publish = "dist/tune-tales/browser"
   command = "ng build --configuration=production"
 [[redirects]]
   from = "/*"
