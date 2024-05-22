@@ -1,0 +1,26 @@
+.sleep-timer {
+    position: relative;
+    height: 44px;
+    width: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_select {
+
+        position: absolute;
+        z-index: 1;
+    }
+
+    &_text {
+        position: absolute;
+        z-index: 0;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    &_icon {
+
+    }
+}

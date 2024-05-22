@@ -1,4 +1,34 @@
-<select (change)="onChange($event)" [(ngModel)]="defaultTime">
-    <option *ngFor="let item of times" [value]="item.time">{{item.name}}</option>
-</select>
+<div class="sleep-timer">
+    <tui-root class="sleep-timer_select">
+        <form class="b-form"
+              [ngStyle]="{width: '55px', overflow: 'hidden'}">
+            <tui-select
+                tuiTextfieldSize="s"
+                [formControl]="testValue"
+                (ngModelChange)="onValueChange($event.time)"
+                [ngStyle]="{opacity: 0, width: '150px'}"
+            >
+                Character
+                <tui-data-list-wrapper
+                    *tuiDataList
+                    [items]="times"
+                ></tui-data-list-wrapper>
+            </tui-select>
+        </form>
+    </tui-root>
+
+    <p class="sleep-timer_text"
+       *ngIf="sleepTimerValue"
+        [ngStyle]="{color: color === 'white' ? '#ffffff' : '#14121d'}"
+    >{{sleepTimerValue}}</p>
+    <img
+        class="sleep-timer_icon"
+        [ngStyle]="color === 'white' ? {filter: 'invert(100%) brightness(1000%)'} : {}"
+        *ngIf="!sleepTimerValue"
+        [width]="width"
+        [height]="height"
+        src="./assets/sleep-button.svg"
+        alt="sleep button"/>
+</div>
+
 

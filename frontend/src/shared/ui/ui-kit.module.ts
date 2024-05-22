@@ -11,19 +11,28 @@ import { RewindArrowComponent } from './rewind-arrow/rewind-arrow.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule, TuiSliderModule } from '@taiga-ui/kit';
+import { TuiDataListModule, TuiLabelModule, TuiRootModule, TuiTextfieldControllerModule  } from '@taiga-ui/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
+        BrowserAnimationsModule,
         FormsModule,
         TuiSelectModule,
         TuiInputModule,
         TuiSliderModule,
         TuiDataListWrapperModule,
+        TuiDataListModule,
         ReactiveFormsModule,
         BrowserModule,
-        CommonModule
+        CommonModule,
+        TuiLabelModule,
+
+        TuiRootModule,
+        TuiTextfieldControllerModule,
+
     ],
     declarations: [
         SelectSleepTimeComponent,

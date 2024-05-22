@@ -1,12 +1,40 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import { ITimeEntry } from '../../model/types';
+import { FormControl } from '@angular/forms';
+import { tuiItemsHandlersProvider } from '@taiga-ui/kit';
+
+
+interface ITimes {
+    readonly time: number;
+    readonly name: string;
+}
 
 @Component({
     selector: 'app-select-sleep-time',
     templateUrl: './select-sleep-time.component.html',
-    styleUrl: './select-sleep-time.component.scss'
+    styleUrl: './select-sleep-time.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        tuiItemsHandlersProvider({
+            stringify: (item: ITimes) => `${item.name}`,
+        }),
+    ],
 })
 export class SelectSleepTimeComponent {
+    @Input()
+    public width: number = 21;
+
+    @Input()
+    public height: number = 23;
+
+    @Input()
+    public color: 'black' | 'white' = 'black';
+
+    @Input()
+    public sleepTimerValue: string | undefined = undefined;
+
+    public testValue = new FormControl();
+
     public times: ITimeEntry[] = [
         { time: 60, name: '1 минута' },
         { time: 900, name: '15 минут' },
@@ -17,18 +45,11 @@ export class SelectSleepTimeComponent {
         { time: 0, name: 'Отменить' },
     ];
 
-    public defaultTime: number = 0;
-
     @Output()
     public valueChanged: EventEmitter<number> = new EventEmitter<number>();
 
-    /**
-     * Обработчик события изменения значения элемента.
-     * @param {Event} event - Событие изменения значения элемента.
-     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
-     * @returns {void}
-     */
-    public onChange(event: MouseEvent | Event): void {
-        this.valueChanged.emit(Number((event?.target as HTMLInputElement).value));
+
+    public onValueChange(value: any): void {
+        this.valueChanged.emit(value);
     }
 }

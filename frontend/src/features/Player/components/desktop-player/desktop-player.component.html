@@ -1,0 +1,71 @@
+<div class="desktop-player">
+    <div class="desktop-player__container">
+        <div class="desktop-player__controls">
+            <app-small-play-button
+                class="desktop-player__play-button  desktop-player__button"
+                [activeButton]="playing"
+                (eventClick)="playing? pause() : play()"
+                [width]="22"
+                [height]="25"
+            />
+
+            <app-rewind-arrow
+                class="desktop-player__rewind-button desktop-player__button"
+                (eventClick)="audioRewindBack($event)"
+                [size]="'small'"
+                type="left"/>
+            <app-rewind-arrow
+                class="desktop-player__rewind-button desktop-player__button"
+                (eventClick)="audioRewindNext($event)"
+                [size]="'small'"
+                type="right"/>
+
+            <div class="desktop-player__controls__wrapper">
+                <div class="desktop-player__image-container">
+                    <img
+                        class="desktop-player__image-book"
+                        id="bookImage"
+                        [src]="imageUrl"
+                        alt="Обложка книги"
+                    />
+                </div>
+
+                <div class="desktop-player__about">
+                    <p class="desktop-player__about-title">{{ nameChapter }}</p>
+                    <p class="desktop-player__about-name">{{ nameBook }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="desktop-player__tools">
+            <app-select-sleep-time
+                [width]="17"
+                [height]="19"
+                [color]="'white'"
+                [sleepTimerValue]="sleepTimerButton"
+                (valueChanged)="sleepTimer($event)"
+
+
+                />
+            <app-speed-button
+                class="desktop-player__button"
+                (valueChanged)="speed($event)"
+                [speedButtonState]="speedButton"/>
+            <app-button
+                class="desktop-player__button"
+                (eventClick)="toggleChapter()"
+                width=23
+                height=17
+                imageUrl="./assets/selectChapter-button.svg"/>
+        </div>
+    </div>
+</div>
+
+<!--<form class="b-form">-->
+<!--    <tui-select [formControl]="itemStringControl">-->
+<!--        Character-->
+<!--        <select-->
+<!--            tuiSelect-->
+<!--            [items]="items"-->
+<!--        ></select>-->
+<!--    </tui-select>-->
+<!--</form>-->

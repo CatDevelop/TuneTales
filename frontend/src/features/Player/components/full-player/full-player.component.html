@@ -10,7 +10,6 @@
         height=24
         imageUrl="./assets/back-button.svg"/>
 
-
     <div class="player__image_container">
         <img class="player__image_book" id="bookImage" [src]="imageUrl" alt="Обложка книги"/>
     </div>
@@ -30,12 +29,20 @@
 
     <div class="player__controls">
         <div class="player__controls_wrapper">
-            <app-rewind-arrow (eventClick)="audioRewindBack($event)" type="left"/>
+            <app-rewind-arrow
+                (eventClick)="audioRewindBack($event)"
+                type="left"
+                [size]="'medium'"
+            />
             <app-play-button
                 [activeButton]="playing"
                 (eventClick)="playing ? pause() : play()"
             />
-            <app-rewind-arrow (eventClick)="audioRewindNext($event)" type="right"/>
+            <app-rewind-arrow
+                (eventClick)="audioRewindNext($event)"
+                type="right"
+                [size]="'medium'"
+            />
         </div>
     </div>
 

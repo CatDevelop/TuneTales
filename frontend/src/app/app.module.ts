@@ -22,6 +22,7 @@ import {AuthorizationService} from '../pages/authorization-page/services/authori
 import {SessionStorageService} from '../pages/authorization-page/services/session-storage.service';
 
 import { PlayerModule } from '../widgets/player/player.module';
+import {UiKitModule} from "../shared/ui/ui-kit.module";
 
 @NgModule({
     declarations: [
@@ -31,27 +32,19 @@ import { PlayerModule } from '../widgets/player/player.module';
         RegisterPage
     ],
     imports: [
+        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        TuiButtonModule,
-        TuiSliderModule,
-        BrowserAnimationsModule,
-        TuiRootModule,
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        TuiInputModule,
-        TuiTextfieldControllerModule,
-        ReactiveFormsModule,
-        TuiLinkModule,
-        AppRoutingModule,
         TuiSelectModule,
         TuiDataListModule,
         TuiDataListWrapperModule,
+        BrowserModule,
         TuiTextfieldControllerModule,
-
+        TuiRootModule,
+        HttpClientModule,
+        AppRoutingModule,
         PlayerModule,
-
+        UiKitModule,
     ],
     providers: [
         HttpService,

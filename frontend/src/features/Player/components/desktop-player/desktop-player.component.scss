@@ -1,0 +1,59 @@
+.desktop-player {
+
+    &__container {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 19px 28px;
+    background-color: #221B42;
+
+
+    &__controls {
+        display: flex;
+        max-width: 400px;
+        width: 100%;
+        align-items: center;
+
+        &__wrapper {
+            display: flex;
+            margin-left: 35px;
+        }
+    }
+
+    &__image-container {
+
+    }
+
+    &__image-book {
+        height: 43px;
+        box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.13);
+        border-radius: 5px;
+    }
+
+    &__button {
+        filter: invert(100%) brightness(1000%);
+    }
+
+    &__tools {
+        display: flex;
+        align-items: center;
+    }
+
+    &__play-button {
+        margin-right: 15px;
+    }
+
+    &__rewind-button {
+        margin: 0 5px;
+    }
+}
+
+
