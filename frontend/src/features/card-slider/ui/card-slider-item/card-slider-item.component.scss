@@ -1,3 +1,6 @@
+:host {
+}
+
 .book-card {
     background: none;
     display: flex;
@@ -14,7 +17,8 @@
 
 .book-card__cover {
     height: 220px;
-    width: auto;
+    width: 220px;
+    object-fit: cover;
     border-radius: 8px;
 }
 
