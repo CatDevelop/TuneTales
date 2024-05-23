@@ -10,4 +10,6 @@ import { IBookResponse } from '../../../../pages/main-page/model/types/dto/get-b
 export class CardSliderComponent {
     @Input()
     public books: IBookResponse[] = [];
+    @Input()
+    public label: string | undefined = undefined;
 }

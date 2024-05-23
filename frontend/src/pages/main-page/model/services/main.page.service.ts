@@ -20,12 +20,13 @@ export class MainPageService {
     /**
      * Получение списка книг
      */
-    public getBookById(): Observable<HttpResponse<GetBooksResponseDto>> {
+    public getAllBooks(): Observable<HttpResponse<GetBooksResponseDto>> {
         this._isProcessing$.next(true);
 
         const response$: Observable<HttpResponse<GetBooksResponseDto>> = this._req.request<GetBooksResponseDto, void>({
             url: `${UrlRoutes.backendDev}/book`,
             method: RequestMethodType.get,
+            auth: true,
         });
 
         response$

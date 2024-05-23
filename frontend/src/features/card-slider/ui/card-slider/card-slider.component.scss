@@ -2,11 +2,31 @@
     width: 100%;
 }
 
+.label {
+    margin-bottom: 16px;
+    margin-left: 44px;
+}
+
 .wrapper {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
+
+    .left_button {
+        position: absolute;
+        top: 35%;
+        left: -22px;
+        z-index: 1000;
+    }
+
+    .right_button {
+        position: absolute;
+        top: 35%;
+        right: -22px;
+        z-index: 1000;
+    }
 }
 
 .carousel {

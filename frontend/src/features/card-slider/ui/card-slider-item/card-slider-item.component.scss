@@ -1,0 +1,47 @@
+.book-card {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 268px;
+    position: relative;
+    width: min-content;
+    text-align: left;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.book-card__cover {
+    height: 220px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.book-card__book-info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 5px;
+    bottom: 5px;
+    max-width: 100%;
+}
+
+.book-info__author {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: #9398af;
+}
+
+.book-info__book-name {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}

@@ -16,7 +16,7 @@ import { RegistrationService } from '../pages/register-page/services/registratio
 import { AuthorizationService } from '../pages/authorization-page/services/authorization.service';
 import { SessionStorageService } from '../pages/authorization-page/services/session-storage.service';
 import { NgOptimizedImage } from '@angular/common';
-import { CardSliderModule } from '../features/card-slider/ui/card-slider/card-slider.module';
+import { CardSliderModule } from '../features/card-slider/card-slider.module';
 import { MainPageModule } from '../pages/main-page/ui/main.page.module';
 
 @NgModule({

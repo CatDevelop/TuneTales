@@ -1,3 +1,10 @@
+<h2
+    *ngIf="label"
+    class="label"
+>
+    {{label}}
+</h2>
+
 <div
     tuiCarouselButtons
     class="wrapper"
@@ -7,15 +14,17 @@
         title="Previous"
         tuiIconButton
         type="button"
+        class="left_button"
         (click)="carousel.prev()"
     ></button>
     <tui-carousel
-        [itemsCount]="1"
+        [itemsCount]="4"
+        [style.--tui-carousel-padding]="0"
         #carousel
         class="carousel"
     >
         <ng-container *ngFor="let book of books">
-            <app-book-card
+            <app-card-slider-item
                 *tuiItem
                 [book]="book"
             />
@@ -25,6 +34,7 @@
         icon="tuiIconChevronRightLarge"
         title="Next"
         tuiIconButton
+        class="right_button"
         type="button"
         (click)="carousel.next()"
     ></button>
