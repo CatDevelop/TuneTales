@@ -1,5 +1,5 @@
 :host {
-    width: calc(100% - 44px);
+    width: 100%;
     align-self: center;
 }
 
@@ -48,4 +48,9 @@
     justify-content: flex-start;
     overflow-x: scroll;
     padding: 0 5px;
+}
+
+.item-slider::-webkit-scrollbar, .item-container::-webkit-scrollbar {
+    width: 0;
+    background: none;
 }

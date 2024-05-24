@@ -14,6 +14,7 @@ export class CardSliderComponent {
     @Input()
     public label: string | undefined = undefined;
 
+    public defaultShift: number = 300;
     public scrollX: number = 0;
     public scrollEnd: boolean = false;
 
@@ -25,12 +26,9 @@ export class CardSliderComponent {
         if (this.scrl) {
             this.scrl.nativeElement.scrollBy({
                 left: shift,
-                behavior: 'smooth'
+                behavior: 'smooth',
             });
-
-            this.scrl.nativeElement.scrollLeft += shift;
             this.scrollX += shift;
-
             this.scrollCheck();
         }
     }

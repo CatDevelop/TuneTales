@@ -10,7 +10,7 @@
         <button
             icon="tuiIconChevronLeftLarge"
             tuiIconButton
-            (click)="slide(-220)"
+            (click)="slide(-defaultShift)"
             [ngClass]="{ 'is-disabled-hide': scrollX < 1 }"
             class="left_button"
             appearance="flat"
@@ -26,7 +26,7 @@
         <button
             icon="tuiIconChevronRightLarge"
             tuiIconButton
-            (click)="slide(220)"
+            (click)="slide(defaultShift)"
             [ngClass]="{ 'is-disabled-hide': scrollEnd }"
             class="right_button"
             appearance="flat"

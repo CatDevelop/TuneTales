@@ -3,11 +3,13 @@
 .app {
     background: $bg-color;
     font-family: $font-family;
+    height: 100vh;
 }
 
 .main-header {
     width: 100%;
     height: 80px;
+    position: sticky;
 }
 
 .grid-12 {
@@ -19,6 +21,7 @@
 
 .main {
     height: calc(100vh - 80px);
+    overflow-y: auto;
 }
 
 @media (max-width: 767px) {
@@ -43,4 +46,8 @@
     .grid-12 {
         grid-template-columns: 1170px;
     }
+}
+
+router-outlet {
+    position: absolute;
 }
