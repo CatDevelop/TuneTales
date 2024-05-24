@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { IBookResponse } from '../../../../pages/main-page/model/types/dto/get-books.response-dto';
 
 @Component({
@@ -8,8 +8,40 @@ import { IBookResponse } from '../../../../pages/main-page/model/types/dto/get-b
     styleUrl: './card-slider.component.scss'
 })
 export class CardSliderComponent {
+    @ViewChild('scrl') public scrl: ElementRef | undefined;
     @Input()
-    public books: IBookResponse[] = [];
+    public books: IBookResponse[] | null = [];
     @Input()
     public label: string | undefined = undefined;
+
+    public scrollX: number = 0;
+    public scrollEnd: boolean = false;
+
+    /**
+     * slide
+     * @param shift
+     */
+    public slide(shift: number): void {
+        if (this.scrl) {
+            this.scrl.nativeElement.scrollBy({
+                left: shift,
+                behavior: 'smooth'
+            });
+
+            this.scrl.nativeElement.scrollLeft += shift;
+            this.scrollX += shift;
+
+            this.scrollCheck();
+        }
+    }
+
+    /**
+     * check
+     */
+    public scrollCheck(): void {
+        if (this.scrl) {
+            this.scrollX = this.scrl.nativeElement.scrollLeft;
+            this.scrollEnd = Math.floor(this.scrl.nativeElement.scrollWidth - this.scrl.nativeElement.scrollLeft) <= this.scrl.nativeElement.offsetWidth;
+        }
+    }
 }

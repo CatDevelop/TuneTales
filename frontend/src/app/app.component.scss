@@ -13,7 +13,8 @@
 .grid-12 {
     width: 100%;
     display: grid;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: start;
 }
 
 .main {
@@ -28,14 +29,18 @@
 
 @media (min-width: 768px) {
     .grid-12 {
-        grid-template-columns: repeat(8, 1fr);
-        column-gap: 10px;
+        grid-template-columns: 680px;
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     .grid-12 {
-        grid-template-columns: repeat(12, 1fr);
-        column-gap: 28px;
+        grid-template-columns: 1000px;
+    }
+}
+
+@media (min-width: 1366px) {
+    .grid-12 {
+        grid-template-columns: 1170px;
     }
 }

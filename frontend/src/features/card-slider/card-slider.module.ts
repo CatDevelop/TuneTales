@@ -6,8 +6,6 @@ import { TuiCarouselModule } from '@taiga-ui/kit';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { CardSliderItemComponent } from './ui/card-slider-item/card-slider-item.component';
 
-
-
 @NgModule({
     declarations: [
         CardSliderComponent,

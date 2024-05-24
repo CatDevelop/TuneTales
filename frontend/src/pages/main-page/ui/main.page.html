@@ -1,6 +1,8 @@
-<ng-container *ngIf="books">
-    <app-card-slider
-        [label]="mockBooks[0].description.slice(0, 35)"
-        [books]="(books | async) ?? []"
-    />
-</ng-container>
+<div class="main-page-container">
+    <ng-container *ngIf="books">
+        <app-card-slider
+            [label]="mockBooks[0].description.slice(0, 35)"
+            [books]="books | async"
+        ></app-card-slider>
+    </ng-container>
+</div>

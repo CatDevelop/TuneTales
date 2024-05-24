@@ -5,11 +5,9 @@ import { CardSliderModule } from '../../../features/card-slider/card-slider.modu
 import { MainPageService } from '../model/services/main.page.service';
 import { BookCardModule } from '../../../entities/Book/book-card.module';
 
-
-
 @NgModule({
     declarations: [
-        MainPage
+        MainPage,
     ],
     imports: [
         CommonModule,

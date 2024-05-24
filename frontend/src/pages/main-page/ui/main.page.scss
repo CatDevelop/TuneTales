@@ -1,26 +1,57 @@
 :host {
+    display: grid;
+    justify-self: start;
     width: 100%;
 }
 
 @media (max-width: 767px) {
     :host {
+        grid-template-columns: 1fr;
+    }
+
+    .main-page-container {
         grid-column: 1;
-        padding: 20px;
+        padding: 0 32px;
     }
 }
 
 @media (min-width: 768px) {
     :host {
-        grid-column-start: 3;
-        grid-column-end: 7;
-        height: 100%;
+        grid-template-columns: repeat(8, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .main-page-container {
+        grid-column: 1/-1;
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     :host {
-        grid-column-start: 3;
-        grid-column-end: 11;
-        height: 100%;
+        grid-template-columns: repeat(12, 65px);
+        grid-column-gap: 20px;
     }
+
+    .main-page-container {
+        grid-column: 1/-1;
+    }
+}
+
+@media (min-width: 1366px) {
+    :host {
+        grid-template-columns: repeat(14, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .main-page-container {
+        grid-column: 1/-1;
+    }
+}
+
+.main-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    overflow: auto;
 }

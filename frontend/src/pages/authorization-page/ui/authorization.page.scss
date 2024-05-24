@@ -1,29 +1,50 @@
 :host {
-    justify-self: center;
+    display: grid;
+    justify-self: start;
     width: 100%;
 }
 
 @media (max-width: 767px) {
     :host {
+        grid-template-columns: 1fr;
+    }
+
+    .authorization-form-container {
         grid-column: 1;
-        padding: 20px;
+        padding: 0 32px;
     }
 }
 
 @media (min-width: 768px) {
     :host {
-        grid-column-start: 3;
-        grid-column-end: 7;
-        align-self: center;
+        grid-template-columns: repeat(8, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .authorization-form-container {
+        grid-column: 2/8;
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     :host {
-        grid-column-start: 5;
-        align-self: center;
-        grid-column-end: 9;
-        max-width: 449px;
+        grid-template-columns: repeat(12, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .authorization-form-container {
+        grid-column: 4/10;
+    }
+}
+
+@media (min-width: 1366px) {
+    :host {
+        grid-template-columns: repeat(14, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .authorization-form-container {
+        grid-column: 5/11;
     }
 }
 

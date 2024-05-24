@@ -1,34 +1,51 @@
 :host {
-    width: 100%;
+    width: calc(100% - 44px);
+    align-self: center;
 }
 
 .label {
     margin-bottom: 16px;
-    margin-left: 44px;
+    margin-left: 22px;
 }
 
-.wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+.left_button {
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    left: -22px;
+    z-index: 1000;
+}
+
+.right_button {
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    right: -22px;
+    z-index: 1000;
+}
+
+.item-slider-container {
+    background: none;
+}
+
+.item-slider-container .item-title {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding-bottom: 15px;
+}
+
+.item-slider {
+    padding: 0 5px;
+    justify-content: space-between;
     align-items: center;
+    display: flex;
     position: relative;
-
-    .left_button {
-        position: absolute;
-        top: 35%;
-        left: -22px;
-        z-index: 1000;
-    }
-
-    .right_button {
-        position: absolute;
-        top: 35%;
-        right: -22px;
-        z-index: 1000;
-    }
 }
 
-.carousel {
-    width: 100%;
+.item-slider .item-container {
+    display: inline-flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    padding: 0 5px;
 }
