@@ -33,7 +33,7 @@ export class DesktopPlayerComponent {
     public playing: boolean = false;
 
     @Input()
-    public speedButton: number | undefined = 0.1;
+    public speedButton: number | undefined = 1;
 
     @Input()
     public sleepTimerButton: string | undefined = undefined;

@@ -42,14 +42,13 @@
                 [height]="19"
                 [color]="'white'"
                 [sleepTimerValue]="sleepTimerButton"
-                (valueChanged)="sleepTimer($event)"
+                (valueChanged)="sleepTimer($event)"/>
 
+            <app-select-speed
+                [color]="'white'"
+                [speedTimerValue]="speedButton"
+                (valueChanged)="speed($event)"/>
 
-                />
-            <app-speed-button
-                class="desktop-player__button"
-                (valueChanged)="speed($event)"
-                [speedButtonState]="speedButton"/>
             <app-button
                 class="desktop-player__button"
                 (eventClick)="toggleChapter()"

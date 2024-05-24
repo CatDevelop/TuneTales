@@ -20,9 +20,9 @@ import {HttpService} from '../shared/global-services/request/http.service';
 import {RegistrationService} from '../pages/register-page/services/registration.service';
 import {AuthorizationService} from '../pages/authorization-page/services/authorization.service';
 import {SessionStorageService} from '../pages/authorization-page/services/session-storage.service';
-
+import {UiKitModule} from '../shared/ui/ui-kit.module';
 import { PlayerModule } from '../widgets/player/player.module';
-import {UiKitModule} from "../shared/ui/ui-kit.module";
+
 
 @NgModule({
     declarations: [
@@ -44,7 +44,8 @@ import {UiKitModule} from "../shared/ui/ui-kit.module";
         HttpClientModule,
         AppRoutingModule,
         PlayerModule,
-        UiKitModule,
+        UiKitModule
+
     ],
     providers: [
         HttpService,

@@ -1,12 +1,35 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import { ISpeedEntry } from '../../model/types';
+import { FormControl } from '@angular/forms';
+import { tuiItemsHandlersProvider } from '@taiga-ui/kit';
+import { ISpeed } from '../../model/types';
 
 @Component({
     selector: 'app-select-speed',
     templateUrl: './select-speed.component.html',
-    styleUrl: './select-speed.component.scss'
+    styleUrl: './select-speed.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        tuiItemsHandlersProvider({
+            stringify: (item: ISpeed) => `${item.name}`,
+        }),
+    ],
 })
 export class SelectSpeedComponent {
+    @Input()
+    public width: number = 21;
+
+    @Input()
+    public height: number = 23;
+
+    @Input()
+    public color: 'black' | 'white' = 'black';
+
+    @Input()
+    public speedTimerValue: number | undefined = undefined;
+
+    public testValue: FormControl<number | null> = new FormControl();
+
     public speeds: ISpeedEntry[] = [
         { speed: 0.75, name: '0.75x' },
         { speed: 1, name: '1x' },
@@ -18,18 +41,17 @@ export class SelectSpeedComponent {
         { speed: 2.5, name: '2.5x' }
     ];
 
-    public defaultSpeed: number = 1;
-
     @Output()
     public valueChanged: EventEmitter<number> = new EventEmitter<number>();
 
     /**
-     * Обработчик события изменения значения элемента.
-     * @param {Event} event - Событие изменения значения элемента.
-     * @emits {string} valueChanged - Генерируется при изменении значения элемента.
+     * Обрабатывает изменение значения в элементе управления формы.
+     *
+     * @param {any} value - Новое значение из элемента управления формы.
      * @returns {void}
      */
-    public onChange(event: MouseEvent | Event): void {
-        this.valueChanged.emit(Number((event?.target as HTMLInputElement).value));
+    public onValueChange(value: number): void {
+        this.valueChanged.emit(value);
     }
 }
+

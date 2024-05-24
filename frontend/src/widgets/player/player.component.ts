@@ -38,10 +38,10 @@ export class PlayerComponent  {
     private _sleepTimerSubscription: Subscription | undefined = undefined;
 
     public sleepTimerButton: string | undefined = undefined;
-    public speedButton: number | undefined = 0.1;
+    public speedButton: number | undefined = 1;
     public chapterWindow: boolean = false;
 
-    public playerWindow: 'full' | 'bottom' | 'none' = 'bottom';
+    public playerWindow: 'full' | 'bottom' | 'none' = 'full';
 
 
     constructor(

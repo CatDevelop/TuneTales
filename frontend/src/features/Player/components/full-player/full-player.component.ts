@@ -43,7 +43,7 @@ export class FullPlayerComponent {
 
     // tools
     @Input()
-    public speedButton: number | undefined = 0.1;
+    public speedButton: number | undefined = 1;
 
     @Input()
     public sleepTimerButton: string | undefined = undefined;

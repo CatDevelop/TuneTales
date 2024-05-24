@@ -1,13 +1,8 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import { ITimeEntry } from '../../model/types';
 import { FormControl } from '@angular/forms';
 import { tuiItemsHandlersProvider } from '@taiga-ui/kit';
-
-
-interface ITimes {
-    readonly time: number;
-    readonly name: string;
-}
+import { ITimes } from '../../model/types';
 
 @Component({
     selector: 'app-select-sleep-time',
@@ -33,7 +28,7 @@ export class SelectSleepTimeComponent {
     @Input()
     public sleepTimerValue: string | undefined = undefined;
 
-    public testValue = new FormControl();
+    public testValue: FormControl<string | null> = new FormControl();
 
     public times: ITimeEntry[] = [
         { time: 60, name: '1 минута' },
@@ -48,7 +43,12 @@ export class SelectSleepTimeComponent {
     @Output()
     public valueChanged: EventEmitter<number> = new EventEmitter<number>();
 
-
+    /**
+     * Обрабатывает изменение значения в элементе управления формы.
+     *
+     * @param {any} value - Новое значение из элемента управления формы.
+     * @returns {void}
+     */
     public onValueChange(value: any): void {
         this.valueChanged.emit(value);
     }

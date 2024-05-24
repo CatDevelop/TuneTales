@@ -47,8 +47,17 @@
     </div>
 
     <div class="player__tools">
-        <app-speed-button (valueChanged)="speed($event)" [speedButtonState]="speedButton"/>
-        <app-sleep-timer (valueChanged)="sleepTimer($event)" [sleepTimerState]="sleepTimerButton"/>
+        <app-select-speed
+            [color]="'black'"
+            [speedTimerValue]="speedButton"
+            (valueChanged)="speed($event)"/>
+        <app-select-sleep-time
+            [width]="21"
+            [height]="23"
+            [color]="'black'"
+            [sleepTimerValue]="sleepTimerButton"
+            (valueChanged)="sleepTimer($event)"/>
+
         <app-button (eventClick)="toggleChapter()" width=23 height=17 imageUrl="./assets/selectChapter-button.svg"/>
     </div>
 

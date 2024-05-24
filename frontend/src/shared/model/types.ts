@@ -49,3 +49,13 @@ export interface IOpenFile {
     file: IAudioChapter,
     index: number
 }
+
+export interface ITimes {
+    time: number;
+    name: string;
+}
+
+export interface ISpeed {
+    speed: number;
+    name: string;
+}

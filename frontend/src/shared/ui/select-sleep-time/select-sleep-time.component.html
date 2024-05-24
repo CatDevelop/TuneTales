@@ -1,13 +1,11 @@
 <div class="sleep-timer">
-    <tui-root class="sleep-timer_select">
-        <form class="b-form"
-              [ngStyle]="{width: '55px', overflow: 'hidden'}">
+    <tui-root class="sleep-timer__select-wrapper">
+        <form class="sleep-timer__form">
             <tui-select
+                class="sleep-timer__select"
                 tuiTextfieldSize="s"
                 [formControl]="testValue"
-                (ngModelChange)="onValueChange($event.time)"
-                [ngStyle]="{opacity: 0, width: '150px'}"
-            >
+                (ngModelChange)="onValueChange($event.time)">
                 Character
                 <tui-data-list-wrapper
                     *tuiDataList
@@ -17,12 +15,12 @@
         </form>
     </tui-root>
 
-    <p class="sleep-timer_text"
+    <p class="sleep-timer__text"
        *ngIf="sleepTimerValue"
         [ngStyle]="{color: color === 'white' ? '#ffffff' : '#14121d'}"
     >{{sleepTimerValue}}</p>
     <img
-        class="sleep-timer_icon"
+        class="sleep-timer__icon"
         [ngStyle]="color === 'white' ? {filter: 'invert(100%) brightness(1000%)'} : {}"
         *ngIf="!sleepTimerValue"
         [width]="width"

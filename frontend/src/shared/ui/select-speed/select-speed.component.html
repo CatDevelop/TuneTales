@@ -1,3 +1,22 @@
-<select (change)="onChange($event)"  [(ngModel)]="defaultSpeed">
-    <option *ngFor="let item of speeds" [value]="item.speed">{{item.name}}</option>
-</select>
+<div class="speed-timer">
+    <tui-root class="speed-timer__select-wrapper">
+        <form class="speed-timer__form">
+            <tui-select
+                class="speed-timer__select"
+                tuiTextfieldSize="s"
+                [formControl]="testValue"
+                (ngModelChange)="onValueChange($event.speed)">
+                Character
+                <tui-data-list-wrapper
+                    *tuiDataList
+                    [items]="speeds"
+                ></tui-data-list-wrapper>
+            </tui-select>
+        </form>
+    </tui-root>
+
+    <p class="speed-timer__text"
+       *ngIf="speedTimerValue"
+       [ngStyle]="{color: color === 'white' ? '#ffffff' : '#14121d'}"
+    >{{speedTimerValue}}x</p>
+</div>
