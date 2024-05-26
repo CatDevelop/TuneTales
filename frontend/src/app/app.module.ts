@@ -29,7 +29,8 @@ import { PlayerModule } from '../widgets/player/player.module';
         AppComponent,
         AuthorizationPage,
         NavbarComponent,
-        RegisterPage
+        RegisterPage,
+
     ],
     imports: [
         BrowserAnimationsModule,

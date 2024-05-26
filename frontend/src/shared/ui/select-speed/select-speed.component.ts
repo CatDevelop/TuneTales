@@ -28,7 +28,7 @@ export class SelectSpeedComponent {
     @Input()
     public speedTimerValue: number | undefined = undefined;
 
-    public testValue: FormControl<number | null> = new FormControl();
+    public open: boolean = false;
 
     public speeds: ISpeedEntry[] = [
         { speed: 0.75, name: '0.75x' },
@@ -52,6 +52,7 @@ export class SelectSpeedComponent {
      */
     public onValueChange(value: number): void {
         this.valueChanged.emit(value);
+        this.open = false;
     }
 }
 

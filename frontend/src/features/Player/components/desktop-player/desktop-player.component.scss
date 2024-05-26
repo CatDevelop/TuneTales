@@ -45,6 +45,9 @@
     &__tools {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        max-width: 175px;
+        width: 100%;
     }
 
     &__play-button {

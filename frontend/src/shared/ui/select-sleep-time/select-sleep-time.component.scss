@@ -1,31 +1,19 @@
 .sleep-timer {
-    position: relative;
-    height: 44px;
-    width: 120px;
-    //overflow: hidden;
-    display: flex;
     justify-content: center;
     align-items: center;
-
-    &__select-wrapper {
-        position: absolute;
-        z-index: 1;
-    }
+    display: block;
 
     &__text {
-        position: absolute;
-        z-index: 0;
+        cursor: pointer;
         font-weight: 500;
         font-size: 18px;
     }
 
-    &__form {
-        width: 120px;
-        overflow: hidden;
+    &__icon {
+        display: block;
     }
 
-    &__select {
-        opacity: 0;
-        width: 120px;
+    &__hosted-dropdown {
+        display: block;
     }
 }

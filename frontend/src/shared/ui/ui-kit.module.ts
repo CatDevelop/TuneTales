@@ -8,10 +8,17 @@ import { ClosePlayerComponent } from './close-player/close-player.component';
 import { BottomPlayerProgressComponent } from './bottom-player-progress/bottom-player-progress.component';
 import { PlayButtonComponent } from './play-button/play-button.component';
 import { RewindArrowComponent } from './rewind-arrow/rewind-arrow.component';
+import { SelectSoundComponent } from './select-sound/select-sound.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule, TuiSliderModule } from '@taiga-ui/kit';
-import { TuiDataListModule, TuiLabelModule, TuiRootModule, TuiTextfieldControllerModule  } from '@taiga-ui/core';
+import {
+    TuiDataListModule,
+    TuiDropdownModule, TuiHintModule, TuiHostedDropdownModule,
+    TuiLabelModule,
+    TuiRootModule,
+    TuiTextfieldControllerModule
+} from '@taiga-ui/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,10 +36,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BrowserModule,
         CommonModule,
         TuiLabelModule,
-
+        TuiDropdownModule,
         TuiRootModule,
         TuiTextfieldControllerModule,
-
+        TuiHostedDropdownModule,
+        TuiHintModule
     ],
     declarations: [
         SelectSleepTimeComponent,
@@ -43,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ClosePlayerComponent,
         BottomPlayerProgressComponent,
         PlayButtonComponent,
-        RewindArrowComponent
+        RewindArrowComponent,
+        SelectSoundComponent
     ],
     exports: [
         SelectSleepTimeComponent,
@@ -54,7 +63,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ClosePlayerComponent,
         BottomPlayerProgressComponent,
         PlayButtonComponent,
-        RewindArrowComponent
+        RewindArrowComponent,
+        SelectSoundComponent
     ]
 })
 
