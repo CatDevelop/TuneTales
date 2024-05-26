@@ -1,7 +1,8 @@
 :host {
     display: grid;
-    justify-self: start;
+    justify-self: center;
     width: 100%;
+    height: 100%;
 }
 
 @media (max-width: 767px) {
@@ -53,6 +54,8 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
+    justify-content: center;
+    height: 100%;
 }
 
 .form {
