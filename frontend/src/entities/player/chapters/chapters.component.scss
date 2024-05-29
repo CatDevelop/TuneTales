@@ -1,52 +1,96 @@
-.chapter {
-    &-container {
-        position: fixed;
-        z-index: 100;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding-top: 50px;
-        background: #FFFFFF;
-    }
+.chapter {  
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 50px;
+    background: #FFFFFF;
+    overflow: scroll;
 
-    &-title {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 10px 120px 10px;
+        &-title {
+            font-weight: 600;
+            font-size: 26px;
+            color: #14121d;
+        }
+    }
+    
+
+    &__title {
         text-align: center;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 18px;
         color: #14121d;
         padding-bottom: 65px;
-        padding-top: 45px;
+        padding-top: 65px;
     }
-    &-list {
+    
+    &__list {
 
     }
-    &-list__item {
+    
+    &__list-item {
         padding: 0px 20px 0px 20px;
         display: flex;
         cursor: pointer;
     }
-    &-item__wrapper {
+    
+    &__item-wrapper {
         display: flex;
         justify-content: space-between;
         padding: 20px 0 20px 0;
         border-bottom: 1px solid rgba(207, 207, 207, 0.8);
         width: 100%;
     }
-    &-name {
+    
+    &__name {
         font-weight: 400;
         font-size: 16px;
         color: #14121d;
     }
-    &-time {
+    
+    &__time {
         font-weight: 500;
         font-size: 14px;
         color: #c2c2c2;
     }
-    &-back__button {
-        padding-left: 20px;
+    
+    &__back-button {
+        position: absolute;
+        left: 20px;
     }
-    &-item__active {
+    
+    &__list-item_active {
         background: rgba(217, 217, 217, 0.17);
     }
 }
+
+@media (min-width: 576px) {
+    .chapter {
+        opacity: 0.97;
+        max-width: 772px;
+        margin: auto;
+
+        &__title {
+            display: none;
+        }
+
+        &__back-button {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .chapter {
+        &__header {
+            display: none;
+        }
+    }
+}
+
