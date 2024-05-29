@@ -7,14 +7,28 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+        padding-top: 19px;
     }
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 19px 28px;
+    padding: 0 28px 19px 28px;
+    
     background-color: #221B42;
 
+    &:hover &__slider{
+        height: 14px;
+        transition: all ease-in-out 0.3s;
+    }
+    
+    &__slider {
+        position: relative;
+        transition: all ease-in-out 0.3s;
+        height: 2px;
+        display: block;
+        overflow: hidden;
+    }
 
     &__controls {
         display: flex;
@@ -28,8 +42,8 @@
         }
     }
 
-    &__image-container {
-
+    &__tools_button {
+        margin-left: 30px;
     }
 
     &__image-book {
@@ -45,9 +59,6 @@
     &__tools {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        max-width: 175px;
-        width: 100%;
     }
 
     &__play-button {

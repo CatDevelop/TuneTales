@@ -1,4 +1,12 @@
 <div class="desktop-player">
+    <app-desktop-slider-rewind 
+        class="desktop-player__slider"
+        [startTime]="readableCurrentTime"
+        [endTime]="readableDuration"
+        [maxTime]="duration"
+        [currentTime]="currentTime"
+        (valueChange)="onSliderChangeEnd($event)"
+    />
     <div class="desktop-player__container">
         <div class="desktop-player__controls">
             <app-small-play-button
@@ -38,6 +46,7 @@
         </div>
         <div class="desktop-player__tools">
             <app-select-sleep-time
+                class="desktop-player__tools_button"
                 [width]="17"
                 [height]="19"
                 [color]="'white'"
@@ -45,18 +54,20 @@
                 (valueChanged)="sleepTimer($event)"/>
 
             <app-select-speed
+                class="desktop-player__tools_button"
                 [color]="'white'"
                 [speedTimerValue]="speedButton"
                 (valueChanged)="speed($event)"/>
 
             <app-button
-                class="desktop-player__button"
+                class="desktop-player__button desktop-player__tools_button"
                 (eventClick)="toggleChapter()"
                 width=23
                 height=17
                 imageUrl="./assets/selectChapter-button.svg"/>
 
             <app-select-sound
+                class="desktop-player__tools_button"
                 [width]="24"
                 [height]="24"
                 [soundValue]="50"
@@ -65,12 +76,12 @@
     </div>
 </div>
 
-<!--<form class="b-form">-->
-<!--    <tui-select [formControl]="itemStringControl">-->
-<!--        Character-->
-<!--        <select-->
-<!--            tuiSelect-->
-<!--            [items]="items"-->
-<!--        ></select>-->
-<!--    </tui-select>-->
-<!--</form>-->
+<app-chapters
+*ngIf="chapterWindow"
+[files]="files"
+[currentIndexFile]="currentFile"
+(valueChanged)="openFile($event.file, $event.index)"
+(stateChapterChanged)="toggleChapter()"
+></app-chapters>
+
+

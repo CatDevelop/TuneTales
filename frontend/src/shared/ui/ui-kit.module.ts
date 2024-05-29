@@ -9,6 +9,7 @@ import { BottomPlayerProgressComponent } from './bottom-player-progress/bottom-p
 import { PlayButtonComponent } from './play-button/play-button.component';
 import { RewindArrowComponent } from './rewind-arrow/rewind-arrow.component';
 import { SelectSoundComponent } from './select-sound/select-sound.component';
+import { DesktopSliderRewindComponent } from './desktop-slider-rewind/desktop-slider-rewind.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule, TuiSliderModule } from '@taiga-ui/kit';
@@ -52,7 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BottomPlayerProgressComponent,
         PlayButtonComponent,
         RewindArrowComponent,
-        SelectSoundComponent
+        SelectSoundComponent,
+        DesktopSliderRewindComponent
     ],
     exports: [
         SelectSleepTimeComponent,
@@ -64,7 +66,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BottomPlayerProgressComponent,
         PlayButtonComponent,
         RewindArrowComponent,
-        SelectSoundComponent
+        SelectSoundComponent,
+        DesktopSliderRewindComponent
     ]
 })
 

@@ -30,7 +30,6 @@ import { PlayerModule } from '../widgets/player/player.module';
         AuthorizationPage,
         NavbarComponent,
         RegisterPage,
-
     ],
     imports: [
         BrowserAnimationsModule,

@@ -101,6 +101,7 @@ export class DesktopPlayerComponent {
     public eventToggleChapter: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
     public toggleChapter = (): void => {
+        console.log('click')
         this.eventToggleChapter.emit();
     };
 
@@ -110,6 +111,13 @@ export class DesktopPlayerComponent {
 
     public openFile = (file: IAudioChapter, index: number): void => {
         this.eventOpenFile.emit({ file, index });
+    };
+
+    @Output()
+    public eventSliderChange: EventEmitter<number> = new EventEmitter<number>();
+
+    public onSliderChangeEnd = (value: number): void => {
+        this.eventSliderChange.emit(value);
     };
 
 }
