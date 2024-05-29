@@ -8,13 +8,14 @@
     padding-top: 50px;
     background: #FFFFFF;
     overflow: scroll;
+    font-family: Roboto;
 
     &__header {
         display: flex;
         justify-content: space-between;
         padding: 50px 10px 120px 10px;
         &-title {
-            font-weight: 600;
+            font-weight: 500;
             font-size: 26px;
             color: #14121d;
         }
@@ -23,7 +24,7 @@
 
     &__title {
         text-align: center;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 18px;
         color: #14121d;
         padding-bottom: 65px;

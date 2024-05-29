@@ -15,6 +15,7 @@
     bottom: 0;
     padding: 0 28px 19px 28px;
     z-index: 1000;
+    font-family: Roboto;
     
     background-color: #221B42;
 
@@ -68,6 +69,21 @@
 
     &__rewind-button {
         margin: 0 5px;
+    }
+
+    &__about {
+        margin-left: 20px;
+        &-title {
+            font-weight: 500;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        &-name {
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 14px;
+            
+        }
     }
 }
 
