@@ -1,21 +1,5 @@
-<div *ngIf='(author | async); else loader' class='container'>
-    <div class='avatar__container'>
-        <img alt='Изображение автора' [ngSrc]='(author | async)!.imageSrc' class='avatar__image'/>
-        <h3>{{(author | async)!.firstName}} {{(author | async)!.secondName}}</h3>
-    </div>
-    <div class='avatar__content__container'>
-        <p>{{(author | async)?.description}}</p>
-        <div class="divider"></div>
-        <div>
-            <ng-container *ngIf='((author | async)!.writtenBooks!.length>0); else sounded_title'>
-                <h2>Книги автора</h2>
-            </ng-container>
-        </div>
-    </div>
+<div *ngIf='author | async; else loader' class='container'>
+    <author-info [author]="author | async"/>
 </div>
 
-
-<ng-template #sounded_title>
-    <h2>Озвученные книги</h2>
-</ng-template>
 <ng-template #loader>Загрузка</ng-template>
