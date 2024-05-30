@@ -19,7 +19,7 @@ import {AdminGuard} from "../guards/admin.guard";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {DeleteBookDto} from "./dto/delete-book.dto";
 import {ChangeFavoriteBookDto} from "./dto/change-favorite-book.dto";
-import {ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
 import {LoginDto} from "../auth/dto/login.dto";
 
 @ApiTags('book')
@@ -28,12 +28,12 @@ export class BookController {
     constructor(private readonly bookService: BookService) {
     }
 
-    @ApiOperation({summary: "Создание новой книги"})
+    @ApiOperation({summary: "АДМИН Создание новой книги"})
     @ApiBody({
         type: CreateBookDto,
         examples: {
             a: {
-                summary: "Тест",
+                summary: "Создание книги",
                 value: {
                     "name": "Приключения Тома Сойера",
                     "description": "В книге о приключениях Тома Сойера писатель с большим мастерством нарисовал жизнь американского провинциального городка 40-х годов XIX века. Благодаря напряженному сюжету и блестящему юмору эта книга горячо любима читателями всего мира.",
@@ -52,29 +52,36 @@ export class BookController {
         return this.bookService.create(createBookDto);
     }
 
-    @ApiOperation({summary: "Получение accessToken'a пользователя"})
+    @ApiOperation({summary: "Получение всех книг + поиск"})
     @Get()
     findAll() {
         return this.bookService.findAll();
     }
 
+    @ApiOperation({summary: "Получение рекомендованных книг (Рандомные)"})
+    @ApiBearerAuth()
     @Get('recommendations')
     findRandom(@Query("count") count: number) {
         return this.bookService.findRandom(count || 10);
     }
 
-
+    @ApiOperation({summary: "Получение информации о книге"})
+    @ApiBearerAuth()
     @Get(':id')
     findOne(@Param() getBookDto: GetBookDto) {
         return this.bookService.findOne(getBookDto.id);
     }
 
+    @ApiOperation({summary: "АДМИН Удаление книги"})
+    @ApiBearerAuth()
     @Delete(':id')
     @UseGuards(JwtAuthGuard, AdminGuard)
     remove(@Param() deleteBookDto: DeleteBookDto) {
         return this.bookService.remove(deleteBookDto.id);
     }
 
+    @ApiOperation({summary: "Добавление/удаление книги из избранных"})
+    @ApiBearerAuth()
     @Patch('favorite/:id')
     @UseGuards(JwtAuthGuard)
     changeFavorite(@Param() changeFavoriteBookDto: ChangeFavoriteBookDto, @Req() req) {
