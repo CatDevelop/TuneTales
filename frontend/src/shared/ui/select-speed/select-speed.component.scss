@@ -1,0 +1,19 @@
+.speed-timer {
+    justify-content: center;
+    align-items: center;
+    display: block;
+
+    &__text {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    &__icon {
+        display: block;
+    }
+
+    &__hosted-dropdown {
+        display: block;
+    }
+}

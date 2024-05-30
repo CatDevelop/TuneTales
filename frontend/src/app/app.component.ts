@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-root',
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-    public title: string = 'TuneTales';
+
 }

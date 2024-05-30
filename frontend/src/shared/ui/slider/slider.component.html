@@ -1,0 +1,14 @@
+
+<input
+    tuiSlider
+    [formControl]="control"
+    size="s"
+    [min]=0
+    [max]='maxTime'
+    type="range"
+    [value]='currentTime'
+    class="player-slider"
+/>
+
+<!--class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.error || currentFile.index === undefined"-->
+
