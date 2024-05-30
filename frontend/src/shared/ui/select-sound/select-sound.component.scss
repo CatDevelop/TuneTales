@@ -1,0 +1,49 @@
+.select-sound {
+    justify-content: center;
+    align-items: center;
+    display: block;
+
+    &__text {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    &__icon {
+        display: block;
+    }
+
+    &__hosted-dropdown {
+        display: block;
+    }
+
+    &__template {
+        transform: rotate(90deg);
+    }
+
+    &__zoom_controller {
+        background: #fff;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        width: 25px;
+        height: 155px;
+
+        overflow: hidden;
+    }
+
+    &__slider_wrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    &__input {
+        width: 140px;
+        transform: rotate(90deg);
+    }
+}
+
+

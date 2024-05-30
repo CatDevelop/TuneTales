@@ -1,0 +1,63 @@
+.player {
+    height: 100vh;
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto;
+
+    &__back_button {
+        padding-top: 50px;
+        padding-bottom: 55px;
+    }
+
+    &__image_container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__image_book {
+        height: 39vh;
+        border-radius: 8px;
+    }
+
+    &__about {
+        &_title {
+            text-align: center;
+            font-weight: 500;
+            font-size: 18px;
+            color: #14121d;
+            padding-top: 11px;
+        }
+
+        &_name {
+            text-align: center;
+            padding-top: 3px;
+            font-weight: 400;
+            font-size: 18px;
+            color: #c2c2c2;
+        }
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+
+        &_wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 245px;
+            width: 100%;
+        }
+    }
+
+    &__tools {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        margin-bottom: 7px;
+    }
+}
+

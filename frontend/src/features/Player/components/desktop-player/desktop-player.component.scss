@@ -1,0 +1,90 @@
+.desktop-player {
+
+    &__container {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 19px;
+    }
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 28px 19px 28px;
+    z-index: 1000;
+    font-family: Roboto;
+    
+    background-color: #221B42;
+
+    &:hover &__slider{
+        height: 14px;
+        transition: all ease-in-out 0.3s;
+    }
+    
+    &__slider {
+        position: relative;
+        transition: all ease-in-out 0.3s;
+        height: 2px;
+        display: block;
+        overflow: hidden;
+    }
+
+    &__controls {
+        display: flex;
+        max-width: 400px;
+        width: 100%;
+        align-items: center;
+
+        &__wrapper {
+            display: flex;
+            margin-left: 35px;
+        }
+    }
+
+    &__tools_button {
+        margin-left: 30px;
+    }
+
+    &__image-book {
+        height: 43px;
+        box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.13);
+        border-radius: 5px;
+    }
+
+    &__button {
+        filter: invert(100%) brightness(1000%);
+    }
+
+    &__tools {
+        display: flex;
+        align-items: center;
+    }
+
+    &__play-button {
+        margin-right: 15px;
+    }
+
+    &__rewind-button {
+        margin: 0 5px;
+    }
+
+    &__about {
+        margin-left: 20px;
+        &-title {
+            font-weight: 500;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        &-name {
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 14px;
+            
+        }
+    }
+}
+
+

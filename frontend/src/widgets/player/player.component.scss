@@ -1,0 +1,11 @@
+@media (min-width: 576px) {
+    .mobile-player {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .desktop-player {
+        display: none;
+    }
+}
