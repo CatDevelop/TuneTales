@@ -1,0 +1,73 @@
+<h2
+    *ngIf="label"
+    class="label"
+>
+    {{label}}
+</h2>
+
+<div class="item-slider-container">
+    <div class="item-slider">
+        <button
+            icon="tuiIconChevronLeftLarge"
+            tuiIconButton
+            (click)="slide(-defaultShift)"
+            [ngClass]="{ 'is-disabled-hide': scrollX < 1 }"
+            class="left_button"
+            appearance="flat"
+            size="m"
+        >
+        </button>
+        <div #scrl (scroll)="scrollCheck()" class="item-container">
+            <app-card-slider-item
+                *ngFor="let book of books"
+                [book]="book"
+            />
+        </div>
+        <button
+            icon="tuiIconChevronRightLarge"
+            tuiIconButton
+            (click)="slide(defaultShift)"
+            [ngClass]="{ 'is-disabled-hide': scrollEnd }"
+            class="right_button"
+            appearance="flat"
+            size="m"
+        >
+        </button>
+    </div>
+</div>
+
+
+<!--<div-->
+<!--    tuiCarouselButtons-->
+<!--    class="wrapper"-->
+<!--&gt;-->
+<!--    <button-->
+<!--        icon="tuiIconChevronLeftLarge"-->
+<!--        title="Previous"-->
+<!--        tuiIconButton-->
+<!--        type="button"-->
+<!--        class="left_button"-->
+<!--        (click)="carousel.prev()"-->
+<!--    ></button>-->
+<!--    <tui-carousel-->
+<!--        [itemsCount]="5"-->
+<!--        [style.&#45;&#45;tui-carousel-padding]="0"-->
+<!--        #carousel-->
+<!--        class="carousel"-->
+<!--    >-->
+<!--        <ng-container *ngFor="let book of books">-->
+<!--            <app-card-slider-item-->
+<!--                *tuiItem-->
+<!--                [book]="book"-->
+<!--            />-->
+<!--        </ng-container>-->
+<!--    </tui-carousel>-->
+<!--    <button-->
+<!--        icon="tuiIconChevronRightLarge"-->
+<!--        title="Next"-->
+<!--        tuiIconButton-->
+<!--        class="right_button"-->
+<!--        type="button"-->
+<!--        (click)="carousel.next()"-->
+<!--    ></button>-->
+<!--</div>-->

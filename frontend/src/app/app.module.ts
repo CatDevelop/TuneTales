@@ -15,14 +15,17 @@ import {AuthorizationPage} from '../pages/authorization-page/ui/authorization.pa
 import {NavbarComponent} from '../widgets/navbar/navbar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {RegisterPage} from '../pages/register-page/ui/register.page';
-import {HttpService} from '../shared/global-services/request/http.service';
-import {RegistrationService} from '../pages/register-page/services/registration.service';
-import {AuthorizationService} from '../pages/authorization-page/services/authorization.service';
-import {SessionStorageService} from '../pages/authorization-page/services/session-storage.service';
-import {UiKitModule} from '../shared/ui/ui-kit.module';
-import { PlayerModule } from '../widgets/player/player.module';
+import { RegisterPage } from '../pages/register-page/ui/register.page';
+import { HttpService } from '../shared/global-services/request/http.service';
+import { RegistrationService } from '../pages/register-page/services/registration.service';
+import { AuthorizationService } from '../pages/authorization-page/services/authorization.service';
+import { SessionStorageService } from '../pages/authorization-page/services/session-storage.service';
+import { NgOptimizedImage } from '@angular/common';
+import { CardSliderModule } from '../features/card-slider/card-slider.module';
+import { MainPageModule } from '../pages/main-page/ui/main.page.module';
 
+import { UiKitModule } from '../shared/ui/ui-kit.module';
+import { PlayerModule } from '../widgets/player/player.module';
 
 @NgModule({
     declarations: [
@@ -43,9 +46,16 @@ import { PlayerModule } from '../widgets/player/player.module';
         TuiRootModule,
         HttpClientModule,
         AppRoutingModule,
+        TuiInputModule,
+        TuiTextfieldControllerModule,
+        ReactiveFormsModule,
+        TuiLinkModule,
+        FormsModule,
+        NgOptimizedImage,
+        CardSliderModule,
+        MainPageModule,
         PlayerModule,
         UiKitModule
-
     ],
     providers: [
         HttpService,
