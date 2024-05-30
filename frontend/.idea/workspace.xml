@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/features/card-feed/card-feed.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider-item/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/authorization-page/ui/authorization.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authorization-page/ui/authorization.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Book/book-card.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Book/book-card.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Book/ui/book-card/book-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Book/ui/book-card/book-card.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +61,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\card-feed\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\shared\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\components" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\entities\player" />
-      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\ui" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">

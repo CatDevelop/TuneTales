@@ -32,3 +32,15 @@
     color: #000;
 }
 
+@media (max-width: 575px) {
+    .book-card__cover {
+        width: 170px;
+    }
+}
+
+@media (max-width: 360px) {
+    .book-card__cover {
+        width: 150px;
+    }
+}
+
