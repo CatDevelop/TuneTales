@@ -26,6 +26,7 @@ import { MainPageModule } from '../pages/main-page/ui/main.page.module';
 
 import { UiKitModule } from '../shared/ui/ui-kit.module';
 import { PlayerModule } from '../widgets/player/player.module';
+import { CardFeedModule } from "../features/card-feed/card-feed.module";
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { PlayerModule } from '../widgets/player/player.module';
         AuthorizationPage,
         NavbarComponent,
         RegisterPage,
+
     ],
     imports: [
         BrowserAnimationsModule,
@@ -56,7 +58,8 @@ import { PlayerModule } from '../widgets/player/player.module';
         MainPageModule,
         PlayerModule,
         UiKitModule,
-        TuiButtonModule
+        TuiButtonModule,
+        CardFeedModule
     ],
     providers: [
         HttpService,

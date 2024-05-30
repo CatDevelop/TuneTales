@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { BookCardComponent } from './ui/book-card/book-card.component';
 
 
-
 @NgModule({
     declarations: [
         BookCardComponent,

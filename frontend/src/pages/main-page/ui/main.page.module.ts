@@ -12,7 +12,7 @@ import { BookCardModule } from '../../../entities/Book/book-card.module';
     imports: [
         CommonModule,
         CardSliderModule,
-        BookCardModule,
+        BookCardModule
     ],
     exports: [
         MainPage,
