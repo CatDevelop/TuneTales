@@ -4,7 +4,9 @@ import {CreateSeriesDto} from './dto/create-series.dto';
 import {UpdateSeriesDto} from './dto/update-series.dto';
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('series')
 @Controller('series')
 export class SeriesController {
     constructor(private readonly seriesService: SeriesService) {

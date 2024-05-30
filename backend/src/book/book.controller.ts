@@ -19,18 +19,40 @@ import {AdminGuard} from "../guards/admin.guard";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {DeleteBookDto} from "./dto/delete-book.dto";
 import {ChangeFavoriteBookDto} from "./dto/change-favorite-book.dto";
+import {ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {LoginDto} from "../auth/dto/login.dto";
 
+@ApiTags('book')
 @Controller('book')
 export class BookController {
     constructor(private readonly bookService: BookService) {
     }
 
+    @ApiOperation({summary: "Создание новой книги"})
+    @ApiBody({
+        type: CreateBookDto,
+        examples: {
+            a: {
+                summary: "Тест",
+                value: {
+                    "name": "Приключения Тома Сойера",
+                    "description": "В книге о приключениях Тома Сойера писатель с большим мастерством нарисовал жизнь американского провинциального городка 40-х годов XIX века. Благодаря напряженному сюжету и блестящему юмору эта книга горячо любима читателями всего мира.",
+                    "publicationYear": 1876,
+                    "imageSrc": "https://cv3.litres.ru/pub/c/cover_250/129935.webp",
+                    "authors": ["23b73218-b66d-42db-861d-091b0fb12488"],
+                    "speakers": [],
+                    "genres": []
+                } as CreateBookDto
+            }
+        }
+    })
     @Post()
     @UseGuards(JwtAuthGuard, AdminGuard)
     create(@Body() createBookDto: CreateBookDto) {
         return this.bookService.create(createBookDto);
     }
 
+    @ApiOperation({summary: "Получение accessToken'a пользователя"})
     @Get()
     findAll() {
         return this.bookService.findAll();

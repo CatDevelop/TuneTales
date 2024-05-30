@@ -5,7 +5,9 @@ import {UpdateAuthorDto} from './dto/update-author.dto';
 import {GetAuthorDto} from "./dto/get-author.dto";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('author')
 @Controller('author')
 export class AuthorController {
     constructor(private readonly authorService: AuthorService) {

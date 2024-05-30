@@ -5,7 +5,9 @@ import {UpdateGenreDto} from './dto/update-genre.dto';
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
 import {DeleteGenreDto} from "./dto/delete-genre.dto";
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('genre')
 @Controller('genre')
 export class GenreController {
     constructor(private readonly genreService: GenreService) {
