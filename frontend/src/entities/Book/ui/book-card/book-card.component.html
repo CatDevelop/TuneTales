@@ -1,0 +1,16 @@
+<div
+    class="book-card"
+    *ngIf="book"
+>
+    <img
+        src="{{book.imageSrc}}"
+        alt="cover"
+        class="book-card__cover"
+    >
+    <div class="book-card__book-info">
+        <span
+            class="book-info__book-name"
+        >{{bookName}}</span>
+        <span class="book-info__author">{{authorFullName}}</span>
+    </div>
+</div>

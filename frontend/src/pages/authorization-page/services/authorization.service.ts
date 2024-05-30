@@ -34,10 +34,10 @@ export class AuthorizationService {
         const response$: Observable<HttpResponse<IAuthorizationResponseDto>> = this._req.request<IAuthorizationResponseDto, IAuthorization>({
             url: `${UrlRoutes.backendDev}/auth/login`,
             method: RequestMethodType.post,
-            body: { login: email, password: password }
+            body: { login: email, password: password },
         });
 
-        response$
+        response$ // observable -> ответы (только один)
             .pipe(
                 filter((resp: HttpResponse<IAuthorizationResponseDto>) => resp.ok),
                 tap((resp: HttpResponse<IAuthorizationResponseDto>) => {

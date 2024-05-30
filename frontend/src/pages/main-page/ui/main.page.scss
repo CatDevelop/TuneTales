@@ -1,15 +1,16 @@
 :host {
     display: grid;
-    justify-self: center;
-    height: 100%;
+    justify-self: start;
     width: 100%;
+    overflow-y: auto;
 }
+
 @media (max-width: 767px) {
     :host {
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
     }
 
-    .registration-form-container {
+    .main-page-container {
         grid-column: 1;
         padding: 0 32px;
     }
@@ -21,8 +22,8 @@
         grid-column-gap: 20px;
     }
 
-    .registration-form-container {
-        grid-column: 2/8;
+    .main-page-container {
+        grid-column: 1/-1;
     }
 }
 
@@ -32,8 +33,8 @@
         grid-column-gap: 20px;
     }
 
-    .registration-form-container {
-        grid-column: 4/10;
+    .main-page-container {
+        grid-column: 1/-1;
     }
 }
 
@@ -43,32 +44,15 @@
         grid-column-gap: 20px;
     }
 
-    .registration-form-container {
-        grid-column: 5/11;
+    .main-page-container {
+        grid-column: 1/-1;
     }
 }
 
-.registration-form-container {
+.main-page-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 125px;
     width: 100%;
-    height: 100%;
-    justify-content: center;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.registration-link-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 15px;
-}
-
-.registration-link {
-    justify-self: end;
+    padding: 22px;
 }
