@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7d2a523c-1cf7-401a-a704-2d70d5c6cd53" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/Player/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/Player/lib/audio.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/Player/lib/cloud.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/player-slider/ui/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/player-slider/ui/slider/slider.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/slider/slider.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/player-slider/ui/slider/slider.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/slider/slider.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/player-slider/ui/slider/slider.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/slider/slider.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-left-rewind/click-left-rewind.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-left-rewind/click-left-rewind.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-left-rewind/click-left-rewind.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-left-rewind/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-right-rewind/click-right-rewind.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-right-rewind/click-right-rewind.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-right-rewind/click-right-rewind.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/click-right-rewind/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/components/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/rewind-buttons/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/toggle-play-button/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/toggle-play-button/togle-play.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/toggle-play-button/togle-play.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/toggle-play-button/togle-play.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/index.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2fxPoIyRbuNU5SQzsg7vF6qncji" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-frontend-player-functionality-player&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mrlop/OneDrive/Рабочий стол/TuneTales/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d2a523c-1cf7-401a-a704-2d70d5c6cd53" name="Changes" comment="" />
+      <created>1714739929123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714739929123</updated>
+      <workItem from="1714739930290" duration="11000" />
+      <workItem from="1714996692841" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

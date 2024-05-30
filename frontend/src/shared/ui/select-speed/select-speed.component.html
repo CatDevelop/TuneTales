@@ -1,0 +1,34 @@
+<tui-hosted-dropdown
+    class="speed-timer__hosted-dropdown"
+    tuiDropdownAlign="center"
+    [content]="dropdown"
+    [sided]="true"
+    [(open)]="open"
+>
+    <div
+        class="speed-timer"
+    >
+        <p class="speed-timer__text"
+           *ngIf="speedTimerValue"
+           [ngStyle]="{color: color === 'white' ? '#ffffff' : '#14121d'}"
+        >{{speedTimerValue}}x</p>
+    </div>
+</tui-hosted-dropdown>
+
+<ng-template #dropdown let-close="close">
+    <tui-data-list>
+        <tui-opt-group>
+            <button
+                *ngFor="let item of speeds"
+                tuiOption
+                (click)="onValueChange(item.speed)"
+            >
+                {{ item.name }}
+            </button>
+        </tui-opt-group>
+    </tui-data-list>
+</ng-template>
+
+
+
+

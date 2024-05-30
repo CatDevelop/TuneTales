@@ -1,0 +1,42 @@
+<tui-hosted-dropdown
+    class="sleep-timer__hosted-dropdown"
+    tuiDropdownAlign="center"
+    [content]="dropdown"
+    [sided]="true"
+    [(open)]="open"
+>
+    <div
+        class="sleep-timer"
+    >
+        <p class="sleep-timer__text"
+           *ngIf="sleepTimerValue"
+           [ngStyle]="{color: color === 'white' ? '#ffffff' : '#14121d'}"
+        >{{sleepTimerValue}}</p>
+        <img
+            class="sleep-timer__icon"
+            [ngStyle]="color === 'white' ? {filter: 'invert(100%) brightness(1000%)'} : {}"
+            *ngIf="!sleepTimerValue"
+            [width]="width"
+            [height]="height"
+            src="./assets/sleep-button.svg"
+            alt="sleep button"/>
+    </div>
+</tui-hosted-dropdown>
+
+<ng-template #dropdown let-close="close">
+    <tui-data-list>
+        <tui-opt-group>
+            <button
+                *ngFor="let item of times"
+                tuiOption
+                (click)="onValueChange(item.time)"
+            >
+                {{ item.name }}
+            </button>
+        </tui-opt-group>
+    </tui-data-list>
+</ng-template>
+
+
+
+

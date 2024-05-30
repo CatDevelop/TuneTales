@@ -4,19 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34a6d6bd-9043-46db-ae46-3ed8335364ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-left-rewind/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/components/click-right-rewind/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/rewind-buttons/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/toggle-play-button/index.ts" afterDir="false" />
+    <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/play-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/play-button.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/stop-button.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/stop-button.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/player-button/button.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/player-controllers.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/player-controllers.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/sleep-timer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/sleep-timer.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/sleep-timer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/ui-kit.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/ui-kit.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +38,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2f2Ah0cn2ZOEc0rt7DvQgx0rEGm" />
+  <component name="ProjectId" id="2fwrmIF8nGUWCuHzZa2ZxZGnTEe" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -46,29 +50,28 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-frontend-player-controlbuttons&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/DNS/Desktop/TuneTales/frontend&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-frontend-player-functionality-player&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mrlop/OneDrive/Рабочий стол/DocTime_Calendar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\DNS\\Desktop\\TuneTales\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\mrlop\\OneDrive\\Рабочий стол\\TuneTales\\frontend\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\shared\ui\sleep-button" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\features\rewind-buttons\components" />
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\features\rewind-buttons" />
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\features\toggle-play-button" />
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\entities\player-slider\ui" />
-      <recent name="C:\Users\DNS\Desktop\TuneTales\frontend\src\entities\player-slider" />
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\shared\ui" />
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\components" />
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player" />
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\entities\player" />
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\ui" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -89,28 +92,52 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="34a6d6bd-9043-46db-ae46-3ed8335364ef" name="Changes" comment="" />
-      <created>1712988914973</created>
+      <changelist id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="" />
+      <created>1714723141137</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712988914973</updated>
-      <workItem from="1712988915999" duration="1915000" />
-      <workItem from="1712993874284" duration="10753000" />
-      <workItem from="1713084586594" duration="132000" />
-      <workItem from="1713428129703" duration="9679000" />
-      <workItem from="1713591212478" duration="5763000" />
-      <workItem from="1713629549499" duration="13761000" />
+      <updated>1714723141137</updated>
+      <workItem from="1714723142257" duration="2599000" />
+      <workItem from="1714739944058" duration="11544000" />
+      <workItem from="1714923940377" duration="5613000" />
+      <workItem from="1714986962097" duration="603000" />
+      <workItem from="1714990937762" duration="2499000" />
+      <workItem from="1714996708126" duration="29532000" />
+      <workItem from="1715171243503" duration="14000" />
+      <workItem from="1715253777373" duration="20485000" />
+      <workItem from="1715324034608" duration="39444000" />
+      <workItem from="1715617096513" duration="1380000" />
+      <workItem from="1715664125113" duration="227000" />
+      <workItem from="1715664356499" duration="273000" />
+      <workItem from="1715664633773" duration="312000" />
+      <workItem from="1715665245411" duration="16000" />
+      <workItem from="1715677096354" duration="584000" />
+      <workItem from="1715680832764" duration="4451000" />
+      <workItem from="1715705912370" duration="1087000" />
+      <workItem from="1715749609035" duration="3527000" />
+      <workItem from="1715794786034" duration="25056000" />
+      <workItem from="1715924467118" duration="33640000" />
+      <workItem from="1716032683101" duration="27745000" />
+      <workItem from="1716107613965" duration="52208000" />
+      <workItem from="1716475579476" duration="11032000" />
+      <workItem from="1716543630438" duration="5152000" />
+      <workItem from="1716630629728" duration="19833000" />
+      <workItem from="1716746505529" duration="51000" />
+      <workItem from="1716989923248" duration="73000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
