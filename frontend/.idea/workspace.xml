@@ -7,20 +7,10 @@
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/player-controllers.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/player-controllers.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/sleep-timer.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/sleep-timer.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/sleep-timer/sleep-timer.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/speed-button/speed-button.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/components/desktop-player/desktop-player.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/ui-kit.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/ui-kit.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/player/player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/player/player.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/authorization-page/ui/authorization.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authorization-page/ui/authorization.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/navbar/navbar.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +43,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-frontend-player-functionality-player&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mrlop/OneDrive/Рабочий стол/DocTime_Calendar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,

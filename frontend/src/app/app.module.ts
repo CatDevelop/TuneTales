@@ -55,7 +55,8 @@ import { PlayerModule } from '../widgets/player/player.module';
         CardSliderModule,
         MainPageModule,
         PlayerModule,
-        UiKitModule
+        UiKitModule,
+        TuiButtonModule
     ],
     providers: [
         HttpService,
