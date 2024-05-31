@@ -5,8 +5,7 @@ import { HttpService  } from '../../../shared/global-services/request/http.servi
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { HttpResponse } from '@angular/common/http';
-import { IBook } from '../../../shared/model/types';
-
+import { IGetBookResponseDto } from '../../../entities/Book/model/dto/response/get-book.response-dto';
 
 @Injectable({
     providedIn: PlayerControlModule
@@ -20,13 +19,13 @@ export class CloudService {
      * @param {string} bookId - Идентификатор книги.
      * @returns {Observable<IBook>} Observable с данными книги.
      */
-    public getBook(bookId: string): Observable<IBook> {
-        const response$: Observable<any> = this._req.request<IBook, any>({
+    public getBook(bookId: string): Observable<IGetBookResponseDto> {
+        const response$: Observable<any> = this._req.request<IGetBookResponseDto, any>({
             url: `${UrlRoutes.backendDev}/book/${bookId}`,
             method: RequestMethodType.get
         }).pipe(
-            filter((resp: HttpResponse<IBook>) => resp.ok),
-            map((resp: HttpResponse<IBook>) => resp.body),
+            filter((resp: HttpResponse<IGetBookResponseDto>) => resp.ok),
+            map((resp: HttpResponse<IGetBookResponseDto>) => resp.body),
             take(1)
         );
 

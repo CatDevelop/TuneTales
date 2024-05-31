@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PlayerControlModule } from '../player-control.module';
 import { FastAverageColor } from 'fast-average-color';
-import {Observable, from, map} from 'rxjs';
-import { take } from 'rxjs/operators';
+import {Observable, from, map, of} from 'rxjs';
+import {catchError, take } from 'rxjs/operators';
 
 @Injectable({
     providedIn: PlayerControlModule
@@ -22,7 +22,10 @@ export class AverageColorService {
         return from(fac.getColorAsync(imgUrl))
             .pipe(
                 map(n => n.hex),
-                take(1)
+                take(1),
+                catchError(err => {
+                    return of('#fff');
+                })
             );
     }
 }
