@@ -47,14 +47,20 @@ export class RegisterPage {
      * Регистрация пользователя в системе
      */
     public register(): void {
-        this._register.register({
-            email: this.registrationForm.get('email')?.value || '',
-            login: this.registrationForm.get('login')?.value || '',
-            password: this.registrationForm.get('password')?.value || '',
-            firstName: this.registrationForm.get('firstName')?.value || '',
-            secondName: this.registrationForm.get('secondName')?.value || '',
-            lastName: this.registrationForm.get('lastName')?.value || '',
-        });
+        this._register
+            .register({
+                email: this.registrationForm.get('email')?.value || '',
+                login: this.registrationForm.get('login')?.value || '',
+                password: this.registrationForm.get('password')?.value || '',
+                firstName: this.registrationForm.get('firstName')?.value || '',
+                secondName: this.registrationForm.get('secondName')?.value || '',
+                lastName: this.registrationForm.get('lastName')?.value || '',
+            })
+            .subscribe(resp => {
+                if (resp.ok) {
+                    this.navigateToMainPage();
+                }
+            });
     }
 
     /**
@@ -63,6 +69,14 @@ export class RegisterPage {
      */
     protected navigateToAuthorization(): void {
         this._router.navigate(['/login']);
+    }
+
+    /**
+     * Редирект на главную
+     * @private
+     */
+    private navigateToMainPage(): void {
+        this._router.navigate(['/']);
     }
 }
 

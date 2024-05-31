@@ -18,14 +18,16 @@ const routes: Routes = [
         path: 'author/:authorId',
         component: AuthorPage,
     },
-    // {
-    //     path: 'book/:bookId',
-    //     component: AuthorPage,
-    // },
+    {
+        path: 'book/:bookId',
+        loadChildren: () =>
+            import('../pages/book.page/book.page.module')
+                .then(m => m.BookPageModule)
+    },
     {
         path: '',
         component: MainPage,
-    }
+    },
 ];
 
 @NgModule({

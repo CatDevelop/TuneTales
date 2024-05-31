@@ -41,7 +41,11 @@ export class AuthorizationPage {
             .pipe(
                 take(1),
             )
-            .subscribe();
+            .subscribe(resp => {
+                if (resp.ok) {
+                    this.navigateToMainPage();
+                }
+            });
     }
 
     /**
@@ -50,5 +54,13 @@ export class AuthorizationPage {
      */
     protected navigateToRegistration(): void {
         this._router.navigate(['/registration']);
+    }
+
+    /**
+     * Редирект на главную
+     * @private
+     */
+    private navigateToMainPage(): void {
+        this._router.navigate(['/']);
     }
 }
