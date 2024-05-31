@@ -3,6 +3,3 @@ export interface IUser {
     login: string
     role: string
 }
-
-
-export type ProjectStatus = "NotWorking" | "InWork" | "Stopped" | "Ending";

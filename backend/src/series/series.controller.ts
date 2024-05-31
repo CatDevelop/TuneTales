@@ -4,7 +4,7 @@ import {CreateSeriesDto} from './dto/create-series.dto';
 import {UpdateSeriesDto} from './dto/update-series.dto';
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
-import {ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiOperation, ApiTags} from "@nestjs/swagger";
 
 @ApiTags('series')
 @Controller('series')
@@ -12,30 +12,40 @@ export class SeriesController {
     constructor(private readonly seriesService: SeriesService) {
     }
 
+    @ApiOperation({summary: "АДМИН Создание новой серии книг"})
+    @ApiBearerAuth()
     @Post()
     @UseGuards(JwtAuthGuard, AdminGuard)
     create(@Body() createSeriesDto: CreateSeriesDto) {
         return this.seriesService.create(createSeriesDto);
     }
 
+    @ApiOperation({summary: "Получение всех серий книг"})
+    @ApiBearerAuth()
     @Get()
     @UseGuards(JwtAuthGuard)
     findAll() {
         return this.seriesService.findAll();
     }
 
+    @ApiOperation({summary: "Получение информации о серии книг"})
+    @ApiBearerAuth()
     @Get(':id')
     @UseGuards(JwtAuthGuard)
     findOne(@Param('id') id: string) {
         return this.seriesService.findOne(id);
     }
 
+    @ApiOperation({summary: "АДМИН Обновление информации о серии книг"})
+    @ApiBearerAuth()
     @Patch(':id')
     @UseGuards(JwtAuthGuard, AdminGuard)
     update(@Param('id') id: string, @Body() updateSeriesDto: UpdateSeriesDto) {
         return this.seriesService.update(id, updateSeriesDto);
     }
 
+    @ApiOperation({summary: "АДМИН Удаление серии книг"})
+    @ApiBearerAuth()
     @Delete(':id')
     @UseGuards(JwtAuthGuard, AdminGuard)
     remove(@Param('id') id: string) {

@@ -46,6 +46,7 @@ export class BookController {
             }
         }
     })
+    @ApiBearerAuth()
     @Post()
     @UseGuards(JwtAuthGuard, AdminGuard)
     create(@Body() createBookDto: CreateBookDto) {
@@ -54,8 +55,8 @@ export class BookController {
 
     @ApiOperation({summary: "Получение всех книг + поиск"})
     @Get()
-    findAll() {
-        return this.bookService.findAll();
+    findAll(@Query("search") search: string | null): Promise<GetBookDto[]> {
+        return this.bookService.findAll(search);
     }
 
     @ApiOperation({summary: "Получение рекомендованных книг (Рандомные)"})
