@@ -5,7 +5,8 @@ import {UpdateAuthorDto} from './dto/update-author.dto';
 import {GetAuthorDto} from "./dto/get-author.dto";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
-import {ApiBearerAuth, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {CreateBookDto} from "../book/dto/create-book.dto";
 
 @ApiTags('author')
 @Controller('author')
@@ -13,7 +14,21 @@ export class AuthorController {
     constructor(private readonly authorService: AuthorService) {
     }
 
-    @ApiOperation({summary: "АДМИН Создание новой книги"})
+    @ApiOperation({summary: "АДМИН Создание автора книг"})
+    @ApiBody({
+        type: CreateAuthorDto,
+        examples: {
+            a: {
+                summary: "Создание автора книг",
+                value: {
+                    "firstName": "Марк",
+                    "secondName": "Твен",
+                    "description": "Марк Твен – американский писатель, журналист и общественный деятель. Его творчество охватывает множество жанров: юмор, сатиру, философскую фантастику, публицистику. Марк Твен (настоящее имя писателя – Сэмюэл Лэнгхорн Клеменс) родился 30 ноября 1835 года во Флориде, штат Миссури. Его семья была небогатой, а со смертью отца в 1847 году ее материальное положение значительно ухудшилось. Чтобы помочь родным, мальчик стал учеником наборщика и работал в типографии, но мечтал стать моряком.",
+                    "imageSrc": "https://avatars.dzeninfra.ru/get-zen_doc/5255669/pub_60ee683d7fcf347863cf6edb_60ee685f455e4253e0944ded/scale_1200"
+                } as CreateAuthorDto
+            }
+        }
+    })
     @ApiBearerAuth()
     @Post()
     @UseGuards(JwtAuthGuard, AdminGuard)

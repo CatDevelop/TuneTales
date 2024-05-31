@@ -2,7 +2,8 @@ import {Body, Controller, Get, Post, Req, UseGuards, UsePipes, ValidationPipe} f
 import {UserService} from "./user.service";
 import {CreateUserDto} from "./dto/create-user.dto";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
-import {ApiBearerAuth, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {CreateBookDto} from "../book/dto/create-book.dto";
 
 @ApiTags('auth')
 @Controller('user')
@@ -11,6 +12,22 @@ export class UserController {
     }
 
     @ApiOperation({summary: "Регистрация нового пользователя"})
+    @ApiBody({
+        type: CreateUserDto,
+        examples: {
+            a: {
+                summary: "Создание пользователя",
+                value: {
+                    "login": "CatDev",
+                    "email": "r.maximka@mail.ru",
+                    "password": "P@ssw0rd",
+                    "firstName": "Максим",
+                    "secondName": "Рожков",
+                    "lastName": "Евгеньевич"
+                } as CreateUserDto
+            }
+        }
+    })
     @Post()
     create(@Body() createUserDto: CreateUserDto) {
         return this.userService.create(createUserDto);

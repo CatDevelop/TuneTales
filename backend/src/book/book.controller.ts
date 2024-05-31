@@ -19,7 +19,7 @@ import {AdminGuard} from "../guards/admin.guard";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {DeleteBookDto} from "./dto/delete-book.dto";
 import {ChangeFavoriteBookDto} from "./dto/change-favorite-book.dto";
-import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags, ApiQuery} from "@nestjs/swagger";
 import {LoginDto} from "../auth/dto/login.dto";
 
 @ApiTags('book')
@@ -53,13 +53,28 @@ export class BookController {
         return this.bookService.create(createBookDto);
     }
 
-    @ApiOperation({summary: "Получение всех книг + поиск"})
+    @ApiOperation({
+        summary: "Получение всех книг + поиск",
+        description: "Возвращает все книги, если есть поисковый запрос - сначала выводятся книги с подходящим названием, затем - с автором"
+    })
+    @ApiQuery({
+        name: "search",
+        description: "Поисковый запрос",
+        required: false,
+        type: String
+    })
     @Get()
     findAll(@Query("search") search: string | null): Promise<GetBookDto[]> {
         return this.bookService.findAll(search);
     }
 
     @ApiOperation({summary: "Получение рекомендованных книг (Рандомные)"})
+    @ApiQuery({
+        name: "count",
+        description: "Количество книг",
+        required: false,
+        type: Number
+    })
     @ApiBearerAuth()
     @Get('recommendations')
     findRandom(@Query("count") count: number) {

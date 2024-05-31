@@ -4,7 +4,8 @@ import {CreateGenreDto} from './dto/create-genre.dto';
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
 import {DeleteGenreDto} from "./dto/delete-genre.dto";
-import {ApiBearerAuth, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {CreateUserDto} from "../user/dto/create-user.dto";
 
 @ApiTags('genre')
 @Controller('genre')
@@ -13,6 +14,17 @@ export class GenreController {
     }
 
     @ApiOperation({summary: "АДМИН Создание нового жанра книг"})
+    @ApiBody({
+        type: CreateGenreDto,
+        examples: {
+            a: {
+                summary: "Создание жанра книг",
+                value: {
+                    "name": "Фантастика",
+                } as CreateGenreDto
+            }
+        }
+    })
     @ApiBearerAuth()
     @Post()
     @UseGuards(JwtAuthGuard, AdminGuard)

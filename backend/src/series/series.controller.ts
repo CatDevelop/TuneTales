@@ -4,7 +4,8 @@ import {CreateSeriesDto} from './dto/create-series.dto';
 import {UpdateSeriesDto} from './dto/update-series.dto';
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
-import {ApiBearerAuth, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {CreateGenreDto} from "../genre/dto/create-genre.dto";
 
 @ApiTags('series')
 @Controller('series')
@@ -13,6 +14,17 @@ export class SeriesController {
     }
 
     @ApiOperation({summary: "АДМИН Создание новой серии книг"})
+    @ApiBody({
+        type: CreateSeriesDto,
+        examples: {
+            a: {
+                summary: "Создание серии книг",
+                value: {
+                    "name": "Бестселлеры Марка Твена",
+                } as CreateSeriesDto
+            }
+        }
+    })
     @ApiBearerAuth()
     @Post()
     @UseGuards(JwtAuthGuard, AdminGuard)
@@ -37,6 +49,17 @@ export class SeriesController {
     }
 
     @ApiOperation({summary: "АДМИН Обновление информации о серии книг"})
+    @ApiBody({
+        type: UpdateSeriesDto,
+        examples: {
+            a: {
+                summary: "Обновление серии книг",
+                value: {
+                    "name": "Бестселлеры Квентина Тарантино",
+                } as UpdateSeriesDto
+            }
+        }
+    })
     @ApiBearerAuth()
     @Patch(':id')
     @UseGuards(JwtAuthGuard, AdminGuard)
