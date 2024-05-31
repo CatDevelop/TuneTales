@@ -1,7 +1,7 @@
 import {BadRequestException, Injectable, NotFoundException} from '@nestjs/common';
 import {CreateBookDto} from './dto/create-book.dto';
 import {InjectRepository} from "@nestjs/typeorm";
-import {In, Repository} from "typeorm";
+import {In, Like, Repository} from "typeorm";
 import {Book} from "./entities/book.entity";
 import {Author} from "../author/entities/author.entity";
 import {Genre} from "../genre/entities/genre.entity";
@@ -76,15 +76,52 @@ export class BookService {
         return {bookID: res.id}
     }
 
-    async findAll() {
-        return await this.bookRepository.find({
+    async findAll(search: string | null) {
+        if (!search)
+            return await this.bookRepository.find({
+                relations: {
+                    authors: true,
+                    speakers: true,
+                    genres: true,
+                    series: true
+                }
+            });
+
+        const booksByName = await this.bookRepository.find({
+            where: {name: Like(`%${search}%`)},
             relations: {
                 authors: true,
                 speakers: true,
                 genres: true,
                 series: true
             }
-        });
+        })
+
+        const booksByAuthor = await this.bookRepository.find({
+            where: [
+                {
+                    authors: [
+                        {firstName: Like(`%${search}%`)},
+                        {secondName: Like(`%${search}%`)},
+                        {lastName: Like(`%${search}%`)}
+                    ]
+                },
+                {
+                    speakers: [
+                        {firstName: Like(`%${search}%`)},
+                        {secondName: Like(`%${search}%`)},
+                        {lastName: Like(`%${search}%`)}
+                    ]
+                }
+            ],
+            relations: {
+                authors: true,
+                speakers: true,
+                genres: true,
+                series: true
+            }
+        })
+        return [...booksByName, ...booksByAuthor];
     }
 
     async findRandom(count: number) {
@@ -100,9 +137,9 @@ export class BookService {
         const res = []
         const getRandom = (function (array) {
             const notGivenItems = array.map(el => el)
-                const getIndex = function () {
-                    return Math.floor(Math.random() * notGivenItems.length);
-                };
+            const getIndex = function () {
+                return Math.floor(Math.random() * notGivenItems.length);
+            };
 
             return function () {
                 if (notGivenItems.length === 0)
@@ -112,7 +149,7 @@ export class BookService {
             };
         })(books);
 
-        for(let i=0; i < count; i++)
+        for (let i = 0; i < count; i++)
             res.push(getRandom())
         return res.filter(el => el);
     }
@@ -156,10 +193,10 @@ export class BookService {
         if (!user)
             throw new NotFoundException('The user is not found!')
 
-        if(!book)
+        if (!book)
             throw new NotFoundException('The book is not found!')
 
-        if(user.favourite_books.find(favoriteBook => favoriteBook.id === bookId)) {
+        if (user.favourite_books.find(favoriteBook => favoriteBook.id === bookId)) {
             await this.bookRepository.save({
                 ...book,
                 users: book.users.filter(bookUser => bookUser.id !== userId),

@@ -7,8 +7,7 @@ import {UserService} from "../user/user.service";
 export class AdminGuard implements CanActivate {
     constructor(
         private jwtService: JwtService,
-        private configService: ConfigService,
-        private userService: UserService
+        private configService: ConfigService
     ) {
     }
 
@@ -24,7 +23,7 @@ export class AdminGuard implements CanActivate {
             const payload = await this.jwtService.verifyAsync(token, {
                 secret: this.configService.get("JWT_SECRET"),
             });
-            if(payload.role !== "admin")
+            if (payload.role !== "admin")
                 throw new UnauthorizedException();
         } catch {
             throw new UnauthorizedException();
