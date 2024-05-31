@@ -9,16 +9,25 @@
                 />
                 <div class="bookInfo">
                     <div class="book">
-                        <h2 class="title">Название книги</h2>
+                        <h2 class="title">{{(book | async)?.name}}</h2>
                         <div class="subtitle">
                             <p class="subtitleText">жанр</p>
                             <p class="subtitleText">время</p>
                         </div>
                     </div>
                     <div class="author">
-                        <p class="authorLabel">Автор: </p>
-                        <p class="authorLabel">Исполнитель: </p>
-                        <p class="authorLabel">Год: </p>
+                        <div class="authorInfo">
+                            <p class="authorLabel">Автор: </p>
+                            <p class="authorText">text</p>
+                        </div>
+                        <div class="authorInfo">
+                            <p class="authorLabel">Исполнитель: </p>
+                            <p class="authorText">text</p>
+                        </div>
+                        <div class="authorInfo">
+                            <p class="authorLabel">Год: </p>
+                            <p class="authorText">{{(book | async)?.publicationYear}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,5 +48,10 @@
                 </button>
             </div>
         </div>
+    </div>
+    <div class="bookDescription">
+        <p class="description">
+            {{(book | async)?.description}}
+        </p>
     </div>
 </div>

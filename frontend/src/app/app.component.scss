@@ -20,7 +20,7 @@
 }
 
 .main {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 80px - 83px);
     overflow-y: auto;
 }
 
@@ -32,19 +32,19 @@
 
 @media (min-width: 768px) {
     .grid-12 {
-        grid-template-columns: 680px;
+        grid-template-columns: 1fr;
     }
 }
 
 @media (min-width: 1024px) {
     .grid-12 {
-        grid-template-columns: 1000px;
+        grid-template-columns: 1fr;
     }
 }
 
 @media (min-width: 1366px) {
     .grid-12 {
-        grid-template-columns: 1170px;
+        grid-template-columns: 1fr;
     }
 }
 

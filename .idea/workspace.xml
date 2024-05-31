@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="mini fixes">
+    <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="book page desktop (корявая)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/register-page/ui/register.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/register-page/ui/register.page.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +73,15 @@
     </key>
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="book page desktop (корявая)">
+      <option name="closed" value="true" />
+      <created>1717149155140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717149155140</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +103,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mini fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="mini fixes" />
+    <MESSAGE value="book page desktop (корявая)" />
+    <option name="LAST_COMMIT_MESSAGE" value="book page desktop (корявая)" />
   </component>
 </project>

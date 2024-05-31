@@ -1,65 +1,29 @@
 :host {
-    display: grid;
+    display: flex;
     justify-self: start;
     width: 100%;
     overflow-y: auto;
 }
 
-@media (max-width: 767px) {
-    :host {
-        grid-template-columns: 100%;
-    }
-
-    .bookPageContainer {
-        grid-column: 1;
-        padding: 0 32px;
-    }
-}
-
-@media (min-width: 768px) {
-    :host {
-        grid-template-columns: repeat(8, 65px);
-        grid-column-gap: 20px;
-    }
-
-    .bookPageContainer {
-        grid-column: 1/-1;
-    }
-}
-
-@media (min-width: 1024px) {
-    :host {
-        grid-template-columns: repeat(12, 65px);
-        grid-column-gap: 20px;
-    }
-
-    .bookPageContainer {
-        grid-column: 1/-1;
-    }
-}
-
-@media (min-width: 1366px) {
-    :host {
-        grid-template-columns: repeat(14, 65px);
-        grid-column-gap: 20px;
-    }
-
-    .bookPageContainer {
-        grid-column: 1/-1;
-    }
+.bookPageContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
 }
 
 .bookInfoContainer {
-    width: 100%;
     background: rgba(22, 119, 255, 0.04);
+    width: 100%;
     height: 600px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .content {
-    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 32px;
@@ -116,8 +80,23 @@
     gap: 16px;
 }
 
-.authorLabel {
+.authorInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
 
+.authorLabel {
+    font-size: 20px;
+    color: #525B7E;
+    letter-spacing: 0.03em;
+}
+
+.authorText {
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    color: #100f16;
 }
 
 .buttons {
@@ -126,8 +105,143 @@
     flex-direction: column;
     gap: 8px;
     align-self: start;
+    padding: 8px;
 }
 
 .button {
     height: 50px !important;
+}
+
+.description {
+    white-space: wrap;
+    font-size: 25px;
+    color: #000;
+    line-height: 152%;
+}
+
+@media (max-width: 767px) {
+    :host {
+    }
+
+    .bookPageContainer {
+
+    }
+
+    .content {
+
+    }
+}
+
+@media (min-width: 768px) {
+    :host {
+    }
+
+    .bookPageContainer {
+
+    }
+
+    .content {
+        width: 700px;
+    }
+
+    .bookDescription {
+        width: 700px;
+    }
+
+    .bookCover {
+        height: 300px;
+        width: auto;
+        border-radius: 8px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .authorLabel {
+        font-size: 18px;
+    }
+
+    .authorText {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :host {
+
+    }
+
+    .bookPageContainer {
+
+    }
+
+    .content {
+        width: 950px;
+    }
+
+    .bookDescription {
+        width: 950px;
+    }
+
+    .bookCover {
+        height: 394px;
+        width: auto;
+        border-radius: 8px;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .authorLabel {
+        font-size: 20px;
+    }
+
+    .authorText {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1280px) {
+    :host {
+
+    }
+
+    .bookPageContainer {
+
+    }
+
+    .content {
+        width: 1200px;
+    }
+
+    .bookDescription {
+        width: 1200px;
+    }
+}
+
+@media (min-width: 1366px) {
+    :host {
+    }
+
+    .bookPageContainer {
+
+    }
+
+    .content {
+        width: 1300px;
+    }
+
+    .bookDescription {
+        width: 1300px;
+    }
 }
