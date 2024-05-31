@@ -119,6 +119,12 @@
     line-height: 152%;
 }
 
+.recommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 @media (max-width: 767px) {
     :host {
     }
@@ -146,6 +152,12 @@
 
     .bookDescription {
         width: 700px;
+    }
+
+    .recommendations {
+        overflow-x: auto;
+        width: 700px;
+        padding: 0 22px;
     }
 
     .bookCover {
@@ -188,6 +200,12 @@
         width: 950px;
     }
 
+    .recommendations {
+        overflow-x: auto;
+        width: 950px;
+        padding: 0 22px;
+    }
+
     .bookCover {
         height: 394px;
         width: auto;
@@ -227,6 +245,12 @@
     .bookDescription {
         width: 1200px;
     }
+
+    .recommendations {
+        overflow-x: auto;
+        width: 1200px;
+        padding: 0 22px;
+    }
 }
 
 @media (min-width: 1366px) {
@@ -243,5 +267,11 @@
 
     .bookDescription {
         width: 1300px;
+    }
+
+    .recommendations {
+        overflow-x: auto;
+        width: 1300px;
+        padding: 0 22px;
     }
 }

@@ -5,6 +5,7 @@ import { BookPageRoutingModule } from './book.page-routing.module';
 import { BookPage } from './book.page';
 import { BookService } from '../../entities/Book/services/book.service';
 import { TuiButtonModule } from '@taiga-ui/core';
+import { CardSliderModule } from '../../features/card-slider/card-slider.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TuiButtonModule } from '@taiga-ui/core';
     imports: [
         CommonModule,
         BookPageRoutingModule,
-        TuiButtonModule
+        TuiButtonModule,
+        CardSliderModule
     ],
     exports: [
         BookPage,

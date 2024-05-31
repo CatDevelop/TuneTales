@@ -54,4 +54,14 @@
             {{(book | async)?.description}}
         </p>
     </div>
+    <div class="recommendations">
+        <app-card-slider
+            [label]="'Книги из этой серии'"
+            [books]="mockBooks"
+        ></app-card-slider>
+        <app-card-slider
+            [label]="mockBooks[0].description.slice(0, 35)"
+            [books]="mockBooks"
+        ></app-card-slider>
+    </div>
 </div>
