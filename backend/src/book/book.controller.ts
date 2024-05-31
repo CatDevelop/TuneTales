@@ -1,17 +1,4 @@
-import {
-    Body,
-    Controller,
-    Delete,
-    Get,
-    Param,
-    Patch,
-    Post, Query,
-    Req,
-    Res,
-    UseGuards,
-    UsePipes,
-    ValidationPipe
-} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post, Query, Req, UseGuards} from '@nestjs/common';
 import {BookService} from './book.service';
 import {CreateBookDto} from './dto/create-book.dto';
 import {GetBookDto} from "./dto/get-book.dto";
@@ -19,8 +6,7 @@ import {AdminGuard} from "../guards/admin.guard";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {DeleteBookDto} from "./dto/delete-book.dto";
 import {ChangeFavoriteBookDto} from "./dto/change-favorite-book.dto";
-import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags, ApiQuery} from "@nestjs/swagger";
-import {LoginDto} from "../auth/dto/login.dto";
+import {ApiBearerAuth, ApiBody, ApiOperation, ApiQuery, ApiTags} from "@nestjs/swagger";
 
 @ApiTags('book')
 @Controller('book')

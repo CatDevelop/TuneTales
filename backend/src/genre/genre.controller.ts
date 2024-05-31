@@ -5,7 +5,6 @@ import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
 import {DeleteGenreDto} from "./dto/delete-genre.dto";
 import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
-import {CreateUserDto} from "../user/dto/create-user.dto";
 
 @ApiTags('genre')
 @Controller('genre')

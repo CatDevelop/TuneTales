@@ -1,11 +1,10 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post, UseGuards} from '@nestjs/common';
 import {SeriesService} from './series.service';
 import {CreateSeriesDto} from './dto/create-series.dto';
 import {UpdateSeriesDto} from './dto/update-series.dto';
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
 import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
-import {CreateGenreDto} from "../genre/dto/create-genre.dto";
 
 @ApiTags('series')
 @Controller('series')

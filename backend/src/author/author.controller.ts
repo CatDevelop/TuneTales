@@ -1,12 +1,10 @@
-import {Controller, Get, Post, Body, Patch, Param, Delete, UsePipes, ValidationPipe, UseGuards} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, UseGuards} from '@nestjs/common';
 import {AuthorService} from './author.service';
 import {CreateAuthorDto} from './dto/create-author.dto';
-import {UpdateAuthorDto} from './dto/update-author.dto';
 import {GetAuthorDto} from "./dto/get-author.dto";
 import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 import {AdminGuard} from "../guards/admin.guard";
 import {ApiBearerAuth, ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
-import {CreateBookDto} from "../book/dto/create-book.dto";
 
 @ApiTags('author')
 @Controller('author')
