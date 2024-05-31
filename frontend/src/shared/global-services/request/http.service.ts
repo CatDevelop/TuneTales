@@ -42,7 +42,7 @@ export class HttpService {
         }
 
         if (requestParams.auth) {
-            httpOptions.headers = httpOptions.headers?.set('authorization', `Bearer ${this._session.getJWTSession().accessToken}`);
+            httpOptions.headers = httpOptions.headers?.set('Authorization', `Bearer ${this._session.getJWTSession().accessToken}`);
         }
 
         if (httpOptions.headers && !httpOptions.headers.has('Content-Type') && requestParams.contentType !== ContentType.multipartFormData && requestParams.contentType !== ContentType.textXml) {

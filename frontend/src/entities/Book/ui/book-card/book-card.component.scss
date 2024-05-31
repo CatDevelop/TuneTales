@@ -1,0 +1,46 @@
+.book-card {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.book-card__cover {
+    width: 200px;
+    border-radius: 8px;
+}
+
+.book-card__book-info {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 5px;
+}
+
+.book-info__author {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: #9398af;
+}
+
+.book-info__book-name {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    color: #000;
+}
+
+@media (max-width: 575px) {
+    .book-card__cover {
+        width: 170px;
+    }
+}
+
+@media (max-width: 360px) {
+    .book-card__cover {
+        width: 150px;
+    }
+}
+

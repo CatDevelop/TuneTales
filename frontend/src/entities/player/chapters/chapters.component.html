@@ -1,0 +1,35 @@
+<div class="chapter">
+    <div class="chapter__header">
+        <h2 class="chapter__header-title">Содержание</h2>
+        <app-button 
+            class="chapter__header-close-button" 
+            (eventClick)="toggleChapter()" 
+            width="32" 
+            height="32" 
+            imageUrl="./assets/close-chapter.svg"/>
+    </div>
+
+    <app-button class="chapter__back-button" (eventClick)="toggleChapter()" width="18" height="24" imageUrl="./assets/back-button.svg"></app-button>
+
+    <h2 class="chapter__title">Содержание</h2>
+
+    <ul class="chapter__list">
+        <li class="chapter__list-item"
+            *ngFor="let file of files; let i = index"
+            (click)="onChange(file, i)"
+            [ngClass]="{'chapter__list-item_active': i === currentIndexFile}">
+            <div class="chapter__item-wrapper">
+                <p class="chapter__name">{{ file.name }}</p>
+                <p class="chapter__time">{{ formatTime(file?.durationSeconds || 0) }}</p>
+            </div>
+        </li>
+
+        <li class="chapter__list-item">
+            <div class="chapter__item-wrapper">
+                <p class="chapter__name">test</p>
+                <p class="chapter__time">text</p>
+            </div>
+        </li>
+        <!-- Добавьте остальные элементы здесь -->
+    </ul>
+</div>

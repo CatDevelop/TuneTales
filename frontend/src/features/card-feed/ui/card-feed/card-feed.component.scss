@@ -1,0 +1,35 @@
+.card-feed {
+    display: flex;
+    justify-content: center;
+
+    &__column {
+        margin-left: 15px;
+
+        &_book {
+            width: 200px;
+            margin-bottom: 30px;
+            display: block;
+        }
+    }
+    &__column:first-child {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .card-feed__column {
+        margin-left: 10px;
+
+        &_book {
+            width: 170px;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .card-feed__column_book {
+        width: 150px;
+    }
+}
+
+
