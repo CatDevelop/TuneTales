@@ -293,6 +293,68 @@ export class BookPage implements OnInit {
     private _bookId: string | null = null;
     private _book$: BehaviorSubject<IGetBookResponseDto | null> = new BehaviorSubject<IGetBookResponseDto | null>(null);
     public book: Observable<IGetBookResponseDto | null>;
+
+    public get authorName(): string {
+        let result: string = '';
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.authors) {
+                        result = data?.authors[0].firstName + ' ' + data?.authors[0].secondName;
+                    }
+                }
+            );
+
+        return result;
+    }
+
+    public get speakerName(): string {
+        let result: string = '';
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.speakers) {
+                        // @ts-ignore
+                        result = data?.speakers[0].firstName + ' ' + data?.speakers[0].secondName;
+                    }
+                }
+            );
+
+        return result;
+    }
+
+    public get genre(): string {
+        let result: string = '';
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.genres) {
+                        // @ts-ignore
+                        result = data?.genres[0].name;
+                    }
+                }
+            );
+
+        return result;
+    }
+
+    public get duration(): number {
+        let result: number = 0;
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.parts) {
+                        // @ts-ignore
+                        data.parts.forEach(part => {
+                            result += part.durationSeconds;
+                        });
+                    }
+                }
+            );
+
+        return result;
+    }
+
     constructor(
         private _route: ActivatedRoute,
         private _bookService: BookService,

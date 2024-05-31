@@ -11,20 +11,20 @@
                     <div class="book">
                         <h2 class="title">{{(book | async)?.name}}</h2>
                         <div class="subtitle">
-                            <p class="subtitleText">жанр</p>
-                            <p class="subtitleText">время</p>
+                            <p class="subtitleText">{{genre}}</p>
+                            <p class="subtitleText">{{duration}}s</p>
                         </div>
                     </div>
                     <div class="author">
-                        <div class="authorInfo">
+                        <div class="authorInfo" *ngIf="(book | async)?.authors">
                             <p class="authorLabel">Автор: </p>
-                            <p class="authorText">text</p>
+                            <p class="authorText">{{authorName}}</p>
                         </div>
-                        <div class="authorInfo">
+                        <div class="authorInfo" *ngIf="(book | async)?.speakers">
                             <p class="authorLabel">Исполнитель: </p>
-                            <p class="authorText">text</p>
+                            <p class="authorText">{{speakerName}}</p>
                         </div>
-                        <div class="authorInfo">
+                        <div class="authorInfo" *ngIf="(book | async)?.publicationYear">
                             <p class="authorLabel">Год: </p>
                             <p class="authorText">{{(book | async)?.publicationYear}}</p>
                         </div>
@@ -42,7 +42,7 @@
                 <button
                     tuiButton
                     appearance="secondary"
-                    class="button"
+                    class="button desktopLikeButton"
                 >
                     Добавить на полку
                 </button>
