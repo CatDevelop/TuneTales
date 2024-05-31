@@ -1,4 +1,4 @@
-import {Component, ChangeDetectorRef, afterNextRender, Input, ViewChild, ElementRef, DestroyRef} from '@angular/core';
+import { Component, ChangeDetectorRef, Input, ViewChild, ElementRef, DestroyRef } from '@angular/core';
 import { AudioService } from '../../features/Player';
 import { CloudService } from '../../features/Player';
 import { IStreamState } from '../../features/Player';
@@ -17,7 +17,7 @@ export class PlayerComponent  {
     public bookImage!: ElementRef;
 
     @Input()
-    public bookId: string = 'cbee54c5-1ae8-4e98-abd5-b66808b4ab09';
+    public bookId: string = '8d419c91-442a-4143-ac89-98289c73bc55';
 
     public files: IAudioChapter[] = [];
     public imageUrl: string = '';

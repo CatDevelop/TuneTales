@@ -7,21 +7,21 @@ import { AuthorPage } from '../pages/author-page/ui/author.page';
 
 const routes: Routes = [
     {
-        path: 'auth',
+        path: 'login',
         component: AuthorizationPage,
     },
     {
-        path: 'register',
+        path: 'registration',
         component: RegisterPage,
     },
     {
         path: 'author/:authorId',
         component: AuthorPage,
     },
-    {
-        path: 'book/:bookId',
-        component: AuthorPage,
-    },
+    // {
+    //     path: 'book/:bookId',
+    //     component: AuthorPage,
+    // },
     {
         path: '',
         component: MainPage,

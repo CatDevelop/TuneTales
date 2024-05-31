@@ -27,7 +27,6 @@ export class BookCardComponent {
      * Редирект на страницу книги
      */
     public navigateToBook(): void {
-        console.log('nnadw');
         if (this.book) {
             this._router.navigate([`/book/${this.book.id}`]);
         }

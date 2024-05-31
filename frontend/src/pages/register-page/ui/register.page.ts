@@ -62,7 +62,7 @@ export class RegisterPage {
      * @protected
      */
     protected navigateToAuthorization(): void {
-        this._router.navigate(['/auth']);
+        this._router.navigate(['/login']);
     }
 }
 

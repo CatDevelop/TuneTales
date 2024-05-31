@@ -48,7 +48,7 @@ export class AuthorizationPage {
      * Редирект на страницу регистрации
      * @protected
      */
-    protected navigateToRegister(): void {
-        this._router.navigate(['/register']);
+    protected navigateToRegistration(): void {
+        this._router.navigate(['/registration']);
     }
 }
