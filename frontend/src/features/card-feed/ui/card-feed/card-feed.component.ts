@@ -1,10 +1,11 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { IBook } from '../../../../entities/Book/model/book.interface';
 
 @Component({
     selector: 'app-card-feed',
     templateUrl: './card-feed.component.html',
-    styleUrls: ['./card-feed.component.scss']
+    styleUrls: ['./card-feed.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardFeedComponent implements OnInit {
     @ViewChild('cardfeed', { static: true })

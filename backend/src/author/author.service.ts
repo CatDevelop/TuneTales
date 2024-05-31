@@ -45,7 +45,16 @@ export class AuthorService {
 
         return await this.authorRepository.findOne({
                 where: {id},
-                relations: ["writtenBooks", "soundedBooks"]
+                relations: {
+                    writtenBooks: {
+                        authors: true,
+                        speakers: true
+                    },
+                    soundedBooks: {
+                        authors: true,
+                        speakers: true
+                    }
+                }
             },
         )
     }

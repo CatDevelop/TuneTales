@@ -1,6 +1,7 @@
 <div
     class="book-card"
     *ngIf="book"
+    (click)="navigateToBook()"
 >
     <img
         src="{{book.imageSrc}}"

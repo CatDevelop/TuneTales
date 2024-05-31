@@ -1,6 +1,7 @@
 <div class="navbar-container grid-12">
     <button
         class="logo"
+        (click)="navigateToHome()"
     >
         <img src="./assets/logo.svg">
 
@@ -26,7 +27,7 @@
         <button>
             Жанры
         </button>
-        <button>
+        <button (click)="navigateToAuthorization()">
             Войти
         </button>
     </nav>

@@ -28,7 +28,7 @@ export class CardSliderItemComponent {
      */
     public navigateToBook(): void {
         if (this.book) {
-            this._router.navigate([`/books/${this.book.id}`]);
+            this._router.navigate([`/book/${this.book.id}`]);
         }
     }
 }

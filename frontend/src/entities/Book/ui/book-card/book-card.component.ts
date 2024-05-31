@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IBook } from '../../model/book.interface';
+import { Router } from '@angular/router';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,4 +19,16 @@ export class BookCardComponent {
     public get bookName(): string {
         return this.book?.name ?? '';
     };
+
+    constructor(private _router: Router) {
+    }
+
+    /**
+     * Редирект на страницу книги
+     */
+    public navigateToBook(): void {
+        if (this.book) {
+            this._router.navigate([`/book/${this.book.id}`]);
+        }
+    }
 }

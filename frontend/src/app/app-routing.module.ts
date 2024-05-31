@@ -3,16 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthorizationPage } from '../pages/authorization-page/ui/authorization.page';
 import { RegisterPage } from '../pages/register-page/ui/register.page';
 import { MainPage } from '../pages/main-page/ui/main.page';
+import { AuthorPage } from '../pages/author-page/ui/author.page';
 
 const routes: Routes = [
     {
-        path: 'auth',
+        path: 'login',
         component: AuthorizationPage,
     },
     {
-        path: 'register',
+        path: 'registration',
         component: RegisterPage,
     },
+    {
+        path: 'author/:authorId',
+        component: AuthorPage,
+    },
+    // {
+    //     path: 'book/:bookId',
+    //     component: AuthorPage,
+    // },
     {
         path: '',
         component: MainPage,
@@ -23,4 +32,4 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

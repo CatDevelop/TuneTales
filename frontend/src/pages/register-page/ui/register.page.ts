@@ -5,7 +5,8 @@ import { RegistrationService } from '../services/registration.service';
 import { Router } from '@angular/router';
 
 @Component({
-    changeDetection: ChangeDetectionStrategy.OnPush,selector: 'app-register-page',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-register-page',
     templateUrl: './register.page.html',
     styleUrl: './register.page.scss'
 })
@@ -61,7 +62,7 @@ export class RegisterPage {
      * @protected
      */
     protected navigateToAuthorization(): void {
-        this._router.navigate(['/auth']);
+        this._router.navigate(['/login']);
     }
 }
 

@@ -1,0 +1,5 @@
+<div *ngIf='author | async; else loader' class='container'>
+    <author-info [author]="author | async"/>
+</div>
+
+<ng-template #loader>Загрузка</ng-template>
