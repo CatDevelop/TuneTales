@@ -1,0 +1,43 @@
+<div class="bookPageContainer" *ngIf="book | async">
+    <div class="bookInfoContainer">
+        <div class="content">
+            <div class="info">
+                <img
+                    class="bookCover"
+                    src="{{(book | async)?.imageSrc}}"
+                    alt="book cover"
+                />
+                <div class="bookInfo">
+                    <div class="book">
+                        <h2 class="title">Название книги</h2>
+                        <div class="subtitle">
+                            <p class="subtitleText">жанр</p>
+                            <p class="subtitleText">время</p>
+                        </div>
+                    </div>
+                    <div class="author">
+                        <p class="authorLabel">Автор: </p>
+                        <p class="authorLabel">Исполнитель: </p>
+                        <p class="authorLabel">Год: </p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button
+                    tuiButton
+                    appearance="primary"
+                    class="button"
+                >
+                    Слушать
+                </button>
+                <button
+                    tuiButton
+                    appearance="secondary"
+                    class="button"
+                >
+                    Добавить на полку
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

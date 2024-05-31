@@ -1,0 +1,133 @@
+:host {
+    display: grid;
+    justify-self: start;
+    width: 100%;
+    overflow-y: auto;
+}
+
+@media (max-width: 767px) {
+    :host {
+        grid-template-columns: 100%;
+    }
+
+    .bookPageContainer {
+        grid-column: 1;
+        padding: 0 32px;
+    }
+}
+
+@media (min-width: 768px) {
+    :host {
+        grid-template-columns: repeat(8, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .bookPageContainer {
+        grid-column: 1/-1;
+    }
+}
+
+@media (min-width: 1024px) {
+    :host {
+        grid-template-columns: repeat(12, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .bookPageContainer {
+        grid-column: 1/-1;
+    }
+}
+
+@media (min-width: 1366px) {
+    :host {
+        grid-template-columns: repeat(14, 65px);
+        grid-column-gap: 20px;
+    }
+
+    .bookPageContainer {
+        grid-column: 1/-1;
+    }
+}
+
+.bookInfoContainer {
+    width: 100%;
+    background: rgba(22, 119, 255, 0.04);
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.bookCover {
+    height: 394px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 16px 0;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    font-size: 35px;
+    letter-spacing: 0.03em;
+    color: #14121d;
+}
+
+.subtitle {
+    display: flex;
+    flex-direction: row;
+    gap: 16px
+}
+
+.subtitleText {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    color: #868ca2;
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.authorLabel {
+
+}
+
+.buttons {
+    height: 224px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-self: start;
+}
+
+.button {
+    height: 50px !important;
+}

@@ -21,7 +21,7 @@ const routes: Routes = [
     {
         path: 'book/:bookId',
         loadChildren: () =>
-            import('../pages/book.page/book.page.module')
+            import('../pages/book-page/book.page.module')
                 .then(m => m.BookPageModule)
     },
     {

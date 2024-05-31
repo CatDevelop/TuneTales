@@ -12,7 +12,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class MainPage implements OnInit {
     public mockBooks: IBookResponse[] = [
         {
-            id: '25508876-670b-4a9f-a930-d47e1d89f6e9',
+            id: '8d419c91-442a-4143-ac89-98289c73bc55',
             name: 'Приключения Тома Сойера1Приключения Тома Сойера1',
             description: 'В книге о приключениях Тома Сойера писатель с большим мастерством нарисовал жизнь американского провинциального городка 40-х годов XIX века. Благодаря напряженному сюжету и блестящему юмору эта книга горячо любима читателями всего мира.',
             publicationYear: 1876,

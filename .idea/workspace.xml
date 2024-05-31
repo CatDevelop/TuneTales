@@ -7,8 +7,12 @@
     <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="mini fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/register-page/ui/register.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/register-page/ui/register.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book.page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
