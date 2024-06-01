@@ -9,5 +9,5 @@ import { IGetAuthorByIdResponseDto } from '../../entities/Author/model/dto/respo
 })
 export class AuthorInfoComponent {
     @Input({ required: true })
-    public author?: IGetAuthorByIdResponseDto;
+    public author: IGetAuthorByIdResponseDto = {} as IGetAuthorByIdResponseDto;
 }

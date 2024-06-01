@@ -27,8 +27,8 @@ export class AuthorPage implements OnInit, OnDestroy {
     private _sub: Subscription;
     public authorId: string = '';
 
-    public author: Observable<IGetAuthorByIdResponseDto>;
-    private _author: BehaviorSubject<IGetAuthorByIdResponseDto> = new BehaviorSubject<IGetAuthorByIdResponseDto>(this._initialAuthor);
+    public author: Observable<IGetAuthorByIdResponseDto | null>;
+    private _author: BehaviorSubject<IGetAuthorByIdResponseDto | null> = new BehaviorSubject<IGetAuthorByIdResponseDto | null>(null);
 
     constructor(
         private _route: ActivatedRoute,

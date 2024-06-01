@@ -1,6 +1,6 @@
-<ng-container *tuiLet="author | async as authorr">
-    <div *ngIf='authorr !== null; else loader' class='container'>
-        <author-info [author]="authorr"/>
+<ng-container *tuiLet="author | async as parsedAuthor">
+    <div *ngIf='parsedAuthor !== null; else loader' class='container'>
+        <author-info [author]="parsedAuthor"/>
     </div>
 </ng-container>
 
