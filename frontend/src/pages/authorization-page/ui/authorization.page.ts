@@ -21,7 +21,7 @@ export class AuthorizationPage {
     }
 
     protected readonly authorizationForm: FormGroup<IAuthorizationForm> = new FormGroup({
-        login: new FormControl('', [Validators.email, Validators.required]),
+        login: new FormControl('', [Validators.required]),
         password: new FormControl('', Validators.required),
     });
 
@@ -41,7 +41,11 @@ export class AuthorizationPage {
             .pipe(
                 take(1),
             )
-            .subscribe();
+            .subscribe(resp => {
+                if (resp.ok) {
+                    this.navigateToMainPage();
+                }
+            });
     }
 
     /**
@@ -50,5 +54,13 @@ export class AuthorizationPage {
      */
     protected navigateToRegistration(): void {
         this._router.navigate(['/registration']);
+    }
+
+    /**
+     * Редирект на главную
+     * @private
+     */
+    private navigateToMainPage(): void {
+        this._router.navigate(['/']);
     }
 }

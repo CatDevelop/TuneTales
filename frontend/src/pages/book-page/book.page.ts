@@ -1,15 +1,17 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { IBookResponse } from '../model/types/dto/get-books.response-dto';
-import { MainPageService } from '../model/services/main.page.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { BookService } from '../../entities/Book/services/book.service';
+import { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';
+import { IBookResponse } from '../main-page/model/types/dto/get-books.response-dto';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
-    selector: 'app-main.page',
-    templateUrl: './main.page.html',
-    styleUrl: './main.page.scss',
+    selector: 'app-book-page',
+    templateUrl: './book.page.html',
+    styleUrl: './book.page.scss'
 })
-export class MainPage implements OnInit {
+export class BookPage implements OnInit {
     public mockBooks: IBookResponse[] = [
         {
             id: '8d419c91-442a-4143-ac89-98289c73bc55',
@@ -288,22 +290,95 @@ export class MainPage implements OnInit {
         },
 
     ];
-    public books: Observable<IBookResponse[]>;
-    private _books: BehaviorSubject<IBookResponse[]> = new BehaviorSubject<IBookResponse[]>([]);
+    private _bookId: string | null = null;
+    private _book$: BehaviorSubject<IGetBookResponseDto | null> = new BehaviorSubject<IGetBookResponseDto | null>(null);
+    public book: Observable<IGetBookResponseDto | null>;
+
+    public get authorName(): string {
+        let result: string = '';
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.authors) {
+                        result = data?.authors[0].firstName + ' ' + data?.authors[0].secondName;
+                    }
+                }
+            );
+
+        return result;
+    }
+
+    public get speakerName(): string {
+        let result: string = '';
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.speakers) {
+                        // @ts-ignore
+                        result = data?.speakers[0].firstName + ' ' + data?.speakers[0].secondName;
+                    }
+                }
+            );
+
+        return result;
+    }
+
+    public get genre(): string {
+        let result: string = '';
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.genres) {
+                        // @ts-ignore
+                        result = data?.genres[0].name;
+                    }
+                }
+            );
+
+        return result;
+    }
+
+    public get duration(): number {
+        let result: number = 0;
+        this.book
+            .subscribe(
+                data => {
+                    if (data && data.parts) {
+                        // @ts-ignore
+                        data.parts.forEach(part => {
+                            result += part.durationSeconds;
+                        });
+                    }
+                }
+            );
+
+        return Math.floor(result / 60);
+    }
+
+    /**
+     * back button
+     */
+    public navigateBack(): void {
+        window.history.back();
+    }
 
     constructor(
-        private _mainService: MainPageService
+        private _route: ActivatedRoute,
+        private _bookService: BookService,
     ) {
-        this.books = this._books.asObservable();
+        this.book = this._book$.asObservable();
     }
 
     public ngOnInit(): void {
-        // this._mainService.getAllBooks()
-        //     .subscribe(
-        //         (res: HttpResponse<GetBooksResponseDto>) => {
-        //             this._books.next(res.body ?? []);
-        //         },
-        //     );
-        this._books.next(this.mockBooks);
+        this._route.paramMap
+            .subscribe((params: ParamMap) => {
+                this._bookId = params.get('bookId');
+            });
+        this._bookService.getBookById(this._bookId ?? '')
+            .subscribe(resp => {
+                if (resp.ok && resp.body) {
+                    this._book$.next(resp.body);
+                }
+            });
     }
 }

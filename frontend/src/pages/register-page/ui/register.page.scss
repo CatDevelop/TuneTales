@@ -1,51 +1,48 @@
 :host {
-    display: grid;
+    display: flex;
     justify-self: center;
-    align-content: center;
+    align-items: center;
     height: 100%;
-    width: 100%;
 }
 @media (max-width: 767px) {
     :host {
-        grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .registration-form-container {
-        grid-column: 1;
         padding: 0 32px;
+        width: 100%;
+        margin: 0 16px;
     }
 }
 
 @media (min-width: 768px) {
     :host {
-        grid-template-columns: repeat(8, 65px);
-        grid-column-gap: 20px;
+        align-self: center;
     }
 
     .registration-form-container {
-        grid-column: 2/8;
+        width: 500px;
     }
 }
 
 @media (min-width: 1024px) {
     :host {
-        grid-template-columns: repeat(12, 65px);
-        grid-column-gap: 20px;
+        align-self: center;
     }
 
     .registration-form-container {
-        grid-column: 4/10;
+        width: 500px;
     }
 }
 
 @media (min-width: 1366px) {
     :host {
-        grid-template-columns: repeat(14, 65px);
-        grid-column-gap: 20px;
+        align-self: center;
     }
 
     .registration-form-container {
-        grid-column: 5/11;
+        width: 500px;
     }
 }
 
@@ -53,7 +50,6 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 100%;
     justify-content: center;
     background-color: white;
     border-radius: 14px;
