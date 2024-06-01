@@ -41,7 +41,11 @@ export class AuthorizationPage {
             .pipe(
                 take(1),
             )
-            .subscribe();
+            .subscribe(resp => {
+                if (resp.ok) {
+                    this.navigateToMainPage();
+                }
+            });
     }
 
     /**
