@@ -48,7 +48,6 @@ import { AuthorService } from '../entities/Author/services/author.service';
         AppRoutingModule,
         TuiInputModule,
         TuiTextfieldControllerModule,
-        ReactiveFormsModule,
         TuiLinkModule,
         FormsModule,
         NgOptimizedImage,

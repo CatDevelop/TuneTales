@@ -6,6 +6,7 @@ import { TuiInputModule } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterPage } from './register.page';
 import { RegistrationService } from '../services/registration.service';
+import { RegisterPageRoutingModule } from './register.page-routing.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { RegistrationService } from '../services/registration.service';
     ],
     imports: [
         CommonModule,
+        RegisterPageRoutingModule,
         TuiButtonModule,
         TuiInputModule,
         TuiLinkModule,
