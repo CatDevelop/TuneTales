@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, BehaviorSubject, Subject, timer, take, map, takeWhile, finalize, Subscription} from 'rxjs';
+import { Observable, BehaviorSubject, Subject, timer, take, map, takeWhile } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import moment from 'moment';
 import { IStreamState } from '../model/types';
@@ -84,7 +84,7 @@ export class AudioService {
 
     /**
      * Устанавливает скорость проигрывания аудио.
-     * @param {number} speed - Скорость проигрывания
+     * @param {number} value - Скорость проигрывания
      * @returns {void}
      */
     public speed(value: number): void {
@@ -96,7 +96,7 @@ export class AudioService {
      * @param {number} seconds - Количество секунд для установки таймера.
      */
     public sleepTimer(seconds: number): Observable<string> {
-        return timer(0, 100).pipe(
+        return timer(0, 1000).pipe(
             take(seconds + 1),
             map((tick) => seconds - tick),
             takeWhile(time => time >= 0),

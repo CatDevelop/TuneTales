@@ -4,16 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="страница книги рекомендации (слайдеры) адаптив (кроме мобилки">
+    <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing auth page">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/Player/lib/audio.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/Player/lib/audio.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -21,43 +32,59 @@
         <entry key="$PROJECT_DIR$" value="dev-front-main-page" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "author": "mineevmaxim"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;author&quot;: &quot;mineevmaxim&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN",
-    "author": "mineevmaxim"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;author&quot;: &quot;mineevmaxim&quot;
   }
-}]]></component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": [
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
     {
-      "id": {
-        "id": "PR_kwDOLa5xt85xByw9",
-        "number": 16
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOLa5xt85xByw9&quot;,
+        &quot;number&quot;: 16
       },
-      "lastSeen": 1717083701946
+      &quot;lastSeen&quot;: 1717083701946
     }
   ]
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/CatDevelop/TuneTales.git",
-    "accountId": "25359063-7051-43f8-b1c0-3359260ddd7a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CatDevelop/TuneTales.git&quot;,
+    &quot;accountId&quot;: &quot;25359063-7051-43f8-b1c0-3359260ddd7a&quot;
   },
-  "editorReviewEnabled": false
+  &quot;editorReviewEnabled&quot;: false
+}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
 }]]></component>
+  <component name="ProjectId" id="2hGgcixLcMlZ74617orGDT0DNDU" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "dev-book-page",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/node_modules/typescript/lib"
   }
 }]]></component>
@@ -69,6 +96,14 @@
       <recent name="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui" />
     </key>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="book page desktop (корявая)">
       <option name="closed" value="true" />
@@ -94,8 +129,26 @@
       <option name="project" value="LOCAL" />
       <updated>1717171279145</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="страница книги данные">
+      <option name="closed" value="true" />
+      <created>1717174267133</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717174267133</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="страница книги данные" />
+      <created>1717225910187</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717225910187</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -119,6 +172,8 @@
     <MESSAGE value="book page desktop (корявая)" />
     <MESSAGE value="страница книги с описанием адаптив (кроме мобилки)" />
     <MESSAGE value="страница книги рекомендации (слайдеры) адаптив (кроме мобилки" />
-    <option name="LAST_COMMIT_MESSAGE" value="страница книги рекомендации (слайдеры) адаптив (кроме мобилки" />
+    <MESSAGE value="страница книги данные" />
+    <MESSAGE value="lazy routing auth page" />
+    <option name="LAST_COMMIT_MESSAGE" value="lazy routing auth page" />
   </component>
 </project>

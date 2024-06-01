@@ -11,7 +11,6 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule } from '@taiga-ui/kit';
-import { AuthorizationPage } from '../pages/authorization-page/ui/authorization.page';
 import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,7 +33,6 @@ import { AuthorService } from '../entities/Author/services/author.service';
 @NgModule({
     declarations: [
         AppComponent,
-        AuthorizationPage,
         NavbarComponent,
         RegisterPage,
     ],

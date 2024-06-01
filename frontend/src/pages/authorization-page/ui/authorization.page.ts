@@ -21,7 +21,7 @@ export class AuthorizationPage {
     }
 
     protected readonly authorizationForm: FormGroup<IAuthorizationForm> = new FormGroup({
-        login: new FormControl('', [Validators.email, Validators.required]),
+        login: new FormControl('', [Validators.required]),
         password: new FormControl('', Validators.required),
     });
 
