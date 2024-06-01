@@ -20,7 +20,7 @@ import { GenreService } from '../../../entities/Genre/services/genre.service';
     ],
     providers: [
         MainPageService,
-        GenreService
+        GenreService,
     ]
 })
 export class MainPageModule { }
