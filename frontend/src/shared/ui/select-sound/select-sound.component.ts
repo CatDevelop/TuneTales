@@ -26,15 +26,8 @@ export class SelectSoundComponent {
 
     public open: boolean = false;
 
-    public times: ITimeEntry[] = [
-        { time: 60, name: '1 минута' },
-        { time: 900, name: '15 минут' },
-        { time: 1800, name: '30 минут' },
-        { time: 2700, name: '45 минут' },
-        { time: 3600, name: '1 час' },
-        { time: 7200, name: '2 часа' },
-        { time: 0, name: 'Отменить' },
-    ];
+    public min: number = 0;
+    public max: number = 100;
 
     @Output()
     public valueChanged: EventEmitter<number> = new EventEmitter<number>();
@@ -46,29 +39,7 @@ export class SelectSoundComponent {
      * @returns {void}
      */
     public onValueChange(value: number): void {
-        this.valueChanged.emit(value);
-        this.open = false;
+        this.valueChanged.emit(value / 100);
     }
 
-    public min: number = 23;
-    public max: number = 100;
-    public value: number = 50;
-
-    readonly active$ = new BehaviorSubject(false);
-    readonly showHint$ = this.active$.pipe(
-        distinctUntilChanged(),
-        switchMap(active =>
-            active ? of(true) : timer(1000).pipe(map(ALWAYS_FALSE_HANDLER)),
-        ),
-    );
-
-    @HostListener('pointerdown', ['true'])
-    @HostListener('document:pointerup', ['false'])
-    onKeydown(show: boolean): void {
-        this.active$.next(show);
-    }
-
-    public change(step: number): void {
-        this.value = tuiClamp(this.value + step, this.min, this.max);
-    }
 }

@@ -134,6 +134,15 @@ export class PlayerComponent  {
     }
 
     /**
+     * Устанавливает громкость аудио.
+     * @param {number} volume - Уровень громкости от 0 до 1.
+     * @returns {void}
+     */
+    public setVolume(value: number): void {
+        this._audioService.setVolume(value);
+    }
+
+    /**
      * Устанавливает таймер сна.
      * @param {number} value - Время в минутах.
      */

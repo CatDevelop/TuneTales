@@ -92,6 +92,15 @@ export class AudioService {
     }
 
     /**
+     * Устанавливает громкость аудио.
+     * @param {number} volume - Уровень громкости от 0 до 1.
+     * @returns {void}
+     */
+    public setVolume(volume: number): void {
+        this._audioObj.volume = volume;
+    }
+
+    /**
      * Устанавливает таймер сна на указанное количество секунд.
      * @param {number} seconds - Количество секунд для установки таймера.
      */

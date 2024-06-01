@@ -294,6 +294,8 @@ export class BookPage implements OnInit {
     private _book$: BehaviorSubject<IGetBookResponseDto | null> = new BehaviorSubject<IGetBookResponseDto | null>(null);
     public book: Observable<IGetBookResponseDto | null>;
 
+
+
     public get authorName(): string {
         let result: string = '';
         this.book

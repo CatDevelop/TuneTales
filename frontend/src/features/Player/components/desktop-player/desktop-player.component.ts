@@ -88,6 +88,12 @@ export class DesktopPlayerComponent {
         this.eventSpeed.emit(value);
     };
 
+    @Output()
+    public eventVolume: EventEmitter<number> = new EventEmitter<number>();
+
+    public setVolume = (value: number): void => {
+        this.eventVolume.emit(value);
+    };
 
     @Output()
     public eventSleepTimer: EventEmitter<number> = new EventEmitter<number>();

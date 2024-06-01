@@ -16,6 +16,4 @@ export class SliderComponent {
 
     @Input()
     public control: FormControl = new FormControl(0);
-
-
 }
