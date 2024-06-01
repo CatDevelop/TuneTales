@@ -1,3 +1,4 @@
+<div *ngIf="playerWindow !== 'none'">
 <app-bottom-player
     class="mobile-player"
     [playerWindow]="playerWindow"
@@ -74,3 +75,4 @@
     (eventOpenFile)="openFile($event.file, $event.index)"
     (eventSliderChange)="onSliderChangeEnd($event)"
 />
+</div>

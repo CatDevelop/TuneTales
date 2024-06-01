@@ -20,7 +20,8 @@
 }
 
 .main {
-    height: calc(100vh - 80px - 83px);
+    //height: calc(100vh - 80px - 83px);
+    height: 100vh;
     overflow-y: auto;
 }
 
