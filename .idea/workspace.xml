@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing register page">
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/assets/back.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/assets/like.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/card-slider/ui/card-slider/card-slider.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/card-slider/ui/card-slider/card-slider.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui/authorization.page.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/register-page/ui/register.page.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/register-page/ui/register.page.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/genre/genre.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/genre/genre.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,9 +58,9 @@
   },
   &quot;editorReviewEnabled&quot;: false
 }</component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2hGgcixLcMlZ74617orGDT0DNDU" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -79,15 +72,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev-book-page",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/src/shared/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/node_modules/typescript/lib"
+    "ts.external.directory.path": "C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\backend\\node_modules\\typescript\\lib"
   }
 }]]></component>
   <component name="RecentsManager">
