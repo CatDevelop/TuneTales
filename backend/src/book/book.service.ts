@@ -1,7 +1,7 @@
 import {BadRequestException, Injectable, NotFoundException} from '@nestjs/common';
 import {CreateBookDto} from './dto/create-book.dto';
 import {InjectRepository} from "@nestjs/typeorm";
-import {In, Like, Repository} from "typeorm";
+import {In, Like, Raw, Repository} from "typeorm";
 import {Book} from "./entities/book.entity";
 import {Author} from "../author/entities/author.entity";
 import {Genre} from "../genre/entities/genre.entity";
@@ -84,11 +84,19 @@ export class BookService {
                     speakers: true,
                     genres: true,
                     series: true
-                }
+                },
+                take: 10
             });
 
+        const getSearchQuery = (search) => Raw(
+            alias =>`LOWER(${alias}) Like LOWER(:value)`,
+            { value: `%${search}%` }
+        )
+
         const booksByName = await this.bookRepository.find({
-            where: {name: Like(`%${search}%`)},
+            where: {
+                name: getSearchQuery(search)
+            },
             relations: {
                 authors: true,
                 speakers: true,
@@ -101,16 +109,16 @@ export class BookService {
             where: [
                 {
                     authors: [
-                        {firstName: Like(`%${search}%`)},
-                        {secondName: Like(`%${search}%`)},
-                        {lastName: Like(`%${search}%`)}
+                        {firstName: getSearchQuery(search)},
+                        {secondName: getSearchQuery(search)},
+                        {lastName: getSearchQuery(search)}
                     ]
                 },
                 {
                     speakers: [
-                        {firstName: Like(`%${search}%`)},
-                        {secondName: Like(`%${search}%`)},
-                        {lastName: Like(`%${search}%`)}
+                        {firstName: getSearchQuery(search)},
+                        {secondName: getSearchQuery(search)},
+                        {lastName: getSearchQuery(search)}
                     ]
                 }
             ],
@@ -121,6 +129,7 @@ export class BookService {
                 series: true
             }
         })
+
         return [...booksByName, ...booksByAuthor];
     }
 

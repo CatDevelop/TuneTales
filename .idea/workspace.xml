@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing register page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/author-page/ui/author.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/author-page/ui/author.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/author-page/ui/author.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/author-page/ui/author.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/book/book.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/book/book.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

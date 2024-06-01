@@ -6,23 +6,24 @@
         <img src="./assets/logo.svg" alt="Логотип">
     </button>
     <tui-input
-        *tuiLet="books$ | async as books"
+        *tuiLet="((books$ | async) || []) as parsedBooks"
         tuiTextfieldIconLeft="tuiIconSearchLarge"
         class="search"
         tuiTextfieldSize="m"
         [tuiTextfieldCleaner]="true"
         [tuiTextfieldLabelOutside]="true"
         [ngModel]="searchQuery"
+        [formControl]="control"
     >
         Поиск по книгам
         <input
             class="search-input"
             tuiTextfield
         />
-        <ng-container *ngIf="books?.length">
+        <ng-container *ngIf="parsedBooks.length">
             <tui-data-list *tuiDataList>
                 <button
-                    *ngFor="let item of books"
+                    *ngFor="let item of parsedBooks"
                     tuiOption
                     [value]="item"
                 >
