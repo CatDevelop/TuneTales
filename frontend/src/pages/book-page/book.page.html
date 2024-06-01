@@ -113,7 +113,13 @@
     <div class="bookInfo">
         <div class="names">
             <p class="bookName">{{(book | async)?.name}}</p>
-            <p class="authorName">{{authorName}}</p>
+            <a
+                tuiLink
+                class="authorName"
+                (click)="navigateToAuthor(authorId)"
+            >
+                {{authorName}}
+            </a>
         </div>
         <div class="bookDetails">
             <div class="details">
