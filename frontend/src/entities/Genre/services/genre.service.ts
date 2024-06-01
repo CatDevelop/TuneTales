@@ -7,6 +7,7 @@ import { RequestMethodType } from '../../../shared/global-services/request/model
 import { ICreateGenreRequestDto } from '../model/dto/request/create-genre.request-dto';
 import { ICreateGenreResponseDto } from '../model/dto/response/create-genre.response-dto';
 import { IGetGenreByIdResponseDto } from '../model/dto/response/get-genre-by-id.response-dto';
+import { IGetGenresResponseDto } from '../model/dto/response/get-genres.response-dto';
 
 
 @Injectable()
@@ -45,7 +46,29 @@ export class GenreService {
     }
 
     /**
-     * Получение информации об авторе
+     * Получение всех жанров
+     */
+    public getGenres(): Observable<HttpResponse<IGetGenreByIdResponseDto>> {
+        this._isProcessing$.next(true);
+
+        const response$: Observable<HttpResponse<IGetGenresResponseDto>> = this._req.request<IGetGenresResponseDto, void>({
+            url: `${UrlRoutes.backendDev}/genre`,
+            method: RequestMethodType.get,
+        });
+
+        response$
+            .pipe(
+                filter((resp: HttpResponse<IGetGenresResponseDto>) => resp.ok),
+                finalize(() => {
+                    this._isProcessing$.next(false);
+                })
+            );
+
+        return response$;
+    }
+
+    /**
+     * Получение всех книг жанра
      * @param genreId
      */
     public getGenreById(genreId: string): Observable<HttpResponse<IGetGenreByIdResponseDto>> {
