@@ -3,15 +3,15 @@
         class="logo"
         (click)="navigateToHome()"
     >
-        <img src="./assets/logo.svg">
-
+        <img src="./assets/logo.svg" alt="Логотип">
     </button>
     <tui-input
-        [tuiTextfieldCleaner]="true"
-        [tuiTextfieldLabelOutside]="true"
+        *tuiLet="books$ | async as books"
         tuiTextfieldIconLeft="tuiIconSearchLarge"
         class="search"
         tuiTextfieldSize="m"
+        [tuiTextfieldCleaner]="true"
+        [tuiTextfieldLabelOutside]="true"
         [ngModel]="searchQuery"
     >
         Поиск по книгам
@@ -19,6 +19,17 @@
             class="search-input"
             tuiTextfield
         />
+        <ng-container *ngIf="books?.length">
+            <tui-data-list *tuiDataList>
+                <button
+                    *ngFor="let item of books"
+                    tuiOption
+                    [value]="item"
+                >
+                    <span class="name">{{ item.name }}</span>
+                </button>
+            </tui-data-list>
+        </ng-container>
     </tui-input>
     <nav class="links">
         <button>

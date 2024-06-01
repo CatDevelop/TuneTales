@@ -1,5 +1,7 @@
-<div *ngIf='author | async; else loader' class='container'>
-    <author-info [author]="author | async"/>
-</div>
+<ng-container *tuiLet="author | async as authorr">
+    <div *ngIf='authorr !== null; else loader' class='container'>
+        <author-info [author]="authorr"/>
+    </div>
+</ng-container>
 
 <ng-template #loader>Загрузка</ng-template>

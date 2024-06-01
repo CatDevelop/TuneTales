@@ -11,7 +11,6 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule } from '@taiga-ui/kit';
-import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../shared/global-services/request/http.service';
@@ -28,15 +27,17 @@ import { CardFeedModule } from '../features/card-feed/card-feed.module';
 import { AuthorInfoModule } from '../widgets/author-info/author-info.module';
 import { AuthorPageModule } from '../pages/author-page/ui/author.page.module';
 import { AuthorService } from '../entities/Author/services/author.service';
+import { NavbarModule } from '../widgets/navbar/navbar.module';
+import { BookService } from '../entities/Book/services/book.service';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        NavbarComponent,
+        AppComponent
     ],
     imports: [
         BrowserAnimationsModule,
         FormsModule,
+        NavbarModule,
         ReactiveFormsModule,
         TuiSelectModule,
         TuiDataListModule,
@@ -67,6 +68,7 @@ import { AuthorService } from '../entities/Author/services/author.service';
         AuthorizationService,
         AuthorService,
         SessionStorageService,
+        BookService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { GetAuthorResponseDto, IAuthorResponse } from '../model/types/dto/get-author.response-dto';
-import { AuthorPageService } from '../model/services/author.page.service';
+import { IAuthorResponse } from '../model/types/dto/get-author.response-dto';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { AuthorService } from '../../../entities/Author/services/author.service';
+import { IGetAuthorByIdResponseDto } from '../../../entities/Author/model/dto/response/get-author-by-id.response-dto';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,12 +27,12 @@ export class AuthorPage implements OnInit, OnDestroy {
     private _sub: Subscription;
     public authorId: string = '';
 
-    public author: Observable<IAuthorResponse>;
-    private _author: BehaviorSubject<IAuthorResponse> = new BehaviorSubject<IAuthorResponse>(this._initialAuthor);
+    public author: Observable<IGetAuthorByIdResponseDto>;
+    private _author: BehaviorSubject<IGetAuthorByIdResponseDto> = new BehaviorSubject<IGetAuthorByIdResponseDto>(this._initialAuthor);
 
     constructor(
         private _route: ActivatedRoute,
-        private _authorService: AuthorPageService
+        private _authorService: AuthorService
     ) {
         this.author = this._author.asObservable();
         this._sub = this._route.params.subscribe(params => {
@@ -44,9 +45,9 @@ export class AuthorPage implements OnInit, OnDestroy {
      * Запрашивает информацию об авторе с сервера.
      */
     public ngOnInit(): void {
-        this._authorService.getAuthor(this.authorId)
+        this._authorService.getAuthorById(this.authorId)
             .subscribe(
-                (res: HttpResponse<GetAuthorResponseDto>) => {
+                (res: HttpResponse<IGetAuthorByIdResponseDto>) => {
                     console.log(res.body);
                     this._author.next(res.body ?? this._initialAuthor);
                 },
