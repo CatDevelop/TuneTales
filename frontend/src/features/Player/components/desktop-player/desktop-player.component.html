@@ -1,5 +1,5 @@
 <div class="desktop-player">
-    <app-desktop-slider-rewind 
+    <app-desktop-slider-rewind
         class="desktop-player__slider"
         [startTime]="readableCurrentTime"
         [endTime]="readableDuration"
@@ -71,6 +71,7 @@
                 [width]="24"
                 [height]="24"
                 [soundValue]="50"
+                (valueChanged)="setVolume($event)"
             />
         </div>
     </div>

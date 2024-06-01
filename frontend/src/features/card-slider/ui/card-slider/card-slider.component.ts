@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { IBookResponse } from '../../../../pages/main-page/model/types/dto/get-books.response-dto';
+import { IBook } from '../../../../entities/Book/model/book.interface';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,7 +10,7 @@ import { IBookResponse } from '../../../../pages/main-page/model/types/dto/get-b
 export class CardSliderComponent {
     @ViewChild('scrl') public scrl: ElementRef | undefined;
     @Input()
-    public books: IBookResponse[] | null = [];
+    public books: IBook[] | null = [];
     @Input()
     public label: string | undefined = undefined;
 

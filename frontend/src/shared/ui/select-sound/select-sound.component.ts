@@ -26,15 +26,8 @@ export class SelectSoundComponent {
 
     public open: boolean = false;
 
-    public times: ITimeEntry[] = [
-        { time: 60, name: '1 минута' },
-        { time: 900, name: '15 минут' },
-        { time: 1800, name: '30 минут' },
-        { time: 2700, name: '45 минут' },
-        { time: 3600, name: '1 час' },
-        { time: 7200, name: '2 часа' },
-        { time: 0, name: 'Отменить' },
-    ];
+    public min: number = 0;
+    public max: number = 100;
 
     public readonly active$: BehaviorSubject<boolean> = new BehaviorSubject(false);
     public showHint$: Observable<boolean> = this.active$.pipe(
@@ -58,8 +51,7 @@ export class SelectSoundComponent {
      * @returns {void}
      */
     public onValueChange(value: number): void {
-        this.valueChanged.emit(value);
-        this.open = false;
+        this.valueChanged.emit(value / 100);
     }
 
     /**

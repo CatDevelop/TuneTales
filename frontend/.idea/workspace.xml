@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/chapters/chapters.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/chapters/chapters.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/chapters/chapters.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/chapters/chapters.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Player/lib/averageColor.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/lib/averageColor.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Player/lib/cloud.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Player/lib/cloud.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/book-page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/book-page/book.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/book-page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/book-page/book.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +57,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\shared\lib" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\card-feed\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\shared\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\components" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player" />
-      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\entities\player" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -120,6 +121,7 @@
       <workItem from="1716630629728" duration="19833000" />
       <workItem from="1716746505529" duration="51000" />
       <workItem from="1716989923248" duration="73000" />
+      <workItem from="1717256494659" duration="13288000" />
     </task>
     <servers />
   </component>

@@ -3,9 +3,10 @@ import { AudioService } from '../../features/Player';
 import { CloudService } from '../../features/Player';
 import { IStreamState } from '../../features/Player';
 import { AverageColorService } from '../../features/Player/lib/averageColor.service';
-import { Subscription, switchMap, tap } from 'rxjs';
+import { filter, Subscription, switchMap, take, tap } from 'rxjs';
 import { IAudioChapter } from '../../shared/model/types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DataService } from '../../shared/lib/playerData.service';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,7 +43,7 @@ export class PlayerComponent  {
     public speedButton: number | undefined = 1;
     public chapterWindow: boolean = false;
 
-    public playerWindow: 'full' | 'bottom' | 'none' = 'full';
+    public playerWindow: 'full' | 'bottom' | 'none' = 'none';
 
 
     constructor(
@@ -50,34 +51,29 @@ export class PlayerComponent  {
         cloudService: CloudService,
         private _cdr: ChangeDetectorRef,
         private _averageColor: AverageColorService,
-        private _destroyRef: DestroyRef
+        private _destroyRef: DestroyRef,
+        private _dataService: DataService
     ) {
 
-        cloudService.getBook(this.bookId)
-            .pipe(
-                tap(book => {
-                    this.files = book.parts;
-                    this.nameBook = book.name;
-                    this.imageUrl = book.imageSrc;
+        this._dataService.data$.pipe(
+            filter(data => !!data),
+            switchMap(data => cloudService.getBook(data)),
+            tap(book => {
+                this.files = book.parts;
+                this.nameBook = book.name;
+                this.imageUrl = book.imageSrc;
 
-                    // это для теста, потом убрать
-                    this.files[0].audioSrc = './assets/01.mp3';
-
-                    //
-
-                    this._audioService.init();
-                    this.openFile(this.files[0], 0);
-                    this.pause();
-                }),
-                switchMap(book => {
-                    return this._averageColor.getAverageColor(this.imageUrl);
-                }),
-                tap(hex => {
-                    this.backgrondColor = hex;
-                }),
-                takeUntilDestroyed(this._destroyRef)
-            )
-            .subscribe();
+                this._audioService.init();
+                this.openFile(this.files[0], 0);
+                this.pause();
+            }),
+            switchMap(book => this._averageColor.getAverageColor(this.imageUrl)),
+            tap(hex => {
+                this.backgrondColor = hex;
+                this.playerWindow = 'bottom';
+            }),
+            takeUntilDestroyed(this._destroyRef)
+        ).subscribe();
 
 
         this._audioService.getState()
@@ -132,6 +128,15 @@ export class PlayerComponent  {
     public speed(value: number): void {
         this.speedButton = value;
         this._audioService.speed(value);
+    }
+
+    /**
+     * Устанавливает громкость аудио.
+     * @param {number} volume - Уровень громкости от 0 до 1.
+     * @returns {void}
+     */
+    public setVolume(value: number): void {
+        this._audioService.setVolume(value);
     }
 
     /**

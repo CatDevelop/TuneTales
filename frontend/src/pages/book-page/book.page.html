@@ -23,11 +23,23 @@
                     <div class="author">
                         <div class="authorInfo" *ngIf="(book | async)?.authors">
                             <p class="authorLabel">Автор: </p>
-                            <p class="authorText">{{authorName}}</p>
+                            <a
+                                tuiLink
+                                class="authorText"
+                                (click)="navigateToAuthor(authorId)"
+                            >
+                                {{authorName}}
+                            </a>
                         </div>
                         <div class="authorInfo" *ngIf="(book | async)?.speakers">
                             <p class="authorLabel">Исполнитель: </p>
-                            <p class="authorText">{{speakerName}}</p>
+                            <a
+                                tuiLink
+                                class="authorText"
+                                (click)="navigateToAuthor(speakerId)"
+                            >
+                                {{speakerName}}
+                            </a>
                         </div>
                         <div class="authorInfo" *ngIf="(book | async)?.publicationYear">
                             <p class="authorLabel">Год: </p>
@@ -41,6 +53,7 @@
                     tuiButton
                     appearance="primary"
                     class="button"
+                    (click)="startVoice()"
                 >
                     Слушать
                 </button>
@@ -61,16 +74,20 @@
     </div>
     <div class="recommendations">
         <app-card-slider
+            *ngIf="series"
             [label]="'Книги из этой серии'"
-            [books]="mockBooks"
+            [books]="(series | async) ?? []"
         ></app-card-slider>
         <app-card-slider
-            [label]="mockBooks[0].description.slice(0, 35)"
-            [books]="mockBooks"
+            [label]="'Похожие книги'"
+            [books]="(books | async) ?? []"
         ></app-card-slider>
     </div>
 </div>
-<div class="bookPageContainer mobile">
+<div class="bookPageContainer mobile"
+     [ngStyle]="{'background': 'radial-gradient(51.26% 12.81% at 50% 18.18%, ' + backgroundColor + ' 0%, #FFFFFF 100%)'}"
+
+>
     <div class="buttons">
         <button
             class="backButton"
@@ -96,7 +113,13 @@
     <div class="bookInfo">
         <div class="names">
             <p class="bookName">{{(book | async)?.name}}</p>
-            <p class="authorName">{{authorName}}</p>
+            <a
+                tuiLink
+                class="authorName"
+                (click)="navigateToAuthor(authorId)"
+            >
+                {{authorName}}
+            </a>
         </div>
         <div class="bookDetails">
             <div class="details">
@@ -105,7 +128,7 @@
                     <ng-template ngPluralCase="0">Часов</ng-template>
                     <ng-template ngPluralCase="1">Час</ng-template>
                     <ng-template ngPluralCase="few">Часа</ng-template>
-                    <ng-template ngPluralCase="other">Часов </ng-template>
+                    <ng-template ngPluralCase="other">Часов</ng-template>
                 </p>
             </div>
             <div class="details">
@@ -120,6 +143,7 @@
         <button
             tuiButton
             class="playButton"
+            (click)="startVoice()"
         >
             Слушать
         </button>
@@ -132,12 +156,13 @@
     </div>
     <div class="recommendations">
         <app-card-slider
+            *ngIf="series"
             [label]="'Книги из этой серии'"
-            [books]="mockBooks"
+            [books]="(series | async) ?? []"
         ></app-card-slider>
         <app-card-slider
-            [label]="mockBooks[0].description.slice(0, 35)"
-            [books]="mockBooks"
+            [label]="'Похожие книги'"
+            [books]="(books | async) ?? []"
         ></app-card-slider>
     </div>
 </div>

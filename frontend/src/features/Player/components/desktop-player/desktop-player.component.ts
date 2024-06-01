@@ -77,8 +77,15 @@ export class DesktopPlayerComponent {
     @Output()
     public eventSliderChange: EventEmitter<number> = new EventEmitter<number>();
 
+    @Output()
+    public eventVolume: EventEmitter<number> = new EventEmitter<number>();
+  
     public audioRewindBack = (value: MouseEvent): void => {
         this.eventAudioRewindBack.emit(value);
+    }
+
+    public setVolume = (value: number): void => {
+        this.eventVolume.emit(value);
     };
 
     public audioRewindNext = (value: MouseEvent): void => {

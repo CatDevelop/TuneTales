@@ -21,9 +21,6 @@
             tuiSliderThumbLabel
             class="select-sound__slider_wrapper"
         >
-
-
-
             <input
                 class="select-sound__input"
                 step="any"
@@ -31,7 +28,8 @@
                 type="range"
                 [max]="max"
                 [min]="min"
-                [(ngModel)]="value"
+                [(ngModel)]="soundValue"
+                (ngModelChange)="onValueChange($event)"
             />
         </label>
     </article>
