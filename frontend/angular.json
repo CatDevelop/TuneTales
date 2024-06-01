@@ -35,15 +35,11 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
+                            "_redirects",
                             {
                                 "glob": "**/*",
                                 "input": "node_modules/@taiga-ui/icons/src",
                                 "output": "assets/taiga-ui/icons"
-                            },
-                            {
-                                "glob": "_redirects",
-                                "input": "./",
-                                "output": "./"
                             }
                         ],
                         "styles": [
