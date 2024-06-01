@@ -198,12 +198,3 @@ export class BookPage implements OnInit {
             });
     }
 }
-
-
-// switchMap(book => this._averageColor.getAverageColor(this.imageUrl).pipe(
-//     tap(hex => {
-//         console.log(hex);
-//         this.backgroundColor = hex;
-//         this._cdr.detectChanges(); // явное обнаружение изменений
-//     })
-// ))

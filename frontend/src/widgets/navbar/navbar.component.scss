@@ -45,4 +45,26 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 45px;
+
+    .link {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .link__image path {
+            stroke: #14121D;
+            transition: all 0.1s ease-in;
+        }
+    }
+
+    .link:hover .link__image path {
+        stroke: #1677FF;
+        fill: #1677FF;
+    }
 }
+
+

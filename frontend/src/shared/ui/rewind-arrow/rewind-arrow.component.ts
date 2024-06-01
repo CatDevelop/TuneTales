@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-rewind-arrow',
     templateUrl: './rewind-arrow.component.html',
     styleUrls: ['./rewind-arrow.component.scss']
@@ -15,7 +16,7 @@ export class RewindArrowComponent {
     private _size: 'small' | 'medium' = 'medium';
 
     @Input()
-    set size(value: 'small' | 'medium') {
+    public set size(value: 'small' | 'medium') {
         this._size = value;
         this.updateDimensions();
     }

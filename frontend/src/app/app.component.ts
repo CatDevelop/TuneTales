@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import {IBookResponse} from "../pages/main-page/model/types/dto/get-books.response-dto";
+import { IBookResponse } from '../pages/main-page/model/types/dto/get-books.response-dto';
 
 @Component({
     selector: 'app-root',

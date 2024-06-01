@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, numberAttribute, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-small-play-button',
     templateUrl: './small-play-button.component.html',
     styleUrl: './small-play-button.component.scss'

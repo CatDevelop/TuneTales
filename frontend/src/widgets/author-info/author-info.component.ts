@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IAuthorResponse } from '../../pages/author-page/model/types/dto/get-author.response-dto';
+import { IGetAuthorByIdResponseDto } from '../../entities/Author/model/dto/response/get-author-by-id.response-dto';
 
 @Component({
     selector: 'author-info',
@@ -8,6 +8,6 @@ import { IAuthorResponse } from '../../pages/author-page/model/types/dto/get-aut
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthorInfoComponent {
-    @Input()
-    public author: IAuthorResponse | null = null;
+    @Input({ required: true })
+    public author: IGetAuthorByIdResponseDto = {} as IGetAuthorByIdResponseDto;
 }

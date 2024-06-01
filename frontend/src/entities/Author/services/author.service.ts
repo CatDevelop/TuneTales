@@ -53,7 +53,7 @@ export class AuthorService {
 
         const response$: Observable<HttpResponse<IGetAuthorByIdResponseDto>> = this._req.request<IGetAuthorByIdResponseDto, void>({
             url: `${UrlRoutes.backendDev}/author/${authorId}`,
-            method: RequestMethodType.post,
+            method: RequestMethodType.get,
         });
 
         response$

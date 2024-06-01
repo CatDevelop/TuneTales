@@ -11,26 +11,26 @@ export class CardFeedComponent implements OnInit {
     @ViewChild('cardfeed', { static: true })
     public cardFeedContainer!: ElementRef;
 
-    @Input() books: IBook[] = [];
+    @Input()
+    public books: IBook[] = [];
 
     public columns: IBook[][] = [];
     public columnCount: number = 1;
+
+    /**
+     * Декоратор HostListener для событий изменения размера окна.
+     * Обновляет колонки при изменении размера окна.
+     */
+    @HostListener('window:resize', ['$event'])
+    public onResize(): void {
+        this.updateColumns();
+    }
 
     /**
      * Жизненный цикл компонента, вызываемый после инициализации свойств с привязкой данных.
      * Инициализирует колонки на основе текущей ширины контейнера.
      */
     public ngOnInit(): void {
-        this.updateColumns();
-    }
-
-    /**
-     * Декоратор HostListener для событий изменения размера окна.
-     * Обновляет колонки при изменении размера окна.
-     * @param event Событие изменения размера
-     */
-    @HostListener('window:resize', ['$event'])
-    onResize(): void {
         this.updateColumns();
     }
 

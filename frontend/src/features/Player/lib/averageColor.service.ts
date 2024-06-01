@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PlayerControlModule } from '../player-control.module';
 import { FastAverageColor } from 'fast-average-color';
-import {Observable, from, map, of} from 'rxjs';
-import {catchError, take } from 'rxjs/operators';
+import { Observable, from, map, of } from 'rxjs';
+import { catchError, take } from 'rxjs/operators';
 
 @Injectable({
     providedIn: PlayerControlModule
