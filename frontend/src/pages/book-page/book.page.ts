@@ -352,7 +352,14 @@ export class BookPage implements OnInit {
                 }
             );
 
-        return result;
+        return Math.floor(result / 60);
+    }
+
+    /**
+     * back button
+     */
+    public navigateBack(): void {
+        window.history.back();
     }
 
     constructor(

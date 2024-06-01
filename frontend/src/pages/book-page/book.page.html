@@ -1,4 +1,4 @@
-<div class="bookPageContainer" *ngIf="book | async">
+<div class="bookPageContainer desktop" *ngIf="book | async">
     <div class="bookInfoContainer">
         <div class="content">
             <div class="info">
@@ -12,7 +12,12 @@
                         <h2 class="title">{{(book | async)?.name}}</h2>
                         <div class="subtitle">
                             <p class="subtitleText">{{genre}}</p>
-                            <p class="subtitleText">{{duration}}s</p>
+                            <p class="subtitleText" [ngPlural]="duration">
+                                <ng-template ngPluralCase="0">{{duration}} часов</ng-template>
+                                <ng-template ngPluralCase="1">{{duration}} час</ng-template>
+                                <ng-template ngPluralCase="few">{{duration}} часа</ng-template>
+                                <ng-template ngPluralCase="other">{{duration}} часов </ng-template>
+                            </p>
                         </div>
                     </div>
                     <div class="author">
@@ -51,6 +56,77 @@
     </div>
     <div class="bookDescription">
         <p class="description">
+            {{(book | async)?.description}}
+        </p>
+    </div>
+    <div class="recommendations">
+        <app-card-slider
+            [label]="'Книги из этой серии'"
+            [books]="mockBooks"
+        ></app-card-slider>
+        <app-card-slider
+            [label]="mockBooks[0].description.slice(0, 35)"
+            [books]="mockBooks"
+        ></app-card-slider>
+    </div>
+</div>
+<div class="bookPageContainer mobile">
+    <div class="buttons">
+        <button
+            class="backButton"
+            (click)="navigateBack()"
+        >
+            <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 9.93896C0 10.3208 0.145996 10.6465 0.449219 10.9385L9.20898 19.5073C9.44482 19.7544 9.75928 19.8779 10.1187 19.8779C10.8486 19.8779 11.4214 19.3164 11.4214 18.5752C11.4214 18.2158 11.2754 17.8901 11.0283 17.6431L3.1333 9.93896L11.0283 2.23486C11.2754 1.97656 11.4214 1.65088 11.4214 1.2915C11.4214 0.561523 10.8486 0 10.1187 0C9.75928 0 9.44482 0.123535 9.20898 0.370605L0.449219 8.93945C0.145996 9.23145 0.0112305 9.55713 0 9.93896Z" fill="#14121D" />
+            </svg>
+        </button>
+        <button class="likeButton">
+            <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.699 3.02738C20.7572 -3.15644 31.7967 6.57979 11.699 20C-6.98332 7.36921 2.64093 -3.6827 11.699 3.02738Z" fill="#4096FF" stroke="#4096FF" stroke-width="2" />
+            </svg>
+        </button>
+    </div>
+    <div class="coverContainer">
+        <img
+            src="{{(book | async)?.imageSrc}}"
+            alt="book cover"
+            class="cover"
+        >
+    </div>
+    <div class="bookInfo">
+        <div class="names">
+            <p class="bookName">{{(book | async)?.name}}</p>
+            <p class="authorName">{{authorName}}</p>
+        </div>
+        <div class="bookDetails">
+            <div class="details">
+                <p class="bookDetailsText">{{duration}}</p>
+                <p class="bookDetailsLabel" [ngPlural]="duration">
+                    <ng-template ngPluralCase="0">Часов</ng-template>
+                    <ng-template ngPluralCase="1">Час</ng-template>
+                    <ng-template ngPluralCase="few">Часа</ng-template>
+                    <ng-template ngPluralCase="other">Часов </ng-template>
+                </p>
+            </div>
+            <div class="details">
+                <p class="bookDetailsText">{{(book | async)?.publicationYear}}</p>
+                <p class="bookDetailsLabel">Год</p>
+            </div>
+            <div class="details">
+                <p class="bookDetailsText">{{genre}}</p>
+                <p class="bookDetailsLabel">Жанр</p>
+            </div>
+        </div>
+        <button
+            tuiButton
+            class="playButton"
+        >
+            Слушать
+        </button>
+    </div>
+    <div class="description">
+        <h3 class="title">Описание</h3>
+        <p class="descriptionText">
             {{(book | async)?.description}}
         </p>
     </div>
