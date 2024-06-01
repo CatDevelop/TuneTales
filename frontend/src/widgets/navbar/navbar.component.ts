@@ -49,4 +49,11 @@ export class NavbarComponent {
     public navigateToAuthorization(): void {
         this._router.navigate([`/login`]);
     }
+
+    /**
+     * Редирект на книгу
+     */
+    public navigateToBook(id: string): void {
+        this._router.navigate([`/book`, id]);
+    }
 }

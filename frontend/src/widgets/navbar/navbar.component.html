@@ -25,7 +25,8 @@
                 <button
                     *ngFor="let item of parsedBooks"
                     tuiOption
-                    [value]="item"
+                    [value]="item.name"
+                    (click)="navigateToBook(item.id)"
                 >
                     <span class="name">{{ item.name }}</span>
                 </button>

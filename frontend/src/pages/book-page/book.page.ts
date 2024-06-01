@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { BookService } from '../../entities/Book/services/book.service';
 import { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';
 import { HttpResponse } from '@angular/common/http';
-import {IBookResponse} from "../main-page/model/types/dto/get-books.response-dto";
+import { IBookResponse } from '../main-page/model/types/dto/get-books.response-dto';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
