@@ -28,6 +28,7 @@ export class SelectSoundComponent {
 
     public min: number = 0;
     public max: number = 100;
+    public value: number = 50;
 
     public readonly active$: BehaviorSubject<boolean> = new BehaviorSubject(false);
     public showHint$: Observable<boolean> = this.active$.pipe(
@@ -36,10 +37,6 @@ export class SelectSoundComponent {
             active ? of(true) : timer(1000).pipe(map(ALWAYS_FALSE_HANDLER)),
         ),
     );
-
-    public min: number = 23;
-    public max: number = 100;
-    public value: number = 50;
 
     @Output()
     public valueChanged: EventEmitter<number> = new EventEmitter<number>();
