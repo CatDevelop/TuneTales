@@ -6,8 +6,8 @@ import { UrlRoutes } from '../../../shared/global-services/request/model/url-rou
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
 import { ICreateGenreRequestDto } from '../model/dto/request/create-genre.request-dto';
 import { ICreateGenreResponseDto } from '../model/dto/response/create-genre.response-dto';
-import { IGetGenreByIdResponseDto } from '../model/dto/response/get-genre-by-id.response-dto';
 import { IGetGenresResponseDto } from '../model/dto/response/get-genres.response-dto';
+import { IGenre } from '../model/genre.interface';
 
 
 @Injectable()
@@ -48,7 +48,7 @@ export class GenreService {
     /**
      * Получение всех жанров
      */
-    public getGenres(): Observable<HttpResponse<IGetGenreByIdResponseDto>> {
+    public getGenres(): Observable<HttpResponse<IGetGenresResponseDto>> {
         this._isProcessing$.next(true);
 
         const response$: Observable<HttpResponse<IGetGenresResponseDto>> = this._req.request<IGetGenresResponseDto, void>({
@@ -71,17 +71,17 @@ export class GenreService {
      * Получение всех книг жанра
      * @param genreId
      */
-    public getGenreById(genreId: string): Observable<HttpResponse<IGetGenreByIdResponseDto>> {
+    public getGenreById(genreId: string): Observable<HttpResponse<IGenre>> {
         this._isProcessing$.next(true);
 
-        const response$: Observable<HttpResponse<IGetGenreByIdResponseDto>> = this._req.request<IGetGenreByIdResponseDto, void>({
+        const response$: Observable<HttpResponse<IGenre>> = this._req.request<IGenre, void>({
             url: `${UrlRoutes.backendDev}/genre/${genreId}`,
             method: RequestMethodType.post,
         });
 
         response$
             .pipe(
-                filter((resp: HttpResponse<IGetGenreByIdResponseDto>) => resp.ok),
+                filter((resp: HttpResponse<IGenre>) => resp.ok),
                 finalize(() => {
                     this._isProcessing$.next(false);
                 })
