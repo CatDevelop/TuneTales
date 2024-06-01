@@ -35,7 +35,7 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
-                            "_redirects",
+                            "src/_redirects",
                             {
                                 "glob": "**/*",
                                 "input": "node_modules/@taiga-ui/icons/src",
