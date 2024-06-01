@@ -4,6 +4,7 @@ import { MainPage } from './main.page';
 import { CardSliderModule } from '../../../features/card-slider/card-slider.module';
 import { MainPageService } from '../model/services/main.page.service';
 import { BookCardModule } from '../../../entities/Book/book-card.module';
+import { GenreService } from '../../../entities/Genre/services/genre.service';
 
 @NgModule({
     declarations: [
@@ -12,11 +13,14 @@ import { BookCardModule } from '../../../entities/Book/book-card.module';
     imports: [
         CommonModule,
         CardSliderModule,
-        BookCardModule
+        BookCardModule,
     ],
     exports: [
         MainPage,
     ],
-    providers: [MainPageService]
+    providers: [
+        MainPageService,
+        GenreService
+    ]
 })
 export class MainPageModule { }

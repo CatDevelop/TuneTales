@@ -1,24 +1,16 @@
 <div class="main-page-container">
     <app-card-slider
         *ngIf="books"
-        [label]="mockBooks[0].description.slice(0, 35)"
+        [label]="'Рекомендации для вас'"
         [books]="books | async"
     ></app-card-slider>
-    <app-card-slider
-        *ngIf="books"
-        [label]="mockBooks[0].description.slice(0, 35)"
-        [books]="books | async"
-    ></app-card-slider>
-    <app-card-slider
-        *ngIf="books"
-        [label]="mockBooks[0].description.slice(0, 35)"
-        [books]="books | async"
-    ></app-card-slider>
-    <app-card-slider
-        *ngIf="books"
-        [label]="mockBooks[0].description.slice(0, 35)"
-        [books]="books | async"
-    ></app-card-slider>
+    <ng-container *ngIf="genres">
+        <app-card-slider
+            *ngFor="let genre of (genres | async)"
+            [label]="genre.name"
+            [books]="genre.books ?? []"
+        ></app-card-slider>
+    </ng-container>
 </div>
 
 
