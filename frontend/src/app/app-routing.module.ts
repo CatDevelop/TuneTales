@@ -2,23 +2,29 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPage } from '../pages/main-page/ui/main.page';
 import { AuthorPage } from '../pages/author-page/ui/author.page';
+import { authGuard } from '../shared/guards/auth.guard';
+import { authorizationPageGuard } from '../pages/authorization-page/ui/authorization.page.guard';
+import { registerPageGuard } from '../pages/register-page/ui/register.page.guard';
 
 const routes: Routes = [
     {
         path: 'login',
         loadChildren: () =>
             import('../pages/authorization-page/ui/authorization.page.module')
-                .then(m => m.AuthorizationPageModule)
+                .then(m => m.AuthorizationPageModule),
+        canActivate: [authorizationPageGuard],
     },
     {
         path: 'registration',
         loadChildren: () =>
             import('../pages/register-page/ui/register.page.module')
-                .then(m => m.RegisterPageModule)
+                .then(m => m.RegisterPageModule),
+        canActivate: [registerPageGuard],
     },
     {
         path: 'author/:authorId',
         component: AuthorPage,
+        canActivate: [authGuard]
     },
     {
         path: 'book/:bookId',
