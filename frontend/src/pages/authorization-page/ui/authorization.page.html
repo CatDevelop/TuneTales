@@ -5,39 +5,41 @@
         [formGroup]="authorizationForm"
     >
         <tui-input
-                formControlName="login"
-                [tuiTextfieldCleaner]="true"
-            >
-                Введите логин
-                <input
-                    class="input"
-                    tuiTextfield
-                    autocomplete="login"
-                />
-            </tui-input>
+            formControlName="login"
+            [tuiTextfieldCleaner]="true"
+        >
+            Введите логин
+            <input
+                class="input"
+                tuiTextfield
+                type="text"
+                autocomplete="login"
+            />
+        </tui-input>
         <tui-input
-                formControlName="password"
-                [tuiTextfieldCleaner]="true"
-            >
-                Введите пароль
-                <input
-                    class="input"
-                    type="password"
-                    tuiTextfield
-                    autocomplete="password"
-                />
-            </tui-input>
+            formControlName="password"
+            [tuiTextfieldCleaner]="true"
+        >
+            Введите пароль
+            <input
+                class="input"
+                type="password"
+                tuiTextfield
+                autocomplete="password"
+            />
+        </tui-input>
         <button
-                tuiButton
-                class="button"
-                type="submit"
-                size="l"
-                (click)="login()"
-                (keydown.enter)="login()"
-                (submit)="login()"
-            >
-                Войти
-            </button>
+            tuiButton
+            class="button"
+            type="submit"
+            size="l"
+            [disabled]="(isProcessing | async) || false"
+            (click)="login()"
+            (keydown.enter)="login()"
+            (submit)="login()"
+        >
+            Войти
+        </button>
         <div class="registration-link-container">
             <p>Нет аккаунта?</p>
             <a

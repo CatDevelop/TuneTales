@@ -34,7 +34,7 @@ export class AuthorizationService {
         const response$: Observable<HttpResponse<IAuthorizationResponseDto>> = this._req.request<IAuthorizationResponseDto, IAuthorization>({
             url: `${UrlRoutes.backendDev}/auth/login`,
             method: RequestMethodType.post,
-            body: { login: email, password: password },
+            body: { login: email, password: password }
         });
 
         response$ // observable -> ответы (только один)
@@ -44,12 +44,9 @@ export class AuthorizationService {
                     this._cacher.cacheJWTSession({
                         accessToken: resp.body?.accessToken || '',
                     });
-
-                    this._router
-                        .navigateByUrl('/');
                 }),
                 finalize(() => this._isProcessing$.next(false))
-            );
+            ).subscribe();
 
         return response$;
     }

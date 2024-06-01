@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { IBookResponse } from '../model/types/dto/get-books.response-dto';
+import { GetBooksResponseDto, IBookResponse } from '../model/types/dto/get-books.response-dto';
 import { MainPageService } from '../model/services/main.page.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -298,12 +299,12 @@ export class MainPage implements OnInit {
     }
 
     public ngOnInit(): void {
-        // this._mainService.getAllBooks()
-        //     .subscribe(
-        //         (res: HttpResponse<GetBooksResponseDto>) => {
-        //             this._books.next(res.body ?? []);
-        //         },
-        //     );
-        this._books.next(this.mockBooks);
+        this._mainService.getAllBooks()
+            .subscribe(
+                (res: HttpResponse<GetBooksResponseDto>) => {
+                    this._books.next(res.body ?? []);
+                },
+            );
+        // this._books.next(this.mockBooks);
     }
 }

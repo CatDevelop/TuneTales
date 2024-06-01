@@ -3,7 +3,7 @@ import { IJWTSession } from '../model/jwt-session.interface';
 
 @Injectable()
 export class SessionStorageService {
-    private _sessionIdentifier: string = 'session';
+    private _sessionIdentifier: string = 'TuneTail-session';
 
     /**
      * Запись JWT сессиии в localstorage
