@@ -24,7 +24,7 @@ export class MainPageService {
         this._isProcessing$.next(true);
 
         const response$: Observable<HttpResponse<GetBooksResponseDto>> = this._req.request<GetBooksResponseDto, void>({
-            url: `${UrlRoutes.backendDev}/book`,
+            url: `${UrlRoutes.backendDev}/book/recommendations?count=10`,
             method: RequestMethodType.get,
             auth: true,
         });

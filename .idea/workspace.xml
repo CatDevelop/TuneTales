@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing register page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/genre/genre.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/genre/genre.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main-page/model/services/main.page.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main-page/model/services/main.page.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev-front-main-page" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,13 +51,23 @@
     }
   ]
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/CatDevelop/TuneTales.git&quot;,
-    &quot;accountId&quot;: &quot;25359063-7051-43f8-b1c0-3359260ddd7a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/CatDevelop/TuneTales.git",
+    "accountId": "25359063-7051-43f8-b1c0-3359260ddd7a"
   },
-  &quot;editorReviewEnabled&quot;: false
-}</component>
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "CatDevelop",
+    "repository": "TuneTales"
+  },
+  "editorReviewEnabled": false
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -72,7 +82,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "dev-main-page-rework",
     "last_opened_file_path": "/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/src/shared/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -81,7 +91,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\backend\\node_modules\\typescript\\lib"
+    "ts.external.directory.path": "/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="RecentsManager">
