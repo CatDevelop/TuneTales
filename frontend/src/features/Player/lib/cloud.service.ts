@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {filter, map, Observable, of, take} from 'rxjs';
+import { filter, map, Observable, take } from 'rxjs';
 import { PlayerControlModule } from '../player-control.module';
-import { HttpService  } from '../../../shared/global-services/request/http.service';
+import { HttpService } from '../../../shared/global-services/request/http.service';
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { HttpResponse } from '@angular/common/http';
@@ -11,7 +11,8 @@ import { IGetBookResponseDto } from '../../../entities/Book/model/dto/response/g
     providedIn: PlayerControlModule
 })
 export class CloudService {
-    constructor(private _req: HttpService) { }
+    constructor(private _req: HttpService) {
+    }
 
     /**
      * Получает книгу по её ID.

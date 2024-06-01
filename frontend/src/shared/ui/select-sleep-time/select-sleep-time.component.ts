@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ITimeEntry } from '../../model/types';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ITimeEntry, ITimes } from '../../model/types';
 import { tuiItemsHandlersProvider } from '@taiga-ui/kit';
-import { ITimes } from '../../model/types';
 import { TuiHostedDropdownComponent } from '@taiga-ui/core';
 
 @Component({

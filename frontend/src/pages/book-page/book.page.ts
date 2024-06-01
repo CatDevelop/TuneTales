@@ -355,6 +355,13 @@ export class BookPage implements OnInit {
         return Math.floor(result / 60);
     }
 
+    constructor(
+        private _route: ActivatedRoute,
+        private _bookService: BookService,
+    ) {
+        this.book = this._book$.asObservable();
+    }
+
     /**
      * back button
      */
@@ -373,12 +380,5 @@ export class BookPage implements OnInit {
                     this._book$.next(resp.body);
                 }
             });
-    }
-
-    constructor(
-        private _route: ActivatedRoute,
-        private _bookService: BookService,
-    ) {
-        this.book = this._book$.asObservable();
     }
 }

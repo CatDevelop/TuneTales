@@ -31,29 +31,26 @@ export class BottomPlayerComponent {
     @Output()
     public eventPlayerWindow: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
+    @Output()
+    public eventPause: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+
+    @Output()
+    public eventPlay: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+
+    @Output()
+    public eventStop: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+
     public togglePlayerWindow = (): void => {
         this.eventPlayerWindow.emit();
     };
-
-
-    @Output()
-    public eventPause: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
     public pause = (): void => {
         this.eventPause.emit();
     };
 
-
-    @Output()
-    public eventPlay: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-
     public play = (): void => {
         this.eventPlay.emit();
     };
-
-
-    @Output()
-    public eventStop: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
     public stop = (): void => {
         this.eventStop.emit();

@@ -17,10 +17,6 @@ export class NavbarComponent {
 
     public readonly control: FormControl<string | null> = new FormControl('');
 
-    constructor(private _router: Router,
-                private _bookService: BookService) {
-    }
-
     public readonly books$: Observable<IGetBookResponseDto[]> = this.control.valueChanges.pipe(
         tap(() => console.log(this._bookService)),
         switchMap(value =>
@@ -35,6 +31,10 @@ export class NavbarComponent {
             ),
         )
     );
+
+    constructor(private _router: Router,
+                private _bookService: BookService) {
+    }
 
     /**
      * Редирект на главную страницу

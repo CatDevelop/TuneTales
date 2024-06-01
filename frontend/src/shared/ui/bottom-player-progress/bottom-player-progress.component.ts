@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-    selector: 'app-bottom-player-progress',
+    changeDetection: ChangeDetectionStrategy.OnPush,selector: 'app-bottom-player-progress',
     templateUrl: './bottom-player-progress.component.html',
     styleUrl: './bottom-player-progress.component.scss'
 })

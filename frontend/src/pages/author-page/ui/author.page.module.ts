@@ -4,6 +4,7 @@ import { AuthorPage } from './author.page';
 import { AuthorInfoModule } from '../../../widgets/author-info/author-info.module';
 import { AuthorService } from '../../../entities/Author/services/author.service';
 import { TuiLetModule } from '@taiga-ui/cdk';
+import {TuiLoaderModule} from "@taiga-ui/core";
 
 @NgModule({
     declarations: [
@@ -12,7 +13,8 @@ import { TuiLetModule } from '@taiga-ui/cdk';
     imports: [
         CommonModule,
         AuthorInfoModule,
-        TuiLetModule
+        TuiLetModule,
+        TuiLoaderModule
     ],
     exports: [
         AuthorPage,

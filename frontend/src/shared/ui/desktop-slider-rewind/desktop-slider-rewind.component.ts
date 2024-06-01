@@ -1,51 +1,59 @@
-import { Component, EventEmitter, Input, OnInit, OnChanges, SimpleChanges, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-desktop-slider-rewind',
-  templateUrl: './desktop-slider-rewind.component.html',
-  styleUrls: ['./desktop-slider-rewind.component.scss']
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-desktop-slider-rewind',
+    templateUrl: './desktop-slider-rewind.component.html',
+    styleUrls: ['./desktop-slider-rewind.component.scss']
 })
 export class DesktopSliderRewindComponent implements OnInit, OnChanges {
-  @Input()
-  public startTime: string = '00:00';
+    @Input()
+    public startTime: string = '00:00';
 
-  @Input()
-  public endTime: string = '00:00';
+    @Input()
+    public endTime: string = '00:00';
 
-  @Input()
-  public maxTime: number = 100;
+    @Input()
+    public maxTime: number = 100;
 
-  @Input()
-  public currentTime: number = 0;
+    @Input()
+    public currentTime: number = 0;
 
-  @Output()
-  public valueChange: EventEmitter<number> = new EventEmitter<number>();
+    @Output()
+    public valueChange: EventEmitter<number> = new EventEmitter<number>();
 
-  @ViewChild('sliderInput', { static: true }) slider: any;
+    @ViewChild('sliderInput', { static: true })
+    public slider: any;
 
-  ngOnInit() {
-    this.updateSliderProperties();
-  }
-
-  ngOnChanges(changes: any) {
-    if (changes.maxTime || changes.currentTime) {
-      this.updateSliderProperties();
+    public ngOnInit(): void {
+        this.updateSliderProperties();
     }
-  }
 
-  updateSliderProperties() {
-    const input = this.slider.nativeElement as HTMLInputElement;
-    const percentage = (this.currentTime / this.maxTime) * 100;
-    input.style.setProperty('--value', `${percentage}`);
-    input.style.setProperty('--min', `0`);
-    input.style.setProperty('--max', `100`);
-  }
+    public ngOnChanges(changes: any): void  {
+        if (changes.maxTime || changes.currentTime) {
+            this.updateSliderProperties();
+        }
+    }
 
-  updateSlider(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const percentage = Number(input.value);
-    const newValue = (percentage / 100) * this.maxTime;
-    input.style.setProperty('--value', input.value);
-    this.valueChange.emit(newValue);
-  } 
+    /**
+     * Обновление свойств слайдера
+     */
+    public updateSliderProperties(): void  {
+        const input: HTMLInputElement = this.slider.nativeElement as HTMLInputElement;
+        const percentage: number = (this.currentTime / this.maxTime) * 100;
+        input.style.setProperty('--value', `${percentage}`);
+        input.style.setProperty('--min', `0`);
+        input.style.setProperty('--max', `100`);
+    }
+
+    /**
+     * Обновление слайдера
+     */
+    public updateSlider(event: Event): void  {
+        const input: HTMLInputElement = event.target as HTMLInputElement;
+        const percentage: any = Number(input.value);
+        const newValue: number = (percentage / 100) * this.maxTime;
+        input.style.setProperty('--value', input.value);
+        this.valueChange.emit(newValue);
+    }
 }

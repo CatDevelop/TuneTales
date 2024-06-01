@@ -20,7 +20,6 @@ import { SessionStorageService } from '../pages/authorization-page/services/sess
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { CardSliderModule } from '../features/card-slider/card-slider.module';
 import { MainPageModule } from '../pages/main-page/ui/main.page.module';
-
 import { UiKitModule } from '../shared/ui/ui-kit.module';
 import { PlayerModule } from '../widgets/player/player.module';
 import { CardFeedModule } from '../features/card-feed/card-feed.module';
@@ -61,6 +60,7 @@ import { BookService } from '../entities/Book/services/book.service';
         CommonModule,
         AuthorInfoModule,
         AuthorPageModule,
+        HttpClientModule,
     ],
     providers: [
         HttpService,
@@ -72,4 +72,5 @@ import { BookService } from '../entities/Book/services/book.service';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

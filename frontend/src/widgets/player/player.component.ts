@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, Input, ViewChild, ElementRef, DestroyRef } from '@angular/core';
+import { Component, ChangeDetectorRef, Input, ViewChild, ElementRef, DestroyRef, ChangeDetectionStrategy } from '@angular/core';
 import { AudioService } from '../../features/Player';
 import { CloudService } from '../../features/Player';
 import { IStreamState } from '../../features/Player';
@@ -8,6 +8,7 @@ import { IAudioChapter } from '../../shared/model/types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-player',
     templateUrl: './player.component.html',
     styleUrl: './player.component.scss'

@@ -34,13 +34,37 @@
         </ng-container>
     </tui-input>
     <nav class="links">
-        <button>
+        <button class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/my-books.svg"
+                alt="Мои книги"
+                width=29
+                height=29
+            >
             Мои книги
         </button>
-        <button>
+        <button class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/genres.svg"
+                alt="Жанры"
+                width=29
+                height=29
+            >
             Жанры
         </button>
-        <button (click)="navigateToAuthorization()">
+        <button (click)="navigateToAuthorization()" class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/login.svg"
+                alt="Войти"
+                width=29
+                height=29
+            >
             Войти
         </button>
     </nav>

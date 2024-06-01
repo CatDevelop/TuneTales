@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { BookService } from '../../entities/Book/services/book.service';
 import { TuiLetModule } from '@taiga-ui/cdk';
+import { InlineSvgDirective } from '../../shared/directive/inline-svg.directive';
 
 @NgModule({
     imports: [
@@ -17,10 +18,11 @@ import { TuiLetModule } from '@taiga-ui/cdk';
         TuiDataListModule,
         TuiTextfieldControllerModule,
         FormsModule,
-        TuiLetModule
+        TuiLetModule,
+        InlineSvgDirective
     ],
     declarations: [
-        NavbarComponent
+        NavbarComponent,
     ],
     exports: [
         NavbarComponent
