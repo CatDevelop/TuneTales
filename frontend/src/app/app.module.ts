@@ -14,7 +14,6 @@ import { TuiDataListWrapperModule, TuiInputModule, TuiSelectModule } from '@taig
 import { NavbarComponent } from '../widgets/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterPage } from '../pages/register-page/ui/register.page';
 import { HttpService } from '../shared/global-services/request/http.service';
 import { RegistrationService } from '../pages/register-page/services/registration.service';
 import { AuthorizationService } from '../pages/authorization-page/services/authorization.service';
@@ -34,7 +33,6 @@ import { AuthorService } from '../entities/Author/services/author.service';
     declarations: [
         AppComponent,
         NavbarComponent,
-        RegisterPage,
     ],
     imports: [
         BrowserAnimationsModule,

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterPage } from '../pages/register-page/ui/register.page';
 import { MainPage } from '../pages/main-page/ui/main.page';
 import { AuthorPage } from '../pages/author-page/ui/author.page';
 
@@ -13,7 +12,9 @@ const routes: Routes = [
     },
     {
         path: 'registration',
-        component: RegisterPage,
+        loadChildren: () =>
+            import('../pages/register-page/ui/register.page.module')
+                .then(m => m.RegisterPageModule)
     },
     {
         path: 'author/:authorId',
