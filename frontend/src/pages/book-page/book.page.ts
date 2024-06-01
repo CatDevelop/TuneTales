@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {BehaviorSubject, map, Observable, switchMap, tap} from 'rxjs';
 import { BookService } from '../../entities/Book/services/book.service';
 import { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';
 import { IBookResponse } from '../main-page/model/types/dto/get-books.response-dto';
 import { DataService } from '../../shared/lib/playerData.service';
+import { AverageColorService } from '../../features/Player/lib/averageColor.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -292,6 +294,9 @@ export class BookPage implements OnInit {
 
     ];
 
+    public backgroundColor: string = '#fff';
+    public imageUrl: string = '';
+
     private _bookId: string | null = null;
     private _book$: BehaviorSubject<IGetBookResponseDto | null> = new BehaviorSubject<IGetBookResponseDto | null>(null);
     public book: Observable<IGetBookResponseDto | null>;
@@ -376,7 +381,9 @@ export class BookPage implements OnInit {
     constructor(
         private _route: ActivatedRoute,
         private _bookService: BookService,
-        private _dataService: DataService
+        private _dataService: DataService,
+        private _averageColor: AverageColorService,
+        private _cdr: ChangeDetectorRef
     ) {
         this.book = this._book$.asObservable();
     }
@@ -387,10 +394,22 @@ export class BookPage implements OnInit {
                 this._bookId = params.get('bookId');
             });
         this._bookService.getBookById(this._bookId ?? '')
-            .subscribe(resp => {
-                if (resp.ok && resp.body) {
-                    this._book$.next(resp.body);
+            .pipe(
+                tap(resp => {
+                    if (resp.ok && resp.body) {
+                        this.imageUrl = resp.body.imageSrc;
+                        this._book$.next(resp.body);
+                    }
                 }
-            });
+                ),
+                switchMap(book => this._averageColor.getAverageColor(this.imageUrl).pipe(
+                    tap(hex => {
+                        console.log(hex);
+                        this.backgroundColor = hex;
+                        this._cdr.detectChanges(); // явное обнаружение изменений
+                    })
+                ))
+            )
+            .subscribe();
     }
 }
