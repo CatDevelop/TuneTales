@@ -32,7 +32,14 @@ export class GenreService {
     }
 
     async findAll() {
-        return await this.genreRepository.find();
+        return await this.genreRepository.find({
+            relations: {
+                books: {
+                    authors: true,
+                    speakers: true
+                }
+            }
+        });
     }
 
     async findOne(id: string) {
