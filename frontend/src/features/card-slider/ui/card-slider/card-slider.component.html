@@ -1,11 +1,10 @@
 <h2
-    *ngIf="label"
+    *ngIf="label && books?.length"
     class="label"
 >
     {{label}}
 </h2>
-
-<div class="item-slider-container">
+<div class="item-slider-container" *ngIf="books?.length">
     <div class="item-slider">
         <button
             icon="tuiIconChevronLeftLarge"
