@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="author">
-                                <div class="authorInfo" *ngIf="parsedBook?.authors">
+                                <div class="authorInfo" *ngIf="parsedBook?.authors?.length">
                                     <p class="authorLabel">Автор: </p>
                                     <a
                                         tuiLink
@@ -33,7 +33,7 @@
                                         {{ authorName }}
                                     </a>
                                 </div>
-                                <div class="authorInfo" *ngIf="parsedBook?.speakers">
+                                <div class="authorInfo" *ngIf="parsedBook?.speakers?.length">
                                     <p class="authorLabel">Исполнитель: </p>
                                     <a
                                         tuiLink
