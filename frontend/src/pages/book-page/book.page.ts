@@ -177,8 +177,7 @@ export class BookPage implements OnInit {
                     this._cdr.detectChanges();
                 }),
                 switchMap(() => this.book),
-                switchMap(book => this._seriesService.getSeriesById(book?.series?.[0].id ?? '')
-                ),
+                switchMap(book => this._seriesService.getSeriesById(book?.series?.[0].id ?? '')),
                 tap(series =>
                     this._series.next(series.body?.books ?? [])
                 )

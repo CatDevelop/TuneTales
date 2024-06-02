@@ -55,7 +55,8 @@ export class SeriesService {
 
         const response$: Observable<HttpResponse<IGetSeriesByIdResponseDto>> = this._req.request<IGetSeriesByIdResponseDto, void>({
             url: `${UrlRoutes.backendDev}/series/${seriesId}`,
-            method: RequestMethodType.post,
+            method: RequestMethodType.get,
+            auth: true
         });
 
         response$

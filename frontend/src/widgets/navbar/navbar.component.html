@@ -70,7 +70,7 @@
             >
             Жанры
         </button>
-        <button (click)="navigateToAuthorization()" class="link">
+        <button (click)="navigateToAuthorization()" class="link" *ngIf="!isLogin">
             <img
                 appInlineSvg
                 class="link__image"
@@ -80,6 +80,17 @@
                 height=29
             >
             Войти
+        </button>
+        <button (click)="navigateToAuthorization()" class="link" *ngIf="isLogin">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/logout.svg"
+                alt="Выйти"
+                width=29
+                height=29
+            >
+            Выйти
         </button>
     </nav>
     <nav class="links mobile" *ngIf="isMenuOpen">
