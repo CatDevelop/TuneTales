@@ -6,6 +6,7 @@ import {Book} from "./entities/book.entity";
 import {Author} from "../author/entities/author.entity";
 import {Genre} from "../genre/entities/genre.entity";
 import {User} from "../user/entities/user.entity";
+import {use} from "passport";
 
 @Injectable()
 export class BookService {
@@ -163,15 +164,22 @@ export class BookService {
         return res.filter(el => el);
     }
 
-    async findOne(id: string) {
+    async findOne(id: string, userId: string) {
         if (!await this.isCreate(id))
             throw new NotFoundException("Book not found!")
 
-        return await this.bookRepository.findOne({
-                where: {id},
-                relations: ["authors", "speakers", "genres", "parts", "series"]
+        const isFavourite = await this.bookRepository.count({
+                where: {id, users: {id: userId}},
             },
         )
+        return {
+            ...await this.bookRepository.findOne({
+                    where: {id},
+                    relations: ["authors", "speakers", "genres", "parts", "series"]
+                },
+            ),
+            isFavourite: !!isFavourite
+        }
     }
 
     async remove(id: string) {

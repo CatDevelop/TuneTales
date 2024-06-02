@@ -70,8 +70,8 @@ export class BookController {
     @ApiOperation({summary: "Получение информации о книге"})
     @ApiBearerAuth()
     @Get(':id')
-    findOne(@Param() getBookDto: GetBookDto) {
-        return this.bookService.findOne(getBookDto.id);
+    findOne(@Param() getBookDto: GetBookDto, @Req() req) {
+        return this.bookService.findOne(getBookDto.id, req.user?.id);
     }
 
     @ApiOperation({summary: "АДМИН Удаление книги"})
@@ -87,6 +87,6 @@ export class BookController {
     @Patch('favorite/:id')
     @UseGuards(JwtAuthGuard)
     changeFavorite(@Param() changeFavoriteBookDto: ChangeFavoriteBookDto, @Req() req) {
-        return this.bookService.changeFavorite(changeFavoriteBookDto.id, req.user.id);
+        return this.bookService.changeFavorite(changeFavoriteBookDto.id, req.user?.id);
     }
 }
