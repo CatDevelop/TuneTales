@@ -18,7 +18,7 @@ import { SeriesService } from '../../entities/Series/services/series.service';
     styleUrl: './book.page.scss'
 })
 export class BookPage implements OnInit {
-    public backgroundColor: string = '#fff';
+    public backgroundColor: string = '#f9fdff';
     public imageUrl: string = '';
     public favotiteButton: boolean = false;
 
@@ -80,7 +80,6 @@ export class BookPage implements OnInit {
             .subscribe(
                 data => {
                     if (data && data.speakers) {
-                        // @ts-ignore
                         result = data?.speakers[0].firstName + ' ' + data?.speakers[0].secondName;
                     }
                 }
@@ -95,7 +94,6 @@ export class BookPage implements OnInit {
             .subscribe(
                 data => {
                     if (data && data.genres) {
-                        // @ts-ignore
                         result = data?.genres[0].name;
                     }
                 }
@@ -187,11 +185,14 @@ export class BookPage implements OnInit {
                 tap(hex => {
                     console.log(hex);
                     this.backgroundColor = hex;
-                    this._cdr.detectChanges(); // явное обнаружение изменений
+                    this._cdr.detectChanges(); 
                 }),
                 switchMap(() => {
                     return this._seriesService.getSeriesById(this._book$.getValue()?.series?.[0].id ?? '');
                 }),
+                switchMap(() => this.book),
+                switchMap(book => this._seriesService.getSeriesById(book?.series?.[0].id ?? '')
+                ),
                 tap(series =>
                     this._series.next(series.body?.books ?? [])
                 )
@@ -206,12 +207,3 @@ export class BookPage implements OnInit {
             });
     }
 }
-
-
-// switchMap(book => this._averageColor.getAverageColor(this.imageUrl).pipe(
-//     tap(hex => {
-//         console.log(hex);
-//         this.backgroundColor = hex;
-//         this._cdr.detectChanges(); // явное обнаружение изменений
-//     })
-// ))

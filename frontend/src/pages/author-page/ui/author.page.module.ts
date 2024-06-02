@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthorPage } from './author.page';
-import { AuthorPageService } from '../model/services/author.page.service';
 import { AuthorInfoModule } from '../../../widgets/author-info/author-info.module';
+import { AuthorService } from '../../../entities/Author/services/author.service';
+import { TuiLetModule } from '@taiga-ui/cdk';
+import { TuiLoaderModule } from '@taiga-ui/core';
 
 @NgModule({
     declarations: [
@@ -10,12 +12,14 @@ import { AuthorInfoModule } from '../../../widgets/author-info/author-info.modul
     ],
     imports: [
         CommonModule,
-        AuthorInfoModule
+        AuthorInfoModule,
+        TuiLetModule,
+        TuiLoaderModule
     ],
     exports: [
         AuthorPage,
     ],
-    providers: [AuthorPageService]
+    providers: [AuthorService]
 })
 export class AuthorPageModule {
 }

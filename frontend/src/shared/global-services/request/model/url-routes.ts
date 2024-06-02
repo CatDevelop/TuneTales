@@ -1,4 +1,4 @@
 export enum UrlRoutes {
-    backend = 'http://localhost:5000/api',
-    backendDev = 'http://localhost:5001/api',
+    backend = 'https://pincode-dev.ru/angular/api/',
+    backendDev = 'http://localhost:5022/api',
 }

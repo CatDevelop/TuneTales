@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import moment from 'moment/moment';
 import { IAudioChapter } from '../../../shared/model/types';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-chapters',
     templateUrl: './chapters.component.html',
     styleUrl: './chapters.component.scss'
@@ -15,15 +16,15 @@ export class ChaptersComponent {
     public currentIndexFile: number = 0;
 
     @Output()
-    public valueChanged = new EventEmitter<{ file: IAudioChapter, index: number }>();
+    public valueChanged: EventEmitter<{ file: IAudioChapter; index: number }> = new EventEmitter<{ file: IAudioChapter, index: number }>();
 
     @Output()
-    public stateChapterChanged = new EventEmitter();
+    public stateChapterChanged: EventEmitter<any> = new EventEmitter();
 
     /**
      * Обрабатывает событие изменения значения элемента.
      * @param {IAudioChapter} file - Объект файла.
-     * @param {number} index - Индекс файла.
+     * @param {int} index - Индекс файла.
      * @emits {string} valueChanged - Срабатывает при изменении значения элемента.
      * @returns {void}
      */

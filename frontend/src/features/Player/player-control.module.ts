@@ -6,8 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FullPlayerComponent } from './components/full-player/full-player.component';
 import { BottomPlayerComponent } from './components/bottom-player/bottom-player.component';
 import { DesktopPlayerComponent } from './components/desktop-player/desktop-player.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {TuiSelectModule} from "@taiga-ui/kit";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TuiSelectModule } from '@taiga-ui/kit';
 
 
 @NgModule({

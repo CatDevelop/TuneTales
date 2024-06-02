@@ -51,7 +51,12 @@ export class UserService {
         const user = await this.userRepository.findOne({
             where: {id},
             select: ["id", "email", "login", "firstName", "secondName", "lastName"],
-            relations: ["favourite_books"]
+            relations: {
+                favourite_books: {
+                    authors: true,
+                    speakers: true
+                }
+            }
         });
 
         if (!user)

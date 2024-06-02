@@ -1,15 +1,18 @@
 <div class="container">
     <div class="avatar__container">
-        <img alt="Изображение автора" [src]="author?.imageSrc" class="avatar__image"/>
-        <h3 class="name">{{author?.firstName}} {{author?.secondName}}</h3>
+        <img alt="Изображение автора" [src]="author.imageSrc" class="avatar__image"/>
+        <h3 class="name">{{author.firstName}} {{author.secondName}}</h3>
     </div>
     <div class="content__container">
-        <p class="description">{{author?.description}}</p>
+        <div class="description__container">
+            <h2 class="description__title">Об авторе</h2>
+            <p class="description">{{author.description}}</p>
+        </div>
         <div class="divider"></div>
-        <div>
-            <ng-container *ngIf='(author?.writtenBooks!.length>0); else sounded_title'>
-                <h2>Книги автора</h2>
-                <app-card-feed [books]="author!.writtenBooks"/>
+        <div class="books">
+            <ng-container *ngIf='(author.writtenBooks.length >0); else sounded_title'>
+                <h2 class="books__title">Книги автора</h2>
+                <app-card-feed [books]="author.writtenBooks"/>
             </ng-container>
         </div>
     </div>
@@ -17,6 +20,6 @@
 
 
 <ng-template #sounded_title>
-    <h2 *ngIf='(author?.soundedBooks!.length>0);'>Озвученные книги</h2>
+    <h2 *ngIf='(author.soundedBooks.length > 0);'>Озвученные книги</h2>
     <app-card-feed [books]="author!.soundedBooks"/>
 </ng-template>

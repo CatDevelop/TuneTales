@@ -1,8 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import { ISpeedEntry } from '../../model/types';
-import { FormControl } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ISpeed, ISpeedEntry } from '../../model/types';
 import { tuiItemsHandlersProvider } from '@taiga-ui/kit';
-import { ISpeed } from '../../model/types';
 
 @Component({
     selector: 'app-select-speed',

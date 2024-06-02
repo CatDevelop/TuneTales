@@ -30,7 +30,8 @@ const routes: Routes = [
         path: 'book/:bookId',
         loadChildren: () =>
             import('../pages/book-page/book.page.module')
-                .then(m => m.BookPageModule)
+                .then(m => m.BookPageModule),
+        canActivate: [authGuard]
     },
     {
         path: 'genre/:genresId',

@@ -41,16 +41,14 @@ export class CardFeedComponent implements AfterViewInit  {
     //  */
     public ngAfterViewInit(): void {
         this.updateColumns();
-        this._cdr.detectChanges(); // Запускает обнаружение изменений после обновления колонок
+        this._cdr.detectChanges();
     }
-
     /**
      * Декоратор HostListener для событий изменения размера окна.
      * Обновляет колонки при изменении размера окна.
-     * @param event Событие изменения размера
      */
     @HostListener('window:resize', ['$event'])
-    onResize(): void {
+    public onResize(): void {
         this.updateColumns();
     }
 

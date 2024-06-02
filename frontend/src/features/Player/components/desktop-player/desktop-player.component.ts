@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {IAudioChapter, IOpenFile} from "../../../../shared/model/types";
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
+import { IAudioChapter, IOpenFile } from '../../../../shared/model/types';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-desktop-player',
     templateUrl: './desktop-player.component.html',
     styleUrl: './desktop-player.component.scss'
@@ -52,75 +53,68 @@ export class DesktopPlayerComponent {
     @Output()
     public eventAudioRewindBack: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
-    public audioRewindBack = (value: MouseEvent): void => {
-        this.eventAudioRewindBack.emit(value);
-    };
-
-
     @Output()
     public eventAudioRewindNext: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
-    public audioRewindNext = (value: MouseEvent): void => {
-        this.eventAudioRewindNext.emit(value);
-    };
+    @Output()
+    public eventSleepTimer: EventEmitter<number> = new EventEmitter<number>();
 
+    @Output()
+    public eventOpenFile: EventEmitter<IOpenFile> = new EventEmitter<IOpenFile>();
+
+    @Output()
+    public eventToggleChapter: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
     @Output()
     public eventPause: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
-    public pause = (): void => {
-        this.eventPause.emit();
-    };
-
-
     @Output()
     public eventPlay: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-
-    public play = (): void => {
-        this.eventPlay.emit();
-    };
-
 
     @Output()
     public eventSpeed: EventEmitter<number> = new EventEmitter<number>();
 
-    public speed = (value: number): void => {
-        this.eventSpeed.emit(value);
-    };
+    @Output()
+    public eventSliderChange: EventEmitter<number> = new EventEmitter<number>();
 
     @Output()
     public eventVolume: EventEmitter<number> = new EventEmitter<number>();
+  
+    public audioRewindBack = (value: MouseEvent): void => {
+        this.eventAudioRewindBack.emit(value);
+    }
 
     public setVolume = (value: number): void => {
         this.eventVolume.emit(value);
     };
 
-    @Output()
-    public eventSleepTimer: EventEmitter<number> = new EventEmitter<number>();
+    public audioRewindNext = (value: MouseEvent): void => {
+        this.eventAudioRewindNext.emit(value);
+    };
 
+    public pause = (): void => {
+        this.eventPause.emit();
+    };
+
+    public play = (): void => {
+        this.eventPlay.emit();
+    };
+
+    public speed = (value: number): void => {
+        this.eventSpeed.emit(value);
+    };
+
+    public toggleChapter = (): void => {
+        console.log('click');
+        this.eventToggleChapter.emit();
+    };
     public sleepTimer = (value: number): void => {
         this.eventSleepTimer.emit(value);
     };
 
-
-    @Output()
-    public eventToggleChapter: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-
-    public toggleChapter = (): void => {
-        console.log('click')
-        this.eventToggleChapter.emit();
-    };
-
-
-    @Output()
-    public eventOpenFile: EventEmitter<IOpenFile> = new EventEmitter<IOpenFile>();
-
     public openFile = (file: IAudioChapter, index: number): void => {
         this.eventOpenFile.emit({ file, index });
     };
-
-    @Output()
-    public eventSliderChange: EventEmitter<number> = new EventEmitter<number>();
 
     public onSliderChangeEnd = (value: number): void => {
         this.eventSliderChange.emit(value);

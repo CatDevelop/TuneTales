@@ -22,6 +22,31 @@ export class BookService {
 
     /**
      * Получение информации о книге с сервера
+     * @param search
+     */
+    public getBookBySearch(search: string): Observable<HttpResponse<IGetBookResponseDto[]>> {
+        this._isProcessing$.next(true);
+
+        const searchParams: URLSearchParams = new URLSearchParams({ search });
+
+        const response$: Observable<HttpResponse<IGetBookResponseDto[]>> = this._req.request<IGetBookResponseDto[], void>({
+            url: `${UrlRoutes.backendDev}/book?${searchParams.toString()}`,
+            method: RequestMethodType.get,
+        });
+
+        response$
+            .pipe(
+                filter((resp: HttpResponse<IGetBookResponseDto[]>) => resp.ok),
+                finalize(() => {
+                    this._isProcessing$.next(false);
+                })
+            );
+
+        return response$;
+    }
+
+    /**
+     * Получение информации о книге с сервера
      * @param bookId
      */
     public getBookById(bookId: string): Observable<HttpResponse<IGetBookResponseDto>> {

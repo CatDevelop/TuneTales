@@ -1,34 +1,152 @@
-<div class="navbar-container grid-12">
+<div class="navbar-container grid-5">
     <button
         class="logo"
         (click)="navigateToHome()"
     >
-        <img src="./assets/logo.svg">
-
+        <img src="./assets/logo.svg" alt="Логотип">
     </button>
-    <tui-input
-        [tuiTextfieldCleaner]="true"
-        [tuiTextfieldLabelOutside]="true"
-        tuiTextfieldIconLeft="tuiIconSearchLarge"
-        class="search"
-        tuiTextfieldSize="m"
-        [ngModel]="searchQuery"
+    <button
+        class="hamburger"
+        (click)="onHamburgerClick()"
     >
-        Поиск по книгам
-        <input
-            class="search-input"
-            tuiTextfield
-        />
-    </tui-input>
-    <nav class="links">
-        <button>
+        <img src="./assets/hamburger.svg" alt="Меню">
+    </button>
+    <ng-container *ngIf="isLogin">
+        <tui-input
+            *tuiLet="((books$ | async) || []) as parsedBooks"
+            tuiTextfieldIconLeft="tuiIconSearchLarge"
+            class="search"
+            tuiTextfieldSize="m"
+            [tuiTextfieldCleaner]="true"
+            [tuiTextfieldLabelOutside]="true"
+            [ngModel]="searchQuery"
+            [formControl]="control"
+        >
+            Поиск по книгам
+            <input
+                class="search-input"
+                tuiTextfield
+            />
+            <ng-container *ngIf="parsedBooks.length">
+                <tui-data-list *tuiDataList class="search-list">
+                    <button
+                        *ngFor="let item of parsedBooks"
+                        tuiOption
+
+                        [value]="item.name"
+                        (click)="navigateToBook(item.id)"
+                    >
+                        <div class="name__container">
+                            <img [src]="item.imageSrc" class="book__image" alt="{{item.name}}"/>
+                            <span class="name">{{ item.name }}</span>
+                        </div>
+                        <span class="book__author">{{ item.authors[0]?.firstName }} {{ item.authors[0]?.secondName }}</span>
+                    </button>
+                </tui-data-list>
+            </ng-container>
+        </tui-input>
+    </ng-container>
+
+    <nav class="links desktop">
+        <button class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/my-books.svg"
+                alt="Мои книги"
+                width=29
+                height=29
+            >
             Мои книги
         </button>
-        <button>
+        <button class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/genres.svg"
+                alt="Жанры"
+                width=29
+                height=29
+            >
             Жанры
         </button>
-        <button (click)="navigateToAuthorization()">
+        <button (click)="navigateToAuthorization()" class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/login.svg"
+                alt="Войти"
+                width=29
+                height=29
+            >
             Войти
+        </button>
+    </nav>
+    <nav class="links mobile" *ngIf="isMenuOpen">
+        <button class="link link__back" (click)="onBackClick()">
+            <img
+                appInlineSvg
+                class="link__image back"
+                width=29
+                height=29
+                src="./assets/closePlayerButton.svg"
+                alt="Свернуть"
+            />
+        </button>
+        <button (click)="navigateToHome()" class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/home.svg"
+                alt="Главная"
+                width=29
+                height=29
+            >
+            Главная
+        </button>
+        <button class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/my-books.svg"
+                alt="Мои книги"
+                width=29
+                height=29
+            >
+            Мои книги
+        </button>
+        <button class="link">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/genres.svg"
+                alt="Жанры"
+                width=29
+                height=29
+            >
+            Жанры
+        </button>
+        <button (click)="navigateToAuthorization()" class="link" *ngIf="!isLogin">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/login.svg"
+                alt="Войти"
+                width=29
+                height=29
+            >
+            Войти
+        </button>
+        <button (click)="navigateToAuthorization()" class="link" *ngIf="isLogin">
+            <img
+                appInlineSvg
+                class="link__image"
+                src="./assets/logout.svg"
+                alt="Выйти"
+                width=29
+                height=29
+            >
+            Выйти
         </button>
     </nav>
 </div>
