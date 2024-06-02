@@ -15,10 +15,10 @@
                                 <div class="subtitle">
                                     <p class="subtitleText">{{ genre }}</p>
                                     <p class="subtitleText" [ngPlural]="duration">
-                                        <ng-template ngPluralCase="0">{{ duration }} часов</ng-template>
-                                        <ng-template ngPluralCase="1">{{ duration }} час</ng-template>
-                                        <ng-template ngPluralCase="few">{{ duration }} часа</ng-template>
-                                        <ng-template ngPluralCase="other">{{ duration }} часов</ng-template>
+                                        <ng-template ngPluralCase="0">{{ duration }} минут</ng-template>
+                                        <ng-template ngPluralCase="1">{{ duration }} минута</ng-template>
+                                        <ng-template ngPluralCase="few">{{ duration }} минуты</ng-template>
+                                        <ng-template ngPluralCase="other">{{ duration }} минут</ng-template>
                                     </p>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                         <app-card-slider
                             *ngIf="series"
                             [label]="'Книги из этой серии'"
-                            [books]="parsedBooks ?? []"
+                            [books]="(series | async) ?? []"
                         />
                         <app-card-slider
                             [label]="'Похожие книги'"

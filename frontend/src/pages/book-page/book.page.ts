@@ -191,8 +191,7 @@ export class BookPage implements OnInit {
                     return this._seriesService.getSeriesById(this._book$.getValue()?.series?.[0].id ?? '');
                 }),
                 switchMap(() => this.book),
-                switchMap(book => this._seriesService.getSeriesById(book?.series?.[0].id ?? '')
-                ),
+                switchMap(book => this._seriesService.getSeriesById(book?.series?.[0].id ?? '')),
                 tap(series =>
                     this._series.next(series.body?.books ?? [])
                 )

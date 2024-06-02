@@ -40,7 +40,10 @@ export class SeriesService {
     async findAll() {
         return await this.seriesRepository.find({
             relations: {
-                books: true,
+                books: {
+                    authors: true,
+                    speakers: true
+                },
             }
         });
     }
@@ -51,7 +54,12 @@ export class SeriesService {
 
         return await this.seriesRepository.findOne({
                 where: {id},
-                relations: ["books"]
+                relations: {
+                    books: {
+                        authors: true,
+                        speakers: true
+                    },
+                }
             },
         )
     }
