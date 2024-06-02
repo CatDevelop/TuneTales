@@ -151,7 +151,7 @@ export class BookPage implements OnInit {
     }
 
 
-    /** 
+    /**
      * Редирект на страницу автора
      * @param id
      */
@@ -179,10 +179,8 @@ export class BookPage implements OnInit {
                     this.backgroundColor = hex;
                     this._cdr.detectChanges(); // явное обнаружение изменений
                 }),
-                switchMap(_ => this.book),
-                switchMap(book => {
-                    console.log(book)
-                    return this._seriesService.getSeriesById(book?.series?.[0].id ?? '');
+                switchMap(() => {
+                    return this._seriesService.getSeriesById(this._book$.getValue()?.series?.[0].id ?? '');
                 }),
                 tap(series =>
                     this._series.next(series.body?.books ?? [])

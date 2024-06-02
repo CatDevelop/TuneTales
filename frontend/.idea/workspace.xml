@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec96ae66-d3be-4359-820b-bd12709d81f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/genres-page/genres-page-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/genres-page/genres-page.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/book-page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/book-page/book.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Genre/services/genre.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Genre/services/genre.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/card-feed/ui/card-feed/card-feed.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/card-feed/ui/card-feed/card-feed.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/card-feed/ui/card-feed/card-feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/card-feed/ui/card-feed/card-feed.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/card-slider/ui/card-slider/card-slider.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/book-page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/book-page/book.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/main-page/ui/main.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,30 +45,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mrlop/OneDrive/Рабочий стол/DocTime_Calendar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\mrlop\\OneDrive\\Рабочий стол\\TuneTales\\frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "C:/Users/mrlop/OneDrive/Рабочий стол/TuneTales/frontend/src/pages/genres-page",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Angular CLI Server.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\mrlop\\OneDrive\\Рабочий стол\\TuneTales\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\pages\genres-page" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\pages" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\shared\lib" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\card-feed\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\shared\ui" />
       <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player\components" />
-      <recent name="C:\Users\mrlop\OneDrive\Рабочий стол\TuneTales\frontend\src\features\Player" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -121,7 +131,7 @@
       <workItem from="1716630629728" duration="19833000" />
       <workItem from="1716746505529" duration="51000" />
       <workItem from="1716989923248" duration="73000" />
-      <workItem from="1717256494659" duration="13288000" />
+      <workItem from="1717256494659" duration="31865000" />
     </task>
     <servers />
   </component>

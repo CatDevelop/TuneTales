@@ -27,6 +27,7 @@ export class MainPage implements OnInit {
         this.genres = this._genres.asObservable();
     }
 
+
     public ngOnInit(): void {
         this._mainService.getAllBooks()
             .subscribe(

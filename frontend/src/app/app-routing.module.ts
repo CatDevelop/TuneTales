@@ -33,6 +33,12 @@ const routes: Routes = [
                 .then(m => m.BookPageModule)
     },
     {
+        path: 'genre/:genresId',
+        loadChildren: () =>
+            import('../pages/genres-page/genres-page.module')
+                .then(m => m.GenresPageModule)
+    },
+    {
         path: '',
         component: MainPage,
     },

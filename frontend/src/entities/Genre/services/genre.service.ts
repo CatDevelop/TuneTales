@@ -76,7 +76,7 @@ export class GenreService {
 
         const response$: Observable<HttpResponse<IGenre>> = this._req.request<IGenre, void>({
             url: `${UrlRoutes.backendDev}/genre/${genreId}`,
-            method: RequestMethodType.post,
+            method: RequestMethodType.get,
         });
 
         response$

@@ -1,4 +1,4 @@
-<div #cardfeed class="card-feed">
+<div #cardfeed class="card-feed" >
     <div class="card-feed__column" *ngFor="let column of columns">
         <app-book-card class="card-feed__column_book" *ngFor="let book of column" [book]="book"/>
     </div>

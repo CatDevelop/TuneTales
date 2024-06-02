@@ -2,7 +2,7 @@
     *ngIf="label && books?.length"
     class="label"
 >
-    {{label}}
+    <a (click)="navigateToGenres()">{{label}}</a>
 </h2>
 <div class="item-slider-container" *ngIf="books?.length">
     <div class="item-slider">

@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectionStrategy, ChangeDetectorRef,
+    Component,
+    ElementRef,
+    HostListener,
+    Input,
+    OnInit,
+    ViewChild
+} from '@angular/core';
 import { IBook } from '../../../../entities/Book/model/book.interface';
 
 @Component({
@@ -7,21 +16,32 @@ import { IBook } from '../../../../entities/Book/model/book.interface';
     styleUrls: ['./card-feed.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardFeedComponent implements OnInit {
+export class CardFeedComponent implements AfterViewInit  {
     @ViewChild('cardfeed', { static: true })
     public cardFeedContainer!: ElementRef;
 
-    @Input() books: IBook[] = [];
+    private _books: IBook[] = [];
+
+    @Input() set books(value: IBook[]) {
+        this._books = value;
+        this.updateColumns();
+    }
+    public get books(): IBook[] {
+        return this._books;
+    }
 
     public columns: IBook[][] = [];
     public columnCount: number = 1;
 
-    /**
-     * Жизненный цикл компонента, вызываемый после инициализации свойств с привязкой данных.
-     * Инициализирует колонки на основе текущей ширины контейнера.
-     */
-    public ngOnInit(): void {
+    constructor(private _cdr: ChangeDetectorRef) {}
+
+    // /**
+    //  * Жизненный цикл компонента, вызываемый после инициализации свойств с привязкой данных.
+    //  * Инициализирует колонки на основе текущей ширины контейнера.
+    //  */
+    public ngAfterViewInit(): void {
         this.updateColumns();
+        this._cdr.detectChanges(); // Запускает обнаружение изменений после обновления колонок
     }
 
     /**
