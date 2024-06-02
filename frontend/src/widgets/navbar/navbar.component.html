@@ -11,34 +11,42 @@
     >
         <img src="./assets/hamburger.svg" alt="Меню">
     </button>
-    <tui-input
-        *tuiLet="((books$ | async) || []) as parsedBooks"
-        tuiTextfieldIconLeft="tuiIconSearchLarge"
-        class="search"
-        tuiTextfieldSize="m"
-        [tuiTextfieldCleaner]="true"
-        [tuiTextfieldLabelOutside]="true"
-        [ngModel]="searchQuery"
-        [formControl]="control"
-    >
-        Поиск по книгам
-        <input
-            class="search-input"
-            tuiTextfield
-        />
-        <ng-container *ngIf="parsedBooks.length">
-            <tui-data-list *tuiDataList>
-                <button
-                    *ngFor="let item of parsedBooks"
-                    tuiOption
-                    [value]="item.name"
-                    (click)="navigateToBook(item.id)"
-                >
-                    <span class="name">{{ item.name }}</span>
-                </button>
-            </tui-data-list>
-        </ng-container>
-    </tui-input>
+    <ng-container *ngIf="isLogin">
+        <tui-input
+            *tuiLet="((books$ | async) || []) as parsedBooks"
+            tuiTextfieldIconLeft="tuiIconSearchLarge"
+            class="search"
+            tuiTextfieldSize="m"
+            [tuiTextfieldCleaner]="true"
+            [tuiTextfieldLabelOutside]="true"
+            [ngModel]="searchQuery"
+            [formControl]="control"
+        >
+            Поиск по книгам
+            <input
+                class="search-input"
+                tuiTextfield
+            />
+            <ng-container *ngIf="parsedBooks.length">
+                <tui-data-list *tuiDataList class="search-list">
+                    <button
+                        *ngFor="let item of parsedBooks"
+                        tuiOption
+
+                        [value]="item.name"
+                        (click)="navigateToBook(item.id)"
+                    >
+                        <div class="name__container">
+                            <img [src]="item.imageSrc" class="book__image" alt="{{item.name}}"/>
+                            <span class="name">{{ item.name }}</span>
+                        </div>
+                        <span class="book__author">{{ item.authors[0]?.firstName }} {{ item.authors[0]?.secondName }}</span>
+                    </button>
+                </tui-data-list>
+            </ng-container>
+        </tui-input>
+    </ng-container>
+
     <nav class="links desktop">
         <button class="link">
             <img

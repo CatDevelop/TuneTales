@@ -26,6 +26,10 @@
     overflow-y: auto;
 }
 
+.tui-root {
+    z-index: 100000;
+}
+
 
 @media (max-width: 767px) {
     .grid-12 {

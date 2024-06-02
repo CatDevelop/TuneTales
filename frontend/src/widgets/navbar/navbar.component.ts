@@ -19,7 +19,6 @@ export class NavbarComponent {
     public isMenuOpen: boolean = false;
 
     public cacheService: SessionStorageService = inject(SessionStorageService);
-    public isLogin: boolean = !!this.cacheService.getJWTSession().accessToken;
 
     public readonly control: FormControl<string | null> = new FormControl('');
 
@@ -40,7 +39,6 @@ export class NavbarComponent {
 
     constructor(private _router: Router,
                 private _bookService: BookService) {
-        console.log(this.isLogin)
     }
 
     /**

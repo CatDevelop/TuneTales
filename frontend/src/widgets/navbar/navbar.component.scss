@@ -39,6 +39,10 @@
     font-size: 18px;
 }
 
+.search-list {
+    z-index: 100000;
+}
+
 .links {
     grid-column-start: 5;
     justify-self: center;
@@ -53,6 +57,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: max-content;
 
         .link__image path {
             stroke: #14121D;
@@ -64,6 +69,29 @@
         stroke: #1677FF;
         fill: #1677FF;
     }
+}
+
+.book__image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.name__container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.book__author {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.30);
 }
 
 @media (max-width: 767px) {
