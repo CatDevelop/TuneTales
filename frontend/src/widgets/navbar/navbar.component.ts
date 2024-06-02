@@ -19,6 +19,7 @@ export class NavbarComponent {
     public isMenuOpen: boolean = false;
 
     public cacheService: SessionStorageService = inject(SessionStorageService);
+    public isLogin: boolean = !!this.cacheService.getJWTSession().accessToken;
 
     public readonly control: FormControl<string | null> = new FormControl('');
 
