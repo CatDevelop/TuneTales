@@ -70,8 +70,9 @@ export class BookController {
     @ApiOperation({summary: "Получение информации о книге"})
     @ApiBearerAuth()
     @Get(':id')
+    @UseGuards(JwtAuthGuard)
     findOne(@Param() getBookDto: GetBookDto, @Req() req) {
-        return this.bookService.findOne(getBookDto.id, req.user?.id);
+        return this.bookService.findOne(getBookDto.id, req.user.id);
     }
 
     @ApiOperation({summary: "АДМИН Удаление книги"})

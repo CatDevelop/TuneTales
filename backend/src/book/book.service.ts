@@ -1,12 +1,11 @@
 import {BadRequestException, Injectable, NotFoundException} from '@nestjs/common';
 import {CreateBookDto} from './dto/create-book.dto';
 import {InjectRepository} from "@nestjs/typeorm";
-import {In, Like, Raw, Repository} from "typeorm";
+import {In, Raw, Repository} from "typeorm";
 import {Book} from "./entities/book.entity";
 import {Author} from "../author/entities/author.entity";
 import {Genre} from "../genre/entities/genre.entity";
 import {User} from "../user/entities/user.entity";
-import {use} from "passport";
 
 @Injectable()
 export class BookService {
@@ -90,8 +89,8 @@ export class BookService {
             });
 
         const getSearchQuery = (search) => Raw(
-            alias =>`LOWER(${alias}) Like LOWER(:value)`,
-            { value: `%${search}%` }
+            alias => `LOWER(${alias}) Like LOWER(:value)`,
+            {value: `%${search}%`}
         )
 
         const booksByName = await this.bookRepository.find({
@@ -168,17 +167,23 @@ export class BookService {
         if (!await this.isCreate(id))
             throw new NotFoundException("Book not found!")
 
-        const isFavourite = await this.bookRepository.count({
-                where: {id, users: {id: userId}},
+        const isFavourite = await this.bookRepository.findOne({
+                where: {id},
+                relations: {
+                    users: true
+                }
             },
         )
+
+        console.log(isFavourite, userId)
+
         return {
             ...await this.bookRepository.findOne({
                     where: {id},
                     relations: ["authors", "speakers", "genres", "parts", "series"]
                 },
             ),
-            isFavourite: !!isFavourite
+            isFavourite: !!isFavourite.users.find(user => user.id === userId)
         }
     }
 

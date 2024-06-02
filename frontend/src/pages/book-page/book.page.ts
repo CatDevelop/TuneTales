@@ -185,7 +185,7 @@ export class BookPage implements OnInit {
                 tap(hex => {
                     console.log(hex);
                     this.backgroundColor = hex;
-                    this._cdr.detectChanges(); 
+                    this._cdr.detectChanges();
                 }),
                 switchMap(() => {
                     return this._seriesService.getSeriesById(this._book$.getValue()?.series?.[0].id ?? '');
