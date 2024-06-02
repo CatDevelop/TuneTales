@@ -8,12 +8,15 @@ import { UrlRoutes } from '../../../shared/global-services/request/model/url-rou
 import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
 import { IAuthorization } from '../model/authorization.interface';
 import { IAuthorizationResponseDto } from '../model/dto/response/authorization-response.dto';
+import { IJWTSession } from '../model/jwt-session.interface';
 
 
 @Injectable()
 export class AuthorizationService {
     public readonly isProcessing$: Observable<boolean>;
     private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+    private _isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+    public isLogin$: Observable<boolean>;
 
     constructor(
         private _req: HttpService,
@@ -21,6 +24,19 @@ export class AuthorizationService {
         private _router: Router,
     ) {
         this.isProcessing$ = this._isProcessing$.asObservable();
+        this.isLogin$ = this._isLogin.asObservable();
+    }
+
+    /**
+     * Инициализация
+     */
+    public init(): void {
+        const session: IJWTSession =  this._cacher.getJWTSession();
+        if (!!session.accessToken) {
+            this._isLogin.next(true);
+        } else {
+            this._isLogin.next(false);
+        }
     }
 
     /**
@@ -41,6 +57,8 @@ export class AuthorizationService {
             .pipe(
                 filter((resp: HttpResponse<IAuthorizationResponseDto>) => resp.ok),
                 tap((resp: HttpResponse<IAuthorizationResponseDto>) => {
+                    this._isLogin.next(true);
+                    console.log(this._isLogin);
                     this._cacher.cacheJWTSession({
                         accessToken: resp.body?.accessToken || '',
                     });
@@ -56,6 +74,7 @@ export class AuthorizationService {
      */
     public logout(): void {
         this._cacher.removeJWTSession();
+        this._isLogin.next(false);
         this._router.navigateByUrl('');
     }
 }

@@ -64,7 +64,7 @@
                             appearance="secondary"
                             class="button desktopLikeButton"
                             (click)="addFavoriteBook()"
-                            *ngIf="favotiteButton"
+                            *ngIf="(favotiteButton | async)"
                         >
                             Книга на полке
                         </button>
@@ -73,7 +73,7 @@
                             appearance="secondary"
                             class="button desktopLikeButton"
                             (click)="addFavoriteBook()"
-                            *ngIf="!favotiteButton"
+                            *ngIf="!(favotiteButton | async) "
                         >
                             Добавить на полку
                         </button>
@@ -117,7 +117,7 @@
                     </svg>
                 </button>
                 <button
-                    *ngIf="favotiteButton"
+                    *ngIf="(favotiteButton | async)"
                     class="likeButton"
                     (click)="addFavoriteBook()"
                 >
@@ -126,7 +126,7 @@
                     </svg>
                 </button>
                 <button
-                    *ngIf="!favotiteButton"
+                    *ngIf="!(favotiteButton | async)"
                     class="likeButton"
                     (click)="addFavoriteBook()"
                 >
@@ -188,7 +188,7 @@
             </div>
 
             <div class="recommendations">
-                <ng-container *tuiLet="series | async as parsedSeries">
+                <ng-container *tuiLet="(series | async) as parsedSeries">
                     <tui-loader [showLoader]="parsedSeries === null" [overlay]="true" class="loader">
                         <app-card-slider
                             *ngIf="parsedSeries"
@@ -197,7 +197,7 @@
                         />
                     </tui-loader>
                 </ng-container>
-                <ng-container *tuiLet="books | async as parsedBooks">
+                <ng-container *tuiLet="(books | async) as parsedBooks">
                     <tui-loader [showLoader]="parsedBooks === null" [overlay]="true" class="loader">
                         <app-card-slider
                             [label]="'Похожие книги'"

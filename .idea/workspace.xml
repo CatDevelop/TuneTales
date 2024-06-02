@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing register page">
-      <change afterPath="$PROJECT_DIR$/frontend/src/_redirects" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/Book/services/book.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/Book/services/book.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/Player/lib/cloud.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/Player/lib/cloud.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/card-slider/ui/card-slider-item/card-slider-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/card-slider/ui/card-slider-item/card-slider-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,21 +87,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/User/OneDrive/Документы/My works/Projects/TuneTales/frontend/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\backend\\node_modules\\typescript\\lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/OneDrive/Документы/My works/Projects/TuneTales/frontend/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/node_modules/typescript/lib&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\OneDrive\Документы\My works\Projects\TuneTales\frontend\src" />
@@ -181,6 +185,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="GitHub.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { BehaviorSubject, filter, Observable, tap, map, switchMap, } from 'rxjs';
+import { BehaviorSubject, filter, Observable, tap, switchMap, } from 'rxjs';
 import { BookService } from '../../entities/Book/services/book.service';
 import { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';
 import { MainPageService } from '../main-page/model/services/main.page.service';
@@ -20,9 +20,13 @@ import { SeriesService } from '../../entities/Series/services/series.service';
 export class BookPage implements OnInit {
     public backgroundColor: string = '#f9fdff';
     public imageUrl: string = '';
-    public favotiteButton: boolean = false;
+    // public favotiteButton: boolean = false;
+    public favotiteButton: Observable<boolean>;
+    private _favotiteButton: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-    private _bookId: string | null = null;
+    // private _bookId: string | null = null;
+    private _bookId: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+    public bookId: Observable<string | null>;
     private _book$: BehaviorSubject<IGetBookResponseDto | null> = new BehaviorSubject<IGetBookResponseDto | null>(null);
     public book: Observable<IGetBookResponseDto | null>;
 
@@ -132,6 +136,8 @@ export class BookPage implements OnInit {
         this.book = this._book$.asObservable();
         this.books = this._books.asObservable();
         this.series = this._series.asObservable();
+        this.bookId = this._bookId.asObservable();
+        this.favotiteButton = this._favotiteButton.asObservable();
     }
 
     /**
@@ -146,7 +152,12 @@ export class BookPage implements OnInit {
      * @returns {void}
      */
     public startVoice(): void {
-        this._dataService.setData(this._bookId || '');
+        this.bookId
+            .pipe(
+                tap(id => this._dataService.setData(id || ''))
+            )
+            .subscribe();
+        // this._dataService.setData(this._bookId || '');
     }
 
     /**
@@ -154,8 +165,16 @@ export class BookPage implements OnInit {
      * @returns {void}
      */
     public addFavoriteBook(): void {
-        this._bookService.addFavouriteBook(this._bookId || '').subscribe();
-        this.favotiteButton = !this.favotiteButton;
+        this.bookId
+            .pipe(
+                switchMap(id => this._bookService.addFavouriteBook(id || '')),
+                filter(resp => resp.ok),
+                tap(value => {
+                    this._favotiteButton.next(!this._favotiteButton.getValue());
+                })
+            )
+            .subscribe();
+        // this._bookService.addFavouriteBook(this._bookId || '').subscribe();
     }
 
 
@@ -169,16 +188,20 @@ export class BookPage implements OnInit {
 
     public ngOnInit(): void {
         this._route.paramMap
-            .subscribe((params: ParamMap) => {
-                this._bookId = params.get('bookId');
-            });
-        this._bookService.getBookById(this._bookId ?? '')
             .pipe(
+                tap((params: ParamMap) => {
+                    this._bookId.next(params.get('bookId'));
+                })
+            )
+            .subscribe();
+        this.bookId
+            .pipe(
+                switchMap(id => this._bookService.getBookById(id ?? '')),
                 filter(resp => resp.ok),
                 tap(resp => {
                     if (resp.ok && resp.body) {
                         this.imageUrl = resp.body.imageSrc;
-                        this.favotiteButton = resp.body.isFavourite || false;
+                        this._favotiteButton.next(!!resp.body.isFavourite);
                         this._book$.next(resp.body);
                     }
                 }),
@@ -197,7 +220,6 @@ export class BookPage implements OnInit {
                     this._series.next(series.body?.books ?? [])
                 )
             )
-
             .subscribe();
         this._mainService.getAllBooks()
             .subscribe(resp => {

@@ -55,6 +55,7 @@ export class BookService {
         const response$: Observable<HttpResponse<IGetBookResponseDto>> = this._req.request<IGetBookResponseDto, void>({
             url: `${UrlRoutes.backendDev}/book/${bookId}`,
             method: RequestMethodType.get,
+            auth: true,
         });
 
         response$
