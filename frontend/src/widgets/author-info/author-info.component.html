@@ -4,11 +4,14 @@
         <h3 class="name">{{author.firstName}} {{author.secondName}}</h3>
     </div>
     <div class="content__container">
-        <p class="description">{{author.description}}</p>
+        <div class="description__container">
+            <h2 class="description__title">Об авторе</h2>
+            <p class="description">{{author.description}}</p>
+        </div>
         <div class="divider"></div>
         <div class="books">
             <ng-container *ngIf='(author.writtenBooks.length >0); else sounded_title'>
-                <h2>Книги автора</h2>
+                <h2 class="books__title">Книги автора</h2>
                 <app-card-feed [books]="author.writtenBooks"/>
             </ng-container>
         </div>

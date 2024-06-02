@@ -18,7 +18,7 @@ import { SeriesService } from '../../entities/Series/services/series.service';
     styleUrl: './book.page.scss'
 })
 export class BookPage implements OnInit {
-    public backgroundColor: string = '#fff';
+    public backgroundColor: string = '#f9fdff';
     public imageUrl: string = '';
 
     private _bookId: string | null = null;
@@ -79,7 +79,6 @@ export class BookPage implements OnInit {
             .subscribe(
                 data => {
                     if (data && data.speakers) {
-                        // @ts-ignore
                         result = data?.speakers[0].firstName + ' ' + data?.speakers[0].secondName;
                     }
                 }
@@ -94,7 +93,6 @@ export class BookPage implements OnInit {
             .subscribe(
                 data => {
                     if (data && data.genres) {
-                        // @ts-ignore
                         result = data?.genres[0].name;
                     }
                 }
@@ -150,8 +148,7 @@ export class BookPage implements OnInit {
         this._dataService.setData(this._bookId || '');
     }
 
-
-    /** 
+    /**
      * Редирект на страницу автора
      * @param id
      */
@@ -177,13 +174,11 @@ export class BookPage implements OnInit {
                 tap(hex => {
                     console.log(hex);
                     this.backgroundColor = hex;
-                    this._cdr.detectChanges(); // явное обнаружение изменений
+                    this._cdr.detectChanges();
                 }),
-                switchMap(_ => this.book),
-                switchMap(book => {
-                    console.log(book)
-                    return this._seriesService.getSeriesById(book?.series?.[0].id ?? '');
-                }),
+                switchMap(() => this.book),
+                switchMap(book => this._seriesService.getSeriesById(book?.series?.[0].id ?? '')
+                ),
                 tap(series =>
                     this._series.next(series.body?.books ?? [])
                 )

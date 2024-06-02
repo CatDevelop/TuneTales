@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { map, Observable, switchMap, tap } from 'rxjs';
 import { BookService } from '../../entities/Book/services/book.service';
 import { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';
 import { HttpResponse } from '@angular/common/http';
+import { SessionStorageService } from '../../pages/authorization-page/services/session-storage.service';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,6 +15,11 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class NavbarComponent {
     public searchQuery: string = '';
+
+    public isMenuOpen: boolean = false;
+
+    public cacheService: SessionStorageService = inject(SessionStorageService);
+    public isLogin: boolean = !!this.cacheService.getJWTSession().accessToken;
 
     public readonly control: FormControl<string | null> = new FormControl('');
 
@@ -34,6 +40,21 @@ export class NavbarComponent {
 
     constructor(private _router: Router,
                 private _bookService: BookService) {
+        console.log(this.isLogin)
+    }
+
+    /**
+     * Обработчик клика на меню
+     */
+    public onHamburgerClick(): void {
+        this.isMenuOpen = true;
+    }
+
+    /**
+     * Обработчик клика на кнопку назад
+     */
+    public onBackClick(): void {
+        this.isMenuOpen = false;
     }
 
     /**
@@ -41,13 +62,20 @@ export class NavbarComponent {
      */
     public navigateToHome(): void {
         this._router.navigate([`/`]);
+        this.isMenuOpen = false;
     }
 
     /**
      * Редирект на авторизацию
      */
     public navigateToAuthorization(): void {
+        if(this.isLogin) {
+            this.cacheService.removeJWTSession();
+            this.navigateToHome();
+        }
+
         this._router.navigate([`/login`]);
+        this.isMenuOpen = false;
     }
 
     /**
