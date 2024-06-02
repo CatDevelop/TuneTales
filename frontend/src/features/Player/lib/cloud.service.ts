@@ -6,6 +6,8 @@ import { RequestMethodType } from '../../../shared/global-services/request/model
 import { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';
 import { HttpResponse } from '@angular/common/http';
 import { IGetBookResponseDto } from '../../../entities/Book/model/dto/response/get-book.response-dto';
+import { IBook } from '../../../entities/Book/model/book.interface';
+
 
 @Injectable({
     providedIn: PlayerControlModule
@@ -20,12 +22,12 @@ export class CloudService {
      * @returns {Observable<IBook>} Observable с данными книги.
      */
     public getBook(bookId: string): Observable<IGetBookResponseDto> {
-        const response$: Observable<any> = this._req.request<IGetBookResponseDto, any>({
+        const response$: Observable<IGetBookResponseDto> = this._req.request<IGetBookResponseDto, void>({
             url: `${UrlRoutes.backendDev}/book/${bookId}`,
             method: RequestMethodType.get
         }).pipe(
-            filter((resp: HttpResponse<IGetBookResponseDto>) => resp.ok),
-            map((resp: HttpResponse<IGetBookResponseDto>) => resp.body),
+            filter((resp: HttpResponse<IGetBookResponseDto>) => resp.ok && !!resp.body),
+            map((resp: HttpResponse<IGetBookResponseDto>) => resp.body as IGetBookResponseDto),
             take(1)
         );
 

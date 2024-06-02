@@ -3,6 +3,7 @@
         *ngIf="books"
         [label]="'Рекомендации для вас'"
         [books]="books | async"
+        [navigate]="'/recommendations/recommendation'"
 
     ></app-card-slider>
     <ng-container *ngIf="genres">

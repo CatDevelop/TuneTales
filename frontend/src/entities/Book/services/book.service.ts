@@ -89,4 +89,28 @@ export class BookService {
 
         return response$;
     }
+
+    /**
+     * Добавление книги в понравившиеся
+     * @param book
+     */
+    public addFavouriteBook(bookId: string): Observable<HttpResponse<unknown>> {
+        this._isProcessing$.next(true);
+
+        const response$: Observable<HttpResponse<unknown>> = this._req.request<unknown, void>({
+            url: `${UrlRoutes.backendDev}/book/favorite/${bookId}`,
+            method: RequestMethodType.patch,
+            auth: true
+        });
+
+        response$
+            .pipe(
+                filter((resp: HttpResponse<unknown>) => resp.ok),
+                finalize(() => {
+                    this._isProcessing$.next(false);
+                })
+            );
+
+        return response$;
+    }
 }

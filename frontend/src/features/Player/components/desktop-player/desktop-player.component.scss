@@ -16,14 +16,14 @@
     padding: 0 28px 19px 28px;
     z-index: 1000;
     font-family: Roboto;
-    
+
     background-color: #221B42;
 
     &:hover &__slider{
         height: 14px;
         transition: all ease-in-out 0.3s;
     }
-    
+
     &__slider {
         position: relative;
         transition: all ease-in-out 0.3s;
@@ -34,7 +34,7 @@
 
     &__controls {
         display: flex;
-        max-width: 400px;
+        max-width: 450px;
         width: 100%;
         align-items: center;
 
@@ -82,7 +82,7 @@
             font-weight: 400;
             color: #ffffff;
             font-size: 14px;
-            
+
         }
     }
 }

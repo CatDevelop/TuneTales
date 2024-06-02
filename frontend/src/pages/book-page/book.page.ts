@@ -20,6 +20,7 @@ import { SeriesService } from '../../entities/Series/services/series.service';
 export class BookPage implements OnInit {
     public backgroundColor: string = '#fff';
     public imageUrl: string = '';
+    public favotiteButton: boolean = false;
 
     private _bookId: string | null = null;
     private _book$: BehaviorSubject<IGetBookResponseDto | null> = new BehaviorSubject<IGetBookResponseDto | null>(null);
@@ -148,6 +149,15 @@ export class BookPage implements OnInit {
      */
     public startVoice(): void {
         this._dataService.setData(this._bookId || '');
+    }
+
+    /**
+     * Добавление книги в понравившиеся
+     * @returns {void}
+     */
+    public addFavoriteBook(): void {
+        this._bookService.addFavouriteBook(this._bookId || '').subscribe();
+        this.favotiteButton = !this.favotiteButton;
     }
 
 

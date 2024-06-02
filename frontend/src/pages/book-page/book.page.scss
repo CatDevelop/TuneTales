@@ -5,6 +5,10 @@
     overflow-y: auto;
 }
 
+.desktopLikeButton {
+    width: 224px;
+}
+
 .bookPageContainer.desktop {
     width: 100%;
     display: flex;
@@ -154,6 +158,8 @@
             background: none;
             outline: none;
             cursor: pointer;
+            width: 21px;
+            height: 18px;
         }
 
         .playButton {

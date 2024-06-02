@@ -4,10 +4,10 @@ import { HttpService } from '../../../../shared/global-services/request/http.ser
 import { HttpResponse } from '@angular/common/http';
 import { UrlRoutes } from '../../../../shared/global-services/request/model/url-routes';
 import { RequestMethodType } from '../../../../shared/global-services/request/model/request-method';
-import { GetBooksResponseDto } from '../types/dto/get-books.response-dto';
+import { IFavourite } from '../types/dto/get-books.response-dto';
 
 @Injectable()
-export class MainPageService {
+export class GetBooksService {
     public readonly isProcessing$: Observable<boolean>;
     private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
@@ -20,18 +20,18 @@ export class MainPageService {
     /**
      * Получение списка книг
      */
-    public getAllBooks(): Observable<HttpResponse<GetBooksResponseDto>> {
+    public getAllBooks(): Observable<HttpResponse<IFavourite>> {
         this._isProcessing$.next(true);
 
-        const response$: Observable<HttpResponse<GetBooksResponseDto>> = this._req.request<GetBooksResponseDto, void>({
-            url: `${UrlRoutes.backendDev}/book/recommendations`,
+        const response$: Observable<HttpResponse<IFavourite>> = this._req.request<IFavourite, void>({
+            url: `${UrlRoutes.backendDev}/user/profile`,
             method: RequestMethodType.get,
             auth: true,
         });
 
         response$
             .pipe(
-                filter((resp: HttpResponse<GetBooksResponseDto>) => resp.ok),
+                filter((resp: HttpResponse<IFavourite>) => resp.ok),
                 finalize(() => {
                     this._isProcessing$.next(false);
                 })

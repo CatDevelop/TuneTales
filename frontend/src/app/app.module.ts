@@ -29,10 +29,13 @@ import { AuthorInfoModule } from '../widgets/author-info/author-info.module';
 import { AuthorPageModule } from '../pages/author-page/ui/author.page.module';
 import { AuthorService } from '../entities/Author/services/author.service';
 
+
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
+
+
     ],
     imports: [
         BrowserAnimationsModule,

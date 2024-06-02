@@ -32,19 +32,6 @@ export interface IPart {
     audioSrc: string;
 }
 
-export interface IBook {
-    id: string;
-    name: string;
-    description: string;
-    publicationYear: number;
-    imageSrc: string;
-    authors: IAuthor[];
-    speakers: any[];
-    genres: any[];
-    parts: IPart[];
-    series: any[];
-}
-
 export interface IOpenFile {
     file: IAudioChapter,
     index: number

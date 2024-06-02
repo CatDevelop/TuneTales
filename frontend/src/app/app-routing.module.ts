@@ -39,6 +39,18 @@ const routes: Routes = [
                 .then(m => m.GenresPageModule)
     },
     {
+        path: 'recommendations/:recommendationsId',
+        loadChildren: () =>
+            import('../pages/recommendations-page/recommendations-page.module')
+                .then(m => m.RecommendationsPageModule)
+    },
+    {
+        path: 'bookshelf',
+        loadChildren: () =>
+            import('../pages/bookshelf-page/bookshelf-page.module')
+                .then(m => m.BookshelfPageModule)
+    },
+    {
         path: '',
         component: MainPage,
     },
