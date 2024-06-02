@@ -47,6 +47,7 @@ const routes: Routes = [
     },
     {
         path: 'bookshelf',
+        canActivate: [authGuard],
         loadChildren: () =>
             import('../pages/bookshelf-page/bookshelf-page.module')
                 .then(m => m.BookshelfPageModule)

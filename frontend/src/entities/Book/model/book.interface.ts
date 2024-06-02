@@ -12,4 +12,5 @@ export interface IBook {
     speakers: IAuthor[];
     genres: IGenre[];
     series?: ISeries[];
+    isFavourite?: boolean;
 }

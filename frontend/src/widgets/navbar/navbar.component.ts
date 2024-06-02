@@ -83,4 +83,18 @@ export class NavbarComponent {
     public navigateToBook(id: string): void {
         this._router.navigate([`/book`, id]);
     }
+
+    /**
+     * Мои книги
+     */
+    public navigateMyBooks(): void {
+        this._router.navigate(['/bookshelf']);
+    }
+
+    /**
+     * Жанры
+     */
+    public navigateGenres(): void {
+        this._router.navigate(['/']);
+    }
 }

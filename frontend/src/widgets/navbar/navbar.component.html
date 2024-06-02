@@ -48,7 +48,10 @@
     </ng-container>
 
     <nav class="links desktop">
-        <button class="link">
+        <button
+            class="link"
+            (click)="navigateMyBooks()"
+        >
             <img
                 appInlineSvg
                 class="link__image"
@@ -59,7 +62,10 @@
             >
             Мои книги
         </button>
-        <button class="link">
+        <button
+            class="link"
+            (click)="navigateGenres()"
+        >
             <img
                 appInlineSvg
                 class="link__image"

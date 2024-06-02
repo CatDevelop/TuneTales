@@ -178,6 +178,7 @@ export class BookPage implements OnInit {
                 tap(resp => {
                     if (resp.ok && resp.body) {
                         this.imageUrl = resp.body.imageSrc;
+                        this.favotiteButton = resp.body.isFavourite || false;
                         this._book$.next(resp.body);
                     }
                 }),
@@ -185,7 +186,7 @@ export class BookPage implements OnInit {
                 tap(hex => {
                     console.log(hex);
                     this.backgroundColor = hex;
-                    this._cdr.detectChanges(); 
+                    this._cdr.detectChanges();
                 }),
                 switchMap(() => {
                     return this._seriesService.getSeriesById(this._book$.getValue()?.series?.[0].id ?? '');

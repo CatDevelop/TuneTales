@@ -63,6 +63,17 @@
                             tuiButton
                             appearance="secondary"
                             class="button desktopLikeButton"
+                            (click)="addFavoriteBook()"
+                            *ngIf="favotiteButton"
+                        >
+                            Книга на полке
+                        </button>
+                        <button
+                            tuiButton
+                            appearance="secondary"
+                            class="button desktopLikeButton"
+                            (click)="addFavoriteBook()"
+                            *ngIf="!favotiteButton"
                         >
                             Добавить на полку
                         </button>
