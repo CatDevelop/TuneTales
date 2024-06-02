@@ -178,6 +178,7 @@ export class BookPage implements OnInit {
                 tap(resp => {
                     if (resp.ok && resp.body) {
                         this.imageUrl = resp.body.imageSrc;
+                        this.favotiteButton = resp.body.isFavourite || false;
                         this._book$.next(resp.body);
                     }
                 }),

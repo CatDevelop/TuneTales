@@ -51,7 +51,7 @@ export class DesktopSliderRewindComponent implements OnInit, OnChanges {
      */
     public updateSlider(event: Event): void  {
         const input: HTMLInputElement = event.target as HTMLInputElement;
-        const percentage: any = Number(input.value);
+        const percentage: number = Number(input.value);
         const newValue: number = (percentage / 100) * this.maxTime;
         input.style.setProperty('--value', input.value);
         this.valueChange.emit(newValue);
