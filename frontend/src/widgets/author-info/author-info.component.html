@@ -6,7 +6,7 @@
     <div class="content__container">
         <p class="description">{{author.description}}</p>
         <div class="divider"></div>
-        <div>
+        <div class="books">
             <ng-container *ngIf='(author.writtenBooks.length >0); else sounded_title'>
                 <h2>Книги автора</h2>
                 <app-card-feed [books]="author.writtenBooks"/>

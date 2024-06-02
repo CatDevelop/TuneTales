@@ -5,6 +5,11 @@
     overflow-y: auto;
 }
 
+.loader {
+    margin: auto;
+    width: 100% !important;
+}
+
 .bookPageContainer.desktop {
     width: 100%;
     display: flex;
@@ -89,6 +94,7 @@
         gap: 8px;
     }
 
+    .yearLabel,
     .authorLabel {
         font-size: 20px;
         color: #525B7E;
@@ -99,7 +105,19 @@
         font-size: 20px;
         letter-spacing: 0.03em;
         font-weight: 700;
-        color: #100f16;
+        color: #4096FF;
+        transition: all 0.1s ease-in;
+    }
+
+    .authorText:hover {
+        color: #1677FF;
+    }
+
+    .yearText {
+        font-size: 20px;
+        letter-spacing: 0.03em;
+        font-weight: 700;
+        color: #100F16FF;
     }
 
     .buttons {
@@ -125,6 +143,9 @@
     .recommendations {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
         gap: 16px;
     }
 }
@@ -297,10 +318,12 @@
             font-size: 14px;
         }
 
+        .yearLabel,
         .authorLabel {
             font-size: 18px;
         }
 
+        .yearText,
         .authorText {
             font-size: 18px;
         }

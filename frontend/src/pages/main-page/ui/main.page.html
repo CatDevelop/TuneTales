@@ -8,7 +8,7 @@
         <app-card-slider
             *ngFor="let genre of (genres | async)"
             [label]="genre.name"
-            [books]="genre.books ?? []"
+            [books]="genre.books"
         ></app-card-slider>
     </ng-container>
 </div>
