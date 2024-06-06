@@ -5,6 +5,11 @@ import {ConfigModule, ConfigService} from "@nestjs/config";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {UserModule} from "./user/user.module";
 import {AuthModule} from "./auth/auth.module";
+import {BookModule} from './book/book.module';
+import {GenreModule} from './genre/genre.module';
+import {BookPartModule} from './book-part/book-part.module';
+import {AuthorModule} from './author/author.module';
+import {SeriesModule} from './series/series.module';
 
 @Module({
     imports: [
@@ -26,6 +31,11 @@ import {AuthModule} from "./auth/auth.module";
         }),
         UserModule,
         AuthModule,
+        BookModule,
+        GenreModule,
+        BookPartModule,
+        AuthorModule,
+        SeriesModule,
     ],
     controllers: [AppController],
     providers: [AppService],

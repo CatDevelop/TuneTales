@@ -9,11 +9,12 @@ export class AuthService {
     constructor(
         private userService: UserService,
         private jwtService: JwtService
-    ) {}
+    ) {
+    }
 
     async validateUser(login: string, password: string) {
         try {
-            const user = await this.userService.findOne(login);
+            const user = await this.userService.findOneByLogin(login);
 
             if (user && await argon2.verify(user.password, password)) {
                 return user;
@@ -26,11 +27,12 @@ export class AuthService {
     }
 
     async login(user: IUser) {
-        const {id, login} = user;
+        const {id, login, role} = user;
         return {
             id,
             login,
-            accessToken: this.jwtService.sign({login: user.login, id: user.id}),
+            role,
+            accessToken: this.jwtService.sign({login, id, role}),
         };
     }
 }

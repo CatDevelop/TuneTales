@@ -1,0 +1,54 @@
+<div class="authorization-form-container">
+    <h1 class="title">👋 С возвращением!</h1>
+    <form
+        class="form"
+        [formGroup]="authorizationForm"
+    >
+        <tui-input
+            formControlName="login"
+            [tuiTextfieldCleaner]="true"
+        >
+            Введите логин
+            <input
+                class="input"
+                tuiTextfield
+                type="text"
+                autocomplete="login"
+            />
+        </tui-input>
+        <tui-input
+            formControlName="password"
+            [tuiTextfieldCleaner]="true"
+        >
+            Введите пароль
+            <input
+                class="input"
+                type="password"
+                tuiTextfield
+                autocomplete="password"
+            />
+        </tui-input>
+        <button
+            tuiButton
+            class="button"
+            type="submit"
+            size="l"
+            [disabled]="(isProcessing | async) || false"
+            (click)="login()"
+            (keydown.enter)="login()"
+            (submit)="login()"
+        >
+            Войти
+        </button>
+        <div class="registration-link-container">
+            <p>Нет аккаунта?</p>
+            <a
+                tuiLink
+                class="registration-link"
+                (click)="navigateToRegistration()"
+            >
+                Зарегистрироваться
+            </a>
+        </div>
+    </form>
+</div>

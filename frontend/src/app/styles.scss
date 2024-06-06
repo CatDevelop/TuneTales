@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+img {
+    display: block;
+}
+
+
+.t-root-scrollbar {
+    opacity: 0 !important;
+}
+
+
+
+$bg-color: #F9FDFF;
+$font-family: "Roboto", sans-serif;
+$second-family: "Inter", sans-serif;
+$third-family: "Helvetica Neue", sans-serif;
+$font3: "PT Serif", sans-serif;
+$font4: "SF Pro Text", sans-serif;
+$font5: "Helvetica", sans-serif;

@@ -1,0 +1,63 @@
+:host {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.label {
+    margin-left: 5px;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    color: #14121d;
+    cursor: pointer;
+}
+
+.left_button {
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    left: -22px;
+    z-index: 0;
+}
+
+.right_button {
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    right: -22px;
+    z-index: 0;
+}
+
+.item-slider-container {
+    background: none;
+}
+
+.item-slider-container .item-title {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding-bottom: 15px;
+}
+
+.item-slider {
+    padding: 0 5px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.item-slider .item-container {
+    display: inline-flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    padding: 0 5px;
+}
+
+.item-slider::-webkit-scrollbar, .item-container::-webkit-scrollbar {
+    width: 0;
+    background: none;
+}

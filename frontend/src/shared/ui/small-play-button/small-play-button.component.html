@@ -1,0 +1,21 @@
+<button
+    [ngStyle]="customStyle"
+    (click)="onClickButton($event)"
+    type="button">
+
+    <img
+        [ngClass]="{'active': !activeButton, 'inactive': activeButton}"
+        src="./assets/smallPauseButton.svg"
+        alt="pause button"
+        width="{{width}}"
+        height="{{height}}">
+    <img
+        [ngClass]="{'active': activeButton, 'inactive': !activeButton}"
+        src="./assets/smallPlayButton.svg"
+        alt="pause button"
+        width="{{width}}"
+        height="{{height}}">
+</button>
+
+
+

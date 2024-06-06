@@ -1,0 +1,238 @@
+Index: frontend/src/pages/main-page/ui/main.page.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\nimport { GetBooksResponseDto, IBookResponse } from '../model/types/dto/get-books.response-dto';\nimport { MainPageService } from '../model/services/main.page.service';\nimport { BehaviorSubject, filter, Observable, tap } from 'rxjs';\nimport { HttpResponse } from '@angular/common/http';\nimport { IGetGenresResponseDto } from '../../../entities/Genre/model/dto/response/get-genres.response-dto';\nimport { GenreService } from '../../../entities/Genre/services/genre.service';\nimport { IBook } from '../../../entities/Book/model/book.interface';\n\n@Component({\n    changeDetection: ChangeDetectionStrategy.OnPush,\n    selector: 'app-main.page',\n    templateUrl: './main.page.html',\n    styleUrl: './main.page.scss',\n})\nexport class MainPage implements OnInit {\n    public books: Observable<IBook[]>;\n    private _books: BehaviorSubject<IBookResponse[]> = new BehaviorSubject<IBook[]>([]);\n    public genres: Observable<IGetGenresResponseDto>;\n    private _genres: BehaviorSubject<IGetGenresResponseDto> = new BehaviorSubject<IGetGenresResponseDto>([]);\n\n    constructor(\n        private _mainService: MainPageService,\n        private _genreService: GenreService,\n    ) {\n        this.books = this._books.asObservable();\n        this.genres = this._genres.asObservable();\n    }\n\n\n    public ngOnInit(): void {\n        this._mainService.getAllBooks()\n            .subscribe(\n                (res: HttpResponse<GetBooksResponseDto>) => {\n                    this._books.next(res.body ?? []);\n                },\n            );\n        this._genreService.getGenres()\n            .pipe(\n                filter(res => res.ok),\n                tap((res: HttpResponse<IGetGenresResponseDto>) => {\n                    this._genres.next(res.body ?? []);\n                }),\n            )\n            .subscribe()\n        ;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/pages/main-page/ui/main.page.ts b/frontend/src/pages/main-page/ui/main.page.ts
+--- a/frontend/src/pages/main-page/ui/main.page.ts	(revision 7df9e4a882b698ff90dfeabcafb846f9e4fccf9b)
++++ b/frontend/src/pages/main-page/ui/main.page.ts	(date 1717316235049)
+@@ -6,6 +6,7 @@
+ import { IGetGenresResponseDto } from '../../../entities/Genre/model/dto/response/get-genres.response-dto';
+ import { GenreService } from '../../../entities/Genre/services/genre.service';
+ import { IBook } from '../../../entities/Book/model/book.interface';
++import { AuthorizationService } from '../../authorization-page/services/authorization.service';
+ 
+ @Component({
+     changeDetection: ChangeDetectionStrategy.OnPush,
+@@ -22,9 +23,11 @@
+     constructor(
+         private _mainService: MainPageService,
+         private _genreService: GenreService,
++        private _authService: AuthorizationService,
+     ) {
+         this.books = this._books.asObservable();
+         this.genres = this._genres.asObservable();
++        this._authService.init();
+     }
+ 
+ 
+Index: frontend/src/widgets/navbar/navbar.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { FormControl } from '@angular/forms';\nimport { map, Observable, switchMap, tap } from 'rxjs';\nimport { BookService } from '../../entities/Book/services/book.service';\nimport { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';\nimport { HttpResponse } from '@angular/common/http';\nimport { SessionStorageService } from '../../pages/authorization-page/services/session-storage.service';\n\n@Component({\n    changeDetection: ChangeDetectionStrategy.OnPush,\n    selector: 'app-navbar',\n    templateUrl: './navbar.component.html',\n    styleUrl: './navbar.component.scss'\n})\nexport class NavbarComponent {\n    public searchQuery: string = '';\n\n    public isMenuOpen: boolean = false;\n\n    public cacheService: SessionStorageService = inject(SessionStorageService);\n    public isLogin: boolean = !!this.cacheService.getJWTSession().accessToken;\n\n    public readonly control: FormControl<string | null> = new FormControl('');\n\n    public readonly books$: Observable<IGetBookResponseDto[]> = this.control.valueChanges.pipe(\n        tap(() => console.log(this._bookService)),\n        switchMap(value =>\n            this._bookService.getBookBySearch(value ?? '').pipe(\n                map((response: HttpResponse<IGetBookResponseDto[]>) => {\n                    if (response.ok && response.body) {\n                        return response.body;\n                    }\n\n                    return [];\n                }),\n            ),\n        )\n    );\n\n    constructor(private _router: Router,\n                private _bookService: BookService) {\n    }\n\n    /**\n     * Обработчик клика на меню\n     */\n    public onHamburgerClick(): void {\n        this.isMenuOpen = true;\n    }\n\n    /**\n     * Обработчик клика на кнопку назад\n     */\n    public onBackClick(): void {\n        this.isMenuOpen = false;\n    }\n\n    /**\n     * Редирект на главную страницу\n     */\n    public navigateToHome(): void {\n        this._router.navigate([`/`]);\n        this.isMenuOpen = false;\n    }\n\n    /**\n     * Редирект на авторизацию\n     */\n    public navigateToAuthorization(): void {\n        if(this.isLogin) {\n            this.cacheService.removeJWTSession();\n            this.navigateToHome();\n        }\n\n        this._router.navigate([`/login`]);\n        this.isMenuOpen = false;\n    }\n\n    /**\n     * Редирект на книгу\n     */\n    public navigateToBook(id: string): void {\n        this._router.navigate([`/book`, id]);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/widgets/navbar/navbar.component.ts b/frontend/src/widgets/navbar/navbar.component.ts
+--- a/frontend/src/widgets/navbar/navbar.component.ts	(revision 7df9e4a882b698ff90dfeabcafb846f9e4fccf9b)
++++ b/frontend/src/widgets/navbar/navbar.component.ts	(date 1717316235053)
+@@ -1,11 +1,11 @@
+-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
++import { ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+ import { Router } from '@angular/router';
+ import { FormControl } from '@angular/forms';
+ import { map, Observable, switchMap, tap } from 'rxjs';
+ import { BookService } from '../../entities/Book/services/book.service';
+ import { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';
+ import { HttpResponse } from '@angular/common/http';
+-import { SessionStorageService } from '../../pages/authorization-page/services/session-storage.service';
++import { AuthorizationService } from '../../pages/authorization-page/services/authorization.service';
+ 
+ @Component({
+     changeDetection: ChangeDetectionStrategy.OnPush,
+@@ -13,13 +13,12 @@
+     templateUrl: './navbar.component.html',
+     styleUrl: './navbar.component.scss'
+ })
+-export class NavbarComponent {
++export class NavbarComponent implements OnInit, OnChanges {
+     public searchQuery: string = '';
+ 
+     public isMenuOpen: boolean = false;
+ 
+-    public cacheService: SessionStorageService = inject(SessionStorageService);
+-    public isLogin: boolean = !!this.cacheService.getJWTSession().accessToken;
++    public isLogin: boolean = false;
+ 
+     public readonly control: FormControl<string | null> = new FormControl('');
+ 
+@@ -38,8 +37,11 @@
+         )
+     );
+ 
+-    constructor(private _router: Router,
+-                private _bookService: BookService) {
++    constructor(
++        private _router: Router,
++        private _bookService: BookService,
++        private _authService: AuthorizationService
++    ) {
+     }
+ 
+     /**
+@@ -69,7 +71,7 @@
+      */
+     public navigateToAuthorization(): void {
+         if(this.isLogin) {
+-            this.cacheService.removeJWTSession();
++            this._authService.logout();
+             this.navigateToHome();
+         }
+ 
+@@ -83,4 +85,19 @@
+     public navigateToBook(id: string): void {
+         this._router.navigate([`/book`, id]);
+     }
++
++    public ngOnInit(): void {
++        this._authService.init();
++        this._authService.isLogin$
++            .pipe(
++                tap(value => {
++                    this.isLogin = value;
++                })
++            )
++            .subscribe();
++    }
++
++    public ngOnChanges(changes: SimpleChanges): void {
++        this._authService.init();
++    }
+ }
+Index: frontend/src/pages/authorization-page/services/authorization.service.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { HttpResponse } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { BehaviorSubject, filter, finalize, Observable, tap } from 'rxjs';\nimport { HttpService } from '../../../shared/global-services/request/http.service';\nimport { SessionStorageService } from './session-storage.service';\nimport { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';\nimport { RequestMethodType } from '../../../shared/global-services/request/model/request-method';\nimport { IAuthorization } from '../model/authorization.interface';\nimport { IAuthorizationResponseDto } from '../model/dto/response/authorization-response.dto';\n\n\n@Injectable()\nexport class AuthorizationService {\n    public readonly isProcessing$: Observable<boolean>;\n    private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);\n\n    constructor(\n        private _req: HttpService,\n        private _cacher: SessionStorageService,\n        private _router: Router,\n    ) {\n        this.isProcessing$ = this._isProcessing$.asObservable();\n    }\n\n    /**\n     * Авторизация пользователя в системе\n     * @param email\n     * @param password\n     */\n    public login(email: string, password: string): Observable<HttpResponse<unknown>> {\n        this._isProcessing$.next(true);\n\n        const response$: Observable<HttpResponse<IAuthorizationResponseDto>> = this._req.request<IAuthorizationResponseDto, IAuthorization>({\n            url: `${UrlRoutes.backendDev}/auth/login`,\n            method: RequestMethodType.post,\n            body: { login: email, password: password }\n        });\n\n        response$ // observable -> ответы (только один)\n            .pipe(\n                filter((resp: HttpResponse<IAuthorizationResponseDto>) => resp.ok),\n                tap((resp: HttpResponse<IAuthorizationResponseDto>) => {\n                    this._cacher.cacheJWTSession({\n                        accessToken: resp.body?.accessToken || '',\n                    });\n                }),\n                finalize(() => this._isProcessing$.next(false))\n            ).subscribe();\n\n        return response$;\n    }\n\n    /**\n     * Выход пользователя из системы\n     */\n    public logout(): void {\n        this._cacher.removeJWTSession();\n        this._router.navigateByUrl('');\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/pages/authorization-page/services/authorization.service.ts b/frontend/src/pages/authorization-page/services/authorization.service.ts
+--- a/frontend/src/pages/authorization-page/services/authorization.service.ts	(revision 7df9e4a882b698ff90dfeabcafb846f9e4fccf9b)
++++ b/frontend/src/pages/authorization-page/services/authorization.service.ts	(date 1717316235057)
+@@ -8,12 +8,15 @@
+ import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
+ import { IAuthorization } from '../model/authorization.interface';
+ import { IAuthorizationResponseDto } from '../model/dto/response/authorization-response.dto';
++import { IJWTSession } from '../model/jwt-session.interface';
+ 
+ 
+ @Injectable()
+ export class AuthorizationService {
+     public readonly isProcessing$: Observable<boolean>;
+     private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
++    private _isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
++    public isLogin$: Observable<boolean>;
+ 
+     constructor(
+         private _req: HttpService,
+@@ -21,6 +24,19 @@
+         private _router: Router,
+     ) {
+         this.isProcessing$ = this._isProcessing$.asObservable();
++        this.isLogin$ = this._isLogin.asObservable();
++    }
++
++    /**
++     * Инициализация
++     */
++    public init(): void {
++        const session: IJWTSession =  this._cacher.getJWTSession();
++        if (!!session.accessToken) {
++            this._isLogin.next(true);
++        } else {
++            this._isLogin.next(false);
++        }
+     }
+ 
+     /**
+@@ -41,6 +57,8 @@
+             .pipe(
+                 filter((resp: HttpResponse<IAuthorizationResponseDto>) => resp.ok),
+                 tap((resp: HttpResponse<IAuthorizationResponseDto>) => {
++                    this._isLogin.next(true);
++                    console.log(this._isLogin);
+                     this._cacher.cacheJWTSession({
+                         accessToken: resp.body?.accessToken || '',
+                     });
+@@ -56,6 +74,7 @@
+      */
+     public logout(): void {
+         this._cacher.removeJWTSession();
++        this._isLogin.next(false);
+         this._router.navigateByUrl('');
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5\" name=\"Changes\" comment=\"lazy routing register page\">\n      <change afterPath=\"$PROJECT_DIR$/frontend/src/_redirects\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/angular.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/angular.json\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/favicon.ico\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/favicon.ico\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"TypeScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"dev\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;history&quot;: [\n    {\n      &quot;state&quot;: &quot;OPEN&quot;,\n      &quot;author&quot;: &quot;mineevmaxim&quot;\n    }\n  ],\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;author&quot;: &quot;mineevmaxim&quot;\n  }\n}</component>\n  <component name=\"GitHubPullRequestState\">{\n  &quot;prStates&quot;: [\n    {\n      &quot;id&quot;: {\n        &quot;id&quot;: &quot;PR_kwDOLa5xt85xByw9&quot;,\n        &quot;number&quot;: 16\n      },\n      &quot;lastSeen&quot;: 1717083701946\n    }\n  ]\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/CatDevelop/TuneTales.git&quot;,\n    &quot;accountId&quot;: &quot;25359063-7051-43f8-b1c0-3359260ddd7a&quot;\n  },\n  &quot;recentNewPullRequestHead&quot;: {\n    &quot;server&quot;: {\n      &quot;useHttp&quot;: false,\n      &quot;host&quot;: &quot;github.com&quot;,\n      &quot;port&quot;: null,\n      &quot;suffix&quot;: null\n    },\n    &quot;owner&quot;: &quot;CatDevelop&quot;,\n    &quot;repository&quot;: &quot;TuneTales&quot;\n  },\n  &quot;editorReviewEnabled&quot;: false\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4\n}</component>\n  <component name=\"ProjectId\" id=\"2hGgcixLcMlZ74617orGDT0DNDU\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"git-widget-placeholder\": \"dev\",\n    \"last_opened_file_path\": \"C:/Users/User/OneDrive/Документы/My works/Projects/TuneTales/frontend/src\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.standard\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.standard\": \"\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"settings.editor.selected.configurable\": \"settings.javascript.linters.eslint\",\n    \"ts.external.directory.path\": \"C:\\\\Users\\\\User\\\\OneDrive\\\\Документы\\\\My works\\\\Projects\\\\TuneTales\\\\backend\\\\node_modules\\\\typescript\\\\lib\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\frontend\\src\" />\n      <recent name=\"C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\frontend\\dist\\tune-tales\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/shared/assets\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\frontend\\dist\\tune-tales\\browser\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/pages\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/pages/register-page/ui\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/widgets/navbar\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/pages/authorization-page/ui\" />\n    </key>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task id=\"LOCAL-00001\" summary=\"book page desktop (корявая)\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717149155140</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717149155140</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"страница книги с описанием адаптив (кроме мобилки)\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717170278099</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717170278099</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"страница книги рекомендации (слайдеры) адаптив (кроме мобилки\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717171279145</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717171279145</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"страница книги данные\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717174267133</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717174267133</updated>\n    </task>\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5\" name=\"Changes\" comment=\"страница книги данные\" />\n      <created>1717225910187</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1717225910187</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"lazy routing auth page\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717229317804</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717229317804</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"lazy routing register page\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717229599673</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717229599673</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\n                <map>\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"mini fixes\" />\n    <MESSAGE value=\"book page desktop (корявая)\" />\n    <MESSAGE value=\"страница книги с описанием адаптив (кроме мобилки)\" />\n    <MESSAGE value=\"страница книги рекомендации (слайдеры) адаптив (кроме мобилки\" />\n    <MESSAGE value=\"страница книги данные\" />\n    <MESSAGE value=\"lazy routing auth page\" />\n    <MESSAGE value=\"lazy routing register page\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"lazy routing register page\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7df9e4a882b698ff90dfeabcafb846f9e4fccf9b)
++++ b/.idea/workspace.xml	(date 1717316235062)
+@@ -5,12 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing register page">
+-      <change afterPath="$PROJECT_DIR$/frontend/src/_redirects" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/favicon.ico" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -83,21 +81,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "dev",
+-    "last_opened_file_path": "C:/Users/User/OneDrive/Документы/My works/Projects/TuneTales/frontend/src",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.standard": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.standard": "",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+-    "ts.external.directory.path": "C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\backend\\node_modules\\typescript\\lib"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/OneDrive/Документы/My works/Projects/TuneTales/frontend/src&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/node_modules/typescript/lib&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\User\OneDrive\Документы\My works\Projects\TuneTales\frontend\src" />

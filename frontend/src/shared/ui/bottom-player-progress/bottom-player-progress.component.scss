@@ -1,0 +1,18 @@
+.progress {
+    position: relative;
+
+    &-track {
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: #14121D;
+        z-index: 10;
+    }
+    &-back {
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: #CFCFCF;
+        z-index: 9;
+    }
+}

@@ -1,0 +1,236 @@
+Index: frontend/src/widgets/navbar/navbar.component.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>:host {\n    width: 100%;\n    height: 100%;\n}\n\n.navbar-container {\n    width: 100%;\n    height: 100%;\n    background: #fff;\n    display: flex;\n}\n\n.grid-5 {\n    width: 100%;\n    display: grid;\n    grid-template-columns: repeat(5, 1fr);\n    column-gap: 28px;\n    justify-content: space-around;\n    align-items: center;\n    margin: auto;\n}\n\n.logo {\n    grid-column: 1;\n    padding: 0;\n    border: none;\n    font: inherit;\n    color: inherit;\n    background-color: transparent;\n    cursor: pointer;\n}\n\n.search {\n    grid-column-start: 2;\n    grid-column-end: 5;\n}\n\n.search-input {\n    font-size: 18px;\n}\n\n.search-list {\n    z-index: 100000;\n}\n\n.links {\n    grid-column-start: 5;\n    justify-self: center;\n    display: flex;\n    gap: 45px;\n\n    .link {\n        background: none;\n        border: none;\n        cursor: pointer;\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        width: max-content;\n\n        .link__image path {\n            stroke: #14121D;\n            transition: all 0.1s ease-in;\n        }\n    }\n\n    .link:hover .link__image path {\n        stroke: #1677FF;\n        fill: #1677FF;\n    }\n}\n\n.book__image {\n    width: 30px;\n    height: 30px;\n    object-fit: contain;\n}\n\n.name__container {\n    display: flex;\n    flex-direction: row;\n    gap: 15px;\n    align-items: center;\n}\n\n.name {\n    font-size: 16px;\n    font-weight: 500;\n}\n\n.book__author {\n    font-size: 16px;\n    color: rgba(0, 0, 0, 0.30);\n}\n\n@media (max-width: 767px) {\n    .navbar-container {\n        border: 1px solid rgba(0, 0, 0, 0.15);\n        border-radius: 0 0 8px 8px;\n    }\n\n    .grid-5 {\n        width: 100%;\n        padding: 0 32px;\n    }\n\n    .links.desktop {\n        display: none;\n    }\n\n    .logo {\n        display: none;\n    }\n\n    .hamburger {\n        width: 29px;\n        grid-column: 1;\n        padding: 0;\n        border: none;\n        font: inherit;\n        color: inherit;\n        background-color: transparent;\n        cursor: pointer;\n    }\n\n    .search {\n        grid-column-start: 2;\n        grid-column-end: 6;\n    }\n\n    .links {\n        width: 100vw;\n        height: 100vh;\n        position: absolute;\n        top: 0;\n        left: 0;\n        flex-direction: column;\n        gap: 0;\n        background-color: white;\n        z-index: 10000;\n\n        .link {\n            flex-direction: row;\n            gap: 20px;\n            font-weight: 500;\n            font-size: 20px;\n            height: 50px;\n            justify-content: start;\n            padding: 0 50px;\n        }\n\n        .link__back {\n            margin: 20px 0 50px 0;\n        }\n    }\n}\n\n@media (min-width: 768px) {\n    .grid-5 {\n        width: 700px;\n    }\n\n    .links.mobile {\n        display: none;\n    }\n\n    .hamburger {\n        display: none;\n    }\n\n    .back {\n        display: none;\n    }\n}\n\n\n@media (min-width: 1024px) {\n    .grid-5 {\n        width: 900px;\n    }\n\n    .links.mobile {\n        display: none;\n    }\n\n    .hamburger {\n        display: none;\n    }\n\n    .back {\n        display: none;\n    }\n}\n\n\n@media (min-width: 1200px) {\n    .grid-5 {\n        width: 1100px;\n    }\n\n    .links.mobile {\n        display: none;\n    }\n\n    .hamburger {\n        display: none;\n    }\n\n    .back {\n        display: none;\n    }\n}\n\n@media (min-width: 1366px) {\n    .grid-5  {\n        width: 1200px;\n    }\n\n    .links .mobile {\n        display: none;\n    }\n\n    .hamburger {\n        display: none;\n    }\n\n    .back {\n        display: none;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/widgets/navbar/navbar.component.scss b/frontend/src/widgets/navbar/navbar.component.scss
+--- a/frontend/src/widgets/navbar/navbar.component.scss	(revision 09d751f5cf58df9bd475800f62bac75c9d0dcfa5)
++++ b/frontend/src/widgets/navbar/navbar.component.scss	(date 1717311611145)
+@@ -4,9 +4,9 @@
+ }
+ 
+ .navbar-container {
++    background: #fff;
+     width: 100%;
+     height: 100%;
+-    background: #fff;
+     display: flex;
+ }
+ 
+Index: frontend/src/widgets/navbar/navbar.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><div class=\"navbar-container grid-5\">\n    <button\n        class=\"logo\"\n        (click)=\"navigateToHome()\"\n    >\n        <img src=\"./assets/logo.svg\" alt=\"Логотип\">\n    </button>\n    <button\n        class=\"hamburger\"\n        (click)=\"onHamburgerClick()\"\n    >\n        <img src=\"./assets/hamburger.svg\" alt=\"Меню\">\n    </button>\n    <ng-container *ngIf=\"isLogin\">\n        <tui-input\n            *tuiLet=\"((books$ | async) || []) as parsedBooks\"\n            tuiTextfieldIconLeft=\"tuiIconSearchLarge\"\n            class=\"search\"\n            tuiTextfieldSize=\"m\"\n            [tuiTextfieldCleaner]=\"true\"\n            [tuiTextfieldLabelOutside]=\"true\"\n            [ngModel]=\"searchQuery\"\n            [formControl]=\"control\"\n        >\n            Поиск по книгам\n            <input\n                class=\"search-input\"\n                tuiTextfield\n            />\n            <ng-container *ngIf=\"parsedBooks.length\">\n                <tui-data-list *tuiDataList class=\"search-list\">\n                    <button\n                        *ngFor=\"let item of parsedBooks\"\n                        tuiOption\n\n                        [value]=\"item.name\"\n                        (click)=\"navigateToBook(item.id)\"\n                    >\n                        <div class=\"name__container\">\n                            <img [src]=\"item.imageSrc\" class=\"book__image\" alt=\"{{item.name}}\"/>\n                            <span class=\"name\">{{ item.name }}</span>\n                        </div>\n                        <span class=\"book__author\">{{ item.authors[0]?.firstName }} {{ item.authors[0]?.secondName }}</span>\n                    </button>\n                </tui-data-list>\n            </ng-container>\n        </tui-input>\n    </ng-container>\n\n    <nav class=\"links desktop\">\n        <button class=\"link\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/my-books.svg\"\n                alt=\"Мои книги\"\n                width=29\n                height=29\n            >\n            Мои книги\n        </button>\n        <button class=\"link\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/genres.svg\"\n                alt=\"Жанры\"\n                width=29\n                height=29\n            >\n            Жанры\n        </button>\n        <button (click)=\"navigateToAuthorization()\" class=\"link\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/login.svg\"\n                alt=\"Войти\"\n                width=29\n                height=29\n            >\n            Войти\n        </button>\n    </nav>\n    <nav class=\"links mobile\" *ngIf=\"isMenuOpen\">\n        <button class=\"link link__back\" (click)=\"onBackClick()\">\n            <img\n                appInlineSvg\n                class=\"link__image back\"\n                width=29\n                height=29\n                src=\"./assets/closePlayerButton.svg\"\n                alt=\"Свернуть\"\n            />\n        </button>\n        <button (click)=\"navigateToHome()\" class=\"link\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/home.svg\"\n                alt=\"Главная\"\n                width=29\n                height=29\n            >\n            Главная\n        </button>\n        <button class=\"link\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/my-books.svg\"\n                alt=\"Мои книги\"\n                width=29\n                height=29\n            >\n            Мои книги\n        </button>\n        <button class=\"link\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/genres.svg\"\n                alt=\"Жанры\"\n                width=29\n                height=29\n            >\n            Жанры\n        </button>\n        <button (click)=\"navigateToAuthorization()\" class=\"link\" *ngIf=\"!isLogin\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/login.svg\"\n                alt=\"Войти\"\n                width=29\n                height=29\n            >\n            Войти\n        </button>\n        <button (click)=\"navigateToAuthorization()\" class=\"link\" *ngIf=\"isLogin\">\n            <img\n                appInlineSvg\n                class=\"link__image\"\n                src=\"./assets/logout.svg\"\n                alt=\"Выйти\"\n                width=29\n                height=29\n            >\n            Выйти\n        </button>\n    </nav>\n</div>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/widgets/navbar/navbar.component.html b/frontend/src/widgets/navbar/navbar.component.html
+--- a/frontend/src/widgets/navbar/navbar.component.html	(revision 09d751f5cf58df9bd475800f62bac75c9d0dcfa5)
++++ b/frontend/src/widgets/navbar/navbar.component.html	(date 1717312994013)
+@@ -11,7 +11,7 @@
+     >
+         <img src="./assets/hamburger.svg" alt="Меню">
+     </button>
+-    <ng-container *ngIf="isLogin">
++    <ng-container *ngIf="isLogin$">
+         <tui-input
+             *tuiLet="((books$ | async) || []) as parsedBooks"
+             tuiTextfieldIconLeft="tuiIconSearchLarge"
+@@ -126,7 +126,7 @@
+             >
+             Жанры
+         </button>
+-        <button (click)="navigateToAuthorization()" class="link" *ngIf="!isLogin">
++        <button (click)="navigateToAuthorization()" class="link" *ngIf="!isLogin$">
+             <img
+                 appInlineSvg
+                 class="link__image"
+@@ -137,7 +137,7 @@
+             >
+             Войти
+         </button>
+-        <button (click)="navigateToAuthorization()" class="link" *ngIf="isLogin">
++        <button (click)="navigateToAuthorization()" class="link" *ngIf="isLogin$">
+             <img
+                 appInlineSvg
+                 class="link__image"
+Index: frontend/src/widgets/navbar/navbar.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { FormControl } from '@angular/forms';\nimport { map, Observable, switchMap, tap } from 'rxjs';\nimport { BookService } from '../../entities/Book/services/book.service';\nimport { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';\nimport { HttpResponse } from '@angular/common/http';\nimport { SessionStorageService } from '../../pages/authorization-page/services/session-storage.service';\n\n@Component({\n    changeDetection: ChangeDetectionStrategy.OnPush,\n    selector: 'app-navbar',\n    templateUrl: './navbar.component.html',\n    styleUrl: './navbar.component.scss'\n})\nexport class NavbarComponent {\n    public searchQuery: string = '';\n\n    public isMenuOpen: boolean = false;\n\n    public cacheService: SessionStorageService = inject(SessionStorageService);\n    public isLogin: boolean = !!this.cacheService.getJWTSession().accessToken;\n\n    public readonly control: FormControl<string | null> = new FormControl('');\n\n    public readonly books$: Observable<IGetBookResponseDto[]> = this.control.valueChanges.pipe(\n        tap(() => console.log(this._bookService)),\n        switchMap(value =>\n            this._bookService.getBookBySearch(value ?? '').pipe(\n                map((response: HttpResponse<IGetBookResponseDto[]>) => {\n                    if (response.ok && response.body) {\n                        return response.body;\n                    }\n\n                    return [];\n                }),\n            ),\n        )\n    );\n\n    constructor(private _router: Router,\n                private _bookService: BookService) {\n    }\n\n    /**\n     * Обработчик клика на меню\n     */\n    public onHamburgerClick(): void {\n        this.isMenuOpen = true;\n    }\n\n    /**\n     * Обработчик клика на кнопку назад\n     */\n    public onBackClick(): void {\n        this.isMenuOpen = false;\n    }\n\n    /**\n     * Редирект на главную страницу\n     */\n    public navigateToHome(): void {\n        this._router.navigate([`/`]);\n        this.isMenuOpen = false;\n    }\n\n    /**\n     * Редирект на авторизацию\n     */\n    public navigateToAuthorization(): void {\n        if(this.isLogin) {\n            this.cacheService.removeJWTSession();\n            this.navigateToHome();\n        }\n\n        this._router.navigate([`/login`]);\n        this.isMenuOpen = false;\n    }\n\n    /**\n     * Редирект на книгу\n     */\n    public navigateToBook(id: string): void {\n        this._router.navigate([`/book`, id]);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/widgets/navbar/navbar.component.ts b/frontend/src/widgets/navbar/navbar.component.ts
+--- a/frontend/src/widgets/navbar/navbar.component.ts	(revision 09d751f5cf58df9bd475800f62bac75c9d0dcfa5)
++++ b/frontend/src/widgets/navbar/navbar.component.ts	(date 1717313794334)
+@@ -1,11 +1,11 @@
+-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
++import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+ import { Router } from '@angular/router';
+ import { FormControl } from '@angular/forms';
+-import { map, Observable, switchMap, tap } from 'rxjs';
++import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
+ import { BookService } from '../../entities/Book/services/book.service';
+ import { IGetBookResponseDto } from '../../entities/Book/model/dto/response/get-book.response-dto';
+ import { HttpResponse } from '@angular/common/http';
+-import { SessionStorageService } from '../../pages/authorization-page/services/session-storage.service';
++import { AuthorizationService } from '../../pages/authorization-page/services/authorization.service';
+ 
+ @Component({
+     changeDetection: ChangeDetectionStrategy.OnPush,
+@@ -13,13 +13,13 @@
+     templateUrl: './navbar.component.html',
+     styleUrl: './navbar.component.scss'
+ })
+-export class NavbarComponent {
++export class NavbarComponent implements OnInit {
+     public searchQuery: string = '';
+ 
+     public isMenuOpen: boolean = false;
+ 
+-    public cacheService: SessionStorageService = inject(SessionStorageService);
+-    public isLogin: boolean = !!this.cacheService.getJWTSession().accessToken;
++    public _isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
++    public isLogin$: Observable<boolean> = false;
+ 
+     public readonly control: FormControl<string | null> = new FormControl('');
+ 
+@@ -38,8 +38,11 @@
+         )
+     );
+ 
+-    constructor(private _router: Router,
+-                private _bookService: BookService) {
++    constructor(
++        private _router: Router,
++        private _bookService: BookService,
++        private _authService: AuthorizationService
++    ) {
+     }
+ 
+     /**
+@@ -68,8 +71,8 @@
+      * Редирект на авторизацию
+      */
+     public navigateToAuthorization(): void {
+-        if(this.isLogin) {
+-            this.cacheService.removeJWTSession();
++        if(this.isLogin$) {
++            this._authService.logout();
+             this.navigateToHome();
+         }
+ 
+@@ -83,4 +86,12 @@
+     public navigateToBook(id: string): void {
+         this._router.navigate([`/book`, id]);
+     }
++
++    public ngOnInit(): void {
++        this._authService.init();
++        this._authService.isLogin$
++            .subscribe(value => {
++                this.isLogin$ = value;
++            });
++    }
+ }
+Index: frontend/src/pages/authorization-page/services/authorization.service.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { HttpResponse } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { BehaviorSubject, filter, finalize, Observable, tap } from 'rxjs';\nimport { HttpService } from '../../../shared/global-services/request/http.service';\nimport { SessionStorageService } from './session-storage.service';\nimport { UrlRoutes } from '../../../shared/global-services/request/model/url-routes';\nimport { RequestMethodType } from '../../../shared/global-services/request/model/request-method';\nimport { IAuthorization } from '../model/authorization.interface';\nimport { IAuthorizationResponseDto } from '../model/dto/response/authorization-response.dto';\n\n\n@Injectable()\nexport class AuthorizationService {\n    public readonly isProcessing$: Observable<boolean>;\n    private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);\n\n    constructor(\n        private _req: HttpService,\n        private _cacher: SessionStorageService,\n        private _router: Router,\n    ) {\n        this.isProcessing$ = this._isProcessing$.asObservable();\n    }\n\n    /**\n     * Авторизация пользователя в системе\n     * @param email\n     * @param password\n     */\n    public login(email: string, password: string): Observable<HttpResponse<unknown>> {\n        this._isProcessing$.next(true);\n\n        const response$: Observable<HttpResponse<IAuthorizationResponseDto>> = this._req.request<IAuthorizationResponseDto, IAuthorization>({\n            url: `${UrlRoutes.backendDev}/auth/login`,\n            method: RequestMethodType.post,\n            body: { login: email, password: password }\n        });\n\n        response$ // observable -> ответы (только один)\n            .pipe(\n                filter((resp: HttpResponse<IAuthorizationResponseDto>) => resp.ok),\n                tap((resp: HttpResponse<IAuthorizationResponseDto>) => {\n                    this._cacher.cacheJWTSession({\n                        accessToken: resp.body?.accessToken || '',\n                    });\n                }),\n                finalize(() => this._isProcessing$.next(false))\n            ).subscribe();\n\n        return response$;\n    }\n\n    /**\n     * Выход пользователя из системы\n     */\n    public logout(): void {\n        this._cacher.removeJWTSession();\n        this._router.navigateByUrl('');\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/pages/authorization-page/services/authorization.service.ts b/frontend/src/pages/authorization-page/services/authorization.service.ts
+--- a/frontend/src/pages/authorization-page/services/authorization.service.ts	(revision 09d751f5cf58df9bd475800f62bac75c9d0dcfa5)
++++ b/frontend/src/pages/authorization-page/services/authorization.service.ts	(date 1717313284262)
+@@ -8,12 +8,15 @@
+ import { RequestMethodType } from '../../../shared/global-services/request/model/request-method';
+ import { IAuthorization } from '../model/authorization.interface';
+ import { IAuthorizationResponseDto } from '../model/dto/response/authorization-response.dto';
++import { IJWTSession } from '../model/jwt-session.interface';
+ 
+ 
+ @Injectable()
+ export class AuthorizationService {
+     public readonly isProcessing$: Observable<boolean>;
+     private _isProcessing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
++    private _isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
++    public isLogin$: Observable<boolean>;
+ 
+     constructor(
+         private _req: HttpService,
+@@ -21,6 +24,19 @@
+         private _router: Router,
+     ) {
+         this.isProcessing$ = this._isProcessing$.asObservable();
++        this.isLogin$ = this._isLogin.asObservable();
++    }
++
++    /**
++     * Инициализация
++     */
++    public init(): void {
++        const session: IJWTSession =  this._cacher.getJWTSession();
++        if (session.accessToken) {
++            this._isLogin.next(true);
++        } else {
++            this._isLogin.next(false);
++        }
+     }
+ 
+     /**
+@@ -41,6 +57,7 @@
+             .pipe(
+                 filter((resp: HttpResponse<IAuthorizationResponseDto>) => resp.ok),
+                 tap((resp: HttpResponse<IAuthorizationResponseDto>) => {
++                    this._isLogin.next(true);
+                     this._cacher.cacheJWTSession({
+                         accessToken: resp.body?.accessToken || '',
+                     });
+@@ -56,6 +73,7 @@
+      */
+     public logout(): void {
+         this._cacher.removeJWTSession();
++        this._isLogin.next(false);
+         this._router.navigateByUrl('');
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5\" name=\"Changes\" comment=\"lazy routing register page\">\n      <change afterPath=\"$PROJECT_DIR$/frontend/src/_redirects\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/angular.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/angular.json\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/favicon.ico\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/favicon.ico\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"TypeScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"dev\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;history&quot;: [\n    {\n      &quot;state&quot;: &quot;OPEN&quot;,\n      &quot;author&quot;: &quot;mineevmaxim&quot;\n    }\n  ],\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;author&quot;: &quot;mineevmaxim&quot;\n  }\n}</component>\n  <component name=\"GitHubPullRequestState\">{\n  &quot;prStates&quot;: [\n    {\n      &quot;id&quot;: {\n        &quot;id&quot;: &quot;PR_kwDOLa5xt85xByw9&quot;,\n        &quot;number&quot;: 16\n      },\n      &quot;lastSeen&quot;: 1717083701946\n    }\n  ]\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/CatDevelop/TuneTales.git&quot;,\n    &quot;accountId&quot;: &quot;25359063-7051-43f8-b1c0-3359260ddd7a&quot;\n  },\n  &quot;recentNewPullRequestHead&quot;: {\n    &quot;server&quot;: {\n      &quot;useHttp&quot;: false,\n      &quot;host&quot;: &quot;github.com&quot;,\n      &quot;port&quot;: null,\n      &quot;suffix&quot;: null\n    },\n    &quot;owner&quot;: &quot;CatDevelop&quot;,\n    &quot;repository&quot;: &quot;TuneTales&quot;\n  },\n  &quot;editorReviewEnabled&quot;: false\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4\n}</component>\n  <component name=\"ProjectId\" id=\"2hGgcixLcMlZ74617orGDT0DNDU\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"git-widget-placeholder\": \"dev\",\n    \"last_opened_file_path\": \"C:/Users/User/OneDrive/Документы/My works/Projects/TuneTales/frontend/src\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.standard\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.standard\": \"\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"settings.editor.selected.configurable\": \"settings.javascript.linters.eslint\",\n    \"ts.external.directory.path\": \"C:\\\\Users\\\\User\\\\OneDrive\\\\Документы\\\\My works\\\\Projects\\\\TuneTales\\\\backend\\\\node_modules\\\\typescript\\\\lib\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\frontend\\src\" />\n      <recent name=\"C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\frontend\\dist\\tune-tales\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/shared/assets\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\frontend\\dist\\tune-tales\\browser\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/pages\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/pages/register-page/ui\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/widgets/navbar\" />\n      <recent name=\"$PROJECT_DIR$/frontend/src/pages/authorization-page/ui\" />\n    </key>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task id=\"LOCAL-00001\" summary=\"book page desktop (корявая)\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717149155140</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717149155140</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"страница книги с описанием адаптив (кроме мобилки)\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717170278099</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717170278099</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"страница книги рекомендации (слайдеры) адаптив (кроме мобилки\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717171279145</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717171279145</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"страница книги данные\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717174267133</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717174267133</updated>\n    </task>\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5\" name=\"Changes\" comment=\"страница книги данные\" />\n      <created>1717225910187</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1717225910187</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"lazy routing auth page\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717229317804</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717229317804</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"lazy routing register page\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1717229599673</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1717229599673</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\n                <map>\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"mini fixes\" />\n    <MESSAGE value=\"book page desktop (корявая)\" />\n    <MESSAGE value=\"страница книги с описанием адаптив (кроме мобилки)\" />\n    <MESSAGE value=\"страница книги рекомендации (слайдеры) адаптив (кроме мобилки\" />\n    <MESSAGE value=\"страница книги данные\" />\n    <MESSAGE value=\"lazy routing auth page\" />\n    <MESSAGE value=\"lazy routing register page\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"lazy routing register page\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 09d751f5cf58df9bd475800f62bac75c9d0dcfa5)
++++ b/.idea/workspace.xml	(date 1717312459130)
+@@ -5,12 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing register page">
+-      <change afterPath="$PROJECT_DIR$/frontend/src/_redirects" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/favicon.ico" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.scss" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/author-info/author-info.component.scss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.scss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -95,7 +94,7 @@
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+-    "ts.external.directory.path": "C:\\Users\\User\\OneDrive\\Документы\\My works\\Projects\\TuneTales\\backend\\node_modules\\typescript\\lib"
++    "ts.external.directory.path": "/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/node_modules/typescript/lib"
+   }
+ }]]></component>
+   <component name="RecentsManager">

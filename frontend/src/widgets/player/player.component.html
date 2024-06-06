@@ -1,0 +1,78 @@
+<div *ngIf="playerWindow !== 'none'">
+    <app-bottom-player
+        class="mobile-player"
+        [playerWindow]="playerWindow"
+        [currentTime]="state.currentTime || 0"
+        [duration]="state.duration || 0"
+        [nameChapter]="currentFile?.file?.name || ''"
+        [nameBook]="nameBook"
+        [imageUrl]="imageUrl"
+        [playing]="state.playing"
+        (eventPlayerWindow)="togglePlayerWindow()"
+        (eventPause)="pause()"
+        (eventPlay)="play()"
+        (eventStop)="stop()"
+    />
+
+    <app-full-player
+        class="mobile-player"
+        [playerWindow]="playerWindow"
+        [backgrondColor]="backgrondColor"
+        [nameChapter]="currentFile?.file?.name || ''"
+        [nameBook]="nameBook"
+        [imageUrl]="imageUrl"
+        [readableCurrentTime]="state.readableCurrentTime || '00:00'"
+        [readableDuration]="state.readableDuration || '00:00'"
+        [currentTime]="state.currentTime || 0"
+        [duration]="state.duration || 0"
+        [speedButton]="speedButton"
+        [sleepTimerButton]="sleepTimerButton"
+        [playing]="state.playing"
+        [chapterWindow]="chapterWindow"
+        [files]="files"
+        [currentFile]="currentFile?.index || 0"
+        (eventPlayerWindow)="togglePlayerWindow()"
+        (eventSliderChange)="onSliderChangeEnd($event)"
+        (eventAudioRewindBack)="audioRewindBack(15)"
+        (eventAudioRewindNext)="audioRewindNext(15)"
+        (eventPause)="pause()"
+        (eventPlay)="play()"
+        (eventSleepTimer)="sleepTimer($event)"
+        (eventSpeed)="speed($event)"
+        (eventToggleChapter)="toggleChapter()"
+        (eventOpenFile)="openFile($event.file, $event.index)"
+    />
+
+
+    <app-desktop-player
+        class="desktop-player"
+        [nameChapter]="currentFile?.file?.name || ''"
+        [nameBook]="nameBook"
+        [imageUrl]="imageUrl"
+
+        [readableCurrentTime]="state.readableCurrentTime || '00:00'"
+        [readableDuration]="state.readableDuration || '00:00'"
+        [currentTime]="state.currentTime || 0"
+        [duration]="state.duration || 0"
+
+        [speedButton]="speedButton"
+        [sleepTimerButton]="sleepTimerButton"
+
+        [playing]="state.playing"
+
+        [chapterWindow]="chapterWindow"
+        [files]="files"
+        [currentFile]="currentFile?.index || 0"
+
+        (eventAudioRewindBack)="audioRewindBack(15)"
+        (eventAudioRewindNext)="audioRewindNext(15)"
+        (eventPause)="pause()"
+        (eventPlay)="play()"
+        (eventSleepTimer)="sleepTimer($event)"
+        (eventSpeed)="speed($event)"
+        (eventVolume)="setVolume($event)"
+        (eventToggleChapter)="toggleChapter()"
+        (eventOpenFile)="openFile($event.file, $event.index)"
+        (eventSliderChange)="onSliderChangeEnd($event)"
+    />
+</div>

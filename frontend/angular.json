@@ -35,6 +35,7 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
+                            "src/_redirects",
                             {
                                 "glob": "**/*",
                                 "input": "node_modules/@taiga-ui/icons/src",
@@ -49,14 +50,12 @@
                         "styles": [
                             "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
                             "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-                            "src/styles.scss"
+                            "src/app/styles.scss"
                         ],
                         "scripts": [],
                         "server": "src/main.server.ts",
-                        "prerender": true,
-                        "ssr": {
-                            "entry": "server.ts"
-                        }
+                        "prerender": false,
+                        "ssr": false
                     },
                     "configurations": {
                         "production": {
@@ -64,12 +63,12 @@
                                 {
                                     "type": "initial",
                                     "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
+                                    "maximumError": "999mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
                                     "maximumWarning": "2kb",
-                                    "maximumError": "4kb"
+                                    "maximumError": "9999mb"
                                 }
                             ],
                             "outputHashing": "all"

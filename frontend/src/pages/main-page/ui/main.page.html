@@ -1,0 +1,21 @@
+<div class="main-page-container">
+    <app-card-slider
+        *ngIf="books"
+        [label]="'Рекомендации для вас'"
+        [books]="books | async"
+        [navigate]="'/recommendations/recommendation'"
+
+    ></app-card-slider>
+    <ng-container *ngIf="genres">
+        <app-card-slider
+            *ngFor="let genre of (genres | async)"
+            [label]="genre.name"
+            [books]="genre.books ?? []"
+            [navigate]="'/genre/' + genre.id"
+        ></app-card-slider>
+    </ng-container>
+</div>
+
+
+
+

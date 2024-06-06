@@ -1,0 +1,40 @@
+<tui-hosted-dropdown
+    class="select-sound__hosted-dropdown"
+    tuiDropdownAlign="center"
+    [content]="dropdown"
+    [sided]="true"
+    [(open)]="open"
+>
+    <div class="select-sound">
+        <img
+            class="select-sound__icon"
+            [width]="width"
+            [height]="height"
+            src="./assets/sound.svg"
+            alt="sleep button"/>
+    </div>
+</tui-hosted-dropdown>
+
+<ng-template class="select-sound__template" #dropdown let-close="close">
+    <article class="select-sound__zoom_controller">
+        <label
+            tuiSliderThumbLabel
+            class="select-sound__slider_wrapper"
+        >
+            <input
+                class="select-sound__input"
+                step="any"
+                tuiSlider
+                type="range"
+                [max]="max"
+                [min]="min"
+                [(ngModel)]="soundValue"
+                (ngModelChange)="onValueChange($event)"
+            />
+        </label>
+    </article>
+</ng-template>
+
+
+
+

@@ -1,0 +1,8 @@
+<input #sliderInput class="styled-slider slider-progress" type="range" [value]="currentTime" (input)="updateSlider($event)">
+
+
+<div class="desktop-slider__time">
+    <p class="desktop-slider__time_text">{{ startTime }}</p>
+    <p class="desktop-slider__time_text">{{ endTime }}</p>
+</div>
+

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="lazy routing register page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/Book/services/book.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/Book/services/book.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/Player/lib/cloud.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/Player/lib/cloud.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/card-slider/ui/card-slider-item/card-slider-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/card-slider/ui/card-slider-item/card-slider-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization-page/services/authorization.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/book-page/book.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main-page/ui/main.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/navbar/navbar.component.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;author&quot;: &quot;mineevmaxim&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;author&quot;: &quot;mineevmaxim&quot;
+  }
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOLa5xt85xByw9&quot;,
+        &quot;number&quot;: 16
+      },
+      &quot;lastSeen&quot;: 1717083701946
+    }
+  ]
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CatDevelop/TuneTales.git&quot;,
+    &quot;accountId&quot;: &quot;25359063-7051-43f8-b1c0-3359260ddd7a&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;CatDevelop&quot;,
+    &quot;repository&quot;: &quot;TuneTales&quot;
+  },
+  &quot;editorReviewEnabled&quot;: false
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2hGgcixLcMlZ74617orGDT0DNDU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/OneDrive/Документы/My works/Projects/TuneTales/frontend/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/maksimmineev/Documents/GitHub/TuneTales/frontend/node_modules/typescript/lib&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\OneDrive\Документы\My works\Projects\TuneTales\frontend\src" />
+      <recent name="C:\Users\User\OneDrive\Документы\My works\Projects\TuneTales\frontend\dist\tune-tales" />
+      <recent name="$PROJECT_DIR$/frontend/src/shared/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\OneDrive\Документы\My works\Projects\TuneTales\frontend\dist\tune-tales\browser" />
+      <recent name="$PROJECT_DIR$/frontend/src/pages" />
+      <recent name="$PROJECT_DIR$/frontend/src/pages/register-page/ui" />
+      <recent name="$PROJECT_DIR$/frontend/src/widgets/navbar" />
+      <recent name="$PROJECT_DIR$/frontend/src/pages/authorization-page/ui" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="book page desktop (корявая)">
+      <option name="closed" value="true" />
+      <created>1717149155140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717149155140</updated>
+    </task>
+    <task id="LOCAL-00002" summary="страница книги с описанием адаптив (кроме мобилки)">
+      <option name="closed" value="true" />
+      <created>1717170278099</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717170278099</updated>
+    </task>
+    <task id="LOCAL-00003" summary="страница книги рекомендации (слайдеры) адаптив (кроме мобилки">
+      <option name="closed" value="true" />
+      <created>1717171279145</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717171279145</updated>
+    </task>
+    <task id="LOCAL-00004" summary="страница книги данные">
+      <option name="closed" value="true" />
+      <created>1717174267133</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717174267133</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9dd0dcd-29b4-4ad6-a076-1fe6ced677d5" name="Changes" comment="страница книги данные" />
+      <created>1717225910187</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717225910187</updated>
+    </task>
+    <task id="LOCAL-00005" summary="lazy routing auth page">
+      <option name="closed" value="true" />
+      <created>1717229317804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717229317804</updated>
+    </task>
+    <task id="LOCAL-00006" summary="lazy routing register page">
+      <option name="closed" value="true" />
+      <created>1717229599673</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717229599673</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="GitHub.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mini fixes" />
+    <MESSAGE value="book page desktop (корявая)" />
+    <MESSAGE value="страница книги с описанием адаптив (кроме мобилки)" />
+    <MESSAGE value="страница книги рекомендации (слайдеры) адаптив (кроме мобилки" />
+    <MESSAGE value="страница книги данные" />
+    <MESSAGE value="lazy routing auth page" />
+    <MESSAGE value="lazy routing register page" />
+    <option name="LAST_COMMIT_MESSAGE" value="lazy routing register page" />
+  </component>
+</project>
